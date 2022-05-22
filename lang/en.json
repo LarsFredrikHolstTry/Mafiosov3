@@ -1,0 +1,167 @@
+{
+  "error": {
+    "pageNotFound": "This page does not exist",
+    "voidID": "ID not found"
+  },
+  "index": {
+    "registered": "The user is now registered! Make sure to activate your account with the link from your email to use all the functions in the game!",
+    "notVerified": "You are not verifiedyet. This is necessary to access the whole game. Check your e-mail for an verification url 🥰",
+    "emailInJunk": "The e-mail could appear in your junk folder 🗑️",
+    "gamersOnline": "{players} players online",
+    "money": "€{value}",
+    "gems": "{value} gems"
+  },
+  "finance": {
+    "balance": "Balance",
+    "interestByMidnight": "Interest at midnight",
+    "gems": "Gems"
+  },
+  "action": {
+    "myBusiness": "My businesses",
+    "crime": "Crime",
+    "bank": "Bank",
+    "crypto": "Crypto",
+    "market": "Market",
+    "garage": "Garage",
+    "storageUnit": "Storage unit",
+    "airport": "Airport",
+    "drugSmuggling": "Drug smuggling",
+    "heist": "Heist",
+    "mission": "Mission",
+    "quest": "Hourly quest",
+    "stockMarket": "Stock market",
+    "family": "Family",
+    "murderOrganization": "Murder organization",
+    "shootingPractice": "Shooting practice",
+    "casino": "Casino",
+    "lotto": "Lotto",
+    "tossCoins": "Toss coin",
+    "dices": "Dices"
+  },
+  "bunker": {
+    "notEnoughMoney": "You do not have enough money to use the bunker!",
+    "leftBunker": "<b>You left the bunker.</b> <br>Nobody saw you leave the bunker, but it is not easier to be killed by another mafioso.",
+    "enteredBunkerOwner": "<br>{owner} saw you entered the bunker in {city}",
+    "enteredBunkerInfo": "<b>You entered the bunker</b> <br>You'll be in the bunker until you leave or in 24 hours.",
+    "inActiveBunker": "You're in the bunker until {time} and can't get killed before then.",
+    "leaveBunkerAction": "Leave the bunker",
+    "leaveBunkerInJail": "You can't leave the bunker when in jail!"
+  },
+  "forum": {
+    "general": "General",
+    "sell": "Sell & buy",
+    "offTopic": "Off-topic",
+    "family": "Family forum",
+    "picmaking": "Picmaking",
+    "help": "Help",
+    "suggestions": "Suggestions",
+    "generalDesc": "Everything about the game",
+    "sellDesc": "Everything about selling or buying",
+    "offTopicDesc": "Anything between heaven and earth",
+    "familyDesc": "Familyforum for those who are member of a family",
+    "picmakingDesc": "Buy or sell images on the picmaking forum",
+    "helpDesc": "Get help with game-related issues",
+    "suggestionsDesc": "Come with your best suggestions"
+  },
+  "misc": {
+    "of": "of",
+    "ready": "Ready"
+  },
+  "statistics": {
+    "header": "Statistics on Mafioso",
+    "userAmount": "Total users:",
+    "aliveAmount": "Alive users:",
+    "deadAmount": "Dead users:",
+    "totalMoney": "Total money:",
+    "family": {
+      "header": "Family",
+      "expRanked": "EXP ranked",
+      "familyName": "Family name",
+      "members": "Members",
+      "boss": "Boss",
+      "underboss": "Underboss",
+      "advisor": "Advisor"
+    }
+  },
+  "crime": {
+    "actions": {
+      "robBank": "Rob the bank",
+      "stealDrugs": "Steal narcotics",
+      "cities": {
+        "oslo": {
+          "alt0": "Rob Storo Storsenter",
+          "alt1": "Rob Oslo City",
+          "alt2": "Rob Byporten Shopping",
+          "alt3": "Rob Steen & Strom Magasin",
+          "alt4": "Rob Glassmagasinet Oslo",
+          "alt5": "Rob Eger Karl Johan",
+          "alt6": "Rob Eger Paleet"
+        },
+        "lasVegas": {
+          "alt0": "Rob Fremont Street Mall",
+          "alt1": "Rob Tivoli Village",
+          "alt2": "Rob Gold & Silver Pawn Shop",
+          "alt3": "Rob Le Boulevard Mall",
+          "alt4": "Rob Bellagio Casino",
+          "alt5": "Rob Golden Nugget Casino",
+          "alt6": "Rob Mandalay Bay Casino"
+        },
+        "london": {
+          "alt0": "Rob Burlington Arcade",
+          "alt1": "Rob Westfield Mall",
+          "alt2": "Rob Gold & Silver Pawn Shop",
+          "alt3": "Rob Le Boulevard Mall",
+          "alt4": "Rob Bellagio Casino",
+          "alt5": "Rob Golden Nugget Casino",
+          "alt6": "Rob Mandalay Bay Casino"
+        },
+        "berlin": {
+          "alt0": "Rob Wilmersdorfer Arcaden",
+          "alt1": "Rob EASTGATE",
+          "alt2": "Rob Mall of Berlin",
+          "alt3": "Rob Das Schloss",
+          "alt4": "Rob Adlon Kempinski",
+          "alt5": "Rob Hotel Zoo",
+          "alt6": "Rob The Ritz"
+        },
+        "beijing": {
+          "alt0": "Rob Panjiayuan Antique Market",
+          "alt1": "Rob Solana International Market",
+          "alt2": "Rob Jiamao Shopping Center",
+          "alt3": "Rob Xiushui Street",
+          "alt4": "Rob Sanlitun Village",
+          "alt5": "Rob Qianmen Street",
+          "alt6": "Rob Wangfujing Shopping Street"
+        }
+      }
+    },
+    "feedbacks": {
+      "error": "Invalid value",
+      "success": "The robbery was successful, you were able to steal ${money}",
+      "successDrugs": "The robbery was successful, you were able to steal {money} grams of marijuana.",
+      "successHeist": "The robbery was successful, you were able to steal ${money}. The money is in the heist group.",
+      "heistCode": "I heard you have a mission to defuse a bomb. The number on placement {placement} is {number}. Good luck!",
+      "failed": "The robbery was unsuccessful.",
+      "failedJail": "The robbery was unsuccessful, and you were sent to jail.",
+      "cooldownError": "You have recently committed a crime. You must wait <t id='countdowntimer'>{minutes} minutes and {seconds} seconds before you can commit another crime. ",
+      "successPoints": "You found {amount} points when you committed a crime!",
+      "errorNotInHeist": "You are not in an active heist."
+    },
+    "header": {
+      "action": "Action",
+      "cooldown": "Cooldown",
+      "chance": "Chance",
+      "payment": "Payment"
+    },
+    "statistics": {
+      "header": "Statistics",
+      "successfullToday": "Successful crimes committed today: {amount}",
+      "successfullTotal": "Succesful crimes committed: {amount}",
+      "failedTotal": "Unsuccessful crimes committed: {amount}",
+      "crimeEverybody": "Total amount of crime committed today by all: {amount}",
+      "top10Header": "Top 10 successful crimes",
+      "top10User": "User",
+      "top10Amount": "Amount"
+    }
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "error": {
+    "pageNotFound": "Siden eksisterer ikke eller er under utvikling",
+    "voidID": "Ugyldig ID"
+  },
+  "index": {
+    "registered": "Brukeren er registrert! Sørg for å aktivere brukeren din for å kunne benytte deg av alle funksjoner i spillet.",
+    "notVerified": "Du er ikke verifisert enda. Dette er nødvendig for å benytte deg av funksjonene på spillet. Sjekk din e-post for verifikasjonslink 🥰",
+    "emailInJunk": "E-posten kan også havne i søppelpost 🗑️",
+    "gamersOnline": "{players} spillere pålogget",
+    "money": "{value} kr",
+    "gems": "{value} poeng"
+  },
+  "finance": {
+    "balance": "Saldo",
+    "interestByMidnight": "Rentebeløp ved midnatt",
+    "gems": "Poeng"
+  },
+  "action": {
+    "myBusiness": "Mine bedrifter",
+    "crime": "Krminalitet",
+    "bank": "Banken",
+    "crypto": "Krypto",
+    "market": "Marked",
+    "garage": "Garasje",
+    "storageUnit": "Lager",
+    "airport": "Flyplass",
+    "drugSmuggling": "Smugling",
+    "heist": "Heist",
+    "mission": "Oppdrag",
+    "quest": "Hurtig oppdrag",
+    "stockMarket": "Aksjemarked",
+    "family": "Familie",
+    "murderOrganization": "Drapsorganisering",
+    "shootingPractice": "Skytetrening",
+    "casino": "Kasino",
+    "lotto": "Lotto",
+    "tossCoins": "Kast mynt",
+    "dices": "Terninger"
+  },
+  "bunker": {
+    "notEnoughMoney": "Du har ikke nok penger til å sjekke inn i bunker!",
+    "leftBunker": "<b>Du gikk ut av bunkeren</b> <br>Ingen så at du gikk ut av bunkeren, men det er nå lettere å bli drept av andre spillere.",
+    "enteredBunkerOwner": "<br><b>Akkurat nå</b> kan {owner} se at du gikk inn i bunker i {city}",
+    "enteredBunkerInfo": "<b>Du gikk inn i bunker</b> <br>Du blir værende i bunker frem til du går ut eller om 24 timer.",
+    "inActiveBunker": "Du er i bunker frem til {time} og kan derfor ikke bli drept eller drepe andre spillere før den tid",
+    "leaveBunkerAction": "Gå ut av bunker nå",
+    "leaveBunkerInJail": "Du kan ikke gå bunker når du er i fengsel!"
+  },
+  "forum": {
+    "general": "General",
+    "sell": "Salg & Søknad",
+    "offTopic": "Off-topic",
+    "family": "Familieforum",
+    "picmaking": "Picmaking",
+    "help": "Hjelp",
+    "suggestions": "Forslag",
+    "generalDesc": "Alt som omhandler spillet skal under denne kategorien",
+    "sellDesc": "Alt innen salg og søknad skal inn her",
+    "offTopicDesc": "Off-topic er et forum for alt mulig",
+    "familyDesc": "Familieforumet er for de med familier",
+    "picmakingDesc": "På picmaking kan du legge ut bilder for salg eller søke",
+    "helpDesc": "På hjelp kan du spør om hjelp som er spill-relatert",
+    "suggestionsDesc": "Forslag brukes for å legge ut forslag til å forbedre spillet"
+  },
+  "misc": {
+    "of": "av",
+    "ready": "Klar"
+  },
+  "statistics": {
+    "header": "Statistikk på Mafioso",
+    "userAmount": "Antall brukere:",
+    "aliveAmount": "Antall levende brukere:",
+    "deadAmount": "Antall døde brukere:",
+    "totalMoney": "Totalt penger i omløp:",
+    "family": {
+      "header": "Familier",
+      "expRanked": "EXP ranket",
+      "familyName": "Familienavn",
+      "members": "Medlemmer",
+      "boss": "Sjef",
+      "underboss": "Direktør",
+      "advisor": "Rådgiver"
+    }
+  },
+  "crime": {
+    "actions": {
+      "robBank": "Ran banken",
+      "stealDrugs": "Stjel narkotika",
+      "cities": {
+        "oslo": {
+          "alt0": "Ran Storo Storsenter",
+          "alt1": "Ran Oslo City",
+          "alt2": "Ran Byporten Shopping",
+          "alt3": "Ran Steen & Strøm Magasin",
+          "alt4": "Ran Glassmagasinet Oslo",
+          "alt5": "Ran Eger Karl Johan",
+          "alt6": "Ran Eger Paleet"
+        },
+        "lasVegas": {
+          "alt0": "Ran Fremont Street Mall",
+          "alt1": "Ran Tivoli Village",
+          "alt2": "Ran Gold & Silver Pawn Shop",
+          "alt3": "Ran Le Boulevard Mall",
+          "alt4": "Ran Bellagio Casino",
+          "alt5": "Ran Golden Nugget Casino",
+          "alt6": "Ran Mandalay Bay Casino"
+        },
+        "london": {
+          "alt0": "Ran Burlington Arcade",
+          "alt1": "Ran Westfield Mall",
+          "alt2": "Ran Gold & Silver Pawn Shop",
+          "alt3": "Ran Le Boulevard Mall",
+          "alt4": "Ran Bellagio Casino",
+          "alt5": "Ran Golden Nugget Casino",
+          "alt6": "Ran Mandalay Bay Casino"
+        },
+        "berlin": {
+          "alt0": "Ran Wilmersdorfer Arcaden",
+          "alt1": "Ran EASTGATE",
+          "alt2": "Ran Mall of Berlin",
+          "alt3": "Ran Das Schloss",
+          "alt4": "Ran Adlon Kempinski",
+          "alt5": "Ran Hotel Zoo",
+          "alt6": "Ran The Ritz"
+        },
+        "beijing": {
+          "alt0": "Ran Panjiayuan Antique Market",
+          "alt1": "Ran Solana International Market",
+          "alt2": "Ran Jiamao Shopping Center",
+          "alt3": "Ran Xiushui Street",
+          "alt4": "Ran Sanlitun Village",
+          "alt5": "Ran Qianmen Street",
+          "alt6": "Ran Wangfujing Shopping Street"
+        }
+      }
+    },
+    "feedbacks": {
+      "error": "Ugyldig verdi",
+      "success": "Ranet var vellykket, du fikk med deg {money} kr",
+      "successDrugs": "Ranet var vellykket, du fikk med deg {money} gram marijuana",
+      "successHeist": "Ranet var vellykket, du fikk med deg {money} kr. Pengene ligger i heist-gruppen",
+      "heistCode": "Jeg hører du har et oppdrag om å avkoble en bombe. Tall plassering {placement} er {number}. Lykke til!",
+      "failed": "Ranet var mislykket",
+      "failedJail": "Ranet var mislykket og du ble satt i fengsel",
+      "cooldownError": "Du har nylig utført en kriminalitet. Du må vente <t id='countdowntimer'>{minutes} minutter og {seconds} sekunder</t> før du kan utføre en ny kriminalitet",
+      "successPoints": "Du fant {amount} poeng da du utførte en kriminell handling!",
+      "errorNotInHeist": "Du er ikke i et aktivt heist"
+    },
+    "header": {
+      "action": "Handling",
+      "cooldown": "Ventetid",
+      "chance": "Sjanse",
+      "payment": "Utbetaling"
+    },
+    "statistics": {
+      "header": "Statistikk",
+      "successfullToday": "Vellykkede krim utført i dag: {amount}",
+      "successfullTotal": "Vellykkede krim utført: {amount}",
+      "failedTotal": "Mislykkede krim utført: {amount}",
+      "crimeEverybody": "Totalt antall krim utført i dag av alle: {amount}",
+      "top10Header": "Topp 10 flest vellykkede kriminalitet",
+      "top10User": "Bruker",
+      "top10Amount": "Antall"
+    }
+  }
+}

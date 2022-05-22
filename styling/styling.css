@@ -65,3 +65,8 @@ html {
 .row-deck > [class*="col-"] {
   align-self: flex-start;
 }
+
+.center-image {
+  margin: auto;
+  display: block;
+}
