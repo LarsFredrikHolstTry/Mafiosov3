@@ -1,7 +1,7 @@
 # Mafioso V3
 
 This is an open source text based mafia game in forever development.
-If you want to contribute, be my guest.
+If you want to contribute, be my guest. 🎩
 
 ## Getting Started
 
