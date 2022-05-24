@@ -11,7 +11,7 @@ If you want to contribute, be my guest. 🎩
 - Download repository and add to xampp/htdocs folder
 - Run Apache and MySQL
 - rename db.example.php to db.php
-- open http://localhost/htmx-experiment/migrate/migrate.php in your browser
+- open http://localhost/Mafiosov3/migrate/migrate.php in your browser
 
 ### Frontend and icons
 
