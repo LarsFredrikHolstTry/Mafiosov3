@@ -87,14 +87,12 @@ include '../../global-variables.php';
 
                     ?>
                         <a hx-post="actions/<?= $key ?>/<?= $key ?>.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="dropdown-item" href="#"><?= $value ?></a>
-
-
                     <?php
                     }
                     ?>
 
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">Logout</a>
+                    <a href="#" class="dropdown-item"><?= $userMenuOther->logout; ?></a>
                 </div>
             </div>
         </div>

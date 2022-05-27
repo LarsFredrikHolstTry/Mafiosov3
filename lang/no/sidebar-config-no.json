@@ -1,6 +1,12 @@
 {
   "sidebarConfig": {
     "bank": "Banken",
-    "crime": "Kriminalitet"
+    "crime": "Kriminalitet",
+    "market": "Marked",
+    "garage": "Garasje",
+    "storageUnit": "Lager",
+    "airport": "Flyplass",
+    "heist": "Heist",
+    "mission": "Oppdrag"
   }
 }

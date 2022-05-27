@@ -2,5 +2,8 @@
   "userMenu": {
     "headquarters": "Headquarters",
     "settings": "Settings"
+  },
+  "otherActions": {
+    "logout": "Logg ut"
   }
 }

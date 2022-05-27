@@ -1,6 +1,12 @@
 {
   "sidebarConfig": {
     "bank": "Bank",
-    "crime": "Crime"
+    "crime": "Crime",
+    "market": "Marked",
+    "garage": "Garage",
+    "storageUnit": "Storage Unit",
+    "airport": "Airpot",
+    "heist": "Heist",
+    "mission": "Mission"
   }
 }
