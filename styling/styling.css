@@ -55,7 +55,6 @@ html {
 
 .container-xxxl {
   max-width: 1720px;
-  width: 100%;
   padding-right: var(--tblr-gutter-x, 1.5rem);
   padding-left: var(--tblr-gutter-x, 1.5rem);
   margin-right: auto;
@@ -69,4 +68,8 @@ html {
 .center-image {
   margin: auto;
   display: block;
+}
+
+.cursor_pointer:hover {
+  cursor: pointer;
 }

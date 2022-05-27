@@ -1,7 +1,6 @@
 <?php
 
-include '../../lang/lang.php';
-include '../../global_variables.php';
+include '../../global-variables.php';
 
 ?>
 <div class="card col-6" id="container">

@@ -1,3 +1,8 @@
+<?php
+
+include '../../global-variables.php';
+
+?>
 <div class="col-3">
     <div class="row row-cards">
         <div class="col-12">

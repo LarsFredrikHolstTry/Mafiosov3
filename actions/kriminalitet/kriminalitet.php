@@ -1,6 +1,6 @@
 <?php
 
-include '../../lang/lang.php';
+include '../../global-variables.php';
 
 $crime[0] = "Ran Storo Storsenter";
 $crime[1] = "Ran Oslo City";
@@ -23,7 +23,6 @@ $crime[8] = "Ran banken";
         <div class="card-body">
             <div class="row align-items-center">
                 <img class="center-image" style="width: auto;" src="actions/kriminalitet/img/kriminalitet.png" />
-
                 <div class="table-responsive">
                     <table class="table table-vcenter">
                         <thead>
@@ -31,7 +30,7 @@ $crime[8] = "Ran banken";
                                 <th>Handling</th>
                                 <th>Sjanse</th>
                                 <th>Ventetid</th>
-                                <th>Utbetaling</th>
+                                <th class="w-1">Utbetaling</th>
                             </tr>
                         </thead>
                         <tbody>

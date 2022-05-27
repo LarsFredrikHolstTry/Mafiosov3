@@ -36,7 +36,9 @@
     "casino": "Kasino",
     "lotto": "Lotto",
     "tossCoins": "Kast mynt",
-    "dices": "Terninger"
+    "dices": "Terninger",
+    "settings": "Innstillinger",
+    "headquarter": "Hovedkvarter"
   },
   "bunker": {
     "notEnoughMoney": "Du har ikke nok penger til å sjekke inn i bunker!",

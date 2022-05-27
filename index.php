@@ -34,17 +34,25 @@ include 'db.php';
 
 <body class='theme-dark'>
 
-    <div class="page-body">
-        <div class="container-xxxl">
-            <div class="row row-deck row-cards">
+    <div class="page">
+        <div class="page-body">
+            <div class="container-xxxl">
 
-                <?php include 'components/left.menu.php'; ?>
+                <div class="row row-deck row-cards">
 
-                <div class="card col-6" id="container">
-                    <?php include 'actions/hovedkvarter/hovedkvarter.php'; ?>
+                    <div class="card col-3" id="left_menu">
+                        <div hx-target="#left_menu" hx-swap="outerHTML" hx-get="components/menus/left.menu.php" hx-trigger="load"></div>
+                    </div>
+
+                    <div class="card col-6" id="container">
+                        <div hx-target="#container" hx-swap="outerHTML" hx-get="actions/hovedkvarter/hovedkvarter.php" hx-trigger="load"></div>
+                    </div>
+
+                    <div class="card col-3" id="right_menu">
+                        <div hx-target="#right_menu" hx-swap="outerHTML" hx-get="components/menus/right.menu.php" hx-trigger="load"></div>
+                    </div>
+
                 </div>
-
-                <?php include 'components/right.menu.php'; ?>
             </div>
         </div>
     </div>

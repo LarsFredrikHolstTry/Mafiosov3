@@ -36,7 +36,9 @@
     "casino": "Casino",
     "lotto": "Lotto",
     "tossCoins": "Toss coin",
-    "dices": "Dices"
+    "dices": "Dices",
+    "settings": "Settings",
+    "headquarter": "Headquarter"
   },
   "bunker": {
     "notEnoughMoney": "You do not have enough money to use the bunker!",
