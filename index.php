@@ -35,6 +35,10 @@ include 'db.php';
 <body class='theme-dark'>
 
     <div class="page">
+        <div id="navbar">
+            <div hx-target="#navbar" hx-swap="outerHTML" hx-get="components/menus/navbar.php" hx-trigger="load"></div>
+        </div>
+
         <div class="page-body">
             <div class="container-xxxl">
 
@@ -45,7 +49,7 @@ include 'db.php';
                     </div>
 
                     <div class="card col-6" id="container">
-                        <div hx-target="#container" hx-swap="outerHTML" hx-get="actions/hovedkvarter/hovedkvarter.php" hx-trigger="load"></div>
+                        <div hx-target="#container" hx-swap="outerHTML" hx-get="actions/headquarters/headquarters.php" hx-trigger="load"></div>
                     </div>
 
                     <div class="card col-3" id="right_menu">
