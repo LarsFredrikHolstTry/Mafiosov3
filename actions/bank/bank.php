@@ -139,7 +139,7 @@ include '../../global-variables.php';
                                 <label class="form-label">Beløp</label>
                                 <input type="text" class="form-control" name="example-password-input" placeholder="Beløp">
                             </div>
-                            <div class="col-lg-12 mb-3">
+                            <div class="col-lg-12 mb-2">
                                 <label class="form-label">Melding</label>
                                 <textarea class="form-control" name="example-textarea" placeholder="Textarea placeholder"></textarea>
                             </div>
