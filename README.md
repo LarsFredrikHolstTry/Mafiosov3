@@ -1,23 +1,24 @@
-# Project Title
+# Mafioso V3 🔫
 
-Mafioso V3
+This is an open source text based mafia game in forever development.
+If you want to contribute, be my guest. 🎩
 
 ## Getting Started
 
-### Installing
+### Installing 🔃
 
 - Download Xampp
 - Download repository and add to xampp/htdocs folder
 - Run Apache and MySQL
 - rename db.example.php to db.php
-- open http://localhost/htmx-experiment/migrate/migrate.php in your browser
+- open http://localhost/Mafiosov3/migrate/migrate.php in your browser
 
-### Frontend and icons
+### Frontend and icons 🎨
 
 - Frontend framework is delivered by tabler [docs](https://preview.tabler.io/docs/index.html)
 - Icons is delivered by tabler-icons [docs](https://tabler-icons.io/)
 
-## Authors
+## Authors 🤺
 
 Contributors names and contact info
 
