@@ -84,11 +84,87 @@ include '../../global-variables.php';
                     </div>
                 </div>
             </div>
+            <div class="row row-cards mt-1">
+                <div class="col-lg-6">
+                    <div class="card card-sm">
+                        <h2>Sett inn / ta ut</h2>
+                        <h4>Beløp</h4>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <input class="form-check-input m-0" type="checkbox">
+                                <span style="margin-left: 10px;">Alt</span>
+                            </span>
+                            <input type="text" class="form-control" id="number" autocomplete="off">
+                        </div>
+                        <div class="input-group mb-2">
+                            <button type="button" class="btn btn-success btn-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                                Sett inn
+                            </button>
+                            <button type="button" class="btn btn-warning btn-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-minus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                                Ta ut
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card card-sm">
+                        <h2>Overfør penger</h2>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label class="form-label">Brukernavn</label>
+                                <div class="input-icon mb-3">
+                                    <span class="input-icon-addon">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/user -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <desc>Download more icon variants from https://tabler-icons.io/i/user</desc>
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <circle cx="12" cy="7" r="4"></circle>
+                                            <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                                        </svg>
+                                    </span> </span>
+                                    <input type="text" value="" class="form-control" placeholder="Username">
+                                </div>
+
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="form-label">Beløp</label>
+                                <input type="text" class="form-control" name="example-password-input" placeholder="Beløp">
+                            </div>
+                            <div class="col-lg-12 mb-3">
+                                <label class="form-label">Melding</label>
+                                <textarea class="form-control" name="example-textarea" placeholder="Textarea placeholder"></textarea>
+                            </div>
+                            <div class="col-lg-12">
+                                <button type="button" class="btn btn-primary btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <line x1="5" y1="12" x2="19" y2="12" />
+                                        <line x1="15" y1="16" x2="19" y2="12" />
+                                        <line x1="15" y1="8" x2="19" y2="12" />
+                                    </svg>
+                                    Send
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- <button id="butsave" class="btn btn-primary btn-sm" type="button">Sett inn 100 000 kr</button> -->
 </div>
 <script type="text/javascript">
+    number_space("#number");
+
     $(document).ready(function() {
         $('#butsave').on('click', function() {
             $.ajax({

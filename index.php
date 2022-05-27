@@ -30,6 +30,7 @@ include 'db.php';
 
     <!-- Local styling -->
     <link rel='stylesheet' href='styling/styling.css' />
+    <script src="js/number.js"></script>
 </head>
 
 <body class='theme-dark'>
