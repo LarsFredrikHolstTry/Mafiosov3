@@ -73,3 +73,7 @@ html {
 .cursor_pointer:hover {
   cursor: pointer;
 }
+
+.fr {
+  float: right;
+}

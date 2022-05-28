@@ -27,6 +27,7 @@ include 'db.php';
     <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/@tabler/core@latest/dist/css/tabler.min.css">
     <link rel="stylesheet" href="https://unpkg.com/@tabler/icons@latest/iconfont/tabler-icons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/@tabler/core@1.0.0-beta10/dist/css/tabler-flags.min.css">
 
     <!-- Local styling -->
     <link rel='stylesheet' href='styling/styling.css' />

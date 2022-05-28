@@ -22,7 +22,7 @@ $crime[8] = "Ran banken";
         </div>
         <div class="card-body">
             <div class="row align-items-center">
-                <img class="center-image" style="width: auto;" src="actions/kriminalitet/img/kriminalitet.png" />
+                <img class="center-image" style="width: auto;" src="actions/crime/img/kriminalitet.png" />
                 <div class="table-responsive">
                     <table class="table table-vcenter">
                         <thead>

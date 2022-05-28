@@ -14,7 +14,16 @@
   "finance": {
     "balance": "Saldo",
     "interestByMidnight": "Rentebeløp ved midnatt",
-    "gems": "Poeng"
+    "gems": "Poeng",
+    "all": "Alt",
+    "deposit": "Sett inn",
+    "withdraw": "Ta ut",
+    "username": "Brukernavn",
+    "wireMoney": "Overfør penger",
+    "amount": "Beløp",
+    "message": "Melding",
+    "messageText": "Skriv en melding til mottaker",
+    "send": "Send"
   },
   "action": {
     "myBusiness": "Mine bedrifter",

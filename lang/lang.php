@@ -6,7 +6,7 @@
  * Available: no, en
  *
  */
-$language = 'no';
+$language = 'en';
 
 $useLang = json_decode(file_get_contents('../../lang/' . $language . '/' . $language . '.json'));
 $sidebarConfig = json_decode(file_get_contents('../../lang/' . $language . '/sidebar-config-' . $language . '.json'))->sidebarConfig;

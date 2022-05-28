@@ -87,12 +87,12 @@ include '../../global-variables.php';
             <div class="row row-cards mt-1">
                 <div class="col-lg-6">
                     <div class="card card-sm">
-                        <h2>Sett inn / ta ut</h2>
-                        <h4>Beløp</h4>
+                        <h2><?= $useLang->finance->deposit; ?> / <?= $useLang->finance->withdraw; ?></h2>
+                        <h4><?= $useLang->finance->amount; ?> </h4>
                         <div class="input-group mb-2">
                             <span class="input-group-text">
                                 <input class="form-check-input m-0" type="checkbox">
-                                <span style="margin-left: 10px;">Alt</span>
+                                <span style="margin-left: 10px;"><?= $useLang->finance->all; ?></span>
                             </span>
                             <input type="text" class="form-control" id="number" autocomplete="off">
                         </div>
@@ -103,45 +103,39 @@ include '../../global-variables.php';
                                     <line x1="12" y1="5" x2="12" y2="19"></line>
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
                                 </svg>
-                                Sett inn
+                                <?= $useLang->finance->deposit; ?>
                             </button>
                             <button type="button" class="btn btn-warning btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-minus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
                                 </svg>
-                                Ta ut
+                                <?= $useLang->finance->withdraw; ?>
                             </button>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="card card-sm">
-                        <h2>Overfør penger</h2>
+                        <h2><?= $useLang->finance->wireMoney; ?></h2>
                         <div class="row">
                             <div class="col-lg-6">
-                                <label class="form-label">Brukernavn</label>
+                                <label class="form-label"><?= $useLang->finance->username; ?></label>
                                 <div class="input-icon mb-3">
                                     <span class="input-icon-addon">
-                                        <!-- Download SVG icon from http://tabler-icons.io/i/user -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                            <desc>Download more icon variants from https://tabler-icons.io/i/user</desc>
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <circle cx="12" cy="7" r="4"></circle>
-                                            <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
-                                        </svg>
-                                    </span> </span>
-                                    <input type="text" value="" class="form-control" placeholder="Username">
+                                        <i class="ti ti-user"></i>
+                                    </span>
+                                    <input type="text" value="" class="form-control" placeholder="<?= $useLang->finance->username; ?>">
                                 </div>
 
                             </div>
                             <div class="col-lg-6">
-                                <label class="form-label">Beløp</label>
-                                <input type="text" class="form-control" name="example-password-input" placeholder="Beløp">
+                                <label class="form-label"><?= $useLang->finance->amount; ?></label>
+                                <input type="text" class="form-control" name="example-password-input" id="numberWire" placeholder="<?= $useLang->finance->amount; ?>">
                             </div>
                             <div class="col-lg-12 mb-2">
-                                <label class="form-label">Melding</label>
-                                <textarea class="form-control" name="example-textarea" placeholder="Textarea placeholder"></textarea>
+                                <label class="form-label"><?= $useLang->finance->message; ?></label>
+                                <textarea class="form-control" name="example-textarea" placeholder="<?= $useLang->finance->messageText; ?>"></textarea>
                             </div>
                             <div class="col-lg-12">
                                 <button type="button" class="btn btn-primary btn-sm">
@@ -160,10 +154,19 @@ include '../../global-variables.php';
             </div>
         </div>
     </div>
+    <div class="card">
+        <?php include 'alerts.inc.php'; ?>
+        <div class="card-header">
+            <h3 class="card-title text-capitalize">Siste overførsler</h3>
+        </div>
+        <div class="card-body">
+        </div>
+    </div>
     <!-- <button id="butsave" class="btn btn-primary btn-sm" type="button">Sett inn 100 000 kr</button> -->
 </div>
 <script type="text/javascript">
     number_space("#number");
+    number_space("#numberWire");
 
     $(document).ready(function() {
         $('#butsave').on('click', function() {

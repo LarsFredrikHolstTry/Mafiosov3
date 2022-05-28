@@ -14,7 +14,16 @@
   "finance": {
     "balance": "Balance",
     "interestByMidnight": "Interest at midnight",
-    "gems": "Gems"
+    "gems": "Gems",
+    "all": "All",
+    "deposit": "Deposit",
+    "withdraw": "Withdraw",
+    "username": "Username",
+    "wireMoney": "Wire money",
+    "amount": "Amount",
+    "message": "Message",
+    "messageText": "Write a message to the receiver",
+    "send": "Send"
   },
   "action": {
     "myBusiness": "My businesses",
