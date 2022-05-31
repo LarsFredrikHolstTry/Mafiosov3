@@ -1,0 +1,13 @@
+{
+  "register": {
+    "createNewUser": "Opprett ny bruker",
+    "username": "Brukernavn",
+    "email": "E-post adresse",
+    "password": "Passord",
+    "passwordRepeat": "Gjenta passord",
+    "agree": "Jeg godtar",
+    "termsAndConditions": "vilkårene",
+    "alreadyUser": "Har du allerede en bruker?",
+    "login": "Logg inn"
+  }
+}

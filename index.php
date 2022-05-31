@@ -3,6 +3,10 @@
 ob_start();
 include 'db.php';
 
+// if (!isset($_SESSION['id'])) {
+//     header("Location: login.php");
+// }
+
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +36,8 @@ include 'db.php';
     <!-- Local styling -->
     <link rel='stylesheet' href='styling/styling.css' />
     <script src="js/number.js"></script>
+    <script src="js/feedback.js"></script>
+
 </head>
 
 <body class='theme-dark'>

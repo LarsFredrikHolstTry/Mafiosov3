@@ -3,7 +3,11 @@
 include '../../global-variables.php';
 
 ?>
+
 <div class="card col-6" id="container">
+
+    <?php include '../../components/feedback.php'; ?>
+
     <div class="card">
         <?php include 'alerts.inc.php'; ?>
         <div class="card-header">
@@ -97,7 +101,7 @@ include '../../global-variables.php';
                             <input type="text" class="form-control" id="number" autocomplete="off">
                         </div>
                         <div class="input-group mb-2">
-                            <button type="button" class="btn btn-success btn-sm">
+                            <button type="button" id="deposit-btn" class="btn btn-success btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -105,7 +109,7 @@ include '../../global-variables.php';
                                 </svg>
                                 <?= $useLang->finance->deposit; ?>
                             </button>
-                            <button type="button" class="btn btn-warning btn-sm">
+                            <button type="button" id="withdraw-btn" class="btn btn-warning btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-minus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -169,18 +173,25 @@ include '../../global-variables.php';
     number_space("#numberWire");
 
     $(document).ready(function() {
-        $('#butsave').on('click', function() {
+        $('#deposit-btn').click(function() {
+            var value = $("#number").val();
+
             $.ajax({
-                url: 'actions/banken/money_in.inc.php',
-                type: 'POST',
-                dataType: 'text',
+                url: 'actions/bank/money_in.inc.php',
+                method: 'post',
                 data: {
-                    test: 'hello world'
+                    value: value,
                 },
-                success: function(data) {
-                    $("#money_in").show().delay(3000).fadeOut();
+                success: function(response) {
+                    var feedback = response;
+                    feedback = feedback.split("<|>");
+
+                    var feedbackText = feedback[0];
+                    var feedbackType = feedback[1];
+
+                    feedbackReturn(feedbackText, feedbackType);
                 }
-            })
+            });
         });
     });
 </script>

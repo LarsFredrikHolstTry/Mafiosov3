@@ -1,0 +1,13 @@
+{
+  "register": {
+    "createNewUser": "Create new user",
+    "username": "Username",
+    "email": "Email addreass",
+    "password": "Password",
+    "passwordRepeat": "Repeat password",
+    "agree": "Agree the",
+    "termsAndConditions": "terms and conditions",
+    "alreadyUser": "Already have account?",
+    "login": "Log in"
+  }
+}

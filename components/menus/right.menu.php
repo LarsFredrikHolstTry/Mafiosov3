@@ -13,7 +13,6 @@ include '../../global-variables.php';
             <div class="hr-text">
                 <span>Siste handlinger</span>
             </div>
-
         </div>
     </div>
 </div>
