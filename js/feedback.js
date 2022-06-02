@@ -45,7 +45,7 @@ const feedbackReturn = function (
     default:
       $("#feedback-warning").show();
       $("#feedback-warning-text").text(
-        "Det oppsto en uventet feil. Ta konktakt med moderator dersom dette gjentar seg."
+        "Det oppsto en uventet feil. Ta konktakt med ledelsen dersom dette gjentar seg."
       );
   }
 };

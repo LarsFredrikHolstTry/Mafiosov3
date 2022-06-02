@@ -4,7 +4,8 @@ include '../../global-variables.php';
 include '../../functions/cities.php';
 include '../../db/PDODB.php';
 
-$AS_city = DB::run("SELECT AS_city FROM account_stat WHERE AS_id=?", [$session_id])->fetchColumn();
+$AS_city =      DB::run("SELECT AS_city FROM account_stat WHERE AS_id=?", [$session_id])->fetchColumn();
+$money_hand =   DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$session_id])->fetchColumn();
 
 ?>
 <div class="col-3">
@@ -20,7 +21,11 @@ $AS_city = DB::run("SELECT AS_city FROM account_stat WHERE AS_id=?", [$session_i
                             <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"></path>
                             <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"></path>
                         </svg>
-                        <span hx-get="money.php" hx-trigger="load, every 1s"></span><br>
+                        <span hx-get="components/menus/fetch_money.inc.php" id="moneyInHand" hx-trigger="moneyHandUpdated">
+                            <?= str_replace('{value}', number($money_hand), $useLang->index->money); ?>
+                        </span>
+
+                        <br>
                         <svg style="margin-right: .35rem;" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-skyscraper" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#626976" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <line x1="3" y1="21" x2="21" y2="21"></line>

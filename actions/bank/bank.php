@@ -36,7 +36,7 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                                     <?= $useLang->finance->balance; ?>
                                 </div>
                                 <div class="font-weight-medium">
-                                    <div hx-get="actions/bank/fetch_balance.php" hx-trigger="load, every 1s">
+                                    <div hx-get="actions/bank/fetch_balance.php" id="bankMoney" hx-trigger="moneyUpdated">
                                         <?= str_replace('{value}', number($AS_bankmoney), $useLang->index->money); ?>
                                     </div>
                                 </div>
@@ -194,6 +194,33 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                     var feedbackText = feedback[0];
                     var feedbackType = feedback[1];
 
+                    htmx.trigger("#bankMoney", "moneyUpdated");
+                    htmx.trigger("#moneyInHand", "moneyHandUpdated");
+                    feedbackReturn(feedbackText, feedbackType);
+                }
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#withdraw-btn').click(function() {
+            var value = $("#number").val();
+
+            $.ajax({
+                url: 'actions/bank/money_out.inc.php',
+                method: 'post',
+                data: {
+                    value: value,
+                },
+                success: function(response) {
+                    var feedback = response;
+                    feedback = feedback.split("<|>");
+
+                    var feedbackText = feedback[0];
+                    var feedbackType = feedback[1];
+
+                    htmx.trigger("#bankMoney", "moneyUpdated");
+                    htmx.trigger("#moneyInHand", "moneyHandUpdated");
                     feedbackReturn(feedbackText, feedbackType);
                 }
             });

@@ -10,11 +10,11 @@ $money_hand = DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$sessi
 
 if (!is_numeric($value)) {
     echo 'Ugyldig input. Kun tall er tillatt. ' . '<|>' . 'danger';
-} elseif ($value && is_numeric($value) && $value <= $money_hand) {
-    $stmt = DB::run("UPDATE account_stat SET AS_money = AS_money - ?, AS_bankmoney = AS_bankmoney + ? WHERE AS_id = ?", [$value, $value, $session_id]);
+} elseif ($value && is_numeric($value) && $value <= $money_bank) {
+    $stmt = DB::run("UPDATE account_stat SET AS_money = AS_money + ?, AS_bankmoney = AS_bankmoney - ? WHERE AS_id = ?", [$value, $value, $session_id]);
     $stmt->rowCount();
 
-    echo 'Du satt inn ' . number($value) . ' kr' . '<|>' . 'success';
-} elseif ($value > $money_hand) {
-    echo 'Du har ikke nok penger på hånden! ' . '<|>' . 'danger';
+    echo 'Du tok ut ' . number($value) . ' kr' . '<|>' . 'success';
+} elseif ($value > $money_bank) {
+    echo 'Du har ikke nok penger i banken! ' . '<|>' . 'danger';
 }
