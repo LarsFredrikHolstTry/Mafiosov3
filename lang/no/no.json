@@ -23,7 +23,8 @@
     "amount": "Beløp",
     "message": "Melding",
     "messageText": "Skriv en melding til mottaker",
-    "send": "Send"
+    "send": "Send",
+    "lastTransfers": "Siste overførsler"
   },
   "action": {
     "myBusiness": "Mine bedrifter",

@@ -23,7 +23,8 @@
     "amount": "Amount",
     "message": "Message",
     "messageText": "Write a message to the receiver",
-    "send": "Send"
+    "send": "Send",
+    "lastTransfers": "Last transfers"
   },
   "action": {
     "myBusiness": "My businesses",

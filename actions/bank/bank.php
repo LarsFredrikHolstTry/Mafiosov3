@@ -106,8 +106,8 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                             </span>
                             <input type="text" class="form-control" id="number" autocomplete="off">
                         </div>
-                        <div class="input-group mb-2">
-                            <button type="button" id="deposit-btn" class="btn btn-success btn-sm">
+                        <div class="mb-2">
+                            <button type="button" id="deposit-btn" class="btn btn-success btn-md">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -115,7 +115,7 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                                 </svg>
                                 <?= $useLang->finance->deposit; ?>
                             </button>
-                            <button type="button" id="withdraw-btn" class="btn btn-warning btn-sm">
+                            <button type="button" id="withdraw-btn" class="btn btn-warning btn-md">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-minus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -148,14 +148,14 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                                 <textarea class="form-control" name="example-textarea" placeholder="<?= $useLang->finance->messageText; ?>"></textarea>
                             </div>
                             <div class="col-lg-12">
-                                <button type="button" class="btn btn-primary btn-sm">
+                                <button type="button" class="btn btn-primary btn-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <line x1="5" y1="12" x2="19" y2="12" />
                                         <line x1="15" y1="16" x2="19" y2="12" />
                                         <line x1="15" y1="8" x2="19" y2="12" />
                                     </svg>
-                                    Send
+                                    <?= $useLang->finance->wireMoney; ?>
                                 </button>
                             </div>
                         </div>
@@ -167,7 +167,7 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
     <div class="card">
         <?php include 'alerts.inc.php'; ?>
         <div class="card-header">
-            <h3 class="card-title text-capitalize">Siste overførsler</h3>
+            <h3 class="card-title text-capitalize"><?= $useLang->finance->lastTransfers; ?></h3>
         </div>
         <div class="card-body">
         </div>
