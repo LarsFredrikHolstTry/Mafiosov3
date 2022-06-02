@@ -1,6 +1,10 @@
 <?php
 
 include '../../global-variables.php';
+include '../../db/PDODB.php';
+
+$AS_bankmoney =     DB::run("SELECT AS_bankmoney FROM account_stat WHERE AS_id=?", [$session_id])->fetchColumn();
+$AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", [$session_id])->fetchColumn();
 
 ?>
 
@@ -32,7 +36,9 @@ include '../../global-variables.php';
                                     <?= $useLang->finance->balance; ?>
                                 </div>
                                 <div class="font-weight-medium">
-                                    <?= str_replace('{value}', $total, $useLang->index->money); ?>
+                                    <div hx-get="actions/bank/fetch_balance.php" hx-trigger="load, every 1s">
+                                        <?= str_replace('{value}', number($AS_bankmoney), $useLang->index->money); ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +65,7 @@ include '../../global-variables.php';
                                     <?= $useLang->finance->interestByMidnight; ?>
                                 </div>
                                 <div class="font-weight-medium">
-                                    <?= str_replace('{value}', $total, $useLang->index->money); ?>
+                                    <?= str_replace('{value}', $interest, $useLang->index->money); ?>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +87,7 @@ include '../../global-variables.php';
                                     <?= $useLang->finance->gems; ?>
                                 </div>
                                 <div class="font-weight-medium">
-                                    <?= $total; ?>
+                                    <?= number($AS_points); ?>
                                 </div>
                             </div>
                         </div>
@@ -166,7 +172,6 @@ include '../../global-variables.php';
         <div class="card-body">
         </div>
     </div>
-    <!-- <button id="butsave" class="btn btn-primary btn-sm" type="button">Sett inn 100 000 kr</button> -->
 </div>
 <script type="text/javascript">
     number_space("#number");

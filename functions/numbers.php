@@ -7,7 +7,7 @@
  *
  * @return int
  */
-function number(int $amount)
+function number($amount)
 {
     if (!is_numeric($amount) || $amount == null || $amount == '') {
         return 0;
