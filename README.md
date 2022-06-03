@@ -1,11 +1,9 @@
 <p align="center">
-  <img width="400" height="auto" src="[https://www.python.org/python-.png](https://i.imgur.com/Yxxiq3P.png)">
+  <img width="400" height="auto" src="https://i.imgur.com/Yxxiq3P.png">
 </p>
 
-# Mafioso V3 🔫
+<p align="center">This is an open source text based mafia game in forever development.<br>If you want to contribute, be my guest.</p>
 
-This is an open source text based mafia game in forever development.
-If you want to contribute, be my guest. 🎩
 
 ## Getting Started
 
