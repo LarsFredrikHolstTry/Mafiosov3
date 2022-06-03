@@ -1,9 +1,15 @@
 <?php
 
-$city[0] = "Buffalo";
-$city[1] = "Chicago";
-$city[2] = "Cleveland";
-$city[3] = "Detroit";
-$city[4] = "Kansas City";
-$city[5] = "New England";
-$city[6] = "New York City";
+$city[0] = "New York City";
+$city[1] = "Palermo";
+$city[2] = "Chongqing";
+$city[3] = "Stockholm";
+$city[4] = "Zemun";
+$city[5] = "Barcelona";
+
+$flag[0] = 'us';
+$flag[1] = 'it';
+$flag[2] = 'cn';
+$flag[3] = 'se';
+$flag[4] = 'rs';
+$flag[5] = 'es';

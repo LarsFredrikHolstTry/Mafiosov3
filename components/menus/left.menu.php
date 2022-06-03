@@ -41,7 +41,6 @@ $money_hand =   DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$ses
                             <path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"></path>
                         </svg> 1 000 520 974<br>
                     </p>
-
                 </div>
                 <div class="list-group list-group-flush">
                     <?php
@@ -73,5 +72,3 @@ $money_hand =   DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$ses
         </div>
     </div>
 </div>
-
-<!-- if active class="list-group-item list-group-item-action active" aria-current="true" -->

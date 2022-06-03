@@ -27,6 +27,7 @@
     "lastTransfers": "Siste overførsler"
   },
   "action": {
+    "placebo": "Lorem ipsum",
     "myBusiness": "Mine bedrifter",
     "crime": "Kriminalitet",
     "bank": "Banken",

@@ -1,12 +1,14 @@
 {
   "sidebarConfig": {
     "bank": "Bank",
-    "crime": "Crime",
+    "myBusiness": "My businesses",
     "market": "Market",
     "garage": "Garage",
     "storageUnit": "Storage Unit",
     "airport": "Airpot",
     "heist": "Heist",
-    "mission": "Mission"
+    "mission": "Mission",
+    "stockMarket": "Stock market",
+    "family": "Family"
   }
 }

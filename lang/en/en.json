@@ -27,6 +27,7 @@
     "lastTransfers": "Last transfers"
   },
   "action": {
+    "placebo": "Lorem ipsum",
     "myBusiness": "My businesses",
     "crime": "Crime",
     "bank": "Bank",
