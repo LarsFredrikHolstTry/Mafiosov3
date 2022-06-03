@@ -2,6 +2,8 @@
   "userMenu": {
     "myProfile": "My profile",
     "headquarters": "Headquarters",
+    "editProfile": "Edit profile",
+    "editAvatar": "Edit avatar",
     "settings": "Settings"
   },
   "otherActions": {

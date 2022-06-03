@@ -42,6 +42,9 @@ $money_hand =   DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$ses
                         </svg> 1 000 520 974<br>
                     </p>
                 </div>
+                <div class="card-body" style="border-top: none; padding-top: 0;">
+                    <a href="#" class="btn btn-ghost-teal">Gå i bunker</a>
+                </div>
                 <div class="list-group list-group-flush">
                     <?php
 

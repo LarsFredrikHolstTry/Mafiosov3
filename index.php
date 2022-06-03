@@ -37,7 +37,7 @@ include 'db.php';
     <link rel='stylesheet' href='styling/styling.css' />
     <script src="js/number.js"></script>
     <script src="js/feedback.js"></script>
-
+    <noscript>Javascript is required to run Mafioso.</noscript>
 </head>
 
 <body class='theme-dark'>
@@ -59,7 +59,7 @@ include 'db.php';
                     <div class="col-6">
                         <div class="row row-cards">
                             <div id="top_menu">
-                                <div hx-target="#top_menu" hx-swap="outerHTML" hx-get="components/menus/top_action.menu.php" hx-trigger="load"></div>
+                                <div hx-target="#top_menu" hx-swap="outerHTML" hx-get="components/menus/top_action_menu.php" hx-trigger="load"></div>
                             </div>
                             <div id="container">
                                 <div hx-target="#container" hx-swap="outerHTML" hx-get="actions/headquarters/headquarters.php" hx-trigger="load"></div>

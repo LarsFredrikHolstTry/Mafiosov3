@@ -2,6 +2,8 @@
   "userMenu": {
     "myProfile": "Min profil",
     "headquarters": "Hovedkvarter",
+    "editProfile": "Rediger profil",
+    "editAvatar": "Rediger profilbilde",
     "settings": "Innstillinger"
   },
   "otherActions": {
