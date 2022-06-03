@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="[http://some_place.com/image.png](https://i.imgur.com/Yxxiq3P.png)" />
+  <img width="400" height="auto" src="[https://www.python.org/python-.png](https://i.imgur.com/Yxxiq3P.png)">
 </p>
 
 # Mafioso V3 🔫
