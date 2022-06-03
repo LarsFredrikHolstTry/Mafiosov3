@@ -21,6 +21,10 @@ html {
   display: flex;
 }
 
+.mr-05 {
+  margin-right: 0.5rem;
+}
+
 .ml-1 {
   margin-left: 1rem;
 }

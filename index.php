@@ -56,8 +56,15 @@ include 'db.php';
                         <div hx-target="#left_menu" hx-swap="outerHTML" hx-get="components/menus/left.menu.php" hx-trigger="load"></div>
                     </div>
 
-                    <div class="card col-6" id="container">
-                        <div hx-target="#container" hx-swap="outerHTML" hx-get="actions/headquarters/headquarters.php" hx-trigger="load"></div>
+                    <div class="col-6">
+                        <div class="row row-cards">
+                            <div id="top_menu">
+                                <div hx-target="#top_menu" hx-swap="outerHTML" hx-get="components/menus/top_action.menu.php" hx-trigger="load"></div>
+                            </div>
+                            <div id="container">
+                                <div hx-target="#container" hx-swap="outerHTML" hx-get="actions/headquarters/headquarters.php" hx-trigger="load"></div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="card col-3" id="right_menu">

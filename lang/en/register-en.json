@@ -1,5 +1,6 @@
 {
   "register": {
+    "title": "Register",
     "createNewUser": "Create new user",
     "username": "Username",
     "email": "Email addreass",

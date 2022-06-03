@@ -15,7 +15,7 @@ $useLang = json_decode(file_get_contents('lang/' . $language . '/register-' . $l
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mafioso v3 - Registrer</title>
+    <title>Mafioso v3 - <?= $useLang->register->title; ?></title>
 
     <!-- HTMX -->
     <script src="https://unpkg.com/htmx.org@1.3.3"></script>
@@ -44,19 +44,19 @@ $useLang = json_decode(file_get_contents('lang/' . $language . '/register-' . $l
             </div>
             <form class="card card-md" method="post">
                 <div class="card-body">
-                    <h2 class="card-title text-center mb-4">Create new account</h2>
+                    <h2 class="card-title text-center mb-4"><?= $useLang->register->createNewUser; ?></h2>
                     <div class="mb-3">
-                        <label class="form-label">Username</label>
-                        <input type="text" class="form-control" placeholder="Enter username">
+                        <label class="form-label"><?= $useLang->register->username; ?></label>
+                        <input type="text" class="form-control" placeholder="<?= $useLang->register->username; ?>">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Email address</label>
-                        <input type="email" class="form-control" placeholder="Enter email">
+                        <label class="form-label"><?= $useLang->register->email; ?></label>
+                        <input type="email" class="form-control" placeholder="<?= $useLang->register->email; ?>">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Password</label>
+                        <label class="form-label"><?= $useLang->register->password; ?></label>
                         <div class="input-group input-group-flat">
-                            <input type="password" class="form-control" id="password" placeholder="Password" autocomplete="off">
+                            <input type="password" class="form-control" id="password" placeholder="<?= $useLang->register->password; ?>" autocomplete="off">
 
                             <span class="input-group-text">
                                 <a href="#" class="link-secondary" onClick="togglePassword()" title="" data-bs-toggle="tooltip" data-bs-original-title="Show password">
@@ -72,16 +72,16 @@ $useLang = json_decode(file_get_contents('lang/' . $language . '/register-' . $l
                     <div class="mb-3">
                         <label class="form-check">
                             <input type="checkbox" class="form-check-input">
-                            <span class="form-check-label">Agree the <a href="./terms-of-service.html" tabindex="-1">terms and policy</a>.</span>
+                            <span class="form-check-label"><?= $useLang->register->agree; ?> <a href="./terms-of-service.html" tabindex="-1"><?= $useLang->register->termsAndConditions; ?></a>.</span>
                         </label>
                     </div>
                     <div class="form-footer">
-                        <button type="submit" class="btn btn-primary w-100">Create new account</button>
+                        <button type="submit" class="btn btn-primary w-100"><?= $useLang->register->createNewUser; ?></button>
                     </div>
                 </div>
             </form>
             <div class="text-center text-muted mt-3">
-                Already have account? <a href="./sign-in.html" tabindex="-1">Sign in</a>
+                <?= $useLang->register->alreadyUser; ?> <a href="login.php" tabindex="-1"><?= $useLang->register->login; ?></a>
             </div>
         </div>
     </div>

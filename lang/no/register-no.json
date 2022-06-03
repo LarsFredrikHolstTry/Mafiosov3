@@ -1,5 +1,6 @@
 {
   "register": {
+    "title": "Registrer",
     "createNewUser": "Opprett ny bruker",
     "username": "Brukernavn",
     "email": "E-post adresse",

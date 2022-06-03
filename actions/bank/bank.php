@@ -8,7 +8,7 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
 
 ?>
 
-<div class="card col-6" id="container">
+<div class="col-12" id="container">
 
     <?php include '../../components/feedback.php'; ?>
 

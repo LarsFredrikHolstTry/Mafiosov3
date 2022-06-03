@@ -13,7 +13,7 @@ $crime[7] = "Ran narkotika";
 $crime[8] = "Ran banken";
 
 ?>
-<div class="card col-6" id="container">
+<div class="col-12" id="container">
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">
