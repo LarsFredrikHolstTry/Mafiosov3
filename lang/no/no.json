@@ -49,7 +49,8 @@
     "tossCoins": "Kast mynt",
     "dices": "Terninger",
     "settings": "Innstillinger",
-    "headquarter": "Hovedkvarter"
+    "headquarter": "Hovedkvarter",
+    "editProfile": "Rediger profil"
   },
   "bunker": {
     "notEnoughMoney": "Du har ikke nok penger til å sjekke inn i bunker!",

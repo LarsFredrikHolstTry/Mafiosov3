@@ -37,6 +37,8 @@ include 'db.php';
     <link rel='stylesheet' href='styling/styling.css' />
     <script src="js/number.js"></script>
     <script src="js/feedback.js"></script>
+    <link rel="icon" type="image/x-icon" href="img/logo/favicon.ico">
+
     <noscript>Javascript is required to run Mafioso.</noscript>
 </head>
 

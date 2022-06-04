@@ -49,7 +49,8 @@
     "tossCoins": "Toss coin",
     "dices": "Dices",
     "settings": "Settings",
-    "headquarter": "Headquarter"
+    "headquarter": "Headquarter",
+    "editProfile": "Edit profile"
   },
   "bunker": {
     "notEnoughMoney": "You do not have enough money to use the bunker!",

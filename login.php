@@ -34,6 +34,8 @@ $useLang = json_decode(file_get_contents('lang/' . $language . '/register-' . $l
 
     <!-- Local styling -->
     <link rel='stylesheet' href='styling/styling.css' />
+    <link rel="icon" type="image/x-icon" href="img/logo/favicon.ico">
+    <noscript>Javascript is required to run Mafioso.</noscript>
 </head>
 
 <body class="border-top-wide border-primary d-flex flex-column theme-dark" cz-shortcut-listen="true">
