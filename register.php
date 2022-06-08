@@ -6,6 +6,64 @@ include_once 'env.php';
 
 $useLang = json_decode(file_get_contents('lang/' . $language . '/register-' . $language . '.json'));
 
+
+if (isset($_POST['register'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
+    $terms = $_POST['terms'] ?? 'off';
+
+    $user_exist =   DB::run("SELECT ACC_username FROM account WHERE ACC_username = ?", [$username])->fetchColumn();
+    $email_exist =  DB::run("SELECT ACC_mail FROM account WHERE ACC_mail = ?", [$username])->fetchColumn();
+    $password_safe = strlen($password) > 9;
+
+    if ($terms == 'off') {
+        header("Location: register.php?terms=false");
+        echo 'Du må akseptere vilkårene for å opprette bruker på Mafioso.no';
+    } elseif ($user_exist) {
+        header("Location: register.php?userExist=true");
+    } elseif (strlen($username) < 3 || strlen($username) > 15) {
+        header("Location: register.php?userUnable=true");
+    } elseif ($email_exist) {
+        header("Location: register.php?mailExist=true");
+    } elseif (!$password_safe) {
+        header("Location: register.php?weakPassword=true");
+    } else {
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        DB::prepare("INSERT INTO 
+        account 
+        (ACC_username, ACC_password, ACC_mail, ACC_register, ACC_last_active) 
+        VALUES (?,?,?,?,?)")->execute([$username, $hashed_password, $email, time(), time()]);
+        $last_id = DB::lastInsertId();
+        DB::prepare("INSERT INTO account_stat (AS_id, AS_city) VALUES (?,?)")->execute([$last_id, mt_rand(0, 5)]);
+
+        echo $last_id;
+        $_SESSION['ID'] = $last_id;
+        header("Location: index.php");
+    }
+}
+
+if (isset($_GET['terms'])) {
+    echo 'Du må akseptere vilkårene for å opprette bruker på Mafioso.no';
+}
+
+if (isset($_GET['userExist'])) {
+    echo 'Brukernavnet er allerede i bruk';
+}
+
+if (isset($_GET['mailExist'])) {
+    echo 'Emailen er allerede i bruk';
+}
+
+if (isset($_GET['weakPassword'])) {
+    echo 'Passordet er for svakt. Minst 10 tegn';
+}
+
+if (isset($_GET['userUnable'])) {
+    echo 'Brukernavnet må være lengre enn 3 tegn og mindre enn 15 tegn';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -49,16 +107,16 @@ $useLang = json_decode(file_get_contents('lang/' . $language . '/register-' . $l
                     <h2 class="card-title text-center mb-4"><?= $useLang->register->createNewUser; ?></h2>
                     <div class="mb-3">
                         <label class="form-label"><?= $useLang->register->username; ?></label>
-                        <input type="text" class="form-control" placeholder="<?= $useLang->register->username; ?>">
+                        <input type="text" name="username" class="form-control" placeholder="<?= $useLang->register->username; ?>">
                     </div>
                     <div class="mb-3">
                         <label class="form-label"><?= $useLang->register->email; ?></label>
-                        <input type="email" class="form-control" placeholder="<?= $useLang->register->email; ?>">
+                        <input type="email" name="email" class="form-control" placeholder="<?= $useLang->register->email; ?>">
                     </div>
                     <div class="mb-3">
                         <label class="form-label"><?= $useLang->register->password; ?></label>
                         <div class="input-group input-group-flat">
-                            <input type="password" class="form-control" id="password" placeholder="<?= $useLang->register->password; ?>" autocomplete="off">
+                            <input type="password" name="password" class="form-control" id="password" placeholder="<?= $useLang->register->password; ?>" autocomplete="off">
 
                             <span class="input-group-text">
                                 <a href="#" class="link-secondary" onClick="togglePassword()" title="" data-bs-toggle="tooltip" data-bs-original-title="Show password">
@@ -73,12 +131,12 @@ $useLang = json_decode(file_get_contents('lang/' . $language . '/register-' . $l
                     </div>
                     <div class="mb-3">
                         <label class="form-check">
-                            <input type="checkbox" class="form-check-input">
+                            <input type="checkbox" name="terms" class="form-check-input">
                             <span class="form-check-label"><?= $useLang->register->agree; ?> <a href="./terms-of-service.html" tabindex="-1"><?= $useLang->register->termsAndConditions; ?></a>.</span>
                         </label>
                     </div>
                     <div class="form-footer">
-                        <button type="submit" class="btn btn-primary w-100"><?= $useLang->register->createNewUser; ?></button>
+                        <button type="submit" name="register" class="btn btn-primary w-100"><?= $useLang->register->createNewUser; ?></button>
                     </div>
                 </div>
             </form>

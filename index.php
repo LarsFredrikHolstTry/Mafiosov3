@@ -3,9 +3,11 @@
 ob_start();
 include 'db.php';
 
-// if (!isset($_SESSION['id'])) {
-//     header("Location: login.php");
-// }
+if (isset($_SESSION['ID'])) {
+    $session_id = $_SESSION['ID'];
+} else {
+    header("Location: login.php");
+}
 
 ?>
 
