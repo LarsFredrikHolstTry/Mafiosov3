@@ -147,7 +147,7 @@ function markdown(bool $withExtras)
     </div>
 </div>';
 
-    $textarea = '<textarea class="form-control" name="example-textarea-input" rows="25" placeholder="Content.."></textarea>';
+    $textarea = '<textarea class="form-control" name="textarea-input" rows="25" placeholder="Content.."></textarea>';
 
     return $markdown . '' . $textarea;
 }

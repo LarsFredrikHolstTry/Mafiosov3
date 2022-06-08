@@ -177,5 +177,14 @@
       "top10User": "Bruker",
       "top10Amount": "Antall"
     }
+  },
+  "editProfile": {
+    "save": "Lagre",
+    "placeholder": "Profiltekst...",
+    "style": "Pynt profilen med ",
+    "bbCodes": "BB-koder"
+  },
+  "profile": {
+    "title": "{name} sin profil"
   }
 }

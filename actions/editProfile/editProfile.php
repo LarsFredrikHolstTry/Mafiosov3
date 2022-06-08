@@ -16,5 +16,15 @@ include '../../components/markdown_top.php';
                 <?php echo markdown(true); ?>
             </div>
         </div>
+        <div class="card-footer">
+            <div class="row align-items-center">
+                <div class="col"><?= $useLang->editProfile->style; ?> <a href="#"><?= $useLang->editProfile->bbCodes; ?></a></div>
+                <div class="col-auto">
+                    <a href="#" class="btn btn-primary">
+                        <?= $useLang->editProfile->save; ?>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
