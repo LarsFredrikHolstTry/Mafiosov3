@@ -7,7 +7,7 @@
 
 ## Getting Started
 
-### Installing 🔃
+### Installing
 
 - Download Xampp
 - Download repository and add to xampp/htdocs folder
@@ -15,7 +15,7 @@
 - rename db.example.php to db.php
 - open http://localhost/Mafiosov3/migrate/migrate.php in your browser
 
-### Frontend and icons 🎨
+### Frontend and icons
 
 - Frontend framework is delivered by tabler [docs](https://preview.tabler.io/docs/index.html)
 - Icons is delivered by tabler-icons [docs](https://tabler-icons.io/)
