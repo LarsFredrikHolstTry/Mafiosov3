@@ -3,14 +3,12 @@
 ob_start();
 include_once 'env.php';
 require_once 'db/PDODB.php';
-include_once 'env.php';
 
 if (!session_id()) {
     session_start();
 }
 
 $useLang = json_decode(file_get_contents('lang/' . $language . '/register-' . $language . '.json'));
-
 
 if (isset($_POST['register'])) {
     $username = $_POST['username'];

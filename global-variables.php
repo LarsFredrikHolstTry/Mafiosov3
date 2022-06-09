@@ -1,9 +1,13 @@
 <?php
 
+ob_start();
 include '../../lang/lang.php';
 include 'functions/numbers.php';
 
-$total = number(100000);
-$interest = number(1000);
+if (!session_id()) {
+    session_start();
+}
 
-$session_id = 1;
+$interest = number(1000); // TODO: Remove this
+
+$session_id = $_SESSION['ID'];
