@@ -12,8 +12,11 @@ include '../../global-variables.php';
         </div>
         <div class="card-body">
             <div class="row align-items-center">
-                <!-- <img class="center-image" style="width: auto;" src="actions/#/img/#" /> -->
             </div>
         </div>
     </div>
 </div>
+
+<script>
+
+</script>

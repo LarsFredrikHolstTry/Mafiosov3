@@ -1,2 +1,5 @@
+# Database file
 db.php
+
+# Environment file
 env.php
