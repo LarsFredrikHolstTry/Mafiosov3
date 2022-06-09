@@ -1,10 +1,33 @@
 <?php
 
 ob_start();
+include_once 'env.php';
 require_once 'db/PDODB.php';
 include_once 'env.php';
 
+if (!session_id()) {
+    session_start();
+}
+
 $useLang = json_decode(file_get_contents('lang/' . $language . '/register-' . $language . '.json'));
+
+if (isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $user = DB::run("SELECT ACC_id, ACC_username, ACC_password FROM account WHERE ACC_username=?", [$username])->fetch();
+
+    // TODO: Check if user is banned or dead
+
+    if (!$user) {
+        echo 'Ingen bruker funnet';
+    } elseif (!password_verify($password, $user["ACC_password"])) {
+        echo 'Feil passord';
+    } else {
+        $_SESSION['ID'] = $user["ACC_id"];
+        header("Location: index.php");
+    }
+}
 
 ?>
 
@@ -49,12 +72,12 @@ $useLang = json_decode(file_get_contents('lang/' . $language . '/register-' . $l
                     <h2 class="card-title text-center mb-4">Logg inn</h2>
                     <div class="mb-3">
                         <label class="form-label"><?= $useLang->register->username; ?></label>
-                        <input type="text" class="form-control" placeholder="<?= $useLang->register->username; ?>">
+                        <input type="text" name="username" class="form-control" placeholder="<?= $useLang->register->username; ?>">
                     </div>
                     <div class="mb-3">
                         <label class="form-label"><?= $useLang->register->password; ?></label>
                         <div class="input-group input-group-flat">
-                            <input type="password" class="form-control" id="password" placeholder="<?= $useLang->register->password; ?>" autocomplete="off">
+                            <input type="password" name="password" class="form-control" id="password" placeholder="<?= $useLang->register->password; ?>" autocomplete="off">
 
                             <span class="input-group-text">
                                 <a href="#" class="link-secondary" onClick="togglePassword()" title="" data-bs-toggle="tooltip" data-bs-original-title="Show password">
@@ -68,7 +91,7 @@ $useLang = json_decode(file_get_contents('lang/' . $language . '/register-' . $l
                         </div>
                     </div>
                     <div class="form-footer">
-                        <button type="submit" class="btn btn-primary w-100">Logg inn</button>
+                        <button type="submit" name="login" class="btn btn-primary w-100">Logg inn</button>
                     </div>
                 </div>
             </form>

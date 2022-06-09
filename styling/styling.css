@@ -3,6 +3,11 @@ html {
   margin: 0;
 }
 
+/*Change text in autofill textbox*/
+input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+}
+
 #left_menu,
 #right_menu {
   width: 350px;

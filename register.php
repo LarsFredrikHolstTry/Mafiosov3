@@ -1,8 +1,13 @@
 <?php
 
 ob_start();
+include_once 'env.php';
 require_once 'db/PDODB.php';
 include_once 'env.php';
+
+if (!session_id()) {
+    session_start();
+}
 
 $useLang = json_decode(file_get_contents('lang/' . $language . '/register-' . $language . '.json'));
 
@@ -38,7 +43,6 @@ if (isset($_POST['register'])) {
         $last_id = DB::lastInsertId();
         DB::prepare("INSERT INTO account_stat (AS_id, AS_city) VALUES (?,?)")->execute([$last_id, mt_rand(0, 5)]);
 
-        echo $last_id;
         $_SESSION['ID'] = $last_id;
         header("Location: index.php");
     }

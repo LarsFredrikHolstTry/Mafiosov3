@@ -2,6 +2,7 @@
 
 ob_start();
 include 'db.php';
+include 'env.php';
 
 if (isset($_SESSION['ID'])) {
     $session_id = $_SESSION['ID'];
