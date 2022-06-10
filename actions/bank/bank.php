@@ -107,7 +107,7 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                             <input type="text" class="form-control" id="number" autocomplete="off">
                         </div>
                         <div class="mb-2">
-                            <button type="button" id="deposit-btn" class="btn btn-success btn-md">
+                            <button type="button" id="deposit-btn" class="btn btn-primary btn-md">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -165,11 +165,12 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
         </div>
     </div>
     <div class="card">
-        <?php include 'alerts.inc.php'; ?>
-        <div class="card-header">
-            <h3 class="card-title text-capitalize"><?= $useLang->finance->lastTransfers; ?></h3>
-        </div>
         <div class="card-body">
+            <div class="row align-items-center">
+                <div class="hr-text">
+                    <span><?= $useLang->finance->lastTransfers; ?></span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

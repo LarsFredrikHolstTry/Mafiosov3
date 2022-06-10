@@ -1,6 +1,9 @@
 <?php
 
 include '../../global-variables.php';
+include '../../db/PDODB.php';
+
+$username = DB::run("SELECT ACC_username FROM account WHERE ACC_id = ?", [$session_id])->fetchColumn();
 
 ?>
 <header class="navbar navbar-expand-md navbar-light d-print-none">
@@ -18,8 +21,8 @@ include '../../global-variables.php';
                 <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
                     <span class="avatar avatar-sm" style="background-image: url(img/avatars/avatar1632680298-aJUICdM.png)"></span>
                     <div class="d-none d-xl-block ps-2">
-                        <div>Skitzo</div>
-                        <div class="mt-1 small text-muted">Consigliere</div>
+                        <div><?= $username ?></div>
+                        <div class="mt-1 small text-muted">Consigliere 50%</div>
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">

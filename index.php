@@ -49,7 +49,7 @@ if (isset($_SESSION['ID'])) {
 
     <div class="page">
         <div id="navbar">
-            <div hx-target="#navbar" hx-swap="outerHTML" hx-get="components/menus/navbar.php" hx-trigger="load"></div>
+            <div hx-target="#navbar" hx-swap="outerHTML" hx-get="components/menus/navbar.php" hx-trigger="load, every 2s"></div>
         </div>
 
         <div class="page-body">
