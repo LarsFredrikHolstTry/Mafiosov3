@@ -13,7 +13,6 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
     <?php include '../../components/feedback.html'; ?>
 
     <div class="card">
-        <?php include 'alerts.inc.php'; ?>
         <div class="card-header">
             <h3 class="card-title text-capitalize"><?= $useLang->action->bank; ?></h3>
         </div>
