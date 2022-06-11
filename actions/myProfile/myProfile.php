@@ -37,23 +37,23 @@ $profile_text = $PR_row['PR_content'] ?? '';
                 <div class="col-5">
                     <div class="row">
                         <div class="col-6">
-                            <p class="h3">Brukernavn</p>
+                            <p class="h3"><?= $useLang->profile->username ?>:</p>
                             <address>
-                                Rolle<br>
-                                Rank<br>
-                                Drap<br>
-                                Sist aktiv<br>
-                                Registrert
+                                <?= $useLang->profile->role ?>:<br>
+                                <?= $useLang->profile->rank ?>:<br>
+                                <?= $useLang->profile->kills ?>:<br>
+                                <?= $useLang->profile->lastActive ?>:<br>
+                                <?= $useLang->profile->registered ?>:
                             </address>
                         </div>
                         <div class="col-6 text-end">
-                            <p class="h3">Skitzo</p>
+                            <p class="h3"><?= $usename ?></p>
                             <address>
-                                Administrator<br>
-                                Mafioso<br>
-                                100<br>
-                                I dag 15:00<br>
-                                I går
+                                Lorem ipsum<br>
+                                Lorem ipsum<br>
+                                Lorem ipsum<br>
+                                Lorem ipsum<br>
+                                Lorem ipsum
                             </address>
                         </div>
                     </div>
@@ -63,7 +63,7 @@ $profile_text = $PR_row['PR_content'] ?? '';
         <div class="card-body" style="border-top: none;">
             <div class="row align-items-center">
                 <div class="hr-text">
-                    <span>Profil</span>
+                    <span><?= $useLang->profile->profileBio ?></span>
                 </div>
                 <?= $profile_text ?>
             </div>

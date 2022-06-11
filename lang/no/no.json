@@ -189,6 +189,13 @@
     "upload": "Last opp"
   },
   "profile": {
-    "title": "{name} sin profil"
+    "title": "{name} sin profil",
+    "profileBio": "Profiltekst",
+    "role": "Rolle",
+    "rank": "Rank",
+    "kills": "Drap",
+    "lastActive": "Sist aktiv",
+    "registered": "Registrert",
+    "username": "Brukernavn"
   }
 }

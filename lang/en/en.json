@@ -189,6 +189,13 @@
     "upload": "Upload image"
   },
   "profile": {
-    "title": "{name}'s profile"
+    "title": "{name}'s profile",
+    "profileBio": "Profile bio",
+    "role": "Role",
+    "rank": "Rank",
+    "kills": "Kills",
+    "lastActive": "Last active",
+    "registered": "Registered",
+    "username": "Username"
   }
 }
