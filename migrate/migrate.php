@@ -27,7 +27,7 @@ function migrate_success_feedback(string $text, string $sql)
             <div class="text-truncate">
                 ' . $text . '
             </div>
-            <div class="text-muted">' . $sql . '</div>
+            <kbd class="text-muted">' . $sql . '</kbd>
         </div>
     </div>
 </div>';
@@ -53,7 +53,7 @@ function migrate_failed_feedback(string $text, string $sql)
             <div class="text-truncate">
                 ' . $text . '
             </div>
-            <div class="text-muted">' . $sql . '</div>
+            <kbd class="text-muted">' . $sql . '</kbd>
         </div>
     </div>
 </div>';
