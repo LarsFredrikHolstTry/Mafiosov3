@@ -3,7 +3,7 @@
 include '../../global-variables.php';
 include '../../db/PDODB.php';
 
-$username = DB::run("SELECT ACC_username FROM account WHERE ACC_id = ?", [$session_id])->fetchColumn();
+$ACC_row = DB::run("SELECT ACC_role, ACC_username FROM account WHERE ACC_id = ?", [$session_id])->fetch();
 
 ?>
 <header class="navbar navbar-expand-md navbar-light d-print-none">
@@ -21,7 +21,7 @@ $username = DB::run("SELECT ACC_username FROM account WHERE ACC_id = ?", [$sessi
                 <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
                     <span class="avatar avatar-sm" style="background-image: url(img/avatars/avatar1632680298-aJUICdM.png)"></span>
                     <div class="d-none d-xl-block ps-2">
-                        <div><?= $username ?></div>
+                        <div><?= $ACC_row['ACC_username'] ?></div>
                         <div class="mt-1 small text-muted">Consigliere 50%</div>
                     </div>
                 </a>
@@ -36,6 +36,14 @@ $username = DB::run("SELECT ACC_username FROM account WHERE ACC_id = ?", [$sessi
 
                     }
 
+                    ?>
+
+                    <?php
+                    if ($ACC_row['ACC_role'] > 1) {
+                    ?>
+                        <a hx-post="actions/admin/admin.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="dropdown-item" href="#">Admin</a>
+                    <?php
+                    }
                     ?>
 
                     <div class="dropdown-divider"></div>

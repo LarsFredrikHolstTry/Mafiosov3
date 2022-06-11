@@ -50,7 +50,8 @@
     "dices": "Dices",
     "settings": "Settings",
     "headquarter": "Headquarter",
-    "editProfile": "Edit profile"
+    "editProfile": "Edit profile",
+    "editAvatar": "Edit Avatar"
   },
   "bunker": {
     "notEnoughMoney": "You do not have enough money to use the bunker!",
@@ -183,6 +184,9 @@
     "placeholder": "Profiltekst...",
     "style": "Pynt profilen med ",
     "bbCodes": "BB-koder"
+  },
+  "editAvatar": {
+    "upload": "Upload image"
   },
   "profile": {
     "title": "{name}'s profile"
