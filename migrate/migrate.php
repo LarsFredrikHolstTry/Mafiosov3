@@ -84,7 +84,7 @@ $columns[2] = '
 `GA_acc_id` int(15) NOT NULL,
 `GA_city` int(2) NOT NULL,
 `GA_car` int(2) NOT NULL';
-$table[3] = 'profile';
+$table[3] = 'profiles';
 $columns[3] = '
 `PR_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `PR_acc_id` int(15) NOT NULL,

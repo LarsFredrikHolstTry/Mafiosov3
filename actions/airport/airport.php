@@ -5,6 +5,9 @@ include '../../functions/cities.php';
 
 ?>
 <div class="col-12" id="container">
+
+    <?php include '../../components/feedback.html'; ?>
+
     <div class="page-header d-print-none">
         <div class="row g-2 align-items-center">
             <div class="col">
@@ -24,15 +27,43 @@ include '../../functions/cities.php';
                     <div class="card-body">
                         <h3 class="card-title"><span class="flag flag-country-<?= $flag[$i] ?> me-1"></span> <?= $city[$i] ?></h3>
                         <ul class="text-muted list-unstyled">
-                            <li>Territorium: Camorra</li>
+                            <li>Territorium: Lorem Ipsum</li>
                             <li>Pris: 15 240 kr</li>
                         </ul>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Reis til <?= $city[$i]; ?></a>
+                        <button type="button" id="<?= $i ?>" value="<?= $i ?>" class="travel btn btn-primary">Reis til <?= $city[$i]; ?></button>
                     </div>
                 </div>
             </div>
         <?php } ?>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('.travel').click(function() {
+            var city = $(this).attr('id');
+
+            $.ajax({
+                url: 'actions/airport/airport.inc.php',
+                method: 'post',
+                data: {
+                    city: city,
+                },
+                success: function(response) {
+                    var feedback = response;
+                    feedback = feedback.split("<|>");
+
+                    var feedbackText = feedback[0];
+                    var feedbackType = feedback[1];
+
+                    htmx.trigger("#city", "cityUpdated");
+                    htmx.trigger("#moneyInHand", "moneyHandUpdated");
+
+                    feedbackReturn(feedbackText, feedbackType);
+                }
+            });
+        });
+    });
+</script>
