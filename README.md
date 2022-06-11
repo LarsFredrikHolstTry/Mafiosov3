@@ -13,7 +13,8 @@
 - Download repository and add to xampp/htdocs folder
 - Run Apache and MySQL
 - rename db.example.php to db.php
-- open http://localhost/Mafiosov3/migrate/migrate.php in your browser
+- open http://localhost/Mafiosov3/migrate/migrate.php in your browser and click 'migrate'
+- Once the migration is done and every step is succesfull you can navigate to "BACK TO HOMEPAGE"
 
 ### Frontend and icons
 
