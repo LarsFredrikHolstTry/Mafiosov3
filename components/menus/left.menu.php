@@ -67,6 +67,9 @@ $money_hand =   DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$ses
                                 case 'storageUnit':
                                     echo '<span class="text-muted fr">55 / 200</span>';
                                     break;
+                                case 'airport':
+                                    echo '<span class="text-muted fr">Klar!</span>';
+                                    break;
                             }
 
                             ?>

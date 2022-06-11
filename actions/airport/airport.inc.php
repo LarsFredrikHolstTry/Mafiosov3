@@ -10,7 +10,7 @@ $price = 15240;
 $city_post = $_POST['city'];
 
 if ($price > $money_hand) {
-    echo 'Du har ikke nok penger til å reise. ' . '<|>' . 'danger';
+    echo 'Du har ikke nok penger til å reise til  ' . $city[$city_post] . '<|>' . 'danger';
 } elseif ($city_post == $AS_city) {
     echo 'Du er allerede i valgt by. ' . '<|>' . 'danger';
 } else {
