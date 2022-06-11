@@ -59,6 +59,52 @@ function migrate_failed_feedback(string $text, string $sql)
 </div>';
 }
 
+$table[0] = 'account';
+$columns[0] = '
+`ACC_id` int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`ACC_username` varchar(25) NOT NULL,
+`ACC_password` varchar(255) NOT NULL,
+`ACC_mail` varchar(255) NOT NULL,
+`ACC_verified` int(1) NOT NULL,
+`ACC_register` int(10) NOT NULL,
+`ACC_last_active` int(10) NOT NULL,
+`ACC_role` int(2) NOT NULL,
+`ACC_status` int(2) NOT NULL';
+$table[1] = 'account_stat';
+$columns[1] = '
+`AS_id` int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`AS_money` bigint(20) NOT NULL,
+`AS_bankmoney` bigint(20) NOT NULL,
+`AS_EXP` int(10) NOT NULL,
+`AS_points` int(10) NOT NULL,
+`AS_city` int(1) NOT NULL';
+$table[2] = 'garage';
+$columns[2] = '
+`GA_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`GA_acc_id` int(15) NOT NULL,
+`GA_city` int(2) NOT NULL,
+`GA_car` int(2) NOT NULL';
+$table[3] = 'profile';
+$columns[3] = '
+`PR_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`PR_acc_id` int(15) NOT NULL,
+`PR_content` text NOT NULL';
+$table[4] = 'roles';
+$columns[4] = '
+`RO_id` int(2) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`RO_alias` varchar(50) NOT NULL,
+`RO_name` varchar(50) NOT NULL,
+`RO_access` int(2) NOT NULL DEFAULT 0';
+
+$dummy_data[0] = "INSERT INTO roles 
+(RO_alias, RO_name, RO_access) 
+VALUES 
+('beta', 'Beta Tester', 1),
+('forum_moderator', 'Forum Moderator', 2),
+('moderator', 'Moderator', 3),
+('admin', 'Administrator', 4),
+('ass_admin', 'Assisterende Administrator', 5),
+('dev', 'Utvikler', 6)";
 
 ?>
 
@@ -146,18 +192,18 @@ function migrate_failed_feedback(string $text, string $sql)
 
                                         $sql = "DROP DATABASE IF EXISTS $db_name";
                                         if (mysqli_query($con, $sql)) {
-                                            migrate_success_feedback("Deleted $db_name successfully", $sql);
+                                            migrate_success_feedback("Deleted $db_name", $sql);
                                         } else {
-                                            migrate_failed_feedback("Could not able to execute $sql. " . mysqli_error($con), "closing connection");
+                                            migrate_failed_feedback("Could not execute $sql. " . mysqli_error($con), "closing connection");
                                             mysqli_close($con);
                                         }
 
                                         // Attempt create database query execution
                                         $sql = "CREATE DATABASE $db_name";
                                         if (mysqli_query($con, $sql)) {
-                                            migrate_success_feedback("Database $db_name created successfully", $sql);
+                                            migrate_success_feedback("Database $db_name created", $sql);
                                         } else {
-                                            migrate_failed_feedback("Could not able to execute $sql. " . mysqli_error($con), "closing connection");
+                                            migrate_failed_feedback("Could not execute $sql. " . mysqli_error($con), "closing connection");
                                             mysqli_close($con);
                                         }
 
@@ -171,82 +217,28 @@ function migrate_failed_feedback(string $text, string $sql)
                                             die("ERROR: Could not connect. " . mysqli_connect_error() . "<br>");
                                         }
 
-                                        // Create account table
-                                        $sql = "CREATE TABLE `account`(
-                                        `ACC_id` int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                                        `ACC_username` varchar(25) NOT NULL,
-                                        `ACC_password` varchar(255) NOT NULL,
-                                        `ACC_mail` varchar(255) NOT NULL,
-                                        `ACC_verified` int(1) NOT NULL,
-                                        `ACC_register` int(10) NOT NULL,
-                                        `ACC_last_active` int(10) NOT NULL,
-                                        `ACC_role` int(2) NOT NULL,
-                                        `ACC_status` int(2) NOT NULL
-                                        )";
-                                        if (mysqli_query($con, $sql)) {
-                                            migrate_success_feedback("account table created successfully", $sql);
-                                        } else {
-                                            migrate_failed_feedback("Could not able to execute $sql. " . mysqli_error($con), "closing connection");
-                                            mysqli_close($con);
-                                        }
-
-                                        // Create account_stat table
-                                        $sql = "CREATE TABLE `account_stat`(
-                                        `AS_id` int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                                        `AS_money` bigint(20) NOT NULL,
-                                        `AS_bankmoney` bigint(20) NOT NULL,
-                                        `AS_EXP` int(10) NOT NULL,
-                                        `AS_points` int(10) NOT NULL,
-                                        `AS_city` int(1) NOT NULL
-                                        )";
-                                        if (mysqli_query($con, $sql)) {
-                                            migrate_success_feedback("account_stat table created successfully", $sql);
-                                        } else {
-                                            migrate_failed_feedback("Could not able to execute $sql. " . mysqli_error($con), "closing connection");
-                                            mysqli_close($con);
-                                        }
-
-                                        // Create profile table
-                                        $sql = "CREATE TABLE `profiles`(
-                                        `PR_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                                        `PR_acc_id` int(15) NOT NULL,
-                                        `PR_content` text NOT NULL
-                                        )";
-                                        if (mysqli_query($con, $sql)) {
-                                            migrate_success_feedback("profiles table created successfully", $sql);
-                                        } else {
-                                            migrate_failed_feedback("Could not able to execute $sql. " . mysqli_error($con), "closing connection");
-                                            mysqli_close($con);
-                                        }
-
-                                        // Create roles table
-                                        $sql = "CREATE TABLE `roles`(
-                                        `RO_id` int(2) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                                        `RO_alias` varchar(50) NOT NULL,
-                                        `RO_name` varchar(50) NOT NULL,
-                                        `RO_access` int(2) NOT NULL DEFAULT 0
+                                        // Create tables
+                                        for ($i = 0; $i < count($table); $i++) {
+                                            $sql = "CREATE TABLE `$table[$i]`(
+                                            $columns[$i]
                                             )";
-                                        if (mysqli_query($con, $sql)) {
-                                            migrate_success_feedback("roles table created successfully", $sql);
-
-                                            $sql = "INSERT INTO roles 
-                                            (RO_alias, RO_name, RO_access) 
-                                            VALUES 
-                                            ('beta', 'Beta Tester', 1),
-                                            ('forum_moderator', 'Forum Moderator', 2),
-                                            ('moderator', 'Moderator', 3),
-                                            ('admin', 'Administrator', 4),
-                                            ('ass_admin', 'Assisterende Administrator', 5),
-                                            ('dev', 'Utvikler', 6)";
                                             if (mysqli_query($con, $sql)) {
-                                                migrate_success_feedback("roles data inserted successfully", $sql);
+                                                migrate_success_feedback("$table[$i] table created", $sql);
                                             } else {
-                                                migrate_failed_feedback("Could not able to execute $sql. " . mysqli_error($con), "closing connection");
+                                                migrate_failed_feedback("Could not execute $sql. " . mysqli_error($con), "closing connection");
                                                 mysqli_close($con);
                                             }
-                                        } else {
-                                            migrate_failed_feedback("Could not able to execute $sql. " . mysqli_error($con), "closing connection");
-                                            mysqli_close($con);
+                                        }
+
+                                        // Insert dummy data
+                                        for ($j = 0; $j < count($dummy_data); $j++) {
+                                            $sql = $dummy_data[$j];
+                                            if (mysqli_query($con, $sql)) {
+                                                migrate_success_feedback("Dummy data inserted", $sql);
+                                            } else {
+                                                migrate_failed_feedback("Could not execute $sql. " . mysqli_error($con), "closing connection");
+                                                mysqli_close($con);
+                                            }
                                         }
 
                                         migrate_success_feedback("Migration done without any errors", "You can now enter homepage");

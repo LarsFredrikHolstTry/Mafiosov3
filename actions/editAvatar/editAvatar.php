@@ -18,10 +18,9 @@ $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", 
             </h3>
         </div>
         <div class="card-body">
-            <div style="height:0px;overflow:hidden">
+            <div>
                 <input type="file" id="fileInput" name="fileInput" />
             </div>
-            <button id="upload" type="button" class="btn btn-warning">choose file</button>
         </div>
         <div class="card-footer">
             <div class="row align-items-center">
@@ -36,12 +35,6 @@ $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", 
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('#upload').click(function() {
-            $('#fileInput').click();
-        });
-    });
-
     $(document).ready(function() {
         $('#save-btn').click(function() {
             var value = $("#avatar").val();
