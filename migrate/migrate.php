@@ -99,7 +99,7 @@ function migrate_failed_feedback(string $text, string $sql)
     <div class="page">
         <div class="page-wrapper">
             <div class="container" style="max-width: 900px;">
-                <div class="page-header d-print-none">
+                <div class="page-header d-print-none mb-3">
                     <div class="row g-2 align-items-center">
                         <div class="col">
                             <!-- Page pre-title -->
