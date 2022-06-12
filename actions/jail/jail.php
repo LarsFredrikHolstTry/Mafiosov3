@@ -2,6 +2,8 @@
 
 include '../../global-variables.php';
 
+$price = 1000000;
+
 ?>
 <div class="col-12" id="container">
 
@@ -15,9 +17,16 @@ include '../../global-variables.php';
         </div>
         <div class="card-body">
             <div class="row align-items-center">
+                <img class="center-image" style="width: auto;" src="actions/jail/img/fengsel.png" />
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-small">
+                    Kjøp fengsel
+                </button>
             </div>
         </div>
     </div>
+
+    <?php include '../../actions/jail/modals.php'; ?>
+
 </div>
 
 <script>

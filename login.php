@@ -92,12 +92,18 @@ if (isset($_POST['login'])) {
                     </div>
                     <div class="form-footer">
                         <button type="submit" name="login" class="btn btn-primary w-100">Logg inn</button>
+
                     </div>
                 </div>
             </form>
             <div class="text-center text-muted mt-3">
                 Har du ikke en bruker? <a href="register.php" tabindex="-1">Registrer</a>
             </div>
+            <?php if ($devOrProd == 'prod') { ?>
+                <div class="text-center text-muted mt-3">
+                    Husk å migrere før du utvikler! <a href="migrate/migrate.php">Migrate</a>
+                </div>
+            <?php } ?>
         </div>
     </div>
     <script>

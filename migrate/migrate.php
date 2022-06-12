@@ -61,7 +61,7 @@ function migrate_failed_feedback(string $text, string $sql)
 
 $table[0] = 'account';
 $columns[0] = '
-`ACC_id` int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`ACC_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `ACC_username` varchar(25) NOT NULL,
 `ACC_password` varchar(255) NOT NULL,
 `ACC_mail` varchar(255) NOT NULL,
@@ -72,7 +72,7 @@ $columns[0] = '
 `ACC_status` int(2) NOT NULL';
 $table[1] = 'account_stat';
 $columns[1] = '
-`AS_id` int(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`AS_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `AS_money` bigint(20) NOT NULL,
 `AS_bankmoney` bigint(20) NOT NULL,
 `AS_EXP` int(10) NOT NULL,
@@ -91,10 +91,23 @@ $columns[3] = '
 `PR_content` text NOT NULL';
 $table[4] = 'roles';
 $columns[4] = '
-`RO_id` int(2) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`RO_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `RO_alias` varchar(50) NOT NULL,
 `RO_name` varchar(50) NOT NULL,
 `RO_access` int(2) NOT NULL DEFAULT 0';
+$table[5] = 'business';
+$columns[5] = '
+`BU_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`BU_acc_id` int(2) NOT NULL,
+`BU_type` int(2) NOT NULL,
+`BU_city` int(2) NOT NULL';
+$table[6] = 'notification';
+$columns[6] = '
+`NO_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`NO_acc_id` int(2) NOT NULL,
+`NO_text` text NOT NULL,
+`NO_unread` boolean default true,
+`NO_date` int(15) NOT NULL';
 
 $dummy_data[0] = "INSERT INTO roles 
 (RO_alias, RO_name, RO_access) 
