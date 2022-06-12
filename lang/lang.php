@@ -14,3 +14,4 @@ $useLang = json_decode(file_get_contents('../../lang/' . $language . '/' . $lang
 $sidebarConfig = json_decode(file_get_contents('../../lang/' . $language . '/sidebar-config-' . $language . '.json'))->sidebarConfig;
 $userMenu = json_decode(file_get_contents('../../lang/' . $language . '/user-menu-' . $language . '.json'))->userMenu;
 $userMenuOther = json_decode(file_get_contents('../../lang/' . $language . '/user-menu-' . $language . '.json'))->otherActions;
+$topActionBar = json_decode(file_get_contents('../../lang/' . $language . '/top-action-bar-' . $language . '.json'))->topActionBar;

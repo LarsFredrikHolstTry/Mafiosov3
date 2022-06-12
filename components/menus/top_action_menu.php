@@ -1,100 +1,35 @@
+<?php
+
+
+include '../../global-variables.php';
+
+?>
+
 <div class="col-12">
     <div class="row row-cards">
-        <div class="col-2">
-            <div class="card card-sm bg-orange-lt cursor-pointer">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <div class="font-weight-medium">
-                                Fight club
-                            </div>
-                            <div class="text-muted">
-                                2m 25s
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-2">
-            <div class="card card-sm bg-lime-lt cursor-pointer">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <div class="font-weight-medium">
-                                Kriminalitet
-                            </div>
-                            <div class="text-muted">
-                                Klar!
+        <?php
+
+        foreach ($topActionBar as $key => $value) {
+
+        ?>
+            <div class="col-2">
+                <a hx-post="actions/<?= $key ?>/<?= $key ?>.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="no-style" href="#">
+                    <div class="card card-sm bg-green-lt cursor-pointer">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <div class="font-weight-medium">
+                                        <?= $value ?>
+                                    </div>
+                                    <div class="text-muted" id="cooldown">
+                                        Klar
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-        </div>
-        <div class="col-2">
-            <div class="card card-sm bg-lime-lt cursor-pointer">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <div class="font-weight-medium">
-                                Biltyveri
-                            </div>
-                            <div class="text-muted">
-                                Klar!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-2">
-            <div class="card card-sm bg-lime-lt cursor-pointer">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <div class="font-weight-medium">
-                                Brekk
-                            </div>
-                            <div class="text-muted">
-                                Klar!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-2">
-            <div class="card card-sm bg-lime-lt cursor-pointer">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <div class="font-weight-medium">
-                                Stjel
-                            </div>
-                            <div class="text-muted">
-                                Klar!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-2">
-            <div class="card card-sm bg-indigo-lt cursor-pointer">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col">
-                            <div class="font-weight-medium">
-                                Fengsel
-                            </div>
-                            <div class="text-muted">
-                                Tomt
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php } ?>
     </div>
 </div>

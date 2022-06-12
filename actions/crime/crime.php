@@ -2,15 +2,13 @@
 
 include '../../global-variables.php';
 
-$crime[0] = "Ran Storo Storsenter";
-$crime[1] = "Ran Oslo City";
-$crime[2] = "Ran Byporten Shopping";
-$crime[3] = "Ran Steen & Strøm Magasin";
-$crime[4] = "Ran Glassmagasinet Oslo";
-$crime[5] = "Ran Eger Karl Johan";
-$crime[6] = "Ran Eger Paleet";
-$crime[7] = "Ran narkotika";
-$crime[8] = "Ran banken";
+$crime[0] = "Veldig enkel";
+$crime[1] = "Enkel";
+$crime[2] = "Middels";
+$crime[3] = "Vanskelig";
+$crime[4] = "Avansert";
+$crime[5] = "Ekspert";
+
 
 ?>
 <div class="col-12" id="container">

@@ -51,7 +51,12 @@
     "settings": "Innstillinger",
     "headquarter": "Hovedkvarter",
     "editProfile": "Rediger profil",
-    "editAvatar": "Edit Avatar"
+    "editAvatar": "Endre profilbilde",
+    "fightClub": "Fight Club",
+    "carTheft": "Biltyveri",
+    "rob": "Stjel",
+    "theft": "Brekk",
+    "jail": "Fengsel"
   },
   "bunker": {
     "notEnoughMoney": "Du har ikke nok penger til å sjekke inn i bunker!",

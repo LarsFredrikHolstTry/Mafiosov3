@@ -51,7 +51,12 @@
     "settings": "Settings",
     "headquarter": "Headquarter",
     "editProfile": "Edit profile",
-    "editAvatar": "Edit Avatar"
+    "editAvatar": "Edit Avatar",
+    "fightClub": "Fight Club",
+    "carTheft": "Car theft",
+    "rob": "Rob",
+    "theft": "Theft",
+    "jail": "Jail"
   },
   "bunker": {
     "notEnoughMoney": "You do not have enough money to use the bunker!",
