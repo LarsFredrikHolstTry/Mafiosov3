@@ -10,7 +10,7 @@
 ### Installing
 
 - Download Xampp
-- Download repository and add to xampp/htdocs folder
+- Clone repository to xampp/htdocs folder on your computer
 - Run Apache and MySQL
 - Rename env.example.php to env.php and db.example.php to db.php
 - Open http://localhost/Mafiosov3/migrate/migrate.php in your browser and click 'migrate'
