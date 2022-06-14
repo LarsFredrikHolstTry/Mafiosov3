@@ -13,7 +13,7 @@ $ACC_row = DB::run("SELECT ACC_role, ACC_username FROM account WHERE ACC_id = ?"
         </h1>
         <div class="navbar-nav flex-row order-md-last">
             <div class="d-none d-md-flex">
-                <?php include '../friends.php'; ?>
+                <?php include '../friends/friends.php'; ?>
                 <?php include '../notifications.php'; ?>
 
             </div>

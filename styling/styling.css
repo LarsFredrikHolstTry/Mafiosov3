@@ -103,3 +103,8 @@ input:-webkit-autofill {
 .no-style:hover {
   text-decoration: none;
 }
+
+.center-text-card-top {
+  justify-content: center;
+  display: flex;
+}

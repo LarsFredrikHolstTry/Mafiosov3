@@ -108,6 +108,19 @@ $columns[6] = '
 `NO_text` text NOT NULL,
 `NO_unread` boolean default true,
 `NO_date` int(15) NOT NULL';
+$table[7] = 'jail';
+$columns[7] = '
+`JA_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`JA_acc_id` int(2) NOT NULL,
+`JA_reason` text NOT NULL,
+`JA_date` int(15) NOT NULL';
+
+$table[8] = 'friendRequests';
+$columns[8] = '
+`FR_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`FR_acc_id` int(2) NOT NULL,
+`FR_from` int(2) NOT NULL,
+`FR_date` int(15) NOT NULL';
 
 $dummy_data[0] = "INSERT INTO roles 
 (RO_alias, RO_name, RO_access) 

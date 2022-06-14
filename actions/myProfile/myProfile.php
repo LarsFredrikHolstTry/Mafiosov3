@@ -24,10 +24,21 @@ $profile_text = $PR_row['PR_content'] ?? '';
 
 <div class="col-12" id="container">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header center-text-card-top">
             <h3 class="card-title">
                 <h3 class="card-title text-capitalize"><?= str_replace('{name}', $usename, $useLang->profile->title); ?></h3>
             </h3>
+            <div class="ms-auto">
+                <a href="#" class="icon d-none d-md-inline-block ms-3 text-muted" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="vertical-align: baseline" class="icon icon-tabler icon-tabler-user-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                        <path d="M16 11h6m-3 -3v6"></path>
+                    </svg>
+
+                </a>
+            </div>
         </div>
         <div class="card-body">
             <div class="row align-items-center">
