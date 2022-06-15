@@ -1,6 +1,6 @@
 <?php
 
-$devOrProd = 'prod';
+$devOrProd = 'dev';
 $language = 'no';
 $db_host = "localhost";
 $db_user = "root";
