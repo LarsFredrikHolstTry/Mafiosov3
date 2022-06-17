@@ -1,9 +1,9 @@
 <div id="friends-body">
     <div class="list-group list-group-flush list-group-hoverable">
-        <a class="dropdown-item" hx-post="components/friends/friends-request.php" hx-trigger="click" hx-target="#friends-body" hx-swap="outerHTML" href="#">
+        <div class="dropdown-item cursor-pointer" hx-post="components/friends/friends-request.php" hx-trigger="click" hx-target="#friends-body" hx-swap="outerHTML" href="#">
             Venneforespørsler
             <span class="badge bg-primary ms-auto">3</span>
-        </a>
+        </div>
     </div>
     <div class="list-group list-group-flush list-group-hoverable">
         <?php //TODO: Loop through friends 

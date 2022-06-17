@@ -12,13 +12,15 @@ if (!isset($_GET['id'])) {
 $ACC_row =  DB::run("SELECT * FROM account WHERE ACC_id = ?", [$id])->fetch();
 $AS_row =   DB::run("SELECT * FROM account_stat WHERE AS_id = ?", [$id])->fetch();
 $PR_row =   DB::run("SELECT PR_id, PR_content FROM profiles WHERE PR_acc_id = ?", [$id])->fetch();
+$role =     DB::run("SELECT RO_name FROM roles WHERE RO_access = ?", [$ACC_row['ACC_role']])->fetch();
 
-$usename =      $ACC_row['ACC_username'];
-$created =      $ACC_row['ACC_register'];
-$last_active =  $ACC_row['ACC_last_active'];
-$exp =          $AS_row['AS_EXP'];
-$money =        $AS_row['AS_money'] + $AS_row['AS_bankmoney'];
-$profile_text = $PR_row['PR_content'] ?? '';
+$usename =          $ACC_row['ACC_username'];
+$created =          $ACC_row['ACC_register'];
+$last_active =      $ACC_row['ACC_last_active'];
+$exp =              $AS_row['AS_EXP'];
+$money =            $AS_row['AS_money'] + $AS_row['AS_bankmoney'];
+$profile_text =     $PR_row['PR_content'] ?? '';
+$role_name =        $role ? $role['RO_name'] : 'Bruker';
 
 ?>
 
@@ -60,7 +62,7 @@ $profile_text = $PR_row['PR_content'] ?? '';
                         <div class="col-6 text-end">
                             <p class="h3"><?= $usename ?></p>
                             <address>
-                                Lorem ipsum<br>
+                                <?= $role_name ?><br>
                                 Lorem ipsum<br>
                                 Lorem ipsum<br>
                                 Lorem ipsum<br>

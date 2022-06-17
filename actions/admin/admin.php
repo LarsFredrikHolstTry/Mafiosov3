@@ -27,16 +27,9 @@ include '../../global-variables.php';
             </div>
             <div class="col-md-auto ms-auto d-print-none">
                 <div class="btn-list">
-                    <a href="#" class="btn btn-primary">
-                        <!-- Download SVG icon from http://tabler-icons.io/i/player-pause -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                            <desc>Download more icon variants from https://tabler-icons.io/i/player-pause</desc>
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <rect x="6" y="5" width="4" height="14" rx="1"></rect>
-                            <rect x="14" y="5" width="4" height="14" rx="1"></rect>
-                        </svg>
+                    <div class="cursor-pointer btn btn-primary">
                         Steng Mafioso
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>

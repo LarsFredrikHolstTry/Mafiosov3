@@ -18,9 +18,15 @@ $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", 
             </h3>
         </div>
         <div class="card-body">
-            <div>
-                <input type="file" id="fileInput" name="fileInput" />
-            </div>
+            <form class="dropzone" id="dropzone-custom" action=".">
+                <div class="fallback">
+                    <input name="file" type="file" />
+                </div>
+                <div class="dz-message">
+                    <h3 class="dropzone-msg-title">Last opp avatar</h3>
+                    <span class="dropzone-msg-desc">Tillatte filtyper: .JPG .PNG .GIF</span>
+                </div>
+            </form>
         </div>
         <div class="card-footer">
             <div class="row align-items-center">
@@ -35,6 +41,9 @@ $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", 
 </div>
 
 <script type="text/javascript">
+    document.addEventListener(function() {
+        new Dropzone("#dropzone-custom")
+    })
     $(document).ready(function() {
         $('#save-btn').click(function() {
             var value = $("#avatar").val();

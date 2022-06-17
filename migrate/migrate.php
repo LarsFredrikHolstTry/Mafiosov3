@@ -70,6 +70,7 @@ $columns[0] = '
 `ACC_last_active` int(10) NOT NULL,
 `ACC_role` int(2) NOT NULL,
 `ACC_status` int(2) NOT NULL';
+
 $table[1] = 'account_stat';
 $columns[1] = '
 `AS_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -78,29 +79,34 @@ $columns[1] = '
 `AS_EXP` int(10) NOT NULL,
 `AS_points` int(10) NOT NULL,
 `AS_city` int(1) NOT NULL';
+
 $table[2] = 'garage';
 $columns[2] = '
 `GA_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `GA_acc_id` int(15) NOT NULL,
 `GA_city` int(2) NOT NULL,
 `GA_car` int(2) NOT NULL';
+
 $table[3] = 'profiles';
 $columns[3] = '
 `PR_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `PR_acc_id` int(15) NOT NULL,
 `PR_content` text NOT NULL';
+
 $table[4] = 'roles';
 $columns[4] = '
 `RO_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `RO_alias` varchar(50) NOT NULL,
 `RO_name` varchar(50) NOT NULL,
 `RO_access` int(2) NOT NULL DEFAULT 0';
+
 $table[5] = 'business';
 $columns[5] = '
 `BU_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `BU_acc_id` int(2) NOT NULL,
 `BU_type` int(2) NOT NULL,
 `BU_city` int(2) NOT NULL';
+
 $table[6] = 'notification';
 $columns[6] = '
 `NO_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -108,6 +114,7 @@ $columns[6] = '
 `NO_text` text NOT NULL,
 `NO_unread` boolean default true,
 `NO_date` int(15) NOT NULL';
+
 $table[7] = 'jail';
 $columns[7] = '
 `JA_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -115,12 +122,20 @@ $columns[7] = '
 `JA_reason` text NOT NULL,
 `JA_date` int(15) NOT NULL';
 
-$table[8] = 'friendRequests';
+$table[8] = 'friends';
 $columns[8] = '
+`FRI_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`FRI_acc_id` int(2) NOT NULL,
+`FRI_friend` int(2) NOT NULL';
+
+$table[9] = 'friendRequests';
+$columns[9] = '
 `FR_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `FR_acc_id` int(2) NOT NULL,
 `FR_from` int(2) NOT NULL,
 `FR_date` int(15) NOT NULL';
+
+
 
 $dummy_data[0] = "INSERT INTO roles 
 (RO_alias, RO_name, RO_access) 

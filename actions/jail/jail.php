@@ -5,7 +5,7 @@ include '../../global-variables.php';
 include '../../db/PDODB.php';
 
 $price = 1000000;
-$city_name = DB::run("SELECT AS_city FROM account_stat WHERE AS_id = ?", [$session_id])->fetchColumn();
+$city_id = DB::run("SELECT AS_city FROM account_stat WHERE AS_id = ?", [$session_id])->fetchColumn();
 
 ?>
 <div class="col-12" id="container">
@@ -31,24 +31,68 @@ $city_name = DB::run("SELECT AS_city FROM account_stat WHERE AS_id = ?", [$sessi
         </div>
     </div>
 
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">
-                <h3 class="card-title text-capitalize">Kjøp fengsel</h3>
-            </h3>
-        </div>
-        <div class="card-body">
-            <div class="row align-items-center">
-                <p>
-                    Det er for tiden ingen som eier fengselet i <?= $city[$city_name] ?><br>
-                    Du kan kjøpe fengselet for <?= number($price); ?> kr
-                </p>
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-small">
-                    Kjøp fengsel
-                </button>
+    <?php
+
+    $jail_busy =        DB::run("SELECT BU_city FROM business WHERE BU_city = ? AND BU_type = ?", [$city_id, 0])->fetchColumn();
+    $jail_owner =       DB::run("SELECT BU_acc_id FROM business WHERE BU_city = ? AND BU_type = ?", [$city_id, 0])->fetchColumn();
+
+    if ($jail_busy && $jail_owner === $session_id) {
+    ?>
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <h3 class="card-title text-capitalize">Kjøp fengsel</h3>
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <p>
+                        Det er for tiden ingen som eier fengselet i <?= $city[$city_id] ?><br>
+                        Du kan kjøpe fengselet for <?= number($price); ?> kr
+                    </p>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-small">
+                        Kjøp fengsel
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
+    <?php
+    } elseif (!$jail_busy) {
+    ?>
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <h3 class="card-title text-capitalize">Kjøp fengsel</h3>
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <p>
+                        Det er for tiden ingen som eier fengselet i <?= $city[$city_id] ?><br>
+                        Du kan kjøpe fengselet for <?= number($price); ?> kr
+                    </p>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-small">
+                        Kjøp fengsel
+                    </button>
+                </div>
+            </div>
+        </div>
+    <?php } else { ?>
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <h3 class="card-title text-capitalize">Fengselsdirektør</h3>
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <p>
+                        {brukernavn} er direktør for fengselet i <?= $city[$city_id] ?><br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
 
     <?php include '../../actions/jail/modals.php'; ?>
 
