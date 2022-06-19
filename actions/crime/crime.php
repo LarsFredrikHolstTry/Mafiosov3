@@ -33,7 +33,7 @@ $crime[5] = "Ekspert";
                         </thead>
                         <tbody>
                             <?php for ($i = 0; $i < count($crime); $i++) { ?>
-                                <tr>
+                                <tr class="cursor-pointer">
                                     <td><?= $crime[$i]; ?></td>
                                     <td class="text-muted">100%</td>
                                     <td class="text-muted">Lorem</td>

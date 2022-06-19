@@ -15,7 +15,7 @@ $PR_row =   DB::run("SELECT PR_id, PR_content FROM profiles WHERE PR_acc_id = ?"
 $role =     DB::run("SELECT RO_name FROM roles WHERE RO_access = ?", [$ACC_row['ACC_role']])->fetch();
 
 $usename =          $ACC_row['ACC_username'];
-$created =          $ACC_row['ACC_register'];
+$registered =       $ACC_row['ACC_register'];
 $last_active =      $ACC_row['ACC_last_active'];
 $exp =              $AS_row['AS_EXP'];
 $money =            $AS_row['AS_money'] + $AS_row['AS_bankmoney'];
@@ -49,7 +49,7 @@ $role_name =        $role ? $role['RO_name'] : 'Bruker';
                 </div>
                 <div class="col-5">
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-4">
                             <p class="h3"><?= $useLang->profile->username ?>:</p>
                             <address>
                                 <?= $useLang->profile->role ?>:<br>
@@ -59,14 +59,14 @@ $role_name =        $role ? $role['RO_name'] : 'Bruker';
                                 <?= $useLang->profile->registered ?>:
                             </address>
                         </div>
-                        <div class="col-6 text-end">
+                        <div class="col-8 text-end">
                             <p class="h3"><?= $usename ?></p>
                             <address>
                                 <?= $role_name ?><br>
                                 Lorem ipsum<br>
                                 Lorem ipsum<br>
-                                Lorem ipsum<br>
-                                Lorem ipsum
+                                <?= date_to_text($last_active) ?><br>
+                                <?= date_to_text($registered) ?>
                             </address>
                         </div>
                     </div>

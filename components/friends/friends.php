@@ -7,7 +7,9 @@
             <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
         </svg>
-        <span class="badge badge-pill bg-blue">3</span>
+        <div id="unread_notifications">
+            <div hx-get="components/friends/new-friend-requests.inc.php" hx-trigger="load, every 1s"></div>
+        </div>
     </a>
     <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-end dropdown-menu-card" style="min-width: 350px;" data-bs-popper="static">
         <div class="card">

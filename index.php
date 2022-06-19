@@ -38,6 +38,7 @@ if (isset($_SESSION['ID'])) {
 
     <!-- Local styling -->
     <link rel='stylesheet' href='styling/styling.css' />
+    <script src="js/table.js"></script>
     <script src="js/number.js"></script>
     <script src="js/feedback.js"></script>
     <link rel="icon" type="image/x-icon" href="img/logo/favicon.ico">
@@ -50,7 +51,6 @@ if (isset($_SESSION['ID'])) {
 </head>
 
 <body class='theme-dark'>
-
     <div class="page">
         <div id="navbar">
             <div hx-target="#navbar" hx-swap="outerHTML" hx-get="components/menus/navbar.php" hx-trigger="load, every 2s"></div>
@@ -84,7 +84,6 @@ if (isset($_SESSION['ID'])) {
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

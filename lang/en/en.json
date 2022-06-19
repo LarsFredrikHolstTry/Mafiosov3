@@ -56,7 +56,8 @@
     "carTheft": "Car theft",
     "rob": "Rob",
     "theft": "Theft",
-    "jail": "Jail"
+    "jail": "Jail",
+    "notifications": "Notifications"
   },
   "bunker": {
     "notEnoughMoney": "You do not have enough money to use the bunker!",

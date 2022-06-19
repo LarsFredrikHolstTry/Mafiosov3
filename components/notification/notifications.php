@@ -1,6 +1,5 @@
 <?php
 
-
 $notifications = DB::run("SELECT COUNT(NO_text) FROM notification WHERE NO_acc_id = ? AND NO_unread = ?", [$session_id, 0])->fetchColumn();
 
 $unread_string = $notifications > 1 ? 'uleste varsler' : 'ulest varsel';
@@ -13,12 +12,7 @@ $unread_string = $notifications > 1 ? 'uleste varsler' : 'ulest varsel';
             <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6"></path>
             <path d="M9 17v1a3 3 0 0 0 6 0v-1"></path>
         </svg>
-        <?php
-
-        if ($notifications > 0) {
-        ?>
-            <span class="badge badge-pill bg-blue"><?= $notifications ?></span>
-        <?php } ?>
+        <div hx-get="components/notification/unread_amount.inc.php" hx-trigger="load, every 1s"></div>
     </a>
     <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-end dropdown-menu-card" style="min-width: 350px;">
         <div class="card">
@@ -34,7 +28,6 @@ $unread_string = $notifications > 1 ? 'uleste varsler' : 'ulest varsel';
             </div>
             <?php
 
-
             $stmt = DB::run("SELECT NO_text, NO_date FROM notification WHERE NO_acc_id=?", [$session_id]);
             while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
 
@@ -46,13 +39,18 @@ $unread_string = $notifications > 1 ? 'uleste varsler' : 'ulest varsel';
                             <div class="col text-truncate">
                                 <div class="text-body d-block"><?= $row['NO_text'] ?></div>
                                 <div class="d-block text-muted text-truncate mt-n1">
-                                    <?= $row['NO_date'] ?>
+                                    <?= date_to_text($row['NO_date']) ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             <?php } ?>
+            <div class="list-group list-group-flush list-group-hoverable">
+                <div class="dropdown-item cursor-pointer" hx-post="actions/notifications/notifications.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML">
+                    Åpne i ny side
+                </div>
+            </div>
         </div>
     </div>
 </div>

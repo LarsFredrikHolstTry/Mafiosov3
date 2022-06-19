@@ -14,7 +14,7 @@ $ACC_row = DB::run("SELECT ACC_role, ACC_username FROM account WHERE ACC_id = ?"
         <div class="navbar-nav flex-row order-md-last">
             <div class="d-none d-md-flex">
                 <?php include '../friends/friends.php'; ?>
-                <?php include '../notifications.php'; ?>
+                <?php include '../notification/notifications.php'; ?>
 
             </div>
             <div class="nav-item dropdown">
@@ -22,7 +22,6 @@ $ACC_row = DB::run("SELECT ACC_role, ACC_username FROM account WHERE ACC_id = ?"
                     <span class="avatar avatar-sm" style="background-image: url(img/avatars/avatar1632680298-aJUICdM.png)"></span>
                     <div class="d-none d-xl-block ps-2">
                         <div><?= $ACC_row['ACC_username'] ?></div>
-                        <div class="mt-1 small text-muted">Consigliere 50%</div>
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">

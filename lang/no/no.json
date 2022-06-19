@@ -56,7 +56,8 @@
     "carTheft": "Biltyveri",
     "rob": "Stjel",
     "theft": "Brekk",
-    "jail": "Fengsel"
+    "jail": "Fengsel",
+    "notifications": "Varsler"
   },
   "bunker": {
     "notEnoughMoney": "Du har ikke nok penger til å sjekke inn i bunker!",
