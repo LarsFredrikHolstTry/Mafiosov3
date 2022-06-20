@@ -22,7 +22,7 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                     <div class="card card-sm">
                         <div class="row align-items-center">
                             <div class="col-auto">
-                                <span class="bg-blue text-white avatar">
+                                <span class="bg-azure-lt text-white avatar">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-currency-euro" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                         <path d="M17.2 7a6 7 0 1 0 0 10"></path>
@@ -47,7 +47,7 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                     <div class="card card-sm">
                         <div class="row align-items-center">
                             <div class="col-auto">
-                                <span class="bg-green text-white avatar">
+                                <span class="bg-yellow-lt text-white avatar">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-infographic" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                         <circle cx="7" cy="7" r="4"></circle>
@@ -64,7 +64,7 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                                     <?= $useLang->finance->interestByMidnight; ?>
                                 </div>
                                 <div class="font-weight-medium">
-                                    <?= str_replace('{value}', $interest, $useLang->index->money); ?>
+                                    <?= number($AS_bankmoney / 10) ?> <span class="text-muted">(10%)</span>
                                 </div>
                             </div>
                         </div>
@@ -74,10 +74,12 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                     <div class="card card-sm">
                         <div class="row align-items-center">
                             <div class="col-auto">
-                                <span class="bg-purple text-white avatar">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-point" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <span class="bg-pink-lt text-white avatar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-asana" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <circle cx="12" cy="12" r="4"></circle>
+                                        <circle cx="12" cy="7" r="3"></circle>
+                                        <circle cx="17" cy="16" r="3"></circle>
+                                        <circle cx="7" cy="16" r="3"></circle>
                                     </svg>
                                 </span>
                             </div>
@@ -106,21 +108,21 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                             <input type="text" class="form-control" id="number" autocomplete="off">
                         </div>
                         <div class="mb-2">
-                            <button type="button" id="deposit-btn" class="btn btn-primary btn-md">
+                            <div class="btn bg-lime-lt cursor-pointer" id="deposit-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <line x1="12" y1="5" x2="12" y2="19"></line>
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
                                 </svg>
                                 <?= $useLang->finance->deposit; ?>
-                            </button>
-                            <button type="button" id="withdraw-btn" class="btn btn-warning btn-md">
+                            </div>
+                            <div class="btn bg-orange-lt cursor-pointer" id="withdraw-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-minus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
                                 </svg>
                                 <?= $useLang->finance->withdraw; ?>
-                            </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -147,15 +149,19 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                                 <textarea class="form-control" name="example-textarea" placeholder="<?= $useLang->finance->messageText; ?>"></textarea>
                             </div>
                             <div class="col-lg-12">
-                                <button type="button" class="btn btn-primary btn-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <line x1="5" y1="12" x2="19" y2="12" />
-                                        <line x1="15" y1="16" x2="19" y2="12" />
-                                        <line x1="15" y1="8" x2="19" y2="12" />
-                                    </svg>
-                                    <?= $useLang->finance->wireMoney; ?>
-                                </button>
+                                <div class="d-flex">
+                                    <span class="text-muted">10% overføringsgebyr</span>
+                                    <button type="button" class="btn bg-azure-lt btn-md ms-auto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <line x1="5" y1="12" x2="19" y2="12" />
+                                            <line x1="15" y1="16" x2="19" y2="12" />
+                                            <line x1="15" y1="8" x2="19" y2="12" />
+                                        </svg>
+                                        <?= $useLang->finance->wireMoney; ?>
+                                    </button>
+                                </div>
+
                             </div>
                         </div>
                     </div>

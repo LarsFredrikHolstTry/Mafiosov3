@@ -77,6 +77,7 @@ $columns[1] = '
 `AS_money` bigint(20) NOT NULL,
 `AS_bankmoney` bigint(20) NOT NULL,
 `AS_EXP` int(10) NOT NULL,
+`AS_rank` int(2) NOT NULL,
 `AS_points` int(10) NOT NULL,
 `AS_city` int(1) NOT NULL';
 

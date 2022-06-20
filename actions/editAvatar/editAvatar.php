@@ -18,20 +18,15 @@ $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", 
             </h3>
         </div>
         <div class="card-body">
-            <form class="dropzone" id="dropzone-custom" action=".">
-                <div class="fallback">
-                    <input name="file" type="file" />
-                </div>
-                <div class="dz-message">
-                    <h3 class="dropzone-msg-title">Last opp avatar</h3>
-                    <span class="dropzone-msg-desc">Tillatte filtyper: .JPG .PNG .GIF</span>
-                </div>
+            <form class="dropzone dz-clickable" id="dropzone-default" action=".">
+
+                <div class="dz-default dz-message"><button class="dz-button" type="button">Drop files here to upload</button></div>
             </form>
         </div>
         <div class="card-footer">
             <div class="row align-items-center">
                 <div class="col-auto">
-                    <button id="save-btn" class="btn btn-primary">
+                    <button id="save-btn" class="btn btn-bitbucket">
                         <?= $useLang->editProfile->save; ?>
                     </button>
                 </div>
@@ -39,11 +34,13 @@ $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", 
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-    document.addEventListener(function() {
-        new Dropzone("#dropzone-custom")
+<script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function() {
+        new Dropzone("#dropzone-default")
     })
+</script>
+<script type="text/javascript">
     $(document).ready(function() {
         $('#save-btn').click(function() {
             var value = $("#avatar").val();

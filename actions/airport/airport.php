@@ -32,7 +32,7 @@ include '../../functions/cities.php';
                         </ul>
                     </div>
                     <div class="card-footer">
-                        <button type="button" id="<?= $i ?>" value="<?= $i ?>" class="travel btn btn-primary">Reis til <?= $city[$i]; ?></button>
+                        <button type="button" id="<?= $i ?>" value="<?= $i ?>" class="travel btn btn-bitbucket">Reis til <?= $city[$i]; ?></button>
                     </div>
                 </div>
             </div>

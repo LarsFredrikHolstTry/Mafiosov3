@@ -91,7 +91,7 @@ if (isset($_POST['login'])) {
                         </div>
                     </div>
                     <div class="form-footer">
-                        <button type="submit" name="login" class="btn btn-primary w-100">Logg inn</button>
+                        <button type="submit" name="login" class="btn btn-bitbucket w-100">Logg inn</button>
 
                     </div>
                 </div>

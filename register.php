@@ -138,7 +138,7 @@ if (isset($_GET['userUnable'])) {
                         </label>
                     </div>
                     <div class="form-footer">
-                        <button type="submit" name="register" class="btn btn-primary w-100"><?= $useLang->register->createNewUser; ?></button>
+                        <button type="submit" name="register" class="btn btn-bitbucket w-100"><?= $useLang->register->createNewUser; ?></button>
                     </div>
                 </div>
             </form>

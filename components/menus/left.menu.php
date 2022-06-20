@@ -9,7 +9,7 @@ include '../../global-variables.php';
 
             <div class="card">
                 <div class="card-body">
-                    <a href="#" class="btn btn-ghost-teal">Gå i bunker</a>
+                    <div class="btn bg-green-lt cursor-pointer">Gå i bunker</div>
                 </div>
                 <div class="list-group list-group-flush">
                     <?php

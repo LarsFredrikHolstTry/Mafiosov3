@@ -31,8 +31,8 @@ if (isset($_SESSION['ID'])) {
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
 
     <!-- Tabler css and JS -->
-    <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/@tabler/core@latest/dist/css/tabler.min.css">
+    <script src="https://unpkg.com/@tabler/core@1.0.0-beta10/dist/js/tabler.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@tabler/core@1.0.0-beta10/dist/css/tabler.min.css">
     <link rel="stylesheet" href="https://unpkg.com/@tabler/icons@latest/iconfont/tabler-icons.min.css">
     <link rel="stylesheet" href="https://unpkg.com/@tabler/core@1.0.0-beta10/dist/css/tabler-flags.min.css">
 
@@ -48,9 +48,11 @@ if (isset($_SESSION['ID'])) {
     <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
 
     <noscript>Javascript is required to run Mafioso.</noscript>
+
 </head>
 
 <body class='theme-dark'>
+
     <div class="page">
         <div id="navbar">
             <div hx-target="#navbar" hx-swap="outerHTML" hx-get="components/menus/navbar.php" hx-trigger="load, every 2s"></div>

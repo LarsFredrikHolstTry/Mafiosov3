@@ -28,7 +28,7 @@ $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", 
             <div class="row align-items-center">
                 <div class="col"><?= $useLang->editProfile->style; ?> <a href="#"><?= $useLang->editProfile->bbCodes; ?></a></div>
                 <div class="col-auto">
-                    <button id="save-btn" class="btn btn-primary">
+                    <button id="save-btn" class="btn btn-bitbucket">
                         <?= $useLang->editProfile->save; ?>
                     </button>
                 </div>

@@ -27,7 +27,7 @@ include '../../global-variables.php';
             </div>
             <div class="col-md-auto ms-auto d-print-none">
                 <div class="btn-list">
-                    <div class="cursor-pointer btn btn-primary">
+                    <div class="cursor-pointer btn btn-bitbucket">
                         Steng Mafioso
                     </div>
                 </div>

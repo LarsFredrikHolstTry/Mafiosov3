@@ -44,18 +44,8 @@ $money_hand =   DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$ses
             </p>
         </div>
         <div class="card-body" style="border-top: none; padding-top: 0;">
-            <div class="d-flex mb-2">
-                <div>75%</div>
-                <div class="ms-auto">
-                    <span class="text-green d-inline-flex align-items-center lh-1">
-                        75/100 EXP
-                    </span>
-                </div>
-            </div>
-            <div class="progress progress-sm">
-                <div class="progress-bar bg-blue" style="width: 75%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="75% Complete">
-                </div>
-            </div>
+            <div hx-get="components/rankbar/rankbar.php" hx-trigger="load"></div>
+
         </div>
         <div class="card-body" style="border-top: none; padding-top: 0;">
             <div class="alert alert-success" role="alert">

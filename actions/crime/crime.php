@@ -33,7 +33,7 @@ $crime[5] = "Ekspert";
                         </thead>
                         <tbody>
                             <?php for ($i = 0; $i < count($crime); $i++) { ?>
-                                <tr class="cursor-pointer">
+                                <tr id="<?= $i; ?>" class="do-crime cursor-pointer">
                                     <td><?= $crime[$i]; ?></td>
                                     <td class="text-muted">100%</td>
                                     <td class="text-muted">Lorem</td>
@@ -47,3 +47,30 @@ $crime[5] = "Ekspert";
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('.do-crime').click(function() {
+            var alt = $(".do-crime").attr('id');
+
+            $.ajax({
+                url: 'actions/crime/crime.inc.php',
+                method: 'post',
+                data: {
+                    alt: alt,
+                },
+                success: function(response) {
+                    var feedback = response;
+                    feedback = feedback.split("<|>");
+
+                    var feedbackText = feedback[0];
+                    var feedbackType = feedback[1];
+
+                    // htmx.trigger("#bankMoney", "moneyUpdated");
+                    // htmx.trigger("#moneyInHand", "moneyHandUpdated");
+                    feedbackReturn(feedbackText, feedbackType);
+                }
+            });
+        });
+    });
+</script>
