@@ -76,7 +76,12 @@ $cooldown[5] = 120;
                     var feedbackText = feedback[0];
                     var feedbackType = feedback[1];
 
-                    htmx.trigger("#totalCars", "carsUpdated");
+                    if (feedbackType == 'success') {
+                        var getCarAmount = +$('#total_cars').text();
+                        var newCarAmount = getCarAmount + 1;
+                        $('#total_cars').text(newCarAmount);
+                    }
+
                     feedbackReturn(feedbackText, feedbackType);
                 }
             });

@@ -18,7 +18,7 @@ $money_hand =   DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$ses
                     <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"></path>
                     <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"></path>
                 </svg>
-                <span hx-get="components/menus/fetch_money.inc.php" id="moneyInHand" hx-trigger="moneyHandUpdated">
+                <span hx-get="components/fetch_data/fetch_money.inc.php" id="moneyInHand" hx-trigger="moneyHandUpdated">
                     <?= str_replace('{value}', number($money_hand), $useLang->index->money); ?>
                 </span>
 
@@ -33,7 +33,7 @@ $money_hand =   DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$ses
                     <line x1="9" y1="15" x2="9" y2="15.01"></line>
                     <line x1="9" y1="18" x2="9" y2="18.01"></line>
                 </svg>
-                <span hx-get="components/menus/fetch_city.inc.php" id="city" hx-trigger="cityUpdated">
+                <span hx-get="components/fetch_data/fetch_city.inc.php" id="city" hx-trigger="cityUpdated">
                     <?= $city[$AS_city]; ?>
                 </span>
                 <br>
