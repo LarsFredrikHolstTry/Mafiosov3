@@ -1,6 +1,7 @@
 <?php
 
 include '../../global-variables.php';
+include '../../functions/cooldown-textify.php';
 
 $crime[0] = "Veldig enkel";
 $crime[1] = "Enkel";
@@ -9,9 +10,31 @@ $crime[3] = "Vanskelig";
 $crime[4] = "Avansert";
 $crime[5] = "Ekspert";
 
+$cooldown[0] = 15;
+$cooldown[1] = 25;
+$cooldown[2] = 35;
+$cooldown[3] = 50;
+$cooldown[4] = 70;
+$cooldown[5] = 90;
+
+$payout_from[0] = 150;
+$payout_to[0] = 350;
+$payout_from[1] = 450;
+$payout_to[1] = 1050;
+$payout_from[2] = 1550;
+$payout_to[2] = 5050;
+$payout_from[3] = 5550;
+$payout_to[3] = 10050;
+$payout_from[4] = 10550;
+$payout_to[4] = 25050;
+$payout_from[5] = 21550;
+$payout_to[5] = 55050;
 
 ?>
 <div class="col-12" id="container">
+
+    <?php include '../../components/feedback.html'; ?>
+
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">
@@ -28,16 +51,16 @@ $crime[5] = "Ekspert";
                                 <th>Handling</th>
                                 <th>Sjanse</th>
                                 <th>Ventetid</th>
-                                <th class="w-1">Utbetaling</th>
+                                <th>Utbetaling</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php for ($i = 0; $i < count($crime); $i++) { ?>
-                                <tr id="<?= $i; ?>" class="do-crime cursor-pointer">
+                                <tr class="do-crime cursor-pointer" id="<?= $i; ?>">
                                     <td><?= $crime[$i]; ?></td>
                                     <td class="text-muted">100%</td>
-                                    <td class="text-muted">Lorem</td>
-                                    <td class="text-muted">Lorem</td>
+                                    <td class="text-muted"><?= seconds_to_minutes_and_seconds($cooldown[$i]); ?></td>
+                                    <td class="text-muted"><?= number($payout_from[$i]) . ' - ' . number($payout_to[$i]) ?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
@@ -51,7 +74,7 @@ $crime[5] = "Ekspert";
 <script>
     $(document).ready(function() {
         $('.do-crime').click(function() {
-            var alt = $(".do-crime").attr('id');
+            var alt = $(this).closest(".do-crime").attr("id");;
 
             $.ajax({
                 url: 'actions/crime/crime.inc.php',

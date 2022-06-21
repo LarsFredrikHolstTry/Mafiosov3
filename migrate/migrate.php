@@ -136,6 +136,18 @@ $columns[9] = '
 `FR_from` int(2) NOT NULL,
 `FR_date` int(15) NOT NULL';
 
+$table[10] = 'cooldown';
+$columns[10] = '
+`CD_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`CD_acc_id` int(2) NOT NULL,
+`CD_fc_training` int(15) NOT NULL,
+`CD_fc_fight` int(15) NOT NULL,
+`CD_crime` int(15) NOT NULL,
+`CD_carTheft` int(15) NOT NULL,
+`CD_theft` int(15) NOT NULL,
+`CD_steal` int(15) NOT NULL,
+`CD_travel` int(15) NOT NULL';
+
 
 
 $dummy_data[0] = "INSERT INTO roles 

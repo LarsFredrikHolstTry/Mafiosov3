@@ -47,7 +47,7 @@ $rank =             $AS_row['AS_rank'];
         <div class="card-body">
             <div class="row align-items-center">
                 <div class="col-7 center-image-flex">
-                    <img style="max-width: 300px; max-height: 300px;" src="img/avatars/avatar1632680298-aJUICdM.png" />
+                    <img style="max-width: 300px; max-height: 300px;" src="https://mafioso.no/img/avatar/standard_avatar.png" />
                 </div>
                 <div class="col-5">
                     <div class="row">

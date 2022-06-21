@@ -4,6 +4,7 @@ include '../../global-variables.php';
 
 ?>
 <div class="col-12" id="container">
+
     <div class="card">
         <div class="card-header">
             <h3 class="card-title"><?= $useLang->action->garage; ?></h3>

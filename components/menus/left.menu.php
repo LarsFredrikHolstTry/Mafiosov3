@@ -1,6 +1,9 @@
 <?php
 
 include '../../global-variables.php';
+include '../../db/PDODB.php';
+
+$total_cars = DB::run("SELECT count(*) FROM garage WHERE GA_acc_id = ?", [$session_id])->fetchColumn();
 
 ?>
 <div class="col-3">
@@ -24,13 +27,17 @@ include '../../global-variables.php';
 
                             switch ($key) {
                                 case 'garage':
-                                    echo '<span class="text-muted fr">15 / 200</span>';
+                            ?>
+                                    <span class="text-muted fr" hx-get="components/fetch_data/total_cars.inc.php" id="totalCars" hx-trigger="carsUpdated">
+                                        <?= $total_cars ?> / NaN
+                                    </span>
+                            <?php
                                     break;
                                 case 'storageUnit':
-                                    echo '<span class="text-muted fr">55 / 200</span>';
+                                    echo '<span class="text-muted fr">NaN / NaN</span>';
                                     break;
                                 case 'airport':
-                                    echo '<span class="text-muted fr">Klar!</span>';
+                                    echo '<span class="text-muted fr">NaN</span>';
                                     break;
                             }
 

@@ -18,7 +18,7 @@ if (isset($_POST['register'])) {
 
     $user_exist =   DB::run("SELECT ACC_username FROM account WHERE ACC_username = ?", [$username])->fetchColumn();
     $email_exist =  DB::run("SELECT ACC_mail FROM account WHERE ACC_mail = ?", [$username])->fetchColumn();
-    $password_safe = strlen($password) > 9;
+    $password_safe = strlen($password) > 7;
 
     if ($terms == 'off') {
         header("Location: register.php?terms=false");
