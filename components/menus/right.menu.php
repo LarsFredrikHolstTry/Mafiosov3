@@ -21,7 +21,6 @@ $money_hand =   DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$ses
                 <span hx-get="components/fetch_data/fetch_money.inc.php" id="moneyInHand" hx-trigger="moneyHandUpdated">
                     <?= str_replace('{value}', number($money_hand), $useLang->index->money); ?>
                 </span>
-
                 <br>
                 <svg style="margin-right: .35rem;" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-skyscraper" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#626976" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -44,8 +43,7 @@ $money_hand =   DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$ses
             </p>
         </div>
         <div class="card-body" style="border-top: none; padding-top: 0;">
-            <div hx-get="components/rankbar/rankbar.php" hx-trigger="load"></div>
-
+            <div hx-get="components/rankbar/rankbar.php" hx-trigger="load, every 10s"></div>
         </div>
         <div class="card-body" style="border-top: none; padding-top: 0;">
             <div class="alert alert-success" role="alert">
