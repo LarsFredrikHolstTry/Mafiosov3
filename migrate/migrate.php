@@ -10,6 +10,8 @@ if (!in_array($_SERVER['REMOTE_ADDR'], $whitelist)) {
     $button_disabled = true;
 }
 
+echo $_SERVER['REMOTE_ADDR'];
+
 function migrate_success_feedback(string $text, string $sql)
 {
     echo '                              
