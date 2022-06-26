@@ -2,6 +2,7 @@
 
 include '../../global-variables.php';
 include '../../functions/cooldown-textify.php';
+include '../../db/PDODB.php';
 
 $carTheftArr[0] = "E-Klasse";
 $carTheftArr[1] = "C-Klasse";
@@ -17,7 +18,7 @@ $cooldown[3] = 70;
 $cooldown[4] = 90;
 $cooldown[5] = 120;
 
-
+$carTheftCooldown =     DB::run("SELECT CD_carTheft FROM cooldown WHERE CD_acc_id=?", [$session_id])->fetchColumn();
 
 ?>
 <div class="col-12" id="container">

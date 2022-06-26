@@ -18,7 +18,7 @@ $money_hand =   DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$ses
                     <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"></path>
                     <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"></path>
                 </svg>
-                <span hx-get="components/fetch_data/fetch_money.inc.php" id="moneyInHand" hx-trigger="moneyHandUpdated">
+                <span hx-get="components/fetch_data/fetch_money.inc.php" id="moneyInHand" hx-trigger="moneyHandUpdated, every 1s">
                     <?= str_replace('{value}', number($money_hand), $useLang->index->money); ?>
                 </span>
                 <br>

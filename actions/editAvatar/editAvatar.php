@@ -18,9 +18,10 @@ $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", 
             </h3>
         </div>
         <div class="card-body">
-            <form class="dropzone dz-clickable" id="dropzone-default" action=".">
-
-                <div class="dz-default dz-message"><button class="dz-button" type="button">Drop files here to upload</button></div>
+            <form class="dropzone" id="dropzone-default" action=".">
+                <div class="fallback">
+                    <input name="file" type="file" />
+                </div>
             </form>
         </div>
         <div class="card-footer">
@@ -34,13 +35,10 @@ $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", 
         </div>
     </div>
 </div>
-<script>
-    // @formatter:off
-    document.addEventListener("DOMContentLoaded", function() {
-        new Dropzone("#dropzone-default")
-    })
-</script>
+
 <script type="text/javascript">
+    new Dropzone("#dropzone-default")
+
     $(document).ready(function() {
         $('#save-btn').click(function() {
             var value = $("#avatar").val();

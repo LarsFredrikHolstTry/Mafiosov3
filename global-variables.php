@@ -9,5 +9,4 @@ if (!session_id()) {
     session_start();
 }
 
-
 $session_id = $_SESSION['ID'];

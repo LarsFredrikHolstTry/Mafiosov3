@@ -39,7 +39,8 @@ if (isset($_POST['register'])) {
         (ACC_username, ACC_password, ACC_mail, ACC_register, ACC_last_active) 
         VALUES (?,?,?,?,?)")->execute([$username, $hashed_password, $email, time(), time()]);
         $last_id = DB::lastInsertId();
-        DB::prepare("INSERT INTO account_stat (AS_id, AS_city) VALUES (?,?)")->execute([$last_id, mt_rand(0, 5)]);
+        DB::prepare("INSERT INTO account_stat (AS_id, AS_city, AS_money) VALUES (?,?,?)")->execute([$last_id, mt_rand(0, 5), 1000]);
+        DB::prepare("INSERT INTO cooldown (CD_acc_id) VALUES (?)")->execute([$last_id]);
 
         $_SESSION['ID'] = $last_id;
         header("Location: index.php");

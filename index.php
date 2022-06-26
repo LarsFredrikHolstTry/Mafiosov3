@@ -47,6 +47,8 @@ if (isset($_SESSION['ID'])) {
     <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
     <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
 
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
     <noscript>Javascript is required to run Mafioso.</noscript>
 
 </head>
