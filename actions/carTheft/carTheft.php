@@ -11,12 +11,12 @@ $carTheftArr[3] = "S2-Klasse";
 $carTheftArr[4] = "R-Klasse";
 $carTheftArr[5] = "X-Klasse";
 
-$cooldown[0] = 20;
-$cooldown[1] = 30;
-$cooldown[2] = 50;
-$cooldown[3] = 70;
-$cooldown[4] = 90;
-$cooldown[5] = 120;
+$cooldown[0] = 30;
+$cooldown[1] = 60;
+$cooldown[2] = 120;
+$cooldown[3] = 200;
+$cooldown[4] = 320;
+$cooldown[5] = 460;
 
 $carTheftCooldown =     DB::run("SELECT CD_carTheft FROM cooldown WHERE CD_acc_id=?", [$session_id])->fetchColumn();
 
