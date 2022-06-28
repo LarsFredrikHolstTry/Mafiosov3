@@ -3,20 +3,7 @@
 include '../../global-variables.php';
 include '../../functions/cooldown-textify.php';
 include '../../db/PDODB.php';
-
-$carTheftArr[0] = "E-Klasse";
-$carTheftArr[1] = "C-Klasse";
-$carTheftArr[2] = "S1-Klasse";
-$carTheftArr[3] = "S2-Klasse";
-$carTheftArr[4] = "R-Klasse";
-$carTheftArr[5] = "X-Klasse";
-
-$cooldown[0] = 30;
-$cooldown[1] = 60;
-$cooldown[2] = 120;
-$cooldown[3] = 200;
-$cooldown[4] = 320;
-$cooldown[5] = 460;
+include 'carTheftVariables.inc.php';
 
 $carTheftCooldown =     DB::run("SELECT CD_carTheft FROM cooldown WHERE CD_acc_id=?", [$session_id])->fetchColumn();
 
@@ -34,6 +21,7 @@ $carTheftCooldown =     DB::run("SELECT CD_carTheft FROM cooldown WHERE CD_acc_i
         <div class="card-body">
             <div class="row align-items-center">
                 <img class="center-image" style="width: auto;" src="actions/carTheft/img/biltyveri.png" />
+                <?php include 'cooldown.php'; ?>
                 <div class="table-responsive">
                     <table class="table table-vcenter">
                         <thead>
@@ -47,7 +35,7 @@ $carTheftCooldown =     DB::run("SELECT CD_carTheft FROM cooldown WHERE CD_acc_i
                             <?php for ($i = 0; $i < count($carTheftArr); $i++) { ?>
                                 <tr class="do-crime cursor-pointer" id="<?= $i; ?>">
                                     <td><?= $carTheftArr[$i]; ?></td>
-                                    <td class="text-muted">100%</td>
+                                    <td class="text-muted"><?= $chance[$i] ?>%</td>
                                     <td class="text-muted"><?= seconds_to_minutes_and_seconds($cooldown[$i]); ?></td>
                                 </tr>
                             <?php } ?>

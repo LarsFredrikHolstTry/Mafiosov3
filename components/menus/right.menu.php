@@ -45,13 +45,36 @@ $money_hand =   DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$ses
         <div class="card-body" style="border-top: none; padding-top: 0;">
             <div hx-get="components/rankbar/rankbar.php" hx-trigger="load, every 10s"></div>
         </div>
-        <div class="card-body" style="border-top: none; padding-top: 0;">
-            <div class="alert alert-success" role="alert">
-                <h4 class="alert-title">Happy hours!</h4>
-                <div class="text-muted">Dobbel EXP og dobbel verdi på ting og biler</div>
+        <div class="hr-text">
+            <span>Annet</span>
+        </div>
+        <div class="row row-deck row-cards">
+            <div class="col-6">
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li>
+                            <div class="fake-link cursor-pointer text-muted">Spillere pålogget</div>
+                        </li>
+                        <li>
+                            <div class="fake-link cursor-pointer text-muted">Personlig statistikk</div>
+                        </li>
+                        <li>
+                            <div class="fake-link cursor-pointer text-muted">Statistikk</div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="hr-text">
-                <span>Siste handlinger</span>
+            <div class="col-6">
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li>
+                            <div class="fake-link cursor-pointer text-muted">FAQ</div>
+                        </li>
+                        <li>
+                            <div class="fake-link cursor-pointer text-muted">Support</div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

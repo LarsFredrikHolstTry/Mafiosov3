@@ -149,6 +149,11 @@ $columns[10] = '
 `CD_steal` int(15) NOT NULL,
 `CD_travel` int(15) NOT NULL';
 
+$table[11] = 'storage';
+$columns[11] = '
+`ST_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`ST_acc_id` int(2) NOT NULL,
+`ST_type` int(15) NOT NULL';
 
 
 $dummy_data[0] = "INSERT INTO roles 

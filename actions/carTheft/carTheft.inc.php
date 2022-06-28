@@ -3,6 +3,7 @@
 include '../../global-variables.php';
 include '../../functions/cars.php';
 include '../../db/PDODB.php';
+include 'carTheftVariables.inc.php';
 
 $session_city = DB::run("SELECT AS_city FROM account_stat WHERE AS_id = ?", [$session_id])->fetchColumn();
 
@@ -36,5 +37,10 @@ switch ($alt) {
 }
 
 DB::run("INSERT INTO garage (GA_acc_id, GA_city, GA_car) VALUES (?,?,?)", [$session_id, $session_city, $car_outcome]);
+DB::run("UPDATE cooldown SET CD_carTheft = " . time() + $cooldown[$alt] . "");
 
-echo 'Du stjal en ' . $car_name[$car_outcome] . ' til en verdi av ' . number($car_price[$car_outcome]) . ' kr! ' . '<|>' . 'success';
+if (mt_rand(0, 100) < $chance[$alt]) {
+    echo 'Du stjal en ' . $car_name[$car_outcome] . ' til en verdi av ' . number($car_price[$car_outcome]) . ' kr! ' . '<|>' . 'success';
+} else {
+    echo 'Du feilet biltyveriet!' . '<|>' . 'danger';
+}

@@ -3,7 +3,8 @@
 include '../../global-variables.php';
 include '../../db/PDODB.php';
 
-$total_cars = DB::run("SELECT count(*) FROM garage WHERE GA_acc_id = ?", [$session_id])->fetchColumn();
+$total_cars =       DB::run("SELECT count(*) FROM garage WHERE GA_acc_id = ?", [$session_id])->fetchColumn();
+$total_things =     DB::run("SELECT count(*) FROM storage WHERE ST_acc_id = ?", [$session_id])->fetchColumn();
 
 ?>
 <div class="col-3">
@@ -19,7 +20,7 @@ $total_cars = DB::run("SELECT count(*) FROM garage WHERE GA_acc_id = ?", [$sessi
                     foreach ($sidebarConfig as $key => $value) {
 
                     ?>
-                        <div hx-get="actions/<?= $key ?>/<?= $key ?>.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="list-group-item list-group-item-action cursor-pointer">
+                        <div hx-get="actions/<?= $key ?>/<?= $key ?>.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="list-group-item list-group-item-action cursor-pointer" id="htmxForm">
                             <?= $value ?>
 
                             <?php
@@ -30,10 +31,14 @@ $total_cars = DB::run("SELECT count(*) FROM garage WHERE GA_acc_id = ?", [$sessi
                                     <span class="text-muted fr">
                                         <span id="total_cars"><?= $total_cars ?></span> / NaN
                                     </span>
-                            <?php
+                                <?php
                                     break;
                                 case 'storageUnit':
-                                    echo '<span class="text-muted fr">NaN / NaN</span>';
+                                ?>
+                                    <span class="text-muted fr">
+                                        <span id="total_things"><?= $total_things ?></span> / NaN
+                                    </span>
+                            <?php
                                     break;
                                 case 'airport':
                                     echo '<span class="text-muted fr">NaN</span>';

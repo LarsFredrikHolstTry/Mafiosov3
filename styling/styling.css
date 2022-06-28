@@ -108,3 +108,7 @@ input:-webkit-autofill {
   justify-content: center;
   display: flex;
 }
+
+.fake-link:hover {
+  text-decoration: underline;
+}
