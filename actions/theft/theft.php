@@ -3,15 +3,15 @@
 include '../../global-variables.php';
 include '../../functions/cooldown-textify.php';
 
-$theftArr[0] = "Lite hus";
-$theftArr[1] = "Middels hus";
-$theftArr[2] = "Enebolig";
-$theftArr[3] = "Herskaplig villa";
+$theftArr[0] = "Ran tatovering studio";
+$theftArr[1] = "Ran restaurant";
+$theftArr[2] = "Stjel verktøy fra byggeplass";
+$theftArr[3] = "Ran casino";
 
-$cooldown[0] = 30;
-$cooldown[1] = 60;
-$cooldown[2] = 120;
-$cooldown[3] = 200;
+$cooldown[0] = 130;
+$cooldown[1] = 260;
+$cooldown[2] = 420;
+$cooldown[3] = 600;
 
 ?>
 <div class="col-12" id="container">

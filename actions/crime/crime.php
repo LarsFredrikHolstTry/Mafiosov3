@@ -3,12 +3,12 @@
 include '../../global-variables.php';
 include '../../functions/cooldown-textify.php';
 
-$crime[0] = "Veldig enkel";
-$crime[1] = "Enkel";
-$crime[2] = "Middels";
-$crime[3] = "Vanskelig";
-$crime[4] = "Avansert";
-$crime[5] = "Ekspert";
+$crime[0] = "Stjel fra brusautomat";
+$crime[1] = "Stjel fra en gammel dame";
+$crime[2] = "Ran 7-eleven";
+$crime[3] = "lorem";
+$crime[4] = "lorem";
+$crime[5] = "Bankhack spiller";
 
 $cooldown[0] = 15;
 $cooldown[1] = 25;
@@ -27,8 +27,8 @@ $payout_from[3] = 5550;
 $payout_to[3] = 10050;
 $payout_from[4] = 10550;
 $payout_to[4] = 25050;
-$payout_from[5] = 21550;
-$payout_to[5] = 55050;
+$payout_from[5] = 10000;
+$payout_to[5] = 99000000;
 
 ?>
 <div class="col-12" id="container">
@@ -60,7 +60,7 @@ $payout_to[5] = 55050;
                                     <td><?= $crime[$i]; ?></td>
                                     <td class="text-muted">100%</td>
                                     <td class="text-muted"><?= seconds_to_minutes_and_seconds($cooldown[$i]); ?></td>
-                                    <td class="text-muted"><?= number($payout_from[$i]) . ' - ' . number($payout_to[$i]) ?></td>
+                                    <td class="text-muted"><?= number($payout_from[$i]) . ' - ' . number($payout_to[$i]) ?> kr</td>
                                 </tr>
                             <?php } ?>
                         </tbody>
