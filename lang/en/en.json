@@ -57,7 +57,8 @@
     "rob": "Rob",
     "theft": "Theft",
     "jail": "Jail",
-    "notifications": "Notifications"
+    "notifications": "Notifications",
+    "playersOnline": "Spillere pålogget"
   },
   "bunker": {
     "notEnoughMoney": "You do not have enough money to use the bunker!",

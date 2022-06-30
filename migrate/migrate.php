@@ -80,7 +80,8 @@ $columns[1] = '
 `AS_EXP` int(10) NOT NULL,
 `AS_rank` int(2) NOT NULL,
 `AS_points` int(10) NOT NULL,
-`AS_city` int(1) NOT NULL';
+`AS_city` int(1) NOT NULL,
+`AS_avatar` varchar(255) NOT NULL default "img/avatars/standard_avatar.png"';
 
 $table[2] = 'garage';
 $columns[2] = '
@@ -154,6 +155,13 @@ $columns[11] = '
 `ST_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `ST_acc_id` int(2) NOT NULL,
 `ST_type` int(15) NOT NULL';
+
+$table[12] = 'user_settings';
+$columns[12] = '
+`US_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`US_acc_id` int(2) NOT NULL,
+`US_max_cars` int(15) NOT NULL,
+`US_max_things` int(15) NOT NULL';
 
 
 $dummy_data[0] = "INSERT INTO roles 

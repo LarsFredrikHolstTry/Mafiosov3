@@ -7,7 +7,9 @@ include '../../db/PDODB.php';
 $total_things_value = 0;
 $total_things = 0;
 
-$stmt = DB::run("SELECT ST_type from storage WHERE ST_acc_id = $session_id");
+$max_things =           DB::run("SELECT US_max_things FROM user_settings WHERE US_acc_id = ?", [$session_id])->fetchColumn();
+$stmt =                 DB::run("SELECT ST_type from storage WHERE ST_acc_id = $session_id");
+
 while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
     $total_things_value = $total_things_value + $thing_price[$row['ST_type']];
     $total_things++;
@@ -29,7 +31,7 @@ while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
                 <span>
                     <span class="text-muted">Total verdi: <?= number($total_things_value) ?> kr</span>
                     <br>
-                    <span class="text-muted">Antall plasser brukt: <?= number($total_things) ?> / NaN</span>
+                    <span class="text-muted">Antall plasser brukt: <?= number($total_things) ?> / <?= number($max_things) ?></span>
                 </span>
 
                 <div class="ms-auto">

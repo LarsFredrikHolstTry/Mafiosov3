@@ -41,6 +41,7 @@ if (isset($_POST['register'])) {
         $last_id = DB::lastInsertId();
         DB::prepare("INSERT INTO account_stat (AS_id, AS_city, AS_money) VALUES (?,?,?)")->execute([$last_id, mt_rand(0, 5), 1000]);
         DB::prepare("INSERT INTO cooldown (CD_acc_id) VALUES (?)")->execute([$last_id]);
+        DB::prepare("INSERT INTO user_settings (US_acc_id, US_max_cars, US_max_things) VALUES (?,?,?)")->execute([$last_id, 10, 10]);
 
         $_SESSION['ID'] = $last_id;
         header("Location: index.php");

@@ -57,7 +57,8 @@
     "rob": "Stjel",
     "theft": "Brekk",
     "jail": "Fengsel",
-    "notifications": "Varsler"
+    "notifications": "Varsler",
+    "playersOnline": "Spillere pålogget"
   },
   "bunker": {
     "notEnoughMoney": "Du har ikke nok penger til å sjekke inn i bunker!",
@@ -195,7 +196,7 @@
     "upload": "Last opp"
   },
   "profile": {
-    "title": "{name} sin profil",
+    "title": "{name}",
     "profileBio": "Profiltekst",
     "role": "Rolle",
     "rank": "Rank",
