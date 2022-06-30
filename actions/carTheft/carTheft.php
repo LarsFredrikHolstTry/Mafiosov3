@@ -69,6 +69,8 @@ $carTheftCooldown =     DB::run("SELECT CD_carTheft FROM cooldown WHERE CD_acc_i
                         var getCarAmount = +$('#total_cars').text();
                         var newCarAmount = getCarAmount + 1;
                         $('#total_cars').text(newCarAmount);
+                        $("#carTheft").removeClass("bg-green-lt");
+                        $("#carTheft").addClass("bg-orange-lt");
                     }
 
                     feedbackReturn(feedbackText, feedbackType);

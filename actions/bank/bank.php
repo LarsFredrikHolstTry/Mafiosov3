@@ -4,6 +4,7 @@ include '../../global-variables.php';
 include '../../db/PDODB.php';
 
 $AS_bankmoney =     DB::run("SELECT AS_bankmoney FROM account_stat WHERE AS_id=?", [$session_id])->fetchColumn();
+$AS_money =         DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$session_id])->fetchColumn();
 $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", [$session_id])->fetchColumn();
 
 ?>
@@ -102,10 +103,10 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                         <h4><?= $useLang->finance->amount; ?> </h4>
                         <div class="input-group mb-2">
                             <span class="input-group-text">
-                                <input class="form-check-input m-0" type="checkbox">
+                                <input class="form-check-input m-0" id="all" type="checkbox">
                                 <span style="margin-left: 10px;"><?= $useLang->finance->all; ?></span>
                             </span>
-                            <input type="text" class="form-control" id="number" autocomplete="off">
+                            <input type="text" placeholder="Beløp" class="form-control" id="number" autocomplete="off">
                         </div>
                         <div class="mb-2">
                             <div class="btn bg-lime-lt cursor-pointer" id="deposit-btn">
@@ -185,7 +186,11 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
 
     $(document).ready(function() {
         $('#deposit-btn').click(function() {
-            var value = $("#number").val();
+            if ($('#all').is(':checked')) {
+                var value = <?= $AS_money ?>;
+            } else {
+                var value = $("#number").val();
+            }
 
             $.ajax({
                 url: 'actions/bank/money_in.inc.php',
@@ -210,8 +215,11 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
 
     $(document).ready(function() {
         $('#withdraw-btn').click(function() {
-            var value = $("#number").val();
-
+            if ($('#all').is(':checked')) {
+                var value = <?= $AS_bankmoney ?>;
+            } else {
+                var value = $("#number").val();
+            }
             $.ajax({
                 url: 'actions/bank/money_out.inc.php',
                 method: 'post',
