@@ -1,10 +1,5 @@
 <?php
 
-$theftArr[0] = "Ran tatovering studio";
-$theftArr[1] = "Ran restaurant";
-$theftArr[2] = "Stjel verktøy fra byggeplass";
-$theftArr[3] = "Ran casino";
-
 // Ran tatovering studio
 $thing_name[0] = 'Barberhøvel';
 $thing_price[0] = 159;
