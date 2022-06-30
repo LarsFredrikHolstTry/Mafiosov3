@@ -14,9 +14,9 @@ $AS_avatar = DB::run("SELECT AS_avatar FROM account_stat WHERE AS_id = ?", [$ses
         </h1>
         <div class="navbar-nav flex-row order-md-last">
             <div class="d-none d-md-flex">
+                <?php include '../messages/messages.php'; ?>
                 <?php include '../friends/friends.php'; ?>
                 <?php include '../notification/notifications.php'; ?>
-
             </div>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
