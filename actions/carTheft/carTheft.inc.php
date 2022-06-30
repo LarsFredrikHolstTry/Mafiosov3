@@ -5,6 +5,10 @@ include '../../functions/cars.php';
 include '../../db/PDODB.php';
 include 'carTheftVariables.inc.php';
 
+// TODO: Check if user has enough space for another car
+// TODO: Check if user has cooldown on carTheft
+// TODO: Give cooldown on succesfull cartheft
+
 $session_city = DB::run("SELECT AS_city FROM account_stat WHERE AS_id = ?", [$session_id])->fetchColumn();
 
 $legal = [0, 1, 2, 3, 4, 5];

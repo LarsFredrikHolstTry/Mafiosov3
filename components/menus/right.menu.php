@@ -68,7 +68,7 @@ $money_hand =   DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$ses
                 <div class="card-body">
                     <ul class="list-unstyled">
                         <li>
-                            <div class="fake-link cursor-pointer text-muted">FAQ</div>
+                            <div hx-get="actions/faq/faq.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="fake-link cursor-pointer text-muted">FAQ</div>
                         </li>
                         <li>
                             <div class="fake-link cursor-pointer text-muted">Support</div>

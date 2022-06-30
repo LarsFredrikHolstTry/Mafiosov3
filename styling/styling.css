@@ -3,6 +3,10 @@ html {
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /*Change text in autofill textbox*/
 input:-webkit-autofill {
   -webkit-text-fill-color: white !important;

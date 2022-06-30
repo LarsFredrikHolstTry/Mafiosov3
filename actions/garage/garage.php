@@ -21,6 +21,9 @@ while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
     <div class="card">
         <div class="card-header">
             <h3 class="card-title"><?= $useLang->action->garage; ?></h3>
+            <div class="ms-auto">
+                <span class="form-help">?</span>
+            </div>
         </div>
         <div class="row align-items-center">
             <img class="center-image" style="width: auto;" src="actions/garage/img/garasje.png" />
