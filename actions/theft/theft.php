@@ -2,16 +2,7 @@
 
 include '../../global-variables.php';
 include '../../functions/cooldown-textify.php';
-
-$theftArr[0] = "Ran tatovering studio";
-$theftArr[1] = "Ran restaurant";
-$theftArr[2] = "Stjel verktøy fra byggeplass";
-$theftArr[3] = "Ran casino";
-
-$cooldown[0] = 130;
-$cooldown[1] = 260;
-$cooldown[2] = 420;
-$cooldown[3] = 600;
+include 'theftVariables.inc.php';
 
 ?>
 <div class="col-12" id="container">
@@ -38,9 +29,9 @@ $cooldown[3] = 600;
                         </thead>
                         <tbody>
                             <?php for ($i = 0; $i < count($theftArr); $i++) { ?>
-                                <tr class="do-crime cursor-pointer" id="<?= $i; ?>">
+                                <tr class="do-theft cursor-pointer" id="<?= $i; ?>">
                                     <td><?= $theftArr[$i]; ?></td>
-                                    <td class="text-muted">100%</td>
+                                    <td class="text-muted"><?= $chance[$i] ?>%</td>
                                     <td class="text-muted"><?= seconds_to_minutes_and_seconds($cooldown[$i]); ?></td>
                                 </tr>
                             <?php } ?>
@@ -53,5 +44,34 @@ $cooldown[3] = 600;
 </div>
 
 <script>
+    $(document).ready(function() {
+        $('.do-theft').click(function() {
+            var alt = $(this).closest(".do-theft").attr("id");;
 
+            $.ajax({
+                url: 'actions/theft/theft.inc.php',
+                method: 'post',
+                data: {
+                    alt: alt,
+                },
+                success: function(response) {
+                    var feedback = response;
+                    feedback = feedback.split("<|>");
+
+                    var feedbackText = feedback[0];
+                    var feedbackType = feedback[1];
+
+                    if (feedbackType == 'success') {
+                        var getCarAmount = +$('#total_things').text();
+                        var newCarAmount = getCarAmount + 1;
+                        $('#total_things').text(newCarAmount);
+                        $("#theft").removeClass("bg-green-lt");
+                        $("#theft").addClass("bg-orange-lt");
+                    }
+
+                    feedbackReturn(feedbackText, feedbackType);
+                }
+            });
+        });
+    });
 </script>

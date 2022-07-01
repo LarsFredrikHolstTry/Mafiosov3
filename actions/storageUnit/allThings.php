@@ -10,9 +10,9 @@ function amount_of_thing($acc_id, $id)
     return $total;
 }
 
-$total_cars = DB::run("SELECT count(*) FROM storage WHERE ST_type = ?", [$session_id])->fetchColumn();
+$total_things = DB::run("SELECT count(*) FROM storage WHERE ST_acc_id = ?", [$session_id])->fetchColumn();
 
-if ($total_cars == 0) {
+if ($total_things == 0) {
     include '../../components/feedback.html';
 ?>
     <script>
@@ -45,7 +45,7 @@ if ($total_cars == 0) {
                 <tr>
                     <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
                     <td><?= $thing_name[$row['ST_type']] ?></td>
-                    <td><?= number($car_price[$row['ST_type']] * $amount) ?> kr</td>
+                    <td><?= number($thing_price[$row['ST_type']] * $amount) ?> kr</td>
                     <td><?= number($amount) ?></td>
                 </tr>
             <?php } ?>
