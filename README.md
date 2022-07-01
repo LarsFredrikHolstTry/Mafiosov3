@@ -19,7 +19,6 @@
 
 - Frontend framework is delivered by tabler [docs](https://preview.tabler.io/docs/index.html)
 - Icons is delivered by tabler-icons [docs](https://tabler-icons.io/)
-  test
 
 ## Authors 🤺
 
