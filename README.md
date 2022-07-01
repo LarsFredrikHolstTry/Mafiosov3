@@ -4,7 +4,6 @@
 
 <p align="center">This is an open source text based mafia game in forever development.<br>If you want to contribute, be my guest.</p>
 
-
 ## Getting Started
 
 ### Installing
@@ -20,6 +19,7 @@
 
 - Frontend framework is delivered by tabler [docs](https://preview.tabler.io/docs/index.html)
 - Icons is delivered by tabler-icons [docs](https://tabler-icons.io/)
+  test
 
 ## Authors 🤺
 
