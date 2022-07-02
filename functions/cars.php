@@ -110,32 +110,10 @@ $car_price[48] = 699000;
 $car_name[49] = 'Mercedes-Benz C-Klasse AMG';
 $car_price[49] = 799900;
 
-// X-Klasse
-$car_name[50] = '';
-$car_price[50] = 0;
-$car_name[51] = '';
-$car_price[51] = 0;
-$car_name[52] = '';
-$car_price[52] = 0;
-$car_name[53] = '';
-$car_price[53] = 0;
-$car_name[54] = '';
-$car_price[54] = 0;
-$car_name[55] = '';
-$car_price[55] = 0;
-$car_name[56] = '';
-$car_price[56] = 0;
-$car_name[57] = '';
-$car_price[57] = 0;
-$car_name[58] = '';
-$car_price[58] = 0;
-$car_name[59] = '';
-$car_price[59] = 0;
-
 // Spezial
-$car_name[60] = 'Lamborghini Aventador';
-$car_price[60] = 6490000;
-$car_name[61] = 'Ferrari 812 Superfast Atelier';
-$car_price[61] = 4290000;
-$car_name[62] = 'Rolls Royce Cullinan V12';
-$car_price[62] = 5999900;
+$car_name[50] = 'Lamborghini Aventador';
+$car_price[50] = 6490000;
+$car_name[51] = 'Ferrari 812 Superfast Atelier';
+$car_price[51] = 4290000;
+$car_name[52] = 'Rolls Royce Cullinan V12';
+$car_price[52] = 5999900;

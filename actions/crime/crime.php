@@ -2,33 +2,7 @@
 
 include '../../global-variables.php';
 include '../../functions/cooldown-textify.php';
-
-$crime[0] = "Stjel fra brusautomat";
-$crime[1] = "Stjel fra en gammel dame";
-$crime[2] = "Ran 7-eleven";
-$crime[3] = "lorem";
-$crime[4] = "lorem";
-$crime[5] = "Bankhack spiller";
-
-$cooldown[0] = 15;
-$cooldown[1] = 25;
-$cooldown[2] = 35;
-$cooldown[3] = 50;
-$cooldown[4] = 70;
-$cooldown[5] = 90;
-
-$payout_from[0] = 150;
-$payout_to[0] = 350;
-$payout_from[1] = 450;
-$payout_to[1] = 1050;
-$payout_from[2] = 1550;
-$payout_to[2] = 5050;
-$payout_from[3] = 5550;
-$payout_to[3] = 10050;
-$payout_from[4] = 10550;
-$payout_to[4] = 25050;
-$payout_from[5] = 10000;
-$payout_to[5] = 99000000;
+include 'crimeVariables.inc.php';
 
 ?>
 <div class="col-12" id="container">
@@ -44,7 +18,7 @@ $payout_to[5] = 99000000;
         <div class="card-body">
             <div class="row align-items-center">
                 <img class="center-image" style="width: auto;" src="actions/crime/img/kriminalitet.png" />
-                <div class="table-responsive">
+                <div class="table-responsive" id="crime_table">
                     <table class="table table-vcenter">
                         <thead>
                             <tr>
@@ -58,7 +32,7 @@ $payout_to[5] = 99000000;
                             <?php for ($i = 0; $i < count($crime); $i++) { ?>
                                 <tr class="do-crime cursor-pointer" id="<?= $i; ?>">
                                     <td><?= $crime[$i]; ?></td>
-                                    <td class="text-muted">100%</td>
+                                    <td class="text-muted"><?= $chance[$i] ?> %</td>
                                     <td class="text-muted"><?= seconds_to_minutes_and_seconds($cooldown[$i]); ?></td>
                                     <td class="text-muted"><?= number($payout_from[$i]) . ' - ' . number($payout_to[$i]) ?> kr</td>
                                 </tr>
@@ -88,9 +62,19 @@ $payout_to[5] = 99000000;
 
                     var feedbackText = feedback[0];
                     var feedbackType = feedback[1];
+                    var cooldown = feedback[2];
 
-                    // htmx.trigger("#bankMoney", "moneyUpdated");
-                    // htmx.trigger("#moneyInHand", "moneyHandUpdated");
+                    if (feedbackType == 'success' || feedbackType == 'danger') {
+                        if (feedbackType == 'success') {
+                            htmx.trigger("#moneyInHand", "moneyHandUpdated");
+                        }
+                        $("#crime").removeClass("bg-green-lt");
+                        $("#crime").addClass("bg-orange-lt");
+                        $("#crime_table").hide().delay(cooldown * 1000).fadeIn(0);
+                        $("#cooldown_crime").text(cooldown);
+                        countdown(cooldown, "cooldown_crime", "crime");
+                    }
+
                     feedbackReturn(feedbackText, feedbackType);
                 }
             });
