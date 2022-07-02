@@ -15,7 +15,7 @@ $legal = [0, 1, 2, 3, 4, 5];
 $alt = $_POST['alt'];
 
 if (!is_numeric($alt) || !in_array($alt, $legal)) {
-    echo 'Ugyldig valg' . '<|>' . 'danger';
+    echo 'Ugyldig valg' . '<|>' . 'warning';
     return;
 }
 
@@ -44,7 +44,7 @@ DB::run("INSERT INTO garage (GA_acc_id, GA_city, GA_car) VALUES (?,?,?)", [$sess
 DB::run("UPDATE cooldown SET CD_carTheft = " . time() + $cooldown[$alt] . "");
 
 if (mt_rand(0, 100) < $chance[$alt]) {
-    echo 'Du stjal en ' . $car_name[$car_outcome] . ' til en verdi av ' . number($car_price[$car_outcome]) . ' kr! ' . '<|>' . 'success';
+    echo 'Du stjal en ' . $car_name[$car_outcome] . ' til en verdi av ' . number($car_price[$car_outcome]) . ' kr! ' . '<|>' . 'success' . '<|>' . $cooldown[$alt];
 } else {
-    echo 'Du feilet biltyveriet!' . '<|>' . 'danger';
+    echo 'Du feilet biltyveriet!' . '<|>' . 'danger' . '<|>' . $cooldown[$alt];
 }

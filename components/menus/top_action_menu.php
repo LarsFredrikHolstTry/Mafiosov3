@@ -20,7 +20,7 @@ include '../../global-variables.php';
                                 <div class="font-weight-medium">
                                     <?= $value ?>
                                 </div>
-                                <div class="text-muted" id="cooldown">
+                                <div class="text-muted" id="cooldown_<?= $key ?>">
                                     Klar
                                 </div>
                             </div>
@@ -28,6 +28,7 @@ include '../../global-variables.php';
                     </div>
                 </a>
             </div>
+
         <?php } ?>
     </div>
 </div>

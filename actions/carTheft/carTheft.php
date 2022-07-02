@@ -64,13 +64,18 @@ $carTheftCooldown =     DB::run("SELECT CD_carTheft FROM cooldown WHERE CD_acc_i
 
                     var feedbackText = feedback[0];
                     var feedbackType = feedback[1];
+                    var cooldown = feedback[2];
 
-                    if (feedbackType == 'success') {
-                        var getCarAmount = +$('#total_cars').text();
-                        var newCarAmount = getCarAmount + 1;
-                        $('#total_cars').text(newCarAmount);
+                    if (feedbackType == 'success' || feedbackType == 'danger') {
+                        if (feedbackType == 'success') {
+                            var getCarAmount = +$('#total_cars').text();
+                            var newCarAmount = getCarAmount + 1;
+                            $('#total_cars').text(newCarAmount);
+                        }
                         $("#carTheft").removeClass("bg-green-lt");
                         $("#carTheft").addClass("bg-orange-lt");
+                        $("#cooldown_carTheft").text(cooldown);
+                        countdown(cooldown, "cooldown_carTheft", "carTheft");
                     }
 
                     feedbackReturn(feedbackText, feedbackType);
