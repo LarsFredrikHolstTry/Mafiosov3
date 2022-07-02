@@ -13,7 +13,7 @@ $legal = [0, 1, 2, 3];
 $alt = $_POST['alt'];
 
 if (!is_numeric($alt) || !in_array($alt, $legal)) {
-    echo 'Ugyldig valg' . '<|>' . 'danger';
+    echo 'Ugyldig valg' . '<|>' . 'warning';
     return;
 }
 
@@ -36,7 +36,7 @@ DB::run("INSERT INTO storage (ST_acc_id, ST_type) VALUES (?,?)", [$session_id, $
 DB::run("UPDATE cooldown SET CD_theft = " . time() + $cooldown[$alt] . "");
 
 if (mt_rand(0, 100) < $chance[$alt]) {
-    echo 'Du stjal ' . $thing_name[$thing_outcome] . ' til en verdi av ' . number($thing_price[$thing_outcome]) . ' kr! ' . '<|>' . 'success';
+    echo 'Du stjal ' . $thing_name[$thing_outcome] . ' til en verdi av ' . number($thing_price[$thing_outcome]) . ' kr! ' . '<|>' . 'success' . '<|>' . $cooldown[$alt];
 } else {
-    echo 'Du feilet brekket!' . '<|>' . 'danger';
+    echo 'Du feilet brekket!' . '<|>' . 'danger' . '<|>' . $cooldown[$alt];
 }

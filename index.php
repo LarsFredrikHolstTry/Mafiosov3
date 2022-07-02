@@ -19,6 +19,7 @@ if (isset($_SESSION['ID'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <noscript>Javascript is required to run Mafioso.</noscript>
     <title>Mafioso</title>
 
     <!-- HTMX -->
@@ -38,19 +39,22 @@ if (isset($_SESSION['ID'])) {
 
     <!-- Local styling -->
     <link rel='stylesheet' href='styling/styling.css' />
+
+    <!-- Local javascript files -->
     <script src="js/table.js"></script>
     <script src="js/number.js"></script>
     <script src="js/feedback.js"></script>
+    <script src="js/countdown.js"></script>
+
+    <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="img/logo/favicon.ico">
 
     <!-- Dropzone -->
     <script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
     <link href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css" />
 
+    <!-- Apexcharts -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
-    <noscript>Javascript is required to run Mafioso.</noscript>
-
 </head>
 
 <body class='theme-dark'>

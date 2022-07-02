@@ -46,7 +46,7 @@ include 'theftVariables.inc.php';
 <script>
     $(document).ready(function() {
         $('.do-theft').click(function() {
-            var alt = $(this).closest(".do-theft").attr("id");;
+            var alt = $(this).closest(".do-theft").attr("id");
 
             $.ajax({
                 url: 'actions/theft/theft.inc.php',
@@ -60,13 +60,18 @@ include 'theftVariables.inc.php';
 
                     var feedbackText = feedback[0];
                     var feedbackType = feedback[1];
+                    var cooldown = feedback[2];
 
-                    if (feedbackType == 'success') {
-                        var getCarAmount = +$('#total_things').text();
-                        var newCarAmount = getCarAmount + 1;
-                        $('#total_things').text(newCarAmount);
+                    if (feedbackType == 'success' || feedbackType == 'danger') {
+                        if (feedbackType == 'success') {
+                            var getThingAmount = +$('#total_things').text();
+                            var newThingAmount = getThingAmount + 1;
+                            $('#total_things').text(newThingAmount);
+                        }
                         $("#theft").removeClass("bg-green-lt");
                         $("#theft").addClass("bg-orange-lt");
+                        $("#cooldown_theft").text(cooldown);
+                        countdown(cooldown, "cooldown_theft", "theft");
                     }
 
                     feedbackReturn(feedbackText, feedbackType);
