@@ -136,7 +136,7 @@ if (isset($_GET['userUnable'])) {
                     <div class="mb-3">
                         <label class="form-check">
                             <input type="checkbox" name="terms" class="form-check-input">
-                            <span class="form-check-label"><?= $useLang->register->agree; ?> <a href="./terms-of-service.html" tabindex="-1"><?= $useLang->register->termsAndConditions; ?></a>.</span>
+                            <span class="form-check-label"><?= $useLang->register->agree; ?> <a href="terms.html" tabindex="-1"><?= $useLang->register->termsAndConditions; ?></a>.</span>
                         </label>
                     </div>
                     <div class="form-footer">

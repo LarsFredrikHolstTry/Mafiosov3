@@ -43,7 +43,7 @@ $money_hand =   DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$ses
             </p>
         </div>
         <div class="card-body" style="border-top: none; padding-top: 0;">
-            <div hx-get="components/rankbar/rankbar.php" hx-trigger="load, every 10s"></div>
+            <div hx-get="components/rankbar/rankbar.php" hx-trigger="load, every 1s"></div>
         </div>
         <div class="hr-text">
             <span>Annet</span>

@@ -1,6 +1,7 @@
 <?php
 
 include '../../functions/cars.php';
+include '../../actions/carTheft/carTheftVariables.inc.php';
 
 ?>
 
@@ -30,9 +31,9 @@ include '../../functions/cars.php';
                             <table class="table table-vcenter">
                                 <thead>
                                     <tr>
-                                        <th>Bilmerke</th>
-                                        <th>Klasse</th>
-                                        <th>Pris</th>
+                                        <th style="width: 33%;">Bilmerke</th>
+                                        <th style="width: 33%;">Klasse</th>
+                                        <th style="width: 33%;">Pris</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,13 +41,17 @@ include '../../functions/cars.php';
 
                                     <?php
 
+                                    $class = 0;
                                     for ($i = 0; $i < count($car_name); $i++) {
+                                        if ($i != 0 && $i % 10 == 0) {
+                                            $class++;
+                                        }
 
                                     ?>
                                         <tr>
                                             <td><?= $car_name[$i]; ?></td>
                                             <td class="text-muted">
-                                                Klasse Lorem
+                                                <?= $carTheftArr[$class] ?? 'Spezial Class'; ?>
                                             </td>
                                             <td class="text-muted">
                                                 <?= number($car_price[$i]) ?> kr
