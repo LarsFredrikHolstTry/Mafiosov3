@@ -22,7 +22,7 @@ $carTheftCooldown =     DB::run("SELECT CD_carTheft FROM cooldown WHERE CD_acc_i
             <div class="row align-items-center">
                 <img class="center-image" style="width: auto;" src="actions/carTheft/img/biltyveri.png" />
                 <?php include 'cooldown.php'; ?>
-                <div class="table-responsive">
+                <div class="table-responsive" id="carTheft_table">
                     <table class="table table-vcenter">
                         <thead>
                             <tr>
@@ -74,6 +74,7 @@ $carTheftCooldown =     DB::run("SELECT CD_carTheft FROM cooldown WHERE CD_acc_i
                         }
                         $("#carTheft").removeClass("bg-green-lt");
                         $("#carTheft").addClass("bg-orange-lt");
+                        $("#carTheft_table").hide().delay(cooldown * 1000).fadeIn(0);
                         $("#cooldown_carTheft").text(cooldown);
                         countdown(cooldown, "cooldown_carTheft", "carTheft");
                     }

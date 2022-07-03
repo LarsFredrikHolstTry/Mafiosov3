@@ -18,7 +18,7 @@ include 'theftVariables.inc.php';
         <div class="card-body">
             <div class="row align-items-center">
                 <img class="center-image" style="width: auto;" src="actions/theft/img/brekk.png" />
-                <div class="table-responsive">
+                <div class="table-responsive" id="theft_table">
                     <table class="table table-vcenter">
                         <thead>
                             <tr>
@@ -70,6 +70,7 @@ include 'theftVariables.inc.php';
                         }
                         $("#theft").removeClass("bg-green-lt");
                         $("#theft").addClass("bg-orange-lt");
+                        $("#theft_table").hide().delay(cooldown * 1000).fadeIn(0);
                         $("#cooldown_theft").text(cooldown);
                         countdown(cooldown, "cooldown_theft", "theft");
                     }
