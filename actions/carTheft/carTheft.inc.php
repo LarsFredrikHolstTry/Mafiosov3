@@ -6,16 +6,37 @@ include '../../db/PDODB.php';
 include 'carTheftVariables.inc.php';
 
 // TODO: Check if user has enough space for another car
-// TODO: Check if user has cooldown on carTheft
-// TODO: Give cooldown on succesfull cartheft
 
-$session_city = DB::run("SELECT AS_city FROM account_stat WHERE AS_id = ?", [$session_id])->fetchColumn();
+function hasMaxCars($user_id, $amountOfCars)
+{
+    $total_cars =           DB::run("SELECT count(*) FROM garage WHERE GA_acc_id = ?", [$user_id])->fetchColumn();
+    $max_cars =             DB::run("SELECT US_max_cars FROM user_settings WHERE US_acc_id = ?", [$user_id])->fetchColumn();
+
+    if ($amountOfCars + $total_cars > $max_cars) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+$session_city =     DB::run("SELECT AS_city FROM account_stat WHERE AS_id = ?", [$session_id])->fetchColumn();
+$carTheft_cd =      DB::run("SELECT CD_carTheft FROM cooldown WHERE CD_acc_id = ?", [$session_id])->fetchColumn();
 
 $legal = [0, 1, 2, 3, 4, 5];
 $alt = $_POST['alt'];
 
 if (!is_numeric($alt) || !in_array($alt, $legal)) {
     echo 'Ugyldig valg' . '<|>' . 'warning';
+    return;
+}
+
+if ($carTheft_cd > time()) {
+    echo 'Du har ventetid!' . '<|>' . 'warning';
+    return;
+}
+
+if (hasMaxCars($session_id, 1)) {
+    echo 'Du har full garase!' . '<|>' . 'warning';
     return;
 }
 
@@ -41,7 +62,7 @@ switch ($alt) {
 }
 
 DB::run("INSERT INTO garage (GA_acc_id, GA_city, GA_car) VALUES (?,?,?)", [$session_id, $session_city, $car_outcome]);
-DB::run("UPDATE cooldown SET CD_carTheft = " . time() + $cooldown[$alt] . "");
+DB::run("UPDATE cooldown SET CD_carTheft = " . time() + $cooldown[$alt] . " WHERE CD_acc_id = " . $session_id);
 
 if (mt_rand(0, 100) < $chance[$alt]) {
     echo 'Du stjal en ' . $car_name[$car_outcome] . ' til en verdi av ' . number($car_price[$car_outcome]) . ' kr! ' . '<|>' . 'success' . '<|>' . $cooldown[$alt];

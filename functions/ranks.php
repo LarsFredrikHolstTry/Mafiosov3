@@ -39,21 +39,51 @@ $rank_to[10] =      $rank_to[9] * 2;
 $rank_from[11] =    $rank_to[10] + 1;
 $rank_to[11] =      $rank_to[10] * 2;
 $rank_from[12] =    $rank_to[11] + 1;
-$rank_to[12] =      $rank_to[11] * 2;
+$rank_to[12] =      1000000;
+
+$rank_prize[0] = 10;
+$rank_prize[1] = 10;
+$rank_prize[2] = 10;
+$rank_prize[3] = 10;
+$rank_prize[4] = 10;
+$rank_prize[5] = 10;
+$rank_prize[6] = 10;
+$rank_prize[7] = 10;
+$rank_prize[8] = 10;
+$rank_prize[9] = 10;
+$rank_prize[10] = 10;
+$rank_prize[11] = 10;
+$rank_prize[12] = 10;
 
 function rank_progress($rank, $exp, $rank_from, $rank_to)
 {
     if (!$exp || $exp == 0) {
         return 0;
     } else {
-        if ($rank < 12) {
+        if ($rank == 12) {
+            return 100;
+        } elseif ($rank < 12) {
             $rankplusen = ($rank + 1);
             $percent4 = ($rank_from[$rankplusen] - $exp);
             $percent5 = ($rank_to[$rank] - $rank_from[$rank]);
             $percent6 = ($percent4 / $percent5) * 100;
-            return $percent7 = (100 - $percent6);
-        } elseif ($rank == 12) {
-            return $percent7 = 100;
+            return 100 - $percent6;
         }
+    }
+}
+
+function check_rankup($id, $rank, $exp, $rank_from, $rank_to, $rank_prize)
+{
+    if (rank_progress($rank, $exp, $rank_from, $rank_to) >= 100 && $rank < 12) {
+        DB::run("UPDATE account_stat SET AS_rank = AS_rank + 1, AS_money = AS_money + " . $rank_prize[$rank + 1] . " WHERE AS_id = " . $id . "");
+
+        // $text = " ranket opp til " . rank_list($rank + 1) . "";
+        // $sql = "INSERT INTO last_events (LAEV_user, LAEV_text, LAEV_date) VALUES (?,?,?)";
+        // $stmt = $pdo->prepare($sql);
+        // $stmt->execute([$id, $text, time()]);
+
+        // give_money($id, rank_prize($rank + 1), $pdo);
+        // $text = "Gratulerer, du har ranket opp til " . rank_list($rank + 1) . " og får " . number(rank_prize($rank + 1)) . " kr";
+        // send_notification($id, $text, $pdo);
     }
 }

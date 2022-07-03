@@ -19,6 +19,7 @@ include '../../global-variables.php';
                     <?php
 
                     include 'sections/intro.php';
+                    include 'sections/ranks.php';
                     include 'sections/carTheft.php';
 
                     ?>
