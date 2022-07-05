@@ -24,7 +24,7 @@
     "message": "Melding",
     "messageText": "Skriv en melding til mottaker",
     "send": "Send",
-    "lastTransfers": "Siste overførsler"
+    "lastTransfers": "Siste 20 overførsler"
   },
   "action": {
     "placebo": "Lorem ipsum",

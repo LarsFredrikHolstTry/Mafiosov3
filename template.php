@@ -5,7 +5,7 @@ include '../../global-variables.php';
 ?>
 <div class="col-12" id="container">
 
-    <?php include '../../components/feedback.html'; ?>
+    <div id="feedback-container"></div>
 
     <div class="card">
         <div class="card-header">

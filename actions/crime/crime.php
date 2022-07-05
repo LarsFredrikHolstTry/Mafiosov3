@@ -7,7 +7,7 @@ include 'crimeVariables.inc.php';
 ?>
 <div class="col-12" id="container">
 
-    <?php include '../../components/feedback.html'; ?>
+    <div id="feedback-container"></div>
 
     <div class="card">
         <div class="card-header">
@@ -50,6 +50,8 @@ include 'crimeVariables.inc.php';
         $('.do-crime').click(function() {
             var alt = $(this).closest(".do-crime").attr("id");;
 
+            $("#feedback-container").load("components/feedback.html");
+
             $.ajax({
                 url: 'actions/crime/crime.inc.php',
                 method: 'post',
@@ -67,6 +69,7 @@ include 'crimeVariables.inc.php';
                     if (feedbackType == 'success' || feedbackType == 'danger') {
                         if (feedbackType == 'success') {
                             htmx.trigger("#moneyInHand", "moneyHandUpdated");
+                            htmx.trigger("#rankbar", "rankbarUpdated");
                         }
                         $("#crime").removeClass("bg-green-lt");
                         $("#crime").addClass("bg-orange-lt");

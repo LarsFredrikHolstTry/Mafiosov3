@@ -7,7 +7,7 @@ include 'theftVariables.inc.php';
 ?>
 <div class="col-12" id="container">
 
-    <?php include '../../components/feedback.html'; ?>
+    <div id="feedback-container"></div>
 
     <div class="card">
         <div class="card-header">
@@ -47,6 +47,7 @@ include 'theftVariables.inc.php';
     $(document).ready(function() {
         $('.do-theft').click(function() {
             var alt = $(this).closest(".do-theft").attr("id");
+            $("#feedback-container").load("components/feedback.html");
 
             $.ajax({
                 url: 'actions/theft/theft.inc.php',
@@ -55,6 +56,7 @@ include 'theftVariables.inc.php';
                     alt: alt,
                 },
                 success: function(response) {
+
                     var feedback = response;
                     feedback = feedback.split("<|>");
 
@@ -67,6 +69,7 @@ include 'theftVariables.inc.php';
                             var getThingAmount = +$('#total_things').text();
                             var newThingAmount = getThingAmount + 1;
                             $('#total_things').text(newThingAmount);
+                            htmx.trigger("#rankbar", "rankbarUpdated");
                         }
                         $("#theft").removeClass("bg-green-lt");
                         $("#theft").addClass("bg-orange-lt");
@@ -74,6 +77,7 @@ include 'theftVariables.inc.php';
                         $("#cooldown_theft").text(cooldown);
                         countdown(cooldown, "cooldown_theft", "theft");
                     }
+
 
                     feedbackReturn(feedbackText, feedbackType);
                 }

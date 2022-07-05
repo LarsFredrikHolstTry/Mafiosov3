@@ -11,7 +11,7 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
 
 <div class="col-12" id="container">
 
-    <?php include '../../components/feedback.html'; ?>
+    <div id="feedback-container"></div>
 
     <div class="card">
         <div class="card-header">
@@ -137,22 +137,21 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                                     <span class="input-icon-addon">
                                         <i class="ti ti-user"></i>
                                     </span>
-                                    <input type="text" value="" class="form-control" placeholder="<?= $useLang->finance->username; ?>">
+                                    <input type="text" id="username" class="form-control" placeholder="<?= $useLang->finance->username; ?>">
                                 </div>
-
                             </div>
                             <div class="col-lg-6">
                                 <label class="form-label"><?= $useLang->finance->amount; ?></label>
-                                <input type="text" class="form-control" name="example-password-input" id="numberWire" placeholder="<?= $useLang->finance->amount; ?>">
+                                <input type="text" id="money" class="form-control" name="example-password-input" id="numberWire" placeholder="<?= $useLang->finance->amount; ?>">
                             </div>
                             <div class="col-lg-12 mb-2">
                                 <label class="form-label"><?= $useLang->finance->message; ?></label>
-                                <textarea class="form-control" name="example-textarea" placeholder="<?= $useLang->finance->messageText; ?>"></textarea>
+                                <textarea class="form-control" id="message" name="example-textarea" placeholder="<?= $useLang->finance->messageText; ?>"></textarea>
                             </div>
                             <div class="col-lg-12">
                                 <div class="d-flex">
                                     <span class="text-muted">10% overføringsgebyr</span>
-                                    <button type="button" class="btn bg-azure-lt btn-md ms-auto">
+                                    <div class="btn bg-azure-lt btn-md ms-auto" id="transfer-btn">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                             <line x1="5" y1="12" x2="19" y2="12" />
@@ -160,7 +159,7 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                                             <line x1="15" y1="8" x2="19" y2="12" />
                                         </svg>
                                         <?= $useLang->finance->wireMoney; ?>
-                                    </button>
+                                    </div>
                                 </div>
 
                             </div>
@@ -171,12 +170,11 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
         </div>
     </div>
     <div class="card">
-        <div class="card-body">
-            <div class="row align-items-center">
-                <div class="hr-text">
-                    <span><?= $useLang->finance->lastTransfers; ?></span>
-                </div>
+        <div class="row align-items-center">
+            <div class="hr-text">
+                <span><?= $useLang->finance->lastTransfers; ?></span>
             </div>
+            <div hx-get="actions/bank/transfers.inc.php" id="transferMoney" hx-trigger="load, transferUpdate"></div>
         </div>
     </div>
 </div>
@@ -191,6 +189,8 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
             } else {
                 var value = $("#number").val();
             }
+
+            $("#feedback-container").load("components/feedback.html");
 
             $.ajax({
                 url: 'actions/bank/money_in.inc.php',
@@ -220,6 +220,9 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
             } else {
                 var value = $("#number").val();
             }
+
+            $("#feedback-container").load("components/feedback.html");
+
             $.ajax({
                 url: 'actions/bank/money_out.inc.php',
                 method: 'post',
@@ -235,6 +238,36 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
 
                     htmx.trigger("#bankMoney", "moneyUpdated");
                     htmx.trigger("#moneyInHand", "moneyHandUpdated");
+                    feedbackReturn(feedbackText, feedbackType);
+                }
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        $('#transfer-btn').click(function() {
+            var username = $("#username").val();
+            var money = $("#money").val();
+            var message = $("#message").val();
+            $("#feedback-container").load("components/feedback.html");
+
+            $.ajax({
+                url: 'actions/bank/transfer_money.inc.php',
+                method: 'post',
+                data: {
+                    username: username,
+                    money: money,
+                    message: message
+                },
+                success: function(response) {
+                    var feedback = response;
+                    feedback = feedback.split("<|>");
+
+                    var feedbackText = feedback[0];
+                    var feedbackType = feedback[1];
+
+                    htmx.trigger("#bankMoney", "moneyUpdated");
+                    htmx.trigger("#transferMoney", "transferUpdate");
                     feedbackReturn(feedbackText, feedbackType);
                 }
             });

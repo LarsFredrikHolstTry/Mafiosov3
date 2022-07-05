@@ -13,7 +13,15 @@ $user_settings =        DB::run("SELECT US_max_cars, US_max_things FROM user_set
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="btn bg-green-lt cursor-pointer">Gå i bunker</div>
+                    <div class="df aic">
+                        <div class="btn bg-green-lt cursor-pointer" id="bunker_in">Gå i bunker</div>
+                        <div>
+                            <p class="lh-base" style="margin: 0; margin-left: 1rem"><strong>Pris: 1000kr</strong><br>
+                                <span class="text-muted small">Tid: 24t</span>
+                            </p>
+
+                        </div>
+                    </div>
                 </div>
                 <div class="list-group list-group-flush">
                     <?php
@@ -60,3 +68,20 @@ $user_settings =        DB::run("SELECT US_max_cars, US_max_things FROM user_set
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('#bunker_in').click(function() {
+            if ($("#bunker_in.bg-green-lt")[0]) {
+                $("#bunker_in").removeClass("bg-green-lt");
+                $("#bunker_in").addClass("bg-orange-lt");
+                $("#bunker_in").text("Gå ut av bunker");
+            } else {
+                $("#bunker_in").removeClass("bg-orange-lt");
+                $("#bunker_in").addClass("bg-green-lt");
+                $("#bunker_in").text("Gå i bunker");
+            }
+
+        })
+    })
+</script>

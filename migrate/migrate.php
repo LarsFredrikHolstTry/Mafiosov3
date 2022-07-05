@@ -161,8 +161,17 @@ $columns[12] = '
 `US_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `US_acc_id` int(2) NOT NULL,
 `US_max_cars` int(15) NOT NULL,
-`US_max_things` int(15) NOT NULL';
+`US_max_things` int(15) NOT NULL,
+`US_toprank_amt` int(2) NOT NULL';
 
+$table[13] = 'bank_transfer';
+$columns[13] = '
+`BT_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`BT_from` int(2) NOT NULL,
+`BT_to` int(2) NOT NULL,
+`BT_money` bigint(20) NOT NULL,
+`BT_message` TEXT NOT NULL,
+`BT_date` int(15) NOT NULL';
 
 $dummy_data[0] = "INSERT INTO roles 
 (RO_alias, RO_name, RO_access) 
