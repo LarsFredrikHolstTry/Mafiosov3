@@ -17,7 +17,7 @@ include '../../db/PDODB.php';
             <table class="table table-vcenter table-mobile-md card-table">
                 <thead>
                     <tr>
-                        <th>Spiller</th>
+                        <th>Mafioso</th>
                         <th>Sist aktiv</th>
                     </tr>
                 </thead>

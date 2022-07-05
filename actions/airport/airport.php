@@ -6,7 +6,7 @@ include '../../functions/cities.php';
 ?>
 <div class="col-12" id="container">
 
-    <?php include '../../components/feedback.html'; ?>
+    <div id="feedback-container"></div>
 
     <div class="page-header d-print-none">
         <div class="row g-2 align-items-center">
@@ -44,6 +44,7 @@ include '../../functions/cities.php';
     $(document).ready(function() {
         $('.travel').click(function() {
             var city = $(this).attr('id');
+            $("#feedback-container").load("components/feedback.html");
 
             $.ajax({
                 url: 'actions/airport/airport.inc.php',

@@ -9,7 +9,7 @@ $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", 
 ?>
 <div class="col-12" id="container">
 
-    <?php include '../../components/feedback.html'; ?>
+    <div id="feedback-container"></div>
 
     <div class="card">
         <div class="card-header">
@@ -41,6 +41,8 @@ $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", 
     $(document).ready(function() {
         $('#save-btn').click(function() {
             var value = $("#profile_text").val();
+
+            $("#feedback-container").load("components/feedback.html");
 
             $.ajax({
                 url: 'actions/editProfile/editProfile.inc.php',

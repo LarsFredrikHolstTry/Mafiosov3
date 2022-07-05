@@ -43,7 +43,7 @@ $money_hand =   DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$ses
             </p>
         </div>
         <div class="card-body" style="border-top: none; padding-top: 0;">
-            <div hx-get="components/rankbar/rankbar.php" hx-trigger="load, every 1s"></div>
+            <div hx-get="components/rankbar/rankbar.php" id="rankbar" hx-trigger="load, every 60s, rankbarUpdated"></div>
         </div>
         <div class="hr-text">
             <span>Annet</span>
@@ -73,6 +73,11 @@ $money_hand =   DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$ses
                         <li>
                             <div class="fake-link cursor-pointer text-muted">Support</div>
                         </li>
+                        <li>
+                            <a target="_blank" href="https://github.com/LarsFredrikHolstTry/Mafiosov3" class="fake-link cursor-pointer text-muted">Github</a>
+                        </li>
+
+
                     </ul>
                 </div>
             </div>

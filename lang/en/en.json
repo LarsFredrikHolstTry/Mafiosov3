@@ -24,7 +24,7 @@
     "message": "Message",
     "messageText": "Write a message to the receiver",
     "send": "Send",
-    "lastTransfers": "Last transfers"
+    "lastTransfers": "Last 20 transfers"
   },
   "action": {
     "placebo": "Lorem ipsum",
