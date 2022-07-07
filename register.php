@@ -44,7 +44,7 @@ if (isset($_POST['register'])) {
         DB::prepare("INSERT INTO user_settings (US_acc_id, US_max_cars, US_max_things) VALUES (?,?,?)")->execute([$last_id, 10, 10]);
 
         $_SESSION['ID'] = $last_id;
-        header("Location: index.php");
+        header("Location: mf.php");
     }
 }
 

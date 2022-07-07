@@ -2,6 +2,7 @@
   "sidebarConfig": {
     "bank": "Bank",
     "myBusiness": "My businesses",
+    "hospital": "Hospital",
     "market": "Market",
     "garage": "Garage",
     "storageUnit": "Storage Unit",
@@ -9,6 +10,7 @@
     "heist": "Heist",
     "mission": "Mission",
     "stockMarket": "Stock market",
-    "family": "Family"
+    "family": "Family",
+    "lotto": "Lotto"
   }
 }

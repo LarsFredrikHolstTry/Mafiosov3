@@ -7,7 +7,6 @@ include '../../functions/ranks.php';
 $user =         DB::run("SELECT AS_rank, AS_EXP FROM account_stat WHERE AS_id=?", [$session_id])->fetch();
 
 ?>
-<h3>Rankbar</h3>
 <div class="d-flex mb-2">
     <?php if ($user['AS_rank'] == 12) {
 

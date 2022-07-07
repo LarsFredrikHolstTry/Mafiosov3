@@ -4,12 +4,11 @@ include '../env.php';
 
 $button_disabled = false;
 
-// TODO: Make this actually work ^^
-// $whitelist = array('127.0.0.1', "::1", "5.83.227.250");
+$whitelist = array('127.0.0.1', "::1");
 
-// if (!in_array($_SERVER['REMOTE_ADDR'], $whitelist)) {
-//     $button_disabled = true;
-// }
+if (!in_array($_SERVER['REMOTE_ADDR'], $whitelist)) {
+    $button_disabled = true;
+}
 
 function migrate_success_feedback(string $text, string $sql)
 {
@@ -79,8 +78,10 @@ $columns[1] = '
 `AS_bankmoney` bigint(20) NOT NULL,
 `AS_EXP` int(10) NOT NULL,
 `AS_rank` int(2) NOT NULL,
+`AS_health` int(3) NOT NULL default 100,
 `AS_points` int(10) NOT NULL,
 `AS_city` int(1) NOT NULL,
+`AS_fightpoints` bigint(20) NOT NULL,
 `AS_avatar` varchar(255) NOT NULL default "img/avatars/standard_avatar.png"';
 
 $table[2] = 'garage';
@@ -173,6 +174,13 @@ $columns[13] = '
 `BT_message` TEXT NOT NULL,
 `BT_date` int(15) NOT NULL';
 
+$table[14] = 'fc_fights';
+$columns[14] = '
+`FC_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`FC_loser` int(2) NOT NULL,
+`FC_winner` int(2) NOT NULL,
+`FC_date` int(15) NOT NULL';
+
 $dummy_data[0] = "INSERT INTO roles 
 (RO_alias, RO_name, RO_access) 
 VALUES 
@@ -234,7 +242,6 @@ VALUES
                                 Migrate
                             </h2>
                         </div>
-                        <!-- Page title actions -->
                         <div class="col-12 col-md-auto ms-auto d-print-none">
                             <div class="btn-list">
                                 <button type="button" class="btn 

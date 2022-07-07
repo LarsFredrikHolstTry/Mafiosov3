@@ -17,7 +17,7 @@ include 'theftVariables.inc.php';
         </div>
         <div class="card-body">
             <div class="row align-items-center">
-                <img class="center-image" style="width: auto;" src="actions/theft/img/brekk.png" />
+                <img class="center-image" src="actions/theft/img/brekk.png" />
                 <div class="table-responsive" id="theft_table">
                     <table class="table table-vcenter">
                         <thead>

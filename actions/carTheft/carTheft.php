@@ -20,7 +20,7 @@ $carTheftCooldown =     DB::run("SELECT CD_carTheft FROM cooldown WHERE CD_acc_i
         </div>
         <div class="card-body">
             <div class="row align-items-center">
-                <img class="center-image" style="width: auto;" src="actions/carTheft/img/biltyveri.png" />
+                <img class="center-image" src="actions/carTheft/img/biltyveri.png" />
                 <?php include 'cooldown.php'; ?>
                 <div class="table-responsive" id="carTheft_table">
                     <table class="table table-vcenter">

@@ -39,7 +39,9 @@ $AS_avatar = DB::run("SELECT AS_avatar FROM account_stat WHERE AS_id = ?", [$ses
                     ?>
 
                     <?php
+
                     if ($ACC_row['ACC_role'] > 1) {
+
                     ?>
                         <a hx-post="actions/admin/admin.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="dropdown-item" href="#">Admin</a>
                     <?php
