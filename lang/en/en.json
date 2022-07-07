@@ -57,8 +57,10 @@
     "rob": "Rob",
     "theft": "Theft",
     "jail": "Jail",
-    "notifications": "Notifications",
-    "playersOnline": "Spillere pålogget"
+    "notifications": "Varsler",
+    "playersOnline": "Spillere pålogget",
+    "lufthansaHeist": "Lufthansa Heist",
+    "hospital": "Sykehus"
   },
   "bunker": {
     "notEnoughMoney": "You do not have enough money to use the bunker!",

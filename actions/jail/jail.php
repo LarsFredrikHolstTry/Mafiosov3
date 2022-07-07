@@ -20,7 +20,7 @@ $city_id = DB::run("SELECT AS_city FROM account_stat WHERE AS_id = ?", [$session
         </div>
         <div class="card-body">
             <div class="row align-items-center">
-                <img class="center-image" style="width: auto;" src="actions/jail/img/fengsel.png" />
+                <img class="center-image" src="actions/jail/img/fengsel.png" />
                 <script>
                     var feedbackText = 'Det er for tiden ingen i fengsel';
                     var feedbackType = 'info';

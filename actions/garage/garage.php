@@ -25,23 +25,25 @@ while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
                 <span class="form-help">?</span>
             </div>
         </div>
-        <div class="row align-items-center">
-            <img class="center-image" style="width: auto;" src="actions/garage/img/garasje.png" />
-            <div hx-get="actions/garage/cars.php" hx-trigger="load"></div>
-        </div>
-        <div class="card-footer">
-            <div class="d-flex">
-                <span>
-                    <span class="text-muted">Total verdi: <?= number($total_car_value) ?> kr</span>
-                    <br>
-                    <span class="text-muted">Antall plasser brukt: <?= number($total_cars) ?> / <?= number($max_cars) ?></span>
-                </span>
+        <div class="card-body">
+            <div class="row align-items-center">
+                <img class="center-image" src="actions/garage/img/garasje.png" />
+                <div hx-get="actions/garage/cars.php" hx-trigger="load"></div>
+            </div>
+            <div class="card-footer">
+                <div class="d-flex">
+                    <span>
+                        <span class="text-muted">Total verdi: <?= number($total_car_value) ?> kr</span>
+                        <br>
+                        <span class="text-muted">Antall plasser brukt: <?= number($total_cars) ?> / <?= number($max_cars) ?></span>
+                    </span>
 
-                <div class="ms-auto">
-                    <a href="#" class="btn bg-green-lt btn-md">Selg valgte</a>
-                    <a href="#" class="btn bg-blue-lt btn-md">Selg Alle</a>
+                    <div class="ms-auto">
+                        <a href="#" class="btn bg-green-lt btn-md">Selg valgte</a>
+                        <a href="#" class="btn bg-blue-lt btn-md">Selg Alle</a>
+                    </div>
+
                 </div>
-
             </div>
         </div>
     </div>

@@ -61,6 +61,7 @@ include '../../functions/cities.php';
 
                     htmx.trigger("#city", "cityUpdated");
                     htmx.trigger("#moneyInHand", "moneyHandUpdated");
+                    htmx.trigger("#leftmenu", "leftMenuUpdate");
 
                     feedbackReturn(feedbackText, feedbackType);
                 }

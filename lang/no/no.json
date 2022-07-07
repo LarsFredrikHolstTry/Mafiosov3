@@ -58,7 +58,9 @@
     "theft": "Brekk",
     "jail": "Fengsel",
     "notifications": "Varsler",
-    "playersOnline": "Spillere pålogget"
+    "playersOnline": "Spillere pålogget",
+    "lufthansaHeist": "Lufthansa Heist",
+    "hospital": "Hospital"
   },
   "bunker": {
     "notEnoughMoney": "Du har ikke nok penger til å sjekke inn i bunker!",

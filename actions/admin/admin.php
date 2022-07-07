@@ -2,6 +2,8 @@
 
 include '../../global-variables.php';
 
+// TODO: Check if user has access to admin panel
+
 ?>
 <div class="col-12" id="container">
 
@@ -71,14 +73,11 @@ include '../../global-variables.php';
                                 curve: "straight",
                             },
                             series: [{
-                                name: "Session Duration",
-                                data: [117, 92, 94, 98, 75, 110, 69, 80, 109, 113, 115, 95]
-                            }, {
                                 name: "Page Views",
-                                data: [59, 80, 61, 66, 70, 84, 87, 64, 94, 56, 55, 67]
+                                data: [59, 80, 61, 66, 70]
                             }, {
                                 name: "Total Visits",
-                                data: [53, 51, 52, 41, 46, 60, 45, 43, 30, 50, 58, 59]
+                                data: [53, 51, 52, 41, 46]
                             }],
                             grid: {
                                 padding: {
@@ -96,7 +95,7 @@ include '../../global-variables.php';
                                 tooltip: {
                                     enabled: false
                                 },
-                                type: 'datetime',
+                                type: 'text',
                             },
                             yaxis: {
                                 labels: {
@@ -104,7 +103,7 @@ include '../../global-variables.php';
                                 },
                             },
                             labels: [
-                                '2020-06-21', '2020-06-22', '2020-06-23', '2020-06-24', '2020-06-25', '2020-06-26', '2020-06-27', '2020-06-28', '2020-06-29', '2020-06-30', '2020-07-01', '2020-07-02'
+                                '15:00', '15:10', '15:20', '15:30', '15:40'
                             ],
                             colors: ["#fab005", "#5eba00", "#206bc4"],
                             legend: {

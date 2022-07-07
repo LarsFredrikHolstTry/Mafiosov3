@@ -17,7 +17,7 @@ include 'crimeVariables.inc.php';
         </div>
         <div class="card-body">
             <div class="row align-items-center">
-                <img class="center-image" style="width: auto;" src="actions/crime/img/kriminalitet.png" />
+                <img class="center-image" src="actions/crime/img/kriminalitet.png" />
                 <div class="table-responsive" id="crime_table">
                     <table class="table table-vcenter">
                         <thead>

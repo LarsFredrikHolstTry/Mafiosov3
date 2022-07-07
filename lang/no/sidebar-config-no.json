@@ -2,6 +2,7 @@
   "sidebarConfig": {
     "bank": "Banken",
     "myBusiness": "Mine bedrifter",
+    "hospital": "Sykehus",
     "market": "Marked",
     "garage": "Garasje",
     "storageUnit": "Lager",
@@ -9,6 +10,7 @@
     "heist": "Heist",
     "mission": "Oppdrag",
     "stockMarket": "Aksjemarked",
-    "family": "Familie"
+    "family": "Familie",
+    "lotto": "Lotteriet"
   }
 }
