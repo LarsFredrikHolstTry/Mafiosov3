@@ -2,7 +2,6 @@
 
 include '../../global-variables.php';
 include '../../functions/cooldown-textify.php';
-include '../../db/PDODB.php';
 include 'carTheftVariables.inc.php';
 
 $carTheftCooldown =     DB::run("SELECT CD_carTheft FROM cooldown WHERE CD_acc_id=?", [$session_id])->fetchColumn();
