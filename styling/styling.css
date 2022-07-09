@@ -77,6 +77,10 @@ input:-webkit-autofill {
   padding: 1rem;
 }
 
+.px-1 {
+  padding: 0 1rem;
+}
+
 .aic {
   align-items: center;
 }
