@@ -2,7 +2,6 @@
 
 include '../../global-variables.php';
 include '../../functions/cooldown-textify.php';
-include '../../db/PDODB.php';
 include 'theftVariables.inc.php';
 
 $total_things =           DB::run("SELECT count(*) FROM storage WHERE ST_acc_id = ?", [$session_id])->fetchColumn();

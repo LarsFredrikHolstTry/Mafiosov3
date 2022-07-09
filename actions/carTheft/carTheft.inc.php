@@ -2,7 +2,6 @@
 
 include '../../global-variables.php';
 include '../../functions/cars.php';
-include '../../db/PDODB.php';
 include 'carTheftVariables.inc.php';
 
 // TODO: Check if user has enough space for another car
