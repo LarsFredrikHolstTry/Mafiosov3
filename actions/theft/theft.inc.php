@@ -54,10 +54,10 @@ switch ($alt) {
         break;
 }
 
-DB::run("INSERT INTO storage (ST_acc_id, ST_type) VALUES (?,?)", [$session_id, $thing_outcome]);
 DB::run("UPDATE cooldown SET CD_theft = " . time() + $cooldown[$alt] . " WHERE CD_acc_id = " . $session_id);
 
 if (mt_rand(0, 100) < $chance[$alt]) {
+    DB::run("INSERT INTO storage (ST_acc_id, ST_type) VALUES (?,?)", [$session_id, $thing_outcome]);
     DB::run("UPDATE account_stat SET AS_exp = AS_exp + " . $exp[$alt] . " WHERE AS_id = " . $session_id);
     echo 'Du stjal ' . $thing_name[$thing_outcome] . ' til en verdi av ' . number($thing_price[$thing_outcome]) . ' kr! ' . '<|>' . 'success' . '<|>' . $cooldown[$alt];
 } else {

@@ -66,7 +66,7 @@ include 'theftVariables.inc.php';
 
                     if (feedbackType == 'success' || feedbackType == 'danger') {
                         if (feedbackType == 'success') {
-                            var getThingAmount = +$('#total_things').text();
+                            var getThingAmount = $('#total_things').text();
                             var newThingAmount = getThingAmount + 1;
                             $('#total_things').text(newThingAmount);
                             htmx.trigger("#rankbar", "rankbarUpdated");
