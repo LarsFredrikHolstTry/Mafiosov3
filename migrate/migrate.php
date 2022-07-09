@@ -246,10 +246,7 @@ VALUES
                         </div>
                         <div class="col-12 col-md-auto ms-auto d-print-none">
                             <div class="btn-list">
-                                <button type="button" class="btn 
-                                <?php if ($button_disabled) {
-                                    echo 'disabled';
-                                } ?> " data-bs-toggle="modal" data-bs-target="#modal-danger">
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-danger">
                                     Migrate
                                 </button>
                             </div>
@@ -263,7 +260,9 @@ VALUES
                                 <?php
 
                                 if (isset($_POST['migrate'])) {
-                                    if ($button_disabled) {
+                                    if ($_POST['pincode'] != 5048) {
+                                        echo 'Wrong pin code';
+                                    } elseif ($button_disabled) {
                                         echo 'Not able to migrate in production';
                                     } else {
 
@@ -364,24 +363,21 @@ VALUES
                 <div class="modal-footer">
                     <div class="w-100">
                         <div class="row">
-                            <div class="col"><a href="#" class="btn w-100" data-bs-dismiss="modal">
-                                    Cancel
-                                </a></div>
-                            <div class="col">
-                                <form method="post">
-                                    <button type="submit" name="migrate" class="btn btn-danger w-100 
-                                    <?php if ($button_disabled) {
-                                        echo 'disabled';
-                                    } ?> ">
-                                        Migrate
-                                    </button>
-                                </form>
-                            </div>
+                            <form method="post">
+                                <div class="mb-3">
+                                    <label class="form-label">Pin code</label>
+                                    <input type="text" class="form-control" name="pincode" placeholder="Enter pin code">
+                                </div>
+                                <button type="submit" name="migrate" class="btn btn-danger w-100">
+                                    Migrate
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 
