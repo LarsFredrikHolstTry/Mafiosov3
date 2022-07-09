@@ -4,7 +4,6 @@ include '../../global-variables.php';
 include '../../functions/cooldown-textify.php';
 include 'crimeVariables.inc.php';
 
-
 ?>
 <div class="col-12" id="container">
 

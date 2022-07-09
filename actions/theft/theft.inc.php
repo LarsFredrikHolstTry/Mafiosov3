@@ -3,7 +3,6 @@
 include '../../global-variables.php';
 include '../../functions/things.php';
 include '../../functions/ranks.php';
-include '../../db/PDODB.php';
 include 'theftVariables.inc.php';
 
 function hasMaxThings($user_id, $amountOfThings)
