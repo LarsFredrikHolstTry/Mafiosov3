@@ -6,6 +6,7 @@ include '../../db/PDODB.php';
 include 'carTheftVariables.inc.php';
 
 $carTheftCooldown =     DB::run("SELECT CD_carTheft FROM cooldown WHERE CD_acc_id=?", [$session_id])->fetchColumn();
+$total_cars =           DB::run("SELECT count(*) FROM garage WHERE GA_acc_id = ?", [$session_id])->fetchColumn();
 
 ?>
 <div class="col-12" id="container">
@@ -69,9 +70,7 @@ $carTheftCooldown =     DB::run("SELECT CD_carTheft FROM cooldown WHERE CD_acc_i
 
                     if (feedbackType == 'success' || feedbackType == 'danger') {
                         if (feedbackType == 'success') {
-                            var getCarAmount = $('#total_cars').text();
-                            var newCarAmount = getCarAmount + 1;
-                            $('#total_cars').text(newCarAmount);
+                            $('#total_cars').text(<?= $total_cars + 1 ?>);
                             htmx.trigger("#rankbar", "rankbarUpdated");
                         }
                         $("#cooldown_carTheft").removeClass("text-success");

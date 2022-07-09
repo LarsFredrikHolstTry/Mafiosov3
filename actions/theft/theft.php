@@ -2,7 +2,10 @@
 
 include '../../global-variables.php';
 include '../../functions/cooldown-textify.php';
+include '../../db/PDODB.php';
 include 'theftVariables.inc.php';
+
+$total_things =           DB::run("SELECT count(*) FROM storage WHERE ST_acc_id = ?", [$session_id])->fetchColumn();
 
 ?>
 <div class="col-12" id="container">
@@ -66,9 +69,7 @@ include 'theftVariables.inc.php';
 
                     if (feedbackType == 'success' || feedbackType == 'danger') {
                         if (feedbackType == 'success') {
-                            var getThingAmount = $('#total_things').text();
-                            var newThingAmount = getThingAmount + 1;
-                            $('#total_things').text(newThingAmount);
+                            $('#total_things').text(<?= $total_things + 1 ?>);
                             htmx.trigger("#rankbar", "rankbarUpdated");
                         }
                         $("#cooldown_theft").removeClass("text-success");
