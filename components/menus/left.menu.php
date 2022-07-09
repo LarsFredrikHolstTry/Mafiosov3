@@ -27,7 +27,7 @@ $active_city =          DB::run("SELECT AS_city FROM account_stat WHERE AS_id = 
         if ($active_city == 0) {
             echo '
             <div 
-            hx-get="actions/heist/heist.php" 
+            hx-get="actions/lufthansaHeist/lufthansaHeist.php" 
             hx-trigger="click" 
             hx-target="#container" 
             hx-swap="outerHTML" 
@@ -66,7 +66,7 @@ $active_city =          DB::run("SELECT AS_city FROM account_stat WHERE AS_id = 
                 <?php
                         break;
                     case 'airport':
-                        echo '<span class="text-muted fr">NaN</span>';
+                        echo '<span class="text-muted fr" id="cooldown_airport">Klar</span>';
                         break;
                 }
 

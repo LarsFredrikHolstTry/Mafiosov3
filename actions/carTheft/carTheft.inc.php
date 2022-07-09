@@ -36,7 +36,7 @@ if ($carTheft_cd > time()) {
 }
 
 if (hasMaxCars($session_id, 1)) {
-    echo 'Du har full garase!' . '<|>' . 'warning';
+    echo 'Du har full garasje!' . '<|>' . 'warning';
     return;
 }
 

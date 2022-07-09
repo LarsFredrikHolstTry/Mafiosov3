@@ -147,7 +147,7 @@ $columns[10] = '
 `CD_fc_fight` int(15) NOT NULL,
 `CD_crime` int(15) NOT NULL,
 `CD_carTheft` int(15) NOT NULL,
-`CD_theft` int(15) NOT NULL,
+`CD_rob` int(15) NOT NULL,
 `CD_steal` int(15) NOT NULL,
 `CD_travel` int(15) NOT NULL';
 

@@ -1,6 +1,9 @@
 <?php
 
 include '../../global-variables.php';
+include '../../db/PDODB.php';
+
+$health =           DB::run("SELECT AS_health FROM account_stat WHERE AS_id = ?", [$session_id])->fetchColumn();
 
 ?>
 <div class="col-12" id="container">
@@ -19,7 +22,12 @@ include '../../global-variables.php';
         <div class="card-body">
             <div class="row align-items-center">
                 <img class="center-image" src="actions/hospital/img/hospital.png" />
-
+                <?php if ($health < 100) { ?>
+                    <div class="markdown">
+                        <h1>Velkommen til sykehuset i {by}</h1>
+                        <p>Du har under 100% helse og kan legge deg inn på sykehus for 10 000kr</p>
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </div>

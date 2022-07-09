@@ -58,10 +58,15 @@ include '../../functions/cities.php';
 
                     var feedbackText = feedback[0];
                     var feedbackType = feedback[1];
+                    var cooldown = feedback[2];
 
-                    htmx.trigger("#city", "cityUpdated");
-                    htmx.trigger("#moneyInHand", "moneyHandUpdated");
-                    htmx.trigger("#leftmenu", "leftMenuUpdate");
+                    if (feedbackType == 'success') {
+                        htmx.trigger("#city", "cityUpdated");
+                        htmx.trigger("#moneyInHand", "moneyHandUpdated");
+                        htmx.trigger("#leftmenu", "leftMenuUpdate");
+                        $("#cooldown_airport").text(cooldown);
+                        simple_cooldown(cooldown, "cooldown_airport");
+                    }
 
                     feedbackReturn(feedbackText, feedbackType);
                 }

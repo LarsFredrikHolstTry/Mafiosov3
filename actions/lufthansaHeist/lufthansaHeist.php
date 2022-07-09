@@ -18,7 +18,7 @@ include '../../global-variables.php';
         </div>
         <div class="card-body">
             <div class="row align-items-center">
-                <img class="center-image" src="actions/heist/img/lufthansaHeist.png" />
+                <img class="center-image" src="actions/lufthansaHeist/img/lufthansaHeist.png" />
             </div>
         </div>
     </div>
