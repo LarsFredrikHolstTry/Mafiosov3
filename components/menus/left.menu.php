@@ -76,21 +76,34 @@ $active_city =          DB::run("SELECT AS_city FROM account_stat WHERE AS_id = 
         }
         ?>
     </div>
-</div>
 
-<script>
-    $(document).ready(function() {
+    <<<<<<< HEAD <script>
+        $(document).ready(function() {
         $('#bunker_in').click(function() {
-            if ($("#bunker_in.bg-green")[0]) {
-                $("#bunker_in").removeClass("bg-green");
-                $("#bunker_in").addClass("bg-orange");
-                $("#bunker_in").text("Gå ut av bunker");
-            } else {
-                $("#bunker_in").removeClass("bg-orange");
-                $("#bunker_in").addClass("bg-green");
-                $("#bunker_in").text("Gå i bunker");
-            }
+        if ($("#bunker_in.bg-green")[0]) {
+        $("#bunker_in").removeClass("bg-green");
+        $("#bunker_in").addClass("bg-orange");
+        $("#bunker_in").text("Gå ut av bunker");
+        } else {
+        $("#bunker_in").removeClass("bg-orange");
+        $("#bunker_in").addClass("bg-green");
+        $("#bunker_in").text("Gå i bunker");
+        }
+        =======
+        <script>
+            $(document).ready(function() {
+                $('#bunker_in').click(function() {
+                    if ($("#bunker_in.bg-green-lt")[0]) {
+                        $("#bunker_in").removeClass("bg-green-lt");
+                        $("#bunker_in").addClass("bg-orange-lt");
+                        $("#bunker_in").text("Gå ut av bunker");
+                    } else {
+                        $("#bunker_in").removeClass("bg-orange-lt");
+                        $("#bunker_in").addClass("bg-green-lt");
+                        $("#bunker_in").text("Gå i bunker");
+                    } >>>
+                    >>> > main
 
-        })
-    })
-</script>
+                })
+            })
+        </script>
