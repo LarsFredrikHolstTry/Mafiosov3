@@ -151,7 +151,7 @@ if (isset($_POST['register'])) {
                 </div>
             </form>
             <div class="text-center text-muted mt-3">
-                <?= $useLang->register->alreadyUser; ?> <a href="login.php" tabindex="-1"><?= $useLang->register->login; ?></a>
+                <?= $useLang->register->alreadyUser; ?> <a href="index.php" tabindex="-1"><?= $useLang->register->login; ?></a>
             </div>
         </div>
     </div>
