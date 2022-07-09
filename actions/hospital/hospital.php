@@ -22,7 +22,22 @@ $health =           DB::run("SELECT AS_health FROM account_stat WHERE AS_id = ?"
         <div class="card-body">
             <div class="row align-items-center">
                 <img class="center-image" src="actions/hospital/img/hospital.png" />
-                <?php if ($health < 100) { ?>
+                <p class="df jcc mt-2">Eieren av sykehuset i {by} er {nick}</p>
+                <?php if ($health == 100) { ?>
+                    <div class="alert alert-important alert-success alert-dismissible mt-1 bg-green-lt" role="alert">
+                        <div class="d-flex jcc">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-activity mr-05" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M3 12h4l3 8l4 -16l3 8h4"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                Du har 100% helse og har ikke behov for operasjon
+                            </div>
+                        </div>
+                    </div>
+                <?php } elseif ($health < 100) { ?>
                     <div class="markdown">
                         <h1>Velkommen til sykehuset i {by}</h1>
                         <p>Du har under 100% helse og kan legge deg inn på sykehus for 10 000kr</p>

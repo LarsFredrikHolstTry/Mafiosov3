@@ -43,6 +43,7 @@ if (isset($_SESSION['ID'])) {
     <!-- Local javascript files -->
     <script src="js/table.js"></script>
     <script src="js/number.js"></script>
+    <script src="js/wrapText.js"></script>
     <script src="js/feedback.js"></script>
     <script src="js/countdown.js"></script>
 

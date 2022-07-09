@@ -1,7 +1,6 @@
 <?php
 
 include '../../global-variables.php';
-include '../../components/markdown_top.php';
 require_once '../../db/PDODB.php';
 
 $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", [$session_id])->fetchColumn();
@@ -18,10 +17,9 @@ $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", 
             </h3>
         </div>
         <div class="card-body">
-            <div class="row align-items-center">
-                <?php echo markdown(true); ?>
-                <textarea id="profile_text" class="form-control" name="textarea-input" rows="25"><?= $profile_text; ?></textarea>
-
+            <div class="align-items-center">
+                <?php include '../../components/markdown_top.php'; ?>
+                <textarea id="txtarea" class="form-control" name="textarea-input" rows="25"><?= $profile_text; ?></textarea>
             </div>
         </div>
         <div class="card-footer">

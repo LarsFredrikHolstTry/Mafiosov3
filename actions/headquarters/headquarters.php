@@ -34,6 +34,12 @@ $AS_row =   DB::run("SELECT * FROM account_stat WHERE AS_id = ?", [$session_id])
                     </div>
 
                 <?php } ?>
+                <div class="col-6">
+                    <h3>Personlig statistikk</h3>
+                </div>
+                <div class="col-6">
+                    <h3>Dagens oppdrag</h3>
+                </div>
             </div>
         </div>
     </div>
