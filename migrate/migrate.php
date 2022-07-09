@@ -82,6 +82,7 @@ $columns[1] = '
 `AS_points` int(10) NOT NULL,
 `AS_city` int(1) NOT NULL,
 `AS_fightpoints` bigint(20) NOT NULL,
+`AS_bullets` bigint(20) NOT NULL,
 `AS_avatar` varchar(255) NOT NULL default "img/avatars/standard_avatar.png"';
 
 $table[2] = 'garage';
@@ -147,8 +148,8 @@ $columns[10] = '
 `CD_fc_fight` int(15) NOT NULL,
 `CD_crime` int(15) NOT NULL,
 `CD_carTheft` int(15) NOT NULL,
+`CD_theft` int(15) NOT NULL,
 `CD_rob` int(15) NOT NULL,
-`CD_steal` int(15) NOT NULL,
 `CD_travel` int(15) NOT NULL';
 
 $table[11] = 'storage';

@@ -16,7 +16,7 @@ include '../../functions/ranks.php';
                     <div>
                         <p>For å tjene EXP må man utføre slåsskamper i fight club,
                             kriminalitet, biltyveri, brekk, stjel fra bruker,
-                            bryt mafiososer ut av fengsel, utføre oppdrag eller utføre heist.</p>
+                            bryt mafiosoer ut av fengsel, utføre oppdrag eller utføre heist.</p>
                     </div>
                 </div>
             </div>

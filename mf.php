@@ -70,7 +70,7 @@ if (isset($_SESSION['ID'])) {
 
                 <div class="row row-deck row-cards">
 
-                    <div class="card col-3" id="left_menu" style="padding: 0;">
+                    <div class="card col-3">
                         <div hx-get="components/menus/left.menu.php" id="leftmenu" hx-trigger="leftMenuUpdate, load"></div>
                     </div>
 
@@ -85,7 +85,7 @@ if (isset($_SESSION['ID'])) {
                         </div>
                     </div>
 
-                    <div class="card col-3" id="right_menu" style="padding: 0;">
+                    <div class="card col-3">
                         <div hx-get="components/menus/right.menu.php" hx-trigger="load"></div>
                     </div>
 

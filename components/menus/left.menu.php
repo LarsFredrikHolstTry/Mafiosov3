@@ -9,7 +9,7 @@ $user_settings =        DB::run("SELECT US_max_cars, US_max_things FROM user_set
 $active_city =          DB::run("SELECT AS_city FROM account_stat WHERE AS_id = ?", [$session_id])->fetchColumn();
 
 ?>
-<div class="col-12">
+<div class="card">
     <div class="card-body">
         <div class="df aic">
             <div class="btn bg-green-lt cursor-pointer" id="bunker_in">Gå i bunker</div>
@@ -26,13 +26,13 @@ $active_city =          DB::run("SELECT AS_city FROM account_stat WHERE AS_id = 
 
         if ($active_city == 0) {
             echo '
-            <div 
-            hx-get="actions/lufthansaHeist/lufthansaHeist.php" 
-            hx-trigger="click" 
-            hx-target="#container" 
-            hx-swap="outerHTML" 
-            class="list-group-item list-group-item-action cursor-pointer" 
-            id="htmxForm">Lufthansa Heist</div>';
+                <div 
+                hx-get="actions/lufthansaHeist/lufthansaHeist.php" 
+                hx-trigger="click" 
+                hx-target="#container" 
+                hx-swap="outerHTML" 
+                class="list-group-item list-group-item-action cursor-pointer" 
+                id="htmxForm">Lufthansa Heist</div>';
         }
 
         ?>
@@ -76,20 +76,21 @@ $active_city =          DB::run("SELECT AS_city FROM account_stat WHERE AS_id = 
         }
         ?>
     </div>
+</div>
 
-    <script>
-        $(document).ready(function() {
-            $('#bunker_in').click(function() {
-                if ($("#bunker_in.bg-green-lt")[0]) {
-                    $("#bunker_in").removeClass("bg-green-lt");
-                    $("#bunker_in").addClass("bg-orange-lt");
-                    $("#bunker_in").text("Gå ut av bunker");
-                } else {
-                    $("#bunker_in").removeClass("bg-orange-lt");
-                    $("#bunker_in").addClass("bg-green-lt");
-                    $("#bunker_in").text("Gå i bunker");
-                }
+<script>
+    $(document).ready(function() {
+        $('#bunker_in').click(function() {
+            if ($("#bunker_in.bg-green-lt")[0]) {
+                $("#bunker_in").removeClass("bg-green-lt");
+                $("#bunker_in").addClass("bg-orange-lt");
+                $("#bunker_in").text("Gå ut av bunker");
+            } else {
+                $("#bunker_in").removeClass("bg-orange-lt");
+                $("#bunker_in").addClass("bg-green-lt");
+                $("#bunker_in").text("Gå i bunker");
+            }
 
-            })
         })
-    </script>
+    })
+</script>

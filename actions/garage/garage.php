@@ -24,7 +24,7 @@ while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
         <div class="card-header">
             <h3 class="card-title"><?= $useLang->action->garage; ?></h3>
             <div class="ms-auto">
-                <span class="form-help">?</span>
+                <span hx-get="actions/faq/faq.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="form-help">?</span>
             </div>
         </div>
         <div class="card-body">
@@ -43,7 +43,7 @@ while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
                     <?php if ($total_cars) { ?>
                         <div class="ms-auto">
                             <div class="btn bg-green-lt btn-md">Selg valgte</div>
-                            <div class="btn bg-blue-lt btn-md" id="sell_all">Selg Alle</div>
+                            <div class="btn bg-blue-lt btn-md" data-bs-toggle="modal" data-bs-target="#modal-small">Selg Alle</div>
                         </div>
                     <?php } ?>
                 </div>
@@ -51,36 +51,4 @@ while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
         </div>
     </div>
 
-    <script>
-        $(document).ready(function() {
-            $('#sell_all').click(function() {
-                $("#feedback-container").load("components/feedback.html");
-
-                var alt = 2;
-                $.ajax({
-                    url: 'actions/garage/garage_sell_all.inc.php',
-                    method: 'post',
-                    success: function(response) {
-                        var feedback = response;
-                        feedback = feedback.split("<|>");
-
-                        var feedbackText = feedback[0];
-                        var feedbackType = feedback[1];
-
-                        if (feedbackType == 'success') {
-                            if (feedbackType == 'success') {
-                                var getCarAmount = +$('#total_cars').text();
-                                var newCarAmount = 0;
-                                $('#total_cars').text(newCarAmount);
-                                htmx.trigger("#rankbar", "rankbarUpdated");
-                                htmx.trigger("#moneyInHand", "moneyHandUpdated");
-                                htmx.trigger("#garage", "sellCars");
-                            }
-                        }
-
-                        feedbackReturn(feedbackText, feedbackType);
-                    }
-                });
-            });
-        });
-    </script>
+    <?php include '../../actions/garage/garage_sell_all_modal.php'; ?>
