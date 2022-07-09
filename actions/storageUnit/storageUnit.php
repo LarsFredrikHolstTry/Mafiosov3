@@ -36,8 +36,8 @@ while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
                     </span>
 
                     <div class="ms-auto">
-                        <div class="btn bg-green-lt btn-md">Selg valgte</div>
-                        <div class="btn bg-blue-lt btn-md">Selg Alle</div>
+                        <div class="btn bg-green btn-md">Selg valgte</div>
+                        <div class="btn bg-blue btn-md">Selg Alle</div>
                     </div>
                 </div>
             </div>

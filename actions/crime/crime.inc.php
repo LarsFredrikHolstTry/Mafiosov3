@@ -22,9 +22,11 @@ DB::run("UPDATE cooldown SET CD_crime = " . time() + $cooldown[$alt] . " WHERE C
 if (mt_rand(0, 100) < $chance[$alt]) {
     $bullets_used = $bullets > 10 ? mt_rand(0, 10) : mt_rand(0, $bullets);
     $money = mt_rand($payout_from[$alt], $payout_to[$alt]);
+    $bullet_string = $bullets_used > 0 ? 'På vei fra åstedet måtte du bruke ' . number($bullets_used) . ' kuler ' : '';
+
     DB::run("UPDATE account_stat SET AS_bullets = AS_bullets - " . $bullets_used . ", AS_money = AS_money + " . $money . ", AS_exp = AS_exp + " . $exp[$alt] . " WHERE AS_id = " . $session_id . "");
 
-    echo 'Du stjal ' . number($money) . ' kr! På vei fra åstedet måtte du bruke ' . number($bullets_used) . ' kuler ' . '<|>' . 'success' . '<|>' . $cooldown[$alt];
+    echo 'Du stjal ' . number($money) . ' kr! ' . $bullet_string . ' ' . '<|>' . 'success' . '<|>' . $cooldown[$alt];
 } else {
     echo 'Du feilet kriminaliteten!' . '<|>' . 'danger' . '<|>' . $cooldown[$alt];
 }

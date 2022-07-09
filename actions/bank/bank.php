@@ -28,7 +28,7 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                     <div class="card card-sm">
                         <div class="row align-items-center">
                             <div class="col-auto">
-                                <span class="bg-azure-lt text-white avatar">
+                                <span class="bg-azure text-white avatar">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-currency-euro" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                         <path d="M17.2 7a6 7 0 1 0 0 10"></path>
@@ -53,7 +53,7 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                     <div class="card card-sm">
                         <div class="row align-items-center">
                             <div class="col-auto">
-                                <span class="bg-yellow-lt text-white avatar">
+                                <span class="bg-yellow text-white avatar">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-infographic" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                         <circle cx="7" cy="7" r="4"></circle>
@@ -80,7 +80,7 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                     <div class="card card-sm">
                         <div class="row align-items-center">
                             <div class="col-auto">
-                                <span class="bg-pink-lt text-white avatar">
+                                <span class="bg-pink text-white avatar">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-asana" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                         <circle cx="12" cy="7" r="3"></circle>
@@ -195,7 +195,7 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                 var value = $("#number").val();
             }
 
-            $("#feedback-container").load("components/feedback.html");
+            $("#feedback-container").load("components/feedback.php");
 
             $.ajax({
                 url: 'actions/bank/money_in.inc.php',
@@ -226,7 +226,7 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                 var value = $("#number").val();
             }
 
-            $("#feedback-container").load("components/feedback.html");
+            $("#feedback-container").load("components/feedback.php");
 
             $.ajax({
                 url: 'actions/bank/money_out.inc.php',
@@ -254,7 +254,7 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
             var username = $("#username").val();
             var money = $("#money").val();
             var message = $("#message").val();
-            $("#feedback-container").load("components/feedback.html");
+            $("#feedback-container").load("components/feedback.php");
 
             $.ajax({
                 url: 'actions/bank/transfer_money.inc.php',

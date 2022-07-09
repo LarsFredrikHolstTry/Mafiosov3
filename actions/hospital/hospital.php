@@ -24,7 +24,7 @@ $health =           DB::run("SELECT AS_health FROM account_stat WHERE AS_id = ?"
                 <img class="center-image" src="actions/hospital/img/hospital.png" />
                 <p class="df jcc mt-2">Eieren av sykehuset i {by} er {nick}</p>
                 <?php if ($health == 100) { ?>
-                    <div class="alert alert-important alert-success alert-dismissible mt-1 bg-green-lt" role="alert">
+                    <div class="alert alert-important alert-success alert-dismissible mt-1" role="alert">
                         <div class="d-flex jcc">
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-activity mr-05" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -52,7 +52,7 @@ $health =           DB::run("SELECT AS_health FROM account_stat WHERE AS_id = ?"
     $(document).ready(function() {
         $('#submit').click(function() {
             var value = value;
-            $("#feedback-container").load("components/feedback.html");
+            $("#feedback-container").load("components/feedback.php");
         })
     })
 </script>

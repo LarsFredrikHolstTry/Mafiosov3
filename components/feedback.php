@@ -1,7 +1,7 @@
 <div
   id="feedback-success"
   style="display: none"
-  class="mt-2 alert alert-important alert-success alert-dismissible bg-green-lt"
+  class="mt-2 alert alert-important alert-success alert-dismissible"
   role="alert"
 >
   <div class="d-flex">
@@ -35,7 +35,7 @@
 <div
   id="feedback-info"
   style="display: none"
-  class="mt-2 alert alert-important alert-info alert-dismissible bg-indigo-lt"
+  class="mt-2 alert alert-important alert-info alert-dismissible"
   role="alert"
 >
   <div class="d-flex">
@@ -78,7 +78,7 @@
 <div
   id="feedback-warning"
   style="display: none"
-  class="mt-2 alert alert-important alert-warning alert-dismissible bg-orange-lt"
+  class="mt-2 alert alert-important alert-warning alert-dismissible"
   role="alert"
 >
   <div class="d-flex">
@@ -115,7 +115,7 @@
 <div
   id="feedback-danger"
   style="display: none"
-  class="mt-2 alert alert-important alert-danger alert-dismissible bg-red-lt"
+  class="mt-2 alert alert-important alert-danger alert-dismissible"
   role="alert"
 >
   <div class="d-flex">

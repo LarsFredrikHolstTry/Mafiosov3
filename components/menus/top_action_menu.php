@@ -29,15 +29,15 @@ include '../../db/PDODB.php';
         ?>
             <div class="col-2">
                 <a hx-post="actions/<?= $key ?>/<?= $key ?>.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="no-style" href="#">
-                    <div class="btn <?= $hasTimeout && !$isJail ? 'bg-orange-lt' : 'bg-green-lt'; ?> btn-md w-100" id="<?= $key ?>">
+                    <div class="btn bg-dark btn-md w-100">
                         <div class=" row align-items-center">
                             <div class="col">
                                 <div class="font-weight-medium">
                                     <?= $value ?>
                                 </div>
-                                <div class="text-muted" id="cooldown_<?= $key ?>">
+                                <span class="<?= $hasTimeout && !$isJail ? 'text-danger' : 'text-success'; ?>" id="cooldown_<?= $key ?>">
                                     <?= $isJail ? 'Ingen i fengsel' : $timeleft; ?>
-                                </div>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@ include '../../db/PDODB.php';
             </div>
             <?php if ($hasTimeout && !$isJail) { ?>
                 <script>
-                    countdown(<?= $timeleft ?>, "cooldown_<?= $key ?>", "<?= $key ?>");
+                    countdown(<?= $timeleft ?>, "cooldown_<?= $key ?>", "cooldown_<?= $key ?>");
                 </script>
             <?php } ?>
         <?php } ?>

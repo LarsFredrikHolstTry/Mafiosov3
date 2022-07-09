@@ -16,7 +16,7 @@
 <script>
     $(document).ready(function() {
         $('#sell_all').click(function() {
-            $("#feedback-container").load("components/feedback.html");
+            $("#feedback-container").load("components/feedback.php");
 
             var alt = 2;
             $.ajax({

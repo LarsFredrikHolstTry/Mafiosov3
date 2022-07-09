@@ -27,7 +27,7 @@ include '../../global-variables.php';
     $(document).ready(function() {
         $('#submit').click(function() {
             var value = value;
-            $("#feedback-container").load("components/feedback.html");
+            $("#feedback-container").load("components/feedback.php");
         })
     })
 </script>

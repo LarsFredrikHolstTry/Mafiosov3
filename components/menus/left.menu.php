@@ -12,7 +12,7 @@ $active_city =          DB::run("SELECT AS_city FROM account_stat WHERE AS_id = 
 <div class="card">
     <div class="card-body">
         <div class="df aic">
-            <div class="btn bg-green-lt cursor-pointer" id="bunker_in">Gå i bunker</div>
+            <div class="btn bg-green cursor-pointer" id="bunker_in">Gå i bunker</div>
             <div>
                 <p class="lh-base" style="margin: 0; margin-left: 1rem"><strong>Pris: 1000kr</strong><br>
                     <span class="text-muted small">Tid: 24t</span>
@@ -81,13 +81,13 @@ $active_city =          DB::run("SELECT AS_city FROM account_stat WHERE AS_id = 
 <script>
     $(document).ready(function() {
         $('#bunker_in').click(function() {
-            if ($("#bunker_in.bg-green-lt")[0]) {
-                $("#bunker_in").removeClass("bg-green-lt");
-                $("#bunker_in").addClass("bg-orange-lt");
+            if ($("#bunker_in.bg-green")[0]) {
+                $("#bunker_in").removeClass("bg-green");
+                $("#bunker_in").addClass("bg-orange");
                 $("#bunker_in").text("Gå ut av bunker");
             } else {
-                $("#bunker_in").removeClass("bg-orange-lt");
-                $("#bunker_in").addClass("bg-green-lt");
+                $("#bunker_in").removeClass("bg-orange");
+                $("#bunker_in").addClass("bg-green");
                 $("#bunker_in").text("Gå i bunker");
             }
 

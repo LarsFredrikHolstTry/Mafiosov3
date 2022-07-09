@@ -76,7 +76,7 @@ $fightPoints = DB::run("SELECT AS_fightpoints FROM account_stat WHERE AS_id = ?"
     $(document).ready(function() {
         $('#submit').click(function() {
             var value = value;
-            $("#feedback-container").load("components/feedback.html");
+            $("#feedback-container").load("components/feedback.php");
         })
     })
 </script>

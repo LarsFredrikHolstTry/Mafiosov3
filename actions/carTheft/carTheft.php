@@ -51,7 +51,7 @@ $carTheftCooldown =     DB::run("SELECT CD_carTheft FROM cooldown WHERE CD_acc_i
     $(document).ready(function() {
         $('.do-crime').click(function() {
             var alt = $(this).closest(".do-crime").attr("id");;
-            $("#feedback-container").load("components/feedback.html");
+            $("#feedback-container").load("components/feedback.php");
 
             $.ajax({
                 url: 'actions/carTheft/carTheft.inc.php',
@@ -74,8 +74,8 @@ $carTheftCooldown =     DB::run("SELECT CD_carTheft FROM cooldown WHERE CD_acc_i
                             $('#total_cars').text(newCarAmount);
                             htmx.trigger("#rankbar", "rankbarUpdated");
                         }
-                        $("#carTheft").removeClass("bg-green-lt");
-                        $("#carTheft").addClass("bg-orange-lt");
+                        $("#cooldown_carTheft").removeClass("text-success");
+                        $("#cooldown_carTheft").addClass("text-danger");
                         $("#carTheft_table").hide().delay(cooldown * 1000).fadeIn(0);
                         $("#cooldown_carTheft").text(cooldown);
                         countdown(cooldown, "cooldown_carTheft", "carTheft");

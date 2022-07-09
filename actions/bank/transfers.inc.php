@@ -47,9 +47,9 @@ if (!$stmt->fetch(PDO::FETCH_LAZY)) {
                         <td><?=
                             $row['BT_from'] == $session_id
                                 ?
-                                '<span class="badge bg-red-lt">- ' . number($row['BT_money']) .  ' kr</span>'
+                                '<span class="badge bg-red">- ' . number($row['BT_money']) .  ' kr</span>'
                                 :
-                                '<span class="badge bg-green-lt">+ ' . number($row['BT_money']) . ' kr</span>' ?></td>
+                                '<span class="badge bg-green">+ ' . number($row['BT_money']) . ' kr</span>' ?></td>
                         <td><?= strlen($row['BT_message']) > 0 ? $row['BT_message'] : '<i class="text-muted">Ingen melding</i>'; ?></td>
                         <td class="text-muted"><?= date_to_text($row['BT_date']) ?></td>
                     </tr>

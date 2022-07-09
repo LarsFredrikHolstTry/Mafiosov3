@@ -44,7 +44,7 @@ include '../../functions/cities.php';
     $(document).ready(function() {
         $('.travel').click(function() {
             var city = $(this).attr('id');
-            $("#feedback-container").load("components/feedback.html");
+            $("#feedback-container").load("components/feedback.php");
 
             $.ajax({
                 url: 'actions/airport/airport.inc.php',

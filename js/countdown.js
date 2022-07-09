@@ -8,8 +8,8 @@ function countdown(seconds, id, parentId) {
     timeleft--;
     element.textContent = timeleft;
     if (timeleft <= 0) {
-      parentId.classList.remove("bg-orange-lt");
-      parentId.classList.add("bg-green-lt");
+      parentId.classList.remove("text-danger");
+      parentId.classList.add("text-success");
       element.textContent = "Klar";
       clearInterval(downloadTimer);
     }
