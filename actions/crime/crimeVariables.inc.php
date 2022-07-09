@@ -9,7 +9,7 @@ $crime[3] = "lorem";
 $crime[4] = "lorem";
 $crime[5] = "Bankhack";
 
-$cooldown[0] = 15;
+$cooldown[0] = 3;
 $cooldown[1] = 25;
 $cooldown[2] = 35;
 $cooldown[3] = 50;

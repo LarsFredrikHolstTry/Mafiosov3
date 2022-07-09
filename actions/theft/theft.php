@@ -75,7 +75,7 @@ include 'theftVariables.inc.php';
                         $("#cooldown_theft").addClass("text-danger");
                         $("#theft_table").hide().delay(cooldown * 1000).fadeIn(0);
                         $("#cooldown_theft").text(cooldown);
-                        countdown(cooldown, "cooldown_theft", "theft");
+                        countdown(cooldown, "cooldown_theft");
                     }
 
 

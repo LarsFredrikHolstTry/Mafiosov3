@@ -1,15 +1,12 @@
-function countdown(seconds, id, parentId) {
-  var timeleft = seconds;
+function countdown(seconds, id) {
   var element = document.getElementById(id);
-  var parentId =
-    document.getElementById(parentId);
 
   var downloadTimer = setInterval(function () {
-    timeleft--;
-    element.textContent = timeleft;
-    if (timeleft <= 0) {
-      parentId.classList.remove("text-danger");
-      parentId.classList.add("text-success");
+    seconds--;
+    element.textContent = seconds;
+    if (seconds <= 0) {
+      element.classList.remove("text-danger");
+      element.classList.add("text-success");
       element.textContent = "Klar";
       clearInterval(downloadTimer);
     }

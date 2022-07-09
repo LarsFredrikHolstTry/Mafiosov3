@@ -78,7 +78,7 @@ $carTheftCooldown =     DB::run("SELECT CD_carTheft FROM cooldown WHERE CD_acc_i
                         $("#cooldown_carTheft").addClass("text-danger");
                         $("#carTheft_table").hide().delay(cooldown * 1000).fadeIn(0);
                         $("#cooldown_carTheft").text(cooldown);
-                        countdown(cooldown, "cooldown_carTheft", "carTheft");
+                        countdown(cooldown, "cooldown_carTheft");
                     }
 
                     feedbackReturn(feedbackText, feedbackType);

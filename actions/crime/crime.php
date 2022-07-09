@@ -78,7 +78,7 @@ include 'crimeVariables.inc.php';
                         $("#cooldown_crime").addClass("text-danger");
                         $("#crime_table").hide().delay(cooldown * 1000).fadeIn(0);
                         $("#cooldown_crime").text(cooldown);
-                        countdown(cooldown, "cooldown_crime", "crime");
+                        countdown(cooldown, "cooldown_crime");
                     }
 
                     feedbackReturn(feedbackText, feedbackType);

@@ -35,9 +35,9 @@ include '../../db/PDODB.php';
                                 <div class="font-weight-medium">
                                     <?= $value ?>
                                 </div>
-                                <span class="<?= $hasTimeout && !$isJail ? 'text-danger' : 'text-success'; ?>" id="cooldown_<?= $key ?>">
+                                <div class="<?= $hasTimeout && !$isJail ? 'text-danger' : 'text-success'; ?>" id="cooldown_<?= $key ?>">
                                     <?= $isJail ? 'Ingen i fengsel' : $timeleft; ?>
-                                </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@ include '../../db/PDODB.php';
             </div>
             <?php if ($hasTimeout && !$isJail) { ?>
                 <script>
-                    countdown(<?= $timeleft ?>, "cooldown_<?= $key ?>", "cooldown_<?= $key ?>");
+                    countdown(<?= $timeleft ?>, "cooldown_<?= $key ?>");
                 </script>
             <?php } ?>
         <?php } ?>
