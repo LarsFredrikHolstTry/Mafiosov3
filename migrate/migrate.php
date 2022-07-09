@@ -262,8 +262,6 @@ VALUES
                                 if (isset($_POST['migrate'])) {
                                     if ($_POST['pincode'] != 5048) {
                                         echo 'Wrong pin code';
-                                    } elseif ($button_disabled) {
-                                        echo 'Not able to migrate in production';
                                     } else {
 
                                         /* Attempt MySQL server connection. Assuming you are running MySQL
