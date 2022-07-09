@@ -80,9 +80,9 @@ $columns[1] = '
 `AS_rank` int(2) NOT NULL,
 `AS_health` int(3) NOT NULL default 100,
 `AS_points` int(10) NOT NULL,
+`AS_bullets` int(10) NOT NULL,
 `AS_city` int(1) NOT NULL,
 `AS_fightpoints` bigint(20) NOT NULL,
-`AS_bullets` bigint(20) NOT NULL default 100,
 `AS_avatar` varchar(255) NOT NULL default "img/avatars/standard_avatar.png"';
 
 $table[2] = 'garage';
@@ -90,6 +90,7 @@ $columns[2] = '
 `GA_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `GA_acc_id` int(15) NOT NULL,
 `GA_city` int(2) NOT NULL,
+`GA_damage` int(2) NOT NULL,
 `GA_car` int(2) NOT NULL';
 
 $table[3] = 'profiles';
@@ -149,7 +150,7 @@ $columns[10] = '
 `CD_crime` int(15) NOT NULL,
 `CD_carTheft` int(15) NOT NULL,
 `CD_theft` int(15) NOT NULL,
-`CD_rob` int(15) NOT NULL,
+`CD_steal` int(15) NOT NULL,
 `CD_travel` int(15) NOT NULL';
 
 $table[11] = 'storage';

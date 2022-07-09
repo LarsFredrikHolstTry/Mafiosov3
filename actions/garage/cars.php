@@ -34,22 +34,22 @@ if ($total_cars == 0) {
                 <th>Bil</th>
                 <th>By</th>
                 <th>Verdi</th>
-                <th>Antall</th>
+                <th>Skade</th>
             </tr>
         </thead>
         <tbody>
             <?php
 
-            $stmt = DB::run("SELECT DISTINCT GA_car, GA_city from garage WHERE GA_acc_id = ? ORDER BY GA_car DESC", [$session_id]);
+            $stmt = DB::run("SELECT GA_car, GA_city, GA_damage from garage WHERE GA_acc_id = ? ORDER BY GA_car DESC", [$session_id]);
             while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
                 $amount = amount_of_car($session_id, $row['GA_car'], $row['GA_city']);
             ?>
                 <tr>
-                    <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                    <td><input class="form-check-input m-0 align-middle" type="checkbox" disabled></td>
                     <td><?= $car_name[$row['GA_car']] ?></td>
                     <td><span class="flag flag-country-<?= $flag[$row['GA_city']] ?> me-1"></span><?= $city[$row['GA_city']] ?></td>
-                    <td><?= number($car_price[$row['GA_car']] * $amount) ?> kr</td>
-                    <td><?= number($amount) ?></td>
+                    <td><?= number(($car_price[$row['GA_car']] - ($row['GA_damage'] / 100) * $car_price[$row['GA_car']])); ?> kr</td>
+                    <td><?= $row['GA_damage'] ?>%</td>
                 </tr>
             <?php } ?>
         </tbody>

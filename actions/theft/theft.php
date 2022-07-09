@@ -10,6 +10,7 @@ $total_things =           DB::run("SELECT count(*) FROM storage WHERE ST_acc_id 
 ?>
 <div class="col-12" id="container">
 
+    <?php include '../../components/bullet_check.inc.php'; ?>
     <div id="feedback-container"></div>
 
     <div class="card">

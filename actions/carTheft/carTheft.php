@@ -11,6 +11,7 @@ $total_cars =           DB::run("SELECT count(*) FROM garage WHERE GA_acc_id = ?
 ?>
 <div class="col-12" id="container">
 
+    <?php include '../../components/bullet_check.inc.php'; ?>
     <div id="feedback-container"></div>
 
     <div class="card">
