@@ -61,7 +61,7 @@ if (isset($_POST['login'])) {
     <noscript>Javascript is required to run Mafioso.</noscript>
 </head>
 
-<body class="border-top-wide border-primary d-flex flex-column theme-dark" cz-shortcut-listen="true">
+<body class="border-primary d-flex flex-column theme-dark" cz-shortcut-listen="true">
     <div class="page page-center">
         <div class="container-tight py-4">
             <div class="text-center mb-4">
