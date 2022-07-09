@@ -92,7 +92,6 @@ if (isset($_POST['login'])) {
                     </div>
                     <div class="form-footer">
                         <button type="submit" name="login" class="btn btn-bitbucket w-100">Logg inn</button>
-
                     </div>
                 </div>
             </form>

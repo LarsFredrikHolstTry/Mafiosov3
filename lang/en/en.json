@@ -46,7 +46,7 @@
     "shootingPractice": "Shooting practice",
     "casino": "Casino",
     "lotto": "Lotto",
-    "tossCoins": "Toss coin",
+    "tossCoins": "Coin toss",
     "dices": "Dices",
     "settings": "Settings",
     "headquarter": "Headquarter",
@@ -57,10 +57,11 @@
     "rob": "Rob",
     "theft": "Theft",
     "jail": "Jail",
-    "notifications": "Varsler",
-    "playersOnline": "Spillere pålogget",
+    "notifications": "Notifications",
+    "playersOnline": "Players online",
     "lufthansaHeist": "Lufthansa Heist",
-    "hospital": "Sykehus"
+    "hospital": "Hospital",
+    "bulletFactory": "Bullet factory"
   },
   "bunker": {
     "notEnoughMoney": "You do not have enough money to use the bunker!",

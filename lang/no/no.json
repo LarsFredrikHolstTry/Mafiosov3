@@ -60,7 +60,8 @@
     "notifications": "Varsler",
     "playersOnline": "Spillere pålogget",
     "lufthansaHeist": "Lufthansa Heist",
-    "hospital": "Hospital"
+    "hospital": "Hospital",
+    "bulletFactory": "Kulefabrikk"
   },
   "bunker": {
     "notEnoughMoney": "Du har ikke nok penger til å sjekke inn i bunker!",
