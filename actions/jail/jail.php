@@ -102,7 +102,7 @@ $city_id = DB::run("SELECT AS_city FROM account_stat WHERE AS_id = ?", [$session
     $(document).ready(function() {
         $('#buy_jail').click(function() {
             var price = <?= $price; ?>
-            $("#feedback-container").load("components/feedback.html");
+            $("#feedback-container").load("components/feedback.php");
 
             $.ajax({
                 url: 'actions/jail/buy_jail.inc.php',

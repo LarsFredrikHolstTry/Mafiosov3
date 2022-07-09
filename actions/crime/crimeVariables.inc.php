@@ -1,4 +1,6 @@
 <?php
+include '../../db/PDODB.php';
+$bullets = DB::run("SELECT AS_bullets FROM account_stat WHERE AS_id = ?", [$session_id])->fetchColumn();
 
 $crime[0] = "Stjel fra brusautomat";
 $crime[1] = "Stjel fra en gammel dame";
@@ -7,7 +9,7 @@ $crime[3] = "lorem";
 $crime[4] = "lorem";
 $crime[5] = "Bankhack";
 
-$cooldown[0] = 15;
+$cooldown[0] = 20;
 $cooldown[1] = 25;
 $cooldown[2] = 35;
 $cooldown[3] = 50;
@@ -21,12 +23,12 @@ $exp[3] = 4;
 $exp[4] = 5;
 $exp[5] = 6;
 
-$chance[0] = 80;    // 80% chance
-$chance[1] = 60;    // 60% chance
-$chance[2] = 40;    // 40% chance
-$chance[3] = 20;    // 20% chance
-$chance[4] = 10;    // 10% chance
-$chance[5] = 10;    // 10% chance
+$chance[0] = $bullets >= 50 ? 100 : 40;
+$chance[1] = $bullets >= 50 ? 85 : 35;
+$chance[2] = $bullets >= 50 ? 75 : 30;
+$chance[3] = $bullets >= 50 ? 65 : 25;
+$chance[4] = $bullets >= 50 ? 60 : 20;
+$chance[5] = $bullets >= 50 ? 55 : 15;
 
 $payout_from[0] = 150;
 $payout_to[0] = 350;

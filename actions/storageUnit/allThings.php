@@ -13,16 +13,16 @@ function amount_of_thing($acc_id, $id)
 $total_things = DB::run("SELECT count(*) FROM storage WHERE ST_acc_id = ?", [$session_id])->fetchColumn();
 
 if ($total_things == 0) {
-    include '../../components/feedback.html';
-?>
-    <script>
-        var feedbackText = 'Lageret er tom. Utfør brekk for å skaff ting til lageret.';
-        var feedbackType = 'info';
-
-        feedbackReturn(feedbackText, feedbackType);
-    </script>
-<?php
-
+    echo '<div class="text-info df mt-2 mb-2 jcc">Du har ingen ting på lageret. Utfør
+        <strong 
+        hx-get="actions/theft/theft.php" 
+        hx-trigger="click" 
+        hx-target="#container" 
+        hx-swap="outerHTML" 
+        class="px-1 cursor-pointer fake-link" 
+        id="htmxForm">
+        brekk</strong> 
+        for å skaffe ting.</div>';
 } else {
 
 ?>

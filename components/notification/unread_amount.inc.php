@@ -8,5 +8,5 @@ $unread_string = $notifications > 0 ? 'uleste varsler' : 'ulest varsel';
 
 if ($notifications > 0) {
     echo '
-    <span class="badge badge-pill bg-red-lt">' . $notifications . '</span>';
+    <span class="badge badge-pill bg-red">' . $notifications . '</span>';
 }

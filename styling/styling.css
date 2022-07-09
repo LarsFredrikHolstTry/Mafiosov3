@@ -3,6 +3,14 @@ html {
   margin: 0;
 }
 
+/* .theme-dark {
+  background-color: #212121;
+}
+
+.theme-dark .card {
+  background-color: #262626;
+} */
+
 html {
   scroll-behavior: smooth;
 }
@@ -32,6 +40,10 @@ input:-webkit-autofill {
 
 .mr-05 {
   margin-right: 0.5rem;
+}
+
+.ml-025 {
+  margin-left: 0.25rem;
 }
 
 .ml-05 {
@@ -75,6 +87,10 @@ input:-webkit-autofill {
 
 .p-1 {
   padding: 1rem;
+}
+
+.px-1 {
+  padding: 0 1rem;
 }
 
 .aic {

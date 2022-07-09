@@ -14,16 +14,16 @@ function amount_of_car($acc_id, $id, $city)
 $total_cars = DB::run("SELECT count(*) FROM garage WHERE GA_acc_id = ?", [$session_id])->fetchColumn();
 
 if ($total_cars == 0) {
-    include '../../components/feedback.html';
-?>
-    <script>
-        var feedbackText = 'Garasjen er tom. Utfør biltyveri for å skaff biler.';
-        var feedbackType = 'info';
-
-        feedbackReturn(feedbackText, feedbackType);
-    </script>
-<?php
-
+    echo '<div class="text-info df mt-2 mb-2 jcc">Du har ingen biler i garasjen. Utfør
+    <strong 
+    hx-get="actions/carTheft/carTheft.php" 
+    hx-trigger="click" 
+    hx-target="#container" 
+    hx-swap="outerHTML" 
+    class="px-1 cursor-pointer fake-link" 
+    id="htmxForm">
+    biltyveri</strong> 
+    for å skaffe biler.</div>';
 } else {
 
 ?>

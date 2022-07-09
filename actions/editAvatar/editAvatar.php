@@ -43,7 +43,7 @@ $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", 
         $('#save-btn').click(function() {
             var value = $("#avatar").val();
 
-            $("#feedback-container").load("components/feedback.html");
+            $("#feedback-container").load("components/feedback.php");
 
             $.ajax({
                 url: 'actions/editAvatar/editAvatar.inc.php',

@@ -4,9 +4,11 @@ include '../../global-variables.php';
 include '../../functions/cooldown-textify.php';
 include 'crimeVariables.inc.php';
 
+
 ?>
 <div class="col-12" id="container">
 
+    <?php include '../../components/bullet_check.inc.php'; ?>
     <div id="feedback-container"></div>
 
     <div class="card">
@@ -50,7 +52,7 @@ include 'crimeVariables.inc.php';
         $('.do-crime').click(function() {
             var alt = $(this).closest(".do-crime").attr("id");;
 
-            $("#feedback-container").load("components/feedback.html");
+            $("#feedback-container").load("components/feedback.php");
 
             $.ajax({
                 url: 'actions/crime/crime.inc.php',
@@ -70,12 +72,13 @@ include 'crimeVariables.inc.php';
                         if (feedbackType == 'success') {
                             htmx.trigger("#moneyInHand", "moneyHandUpdated");
                             htmx.trigger("#rankbar", "rankbarUpdated");
+                            htmx.trigger("#bulletsUser", "bulletsUpdated");
                         }
-                        $("#crime").removeClass("bg-green-lt");
-                        $("#crime").addClass("bg-orange-lt");
+                        $("#cooldown_crime").removeClass("text-success");
+                        $("#cooldown_crime").addClass("text-danger");
                         $("#crime_table").hide().delay(cooldown * 1000).fadeIn(0);
                         $("#cooldown_crime").text(cooldown);
-                        countdown(cooldown, "cooldown_crime", "crime");
+                        countdown(cooldown, "cooldown_crime");
                     }
 
                     feedbackReturn(feedbackText, feedbackType);

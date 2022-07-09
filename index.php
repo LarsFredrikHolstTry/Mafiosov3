@@ -4,6 +4,7 @@ ob_start();
 include_once 'env.php';
 require_once 'db/PDODB.php';
 include_once 'env.php';
+include 'functions/danger_alert.php';
 
 if (!session_id()) {
     session_start();
@@ -20,9 +21,9 @@ if (isset($_POST['login'])) {
     // TODO: Check if user is banned or dead
 
     if (!$user) {
-        echo 'Ingen bruker funnet';
+        echo danger_alert('Ingen bruker funnet');
     } elseif (!password_verify($password, $user["ACC_password"])) {
-        echo 'Feil passord';
+        echo danger_alert('Feil passord');
     } else {
         $_SESSION['ID'] = $user["ACC_id"];
         header("Location: mf.php");
@@ -61,7 +62,7 @@ if (isset($_POST['login'])) {
     <noscript>Javascript is required to run Mafioso.</noscript>
 </head>
 
-<body class="border-top-wide border-primary d-flex flex-column theme-dark" cz-shortcut-listen="true">
+<body class="border-primary d-flex flex-column theme-dark" cz-shortcut-listen="true">
     <div class="page page-center">
         <div class="container-tight py-4">
             <div class="text-center mb-4">

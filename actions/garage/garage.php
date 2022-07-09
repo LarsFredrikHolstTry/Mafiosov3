@@ -18,17 +18,19 @@ while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
 ?>
 <div class="col-12" id="container">
 
+    <div id="feedback-container"></div>
+
     <div class="card">
         <div class="card-header">
             <h3 class="card-title"><?= $useLang->action->garage; ?></h3>
             <div class="ms-auto">
-                <span class="form-help">?</span>
+                <span hx-get="actions/faq/faq.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="form-help">?</span>
             </div>
         </div>
         <div class="card-body">
             <div class="row align-items-center">
                 <img class="center-image" src="actions/garage/img/garasje.png" />
-                <div hx-get="actions/garage/cars.php" hx-trigger="load"></div>
+                <div hx-get="actions/garage/cars.php" id="garage" hx-trigger="load, sellCars"></div>
             </div>
             <div class="card-footer">
                 <div class="d-flex">
@@ -38,12 +40,15 @@ while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
                         <span class="text-muted">Antall plasser brukt: <?= number($total_cars) ?> / <?= number($max_cars) ?></span>
                     </span>
 
-                    <div class="ms-auto">
-                        <a href="#" class="btn bg-green-lt btn-md">Selg valgte</a>
-                        <a href="#" class="btn bg-blue-lt btn-md">Selg Alle</a>
-                    </div>
-
+                    <?php if ($total_cars) { ?>
+                        <div class="ms-auto">
+                            <!-- <div class="btn bg-green btn-md">Selg valgte</div> -->
+                            <div class="btn bg-blue btn-md" data-bs-toggle="modal" data-bs-target="#modal-small">Selg Alle</div>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
     </div>
+
+    <?php include '../../actions/garage/garage_sell_all_modal.php'; ?>

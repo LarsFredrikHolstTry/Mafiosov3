@@ -3,6 +3,7 @@
 ob_start();
 include_once 'env.php';
 require_once 'db/PDODB.php';
+include 'functions/danger_alert.php';
 
 if (!session_id()) {
     session_start();
@@ -17,7 +18,7 @@ if (isset($_POST['register'])) {
     $terms = $_POST['terms'] ?? 'off';
 
     $user_exist =   DB::run("SELECT ACC_username FROM account WHERE ACC_username = ?", [$username])->fetchColumn();
-    $email_exist =  DB::run("SELECT ACC_mail FROM account WHERE ACC_mail = ?", [$username])->fetchColumn();
+    $email_exist =  DB::run("SELECT ACC_mail FROM account WHERE ACC_mail = ?", [$email])->fetchColumn();
     $password_safe = strlen($password) > 7;
 
     if ($terms == 'off') {
@@ -48,25 +49,6 @@ if (isset($_POST['register'])) {
     }
 }
 
-if (isset($_GET['terms'])) {
-    echo 'Du må akseptere vilkårene for å opprette bruker på Mafioso.no';
-}
-
-if (isset($_GET['userExist'])) {
-    echo 'Brukernavnet er allerede i bruk';
-}
-
-if (isset($_GET['mailExist'])) {
-    echo 'Emailen er allerede i bruk';
-}
-
-if (isset($_GET['weakPassword'])) {
-    echo 'Passordet er for svakt. Minst 10 tegn';
-}
-
-if (isset($_GET['userUnable'])) {
-    echo 'Brukernavnet må være lengre enn 3 tegn og mindre enn 15 tegn';
-}
 
 ?>
 
@@ -100,7 +82,7 @@ if (isset($_GET['userUnable'])) {
     <noscript>Javascript is required to run Mafioso.</noscript>
 </head>
 
-<body class="border-top-wide border-primary d-flex flex-column theme-dark" cz-shortcut-listen="true">
+<body class="border-primary d-flex flex-column theme-dark" cz-shortcut-listen="true">
     <div class="page page-center">
         <div class="container-tight py-4">
             <div class="text-center mb-4">
@@ -109,18 +91,42 @@ if (isset($_GET['userUnable'])) {
             <form class="card card-md" method="post">
                 <div class="card-body">
                     <h2 class="card-title text-center mb-4"><?= $useLang->register->createNewUser; ?></h2>
+                    <?php
+
+
+                    if (isset($_GET['terms'])) {
+                        echo danger_alert('Du må akseptere vilkårene for å opprette bruker på Mafioso.no');
+                    }
+
+                    if (isset($_GET['userExist'])) {
+                        echo danger_alert('Brukernavnet er allerede i bruk');
+                    }
+
+                    if (isset($_GET['mailExist'])) {
+                        echo danger_alert('Emailen er allerede i bruk');
+                    }
+
+                    if (isset($_GET['weakPassword'])) {
+                        echo danger_alert('Passordet er for svakt. Minst 10 tegn');
+                    }
+
+                    if (isset($_GET['userUnable'])) {
+                        echo danger_alert('Brukernavnet må være lengre enn 3 tegn og mindre enn 15 tegn');
+                    }
+
+                    ?>
                     <div class="mb-3">
                         <label class="form-label"><?= $useLang->register->username; ?></label>
-                        <input type="text" name="username" class="form-control" placeholder="<?= $useLang->register->username; ?>">
+                        <input type="text" name="username" class="form-control" placeholder="<?= $useLang->register->username; ?>" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label"><?= $useLang->register->email; ?></label>
-                        <input type="email" name="email" class="form-control" placeholder="<?= $useLang->register->email; ?>">
+                        <input type="email" name="email" class="form-control" placeholder="<?= $useLang->register->email; ?>" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label"><?= $useLang->register->password; ?></label>
                         <div class="input-group input-group-flat">
-                            <input type="password" name="password" class="form-control" id="password" placeholder="<?= $useLang->register->password; ?>" autocomplete="off">
+                            <input type="password" name="password" class="form-control" id="password" placeholder="<?= $useLang->register->password; ?>" autocomplete="off" required>
 
                             <span class="input-group-text">
                                 <div class="cursor-pointer link-secondary" onClick="togglePassword()" title="" data-bs-toggle="tooltip" data-bs-original-title="Show password">
@@ -135,8 +141,8 @@ if (isset($_GET['userUnable'])) {
                     </div>
                     <div class="mb-3">
                         <label class="form-check">
-                            <input type="checkbox" name="terms" class="form-check-input">
-                            <span class="form-check-label"><?= $useLang->register->agree; ?> <a href="terms.html" tabindex="-1"><?= $useLang->register->termsAndConditions; ?></a>.</span>
+                            <input type="checkbox" name="terms" class="form-check-input" required>
+                            <span class="form-check-label"><?= $useLang->register->agree; ?> <a href="terms.php" tabindex="-1"><?= $useLang->register->termsAndConditions; ?></a>.</span>
                         </label>
                     </div>
                     <div class="form-footer">

@@ -4,23 +4,24 @@ include '../../global-variables.php';
 include '../../functions/cities.php';
 include '../../db/PDODB.php';
 
-$AS_city =      DB::run("SELECT AS_city FROM account_stat WHERE AS_id=?", [$session_id])->fetchColumn();
-$money_hand =   DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$session_id])->fetchColumn();
+$AS_user =      DB::run("SELECT AS_money, AS_city, AS_bullets FROM account_stat WHERE AS_id=?", [$session_id])->fetch();
 
 ?>
 <div class="col-12">
     <div class="card-body">
         <h3>Brukerinfo</h3>
         <p class="lh-lg">
+        <div class="df aic mb-2">
             <svg style="margin-right: .35rem;" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wallet" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#626976" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"></path>
                 <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"></path>
             </svg>
-            <span hx-get="components/fetch_data/fetch_money.inc.php" id="moneyInHand" hx-trigger="moneyHandUpdated, every 10s">
-                <?= str_replace('{value}', number($money_hand), $useLang->index->money); ?>
+            <span class="ml-025" hx-get="components/fetch_data/fetch_money.inc.php" id="moneyInHand" hx-trigger="moneyHandUpdated, every 10s">
+                <?= str_replace('{value}', number($AS_user['AS_money']), $useLang->index->money); ?>
             </span>
-            <br>
+        </div>
+        <div class="df aic mb-2">
             <svg style="margin-right: .35rem;" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-skyscraper" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#626976" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <line x1="3" y1="21" x2="21" y2="21"></line>
@@ -31,14 +32,20 @@ $money_hand =   DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$ses
                 <line x1="9" y1="15" x2="9" y2="15.01"></line>
                 <line x1="9" y1="18" x2="9" y2="18.01"></line>
             </svg>
-            <span hx-get="components/fetch_data/fetch_city.inc.php" id="city" hx-trigger="cityUpdated">
-                <?= $city[$AS_city]; ?>
+            <span class="ml-025" hx-get="components/fetch_data/fetch_city.inc.php" id="city" hx-trigger="cityUpdated">
+                <?= $city[$AS_user['AS_city']]; ?>
             </span>
-            <br>
-            <svg style="margin-right: .35rem;" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shield" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#626976" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        </div>
+        <div class="df aic">
+            <svg style="margin-right: .35rem;" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-pocket" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#626976" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"></path>
-            </svg> 1 000 520 974<br>
+                <path d="M5 4h14a2 2 0 0 1 2 2v6a9 9 0 0 1 -18 0v-6a2 2 0 0 1 2 -2"></path>
+                <polyline points="8 11 12 15 16 11"></polyline>
+            </svg>
+            <span class="ml-025" hx-get="components/fetch_data/fetch_bullets.inc.php" id="bulletsUser" hx-trigger="bulletsUpdated, every 10s">
+                <?= number($AS_user['AS_bullets']); ?> kuler
+            </span>
+        </div>
         </p>
     </div>
     <div class="card-body" style="border-top: none; padding-top: 0;">
@@ -62,6 +69,9 @@ $money_hand =   DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$ses
                     </li>
                     <li>
                         <div class="fake-link cursor-pointer text-muted">Statistikk</div>
+                    </li>
+                    <li>
+                        <div class="fake-link cursor-pointer text-muted">Poenghandel</div>
                     </li>
                 </ul>
             </div>
