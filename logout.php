@@ -7,4 +7,4 @@ unset($_SESSION['ID']);
 // Destroy the session
 session_destroy();
 
-header("Location: login.php?welcomeBack");
+header("Location: index.php?welcomeBack");
