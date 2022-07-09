@@ -42,7 +42,7 @@ while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
 
                     <?php if ($total_cars) { ?>
                         <div class="ms-auto">
-                            <div class="btn bg-green btn-md">Selg valgte</div>
+                            <!-- <div class="btn bg-green btn-md">Selg valgte</div> -->
                             <div class="btn bg-blue btn-md" data-bs-toggle="modal" data-bs-target="#modal-small">Selg Alle</div>
                         </div>
                     <?php } ?>

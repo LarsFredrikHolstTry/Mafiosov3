@@ -82,7 +82,7 @@ $columns[1] = '
 `AS_points` int(10) NOT NULL,
 `AS_city` int(1) NOT NULL,
 `AS_fightpoints` bigint(20) NOT NULL,
-`AS_bullets` bigint(20) NOT NULL,
+`AS_bullets` bigint(20) NOT NULL default 100,
 `AS_avatar` varchar(255) NOT NULL default "img/avatars/standard_avatar.png"';
 
 $table[2] = 'garage';

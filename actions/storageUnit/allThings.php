@@ -23,15 +23,6 @@ if ($total_things == 0) {
         id="htmxForm">
         brekk</strong> 
         for å skaffe ting.</div>';
-?>
-    <script>
-        var feedbackText = 'Lageret er tom. Utfør brekk for å skaff ting til lageret.';
-        var feedbackType = 'info';
-
-        feedbackReturn(feedbackText, feedbackType);
-    </script>
-<?php
-
 } else {
 
 ?>

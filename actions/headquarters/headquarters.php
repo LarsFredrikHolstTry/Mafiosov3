@@ -34,11 +34,56 @@ $AS_row =   DB::run("SELECT * FROM account_stat WHERE AS_id = ?", [$session_id])
                     </div>
 
                 <?php } ?>
-                <div class="col-6">
-                    <h3>Personlig statistikk</h3>
-                </div>
-                <div class="col-6">
-                    <h3>Dagens oppdrag</h3>
+                <div class="row">
+                    <div class="col-6">
+                        <h3>Personlig statistikk</h3>
+                    </div>
+                    <div class="col-6">
+                        <h3>Dagens oppdrag</h3>
+                        <div>
+                            <div class="d-flex mb-1 mt-3">
+                                <div><span class="d-inline-flex align-items-center lh-1">kriminalitet</span></div>
+                                <div class="ms-auto">
+                                    <span class="text-muted d-inline-flex align-items-center lh-1">
+                                        20 av 10
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar bg-green" style="width: 100%">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="d-flex mb-1 mt-3">
+                                <div><span class="d-inline-flex align-items-center lh-1">Biltyveri</span></div>
+                                <div class="ms-auto">
+                                    <span class="text-muted d-inline-flex align-items-center lh-1">
+                                        5 av 10
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar bg-orange" style="width: 50%">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="d-flex mb-1 mt-3">
+                                <div><span class="d-inline-flex align-items-center lh-1">Brekk</span></div>
+                                <div class="ms-auto">
+                                    <span class="text-muted d-inline-flex align-items-center lh-1">
+                                        3 av 10
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar bg-orange" style="width: 30%">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mt-3">Belønning: 50 EXP og 50 000kr</p>
+                    </div>
                 </div>
             </div>
         </div>

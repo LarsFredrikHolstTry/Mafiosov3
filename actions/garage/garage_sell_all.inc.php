@@ -7,8 +7,6 @@ include '../../db/PDODB.php';
 $total_car_value = 0;
 $total_cars = 0;
 
-$max_cars =        DB::run("SELECT US_max_cars FROM user_settings WHERE US_acc_id = ?", [$session_id])->fetchColumn();
-
 $stmt = DB::run("SELECT GA_car from garage WHERE GA_acc_id = $session_id");
 while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
     $total_car_value = $total_car_value + $car_price[$row['GA_car']];

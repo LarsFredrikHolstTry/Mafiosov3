@@ -69,9 +69,9 @@ $carTheftCooldown =     DB::run("SELECT CD_carTheft FROM cooldown WHERE CD_acc_i
 
                     if (feedbackType == 'success' || feedbackType == 'danger') {
                         if (feedbackType == 'success') {
-                            var getCarAmount = +$('#total_cars').text();
+                            var getCarAmount = $('#total_cars').text();
                             var newCarAmount = getCarAmount + 1;
-                            $('#total_cars').text(newCarAmount);
+                            $('#total_cars').text($('#total_cars').text());
                             htmx.trigger("#rankbar", "rankbarUpdated");
                         }
                         $("#cooldown_carTheft").removeClass("text-success");

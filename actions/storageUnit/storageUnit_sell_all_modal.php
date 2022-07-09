@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-body">
                 <div class="modal-title">Er du sikker?</div>
-                <div>Er du sikker på at du vil selge alle bilene dine?</div>
+                <div>Er du sikker på at du vil selge alle tingene dine?</div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-link link-secondary me-auto" data-bs-dismiss="modal">Avbryt</button>
@@ -19,7 +19,7 @@
             $("#feedback-container").load("components/feedback.php");
 
             $.ajax({
-                url: 'actions/garage/garage_sell_all.inc.php',
+                url: 'actions/storageUnit/storageUnit_sell_all.inc.php',
                 method: 'post',
                 success: function(response) {
                     var feedback = response;
@@ -29,10 +29,10 @@
                     var feedbackType = feedback[1];
 
                     if (feedbackType == 'success') {
-                        $('#total_cars').text(0);
+                        $('#total_things').text(0);
                         htmx.trigger("#rankbar", "rankbarUpdated");
                         htmx.trigger("#moneyInHand", "moneyHandUpdated");
-                        htmx.trigger("#garage", "sellCars");
+                        htmx.trigger("#things", "sellThings");
                     }
 
                     feedbackReturn(feedbackText, feedbackType);
