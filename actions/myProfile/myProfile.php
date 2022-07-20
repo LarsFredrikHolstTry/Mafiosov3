@@ -67,6 +67,7 @@ $avatar =           $AS_row['AS_avatar'];
                             <address>
                                 <?= $useLang->profile->role ?>:<br>
                                 <?= $useLang->profile->rank ?>:<br>
+                                <?= $useLang->profile->moneyRank ?>:<br>
                                 <?= $useLang->profile->kills ?>:<br>
                                 <?= $useLang->profile->lastActive ?>:<br>
                                 <?= $useLang->profile->registered ?>:
@@ -77,7 +78,8 @@ $avatar =           $AS_row['AS_avatar'];
                             <address>
                                 <?= $role_name ?><br>
                                 <?= $rank_arr[$rank] ?><br>
-                                Lorem ipsum<br>
+                                Veldig rik<br>
+                                0 drap<br>
                                 <?= date_to_text($last_active) ?><br>
                                 <?= date_to_text($registered) ?>
                             </address>

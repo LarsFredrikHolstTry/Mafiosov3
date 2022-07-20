@@ -58,6 +58,8 @@ DB::run("UPDATE cooldown SET CD_theft = " . time() + $cooldown[$alt] . " WHERE C
 if (mt_rand(0, 100) < $chance[$alt]) {
     DB::run("INSERT INTO storage (ST_acc_id, ST_type) VALUES (?,?)", [$session_id, $thing_outcome]);
     DB::run("UPDATE account_stat SET AS_exp = AS_exp + " . $exp[$alt] . " WHERE AS_id = " . $session_id);
+    DB::run("UPDATE daily_stats SET DS_theft = DS_theft + 1, DS_exp = DS_exp + " . $exp[$alt] . " WHERE DS_acc_id = " . $session_id);
+
     echo 'Du stjal ' . $thing_name[$thing_outcome] . ' til en verdi av ' . number($thing_price[$thing_outcome]) . ' kr! ' . '<|>' . 'success' . '<|>' . $cooldown[$alt];
 } else {
     echo 'Du feilet brekket!' . '<|>' . 'danger' . '<|>' . $cooldown[$alt];

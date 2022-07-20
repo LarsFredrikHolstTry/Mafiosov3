@@ -66,6 +66,8 @@ $car_price = ($car_price[$car_outcome] - ($damage / 100) * $car_price[$car_outco
 
 if (mt_rand(0, 100) < $chance[$alt]) {
     DB::run("INSERT INTO garage (GA_acc_id, GA_city, GA_car, GA_damage) VALUES (?,?,?,?)", [$session_id, $session_city, $car_outcome, $damage]);
+    DB::run("UPDATE daily_stats SET DS_carTheft = DS_carTheft + 1, DS_exp = DS_exp + " . $exp[$alt] . " WHERE DS_acc_id = " . $session_id);
+
     echo 'Du stjal en ' . $car_name[$car_outcome] . ' med ' . $damage . '% skadet til en verdi av ' . number($car_price) . ' kr! ' . '<|>' . 'success' . '<|>' . $cooldown[$alt];
 } else {
     echo 'Du feilet biltyveriet!' . '<|>' . 'danger' . '<|>' . $cooldown[$alt];

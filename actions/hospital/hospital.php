@@ -38,9 +38,16 @@ $health =           DB::run("SELECT AS_health FROM account_stat WHERE AS_id = ?"
                         </div>
                     </div>
                 <?php } elseif ($health < 100) { ?>
-                    <div class="markdown">
-                        <h1>Velkommen til sykehuset i {by}</h1>
-                        <p>Du har under 100% helse og kan legge deg inn på sykehus for 10 000kr</p>
+                    <div class="markdown" style="text-align: center;">
+                        <p>Du har under 100% helse og kan legge deg inn på sykehus for <?= number((100 - $health) * 100) ?>kr</p>
+                        <div id="submit" class="btn btn-danger">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart-broken" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"></path>
+                                <path d="M12 6l-2 4l4 3l-2 4v3"></path>
+                            </svg>
+                            Legg deg inn på sykehus
+                        </div>
                     </div>
                 <?php } ?>
             </div>
@@ -51,8 +58,25 @@ $health =           DB::run("SELECT AS_health FROM account_stat WHERE AS_id = ?"
 <script>
     $(document).ready(function() {
         $('#submit').click(function() {
-            var value = value;
             $("#feedback-container").load("components/feedback.php");
+
+            $.ajax({
+                url: 'actions/hospital/hospital.inc.php',
+                method: 'post',
+                success: function(response) {
+                    var feedback = response;
+                    feedback = feedback.split("<|>");
+
+                    var feedbackText = feedback[0];
+                    var feedbackType = feedback[1];
+
+                    if (feedbackType == 'success') {
+                        htmx.trigger("#healthbar", "healthbarUpdated");
+                    }
+
+                    feedbackReturn(feedbackText, feedbackType);
+                }
+            });
         })
     })
 </script>

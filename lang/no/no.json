@@ -60,7 +60,7 @@
     "notifications": "Varsler",
     "playersOnline": "Spillere pålogget",
     "lufthansaHeist": "Lufthansa Heist",
-    "hospital": "Hospital",
+    "hospital": "Sykehus",
     "bulletFactory": "Kulefabrikk"
   },
   "bunker": {
@@ -203,6 +203,7 @@
     "profileBio": "Profiltekst",
     "role": "Rolle",
     "rank": "Rank",
+    "moneyRank": "Money rank",
     "kills": "Drap",
     "lastActive": "Sist aktiv",
     "registered": "Registrert",
