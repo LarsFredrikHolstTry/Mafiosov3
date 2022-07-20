@@ -183,6 +183,22 @@ $columns[14] = '
 `FC_winner` int(2) NOT NULL,
 `FC_date` int(15) NOT NULL';
 
+$table[15] = 'daily_stats';
+$columns[15] = '
+`DS_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`DS_acc_id` int(2) NOT NULL,
+`DS_crime` bigint(20) NOT NULL,
+`DS_carTheft` bigint(20) NOT NULL,
+`DS_theft` bigint(20) NOT NULL,
+`DS_exp` bigint(20) NOT NULL';
+
+$table[16] = 'daily_challenge';
+$columns[16] = '
+`DC_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`DC_crime` int(3) NOT NULL,
+`DC_carTheft` int(3) NOT NULL,
+`DC_theft` int(3) NOT NULL';
+
 $dummy_data[0] = "INSERT INTO roles 
 (RO_alias, RO_name, RO_access) 
 VALUES 
