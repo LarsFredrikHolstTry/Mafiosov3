@@ -22,15 +22,14 @@ include '../../global-variables.php';
                     <div class="list-group list-group-flush list-group-hoverable overflow-auto" style="height: 35rem">
                         <div class="list-group-item">
                             <div class="row align-items-center">
-                                <div class="col-auto"><span class="badge bg-red"></span></div>
                                 <div class="col-auto">
                                     <a href="#">
-                                        <span class="avatar" style="background-image: url(./static/avatars/000m.jpg)"></span>
+                                        <span class="avatar" style="background-image: url(img/avatars/standard_avatar.png)"></span>
                                     </a>
                                 </div>
                                 <div class="col text-truncate">
-                                    <a href="#" class="text-reset d-block">Paweł Kuna</a>
-                                    <div class="d-block text-muted text-truncate mt-n1">Change deprecated html tags to text decoration classes (#29604)</div>
+                                    <a href="#" class="text-reset d-block">Test</a>
+                                    <div class="d-block text-muted text-truncate mt-n1">Siste meldingsadadasdsadasdadsadasdasdasdasdasds</div>
                                 </div>
                             </div>
                         </div>
@@ -48,6 +47,13 @@ include '../../global-variables.php';
                         <div class="card-body">
                             <p>This is some text within a card body.</p>
                         </div>
+                    </div>
+                </div>
+                <div class="align-items-center" style="margin: 5px;">
+                    <?php include '../../components/markdown_top.php'; ?>
+                    <div class="df">
+                        <textarea id="txtarea" class="form-control" name="textarea-input" rows="2" placeholder="Send melding..."></textarea>
+                        <div class="btn">Send</div>
                     </div>
                 </div>
             </div>

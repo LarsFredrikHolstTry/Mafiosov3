@@ -72,6 +72,8 @@ $total_cars =           DB::run("SELECT count(*) FROM garage WHERE GA_acc_id = ?
                         if (feedbackType == 'success') {
                             $('#total_cars').text(<?= $total_cars + 1 ?>);
                             htmx.trigger("#rankbar", "rankbarUpdated");
+                            htmx.trigger("#bulletsUser", "bulletsUpdated");
+                            htmx.trigger("#healthbar", "healthbarUpdated");
                         }
                         $("#cooldown_carTheft").removeClass("text-success");
                         $("#cooldown_carTheft").addClass("text-danger");

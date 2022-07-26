@@ -71,6 +71,8 @@ $total_things =           DB::run("SELECT count(*) FROM storage WHERE ST_acc_id 
                         if (feedbackType == 'success') {
                             $('#total_things').text(<?= $total_things + 1 ?>);
                             htmx.trigger("#rankbar", "rankbarUpdated");
+                            htmx.trigger("#bulletsUser", "bulletsUpdated");
+                            htmx.trigger("#healthbar", "healthbarUpdated");
                         }
                         $("#cooldown_theft").removeClass("text-success");
                         $("#cooldown_theft").addClass("text-danger");
