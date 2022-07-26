@@ -100,7 +100,6 @@ if (isset($_SESSION['ID'])) {
 
 <script>
     $('body').click(function() {
-        console.log('clicked');
         $.ajax({
             url: 'components/updateOnline/updateOnline.php',
             method: 'post',

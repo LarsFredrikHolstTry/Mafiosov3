@@ -22,7 +22,6 @@ $health =           DB::run("SELECT AS_health FROM account_stat WHERE AS_id = ?"
         <div class="card-body">
             <div class="row align-items-center">
                 <img class="center-image" src="actions/hospital/img/hospital.png" />
-                <p class="df jcc mt-2">Eieren av sykehuset i {by} er {nick}</p>
                 <?php if ($health == 100) { ?>
                     <div class="alert alert-important alert-success alert-dismissible mt-1" role="alert">
                         <div class="d-flex jcc">

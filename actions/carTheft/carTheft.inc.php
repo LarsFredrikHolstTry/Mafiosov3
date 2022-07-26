@@ -4,8 +4,6 @@ include '../../global-variables.php';
 include '../../functions/cars.php';
 include 'carTheftVariables.inc.php';
 
-// TODO: Check if user has enough space for another car
-
 function hasMaxCars($user_id, $amountOfCars)
 {
     $total_cars =           DB::run("SELECT count(*) FROM garage WHERE GA_acc_id = ?", [$user_id])->fetchColumn();
@@ -65,6 +63,10 @@ $damage = mt_rand(0, 99);
 $car_price = ($car_price[$car_outcome] - ($damage / 100) * $car_price[$car_outcome]);
 
 if (mt_rand(0, 100) < $chance[$alt]) {
+    $bullets_used = mt_rand(0, 1) == 1 && $bullets > 10 ? mt_rand(0, 10) : mt_rand(0, $bullets);
+    $bullet_string = $bullets_used > 0 ? 'På vei fra åstedet måtte du bruke ' . number($bullets_used) . ' kuler og du mistet 2% helse i angrepet' : '';
+
+    DB::run("UPDATE account_stat SET AS_bullets = AS_bullets - " . $bullets_used . ", AS_health = AS_health - 2, AS_exp = AS_exp + " . $exp[$alt] . " WHERE AS_id = " . $session_id . "");
     DB::run("INSERT INTO garage (GA_acc_id, GA_city, GA_car, GA_damage) VALUES (?,?,?,?)", [$session_id, $session_city, $car_outcome, $damage]);
     DB::run("UPDATE daily_stats SET DS_carTheft = DS_carTheft + 1, DS_exp = DS_exp + " . $exp[$alt] . " WHERE DS_acc_id = " . $session_id);
 

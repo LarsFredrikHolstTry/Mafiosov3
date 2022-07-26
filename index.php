@@ -39,7 +39,7 @@ if (isset($_POST['login'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mafioso v3 - <?= $useLang->register->title; ?></title>
+    <title>Mafioso v3 - Logg inn</title>
 
     <!-- HTMX -->
     <script src="https://unpkg.com/htmx.org@1.3.3"></script>

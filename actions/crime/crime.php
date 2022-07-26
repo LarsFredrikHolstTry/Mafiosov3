@@ -72,6 +72,7 @@ include 'crimeVariables.inc.php';
                             htmx.trigger("#moneyInHand", "moneyHandUpdated");
                             htmx.trigger("#rankbar", "rankbarUpdated");
                             htmx.trigger("#bulletsUser", "bulletsUpdated");
+                            htmx.trigger("#healthbar", "healthbarUpdated");
                         }
                         $("#cooldown_crime").removeClass("text-success");
                         $("#cooldown_crime").addClass("text-danger");
