@@ -24,7 +24,7 @@ $bullets = DB::run("SELECT AS_bullets FROM account_stat WHERE AS_id = ?", [$sess
         <div class="card-body">
             <div class="row align-items-center">
                 <img class="center-image mb-3" src="actions/bulletFactory/img/bulletFactory.png" />
-                <p class="text-muted">Kuler er viktig for å øke sjansen på kriminalitet, biltyveri og brekk. Dersom du har under 50 kuler vil du ha mye mindre sjanse enn om du har over 50 kuler.
+                <p class="text-muted">Kuler er viktig for å øke sjansen på kriminalitet, biltyveri og brekk. Dersom du har under 20 kuler vil du ha mye mindre sjanse enn om du har over 20 kuler.
                     For hver kriminelle handling du utfører vil du bruke litt kuler for å komme deg unna politiet. Det er derfor viktig å fylle på kuler
                     underveis. Du kan maks ha 500 kuler på deg om gangen.</p>
                 <div class="container-tight py-4">

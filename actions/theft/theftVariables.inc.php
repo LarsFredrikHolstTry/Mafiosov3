@@ -18,7 +18,7 @@ $exp[1] = 2;
 $exp[2] = 3;
 $exp[3] = 4;
 
-$chance[0] = $bullets >= 50 ? 90 : 60;
-$chance[1] = $bullets >= 50 ? 80 : 40;
-$chance[2] = $bullets >= 50 ? 60 : 30;
-$chance[3] = $bullets >= 50 ? 40 : 10;
+$chance[0] = $bullets >= 20 ? 90 : 60;
+$chance[1] = $bullets >= 20 ? 80 : 40;
+$chance[2] = $bullets >= 20 ? 60 : 30;
+$chance[3] = $bullets >= 20 ? 40 : 10;

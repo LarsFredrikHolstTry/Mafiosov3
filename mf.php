@@ -80,7 +80,7 @@ if (isset($_SESSION['ID'])) {
                             <div id="top_menu">
                                 <div hx-target="#top_menu" hx-swap="outerHTML" hx-get="components/menus/top_action_menu.php" hx-trigger="load"></div>
                             </div>
-                            <div id="container">
+                            <div id="container" style="margin-top: 0 !important;">
                                 <div hx-target="#container" hx-swap="outerHTML" hx-get="actions/headquarters/headquarters.php" hx-trigger="load"></div>
                             </div>
                         </div>

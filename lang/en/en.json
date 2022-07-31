@@ -207,6 +207,7 @@
     "kills": "Kills",
     "lastActive": "Last active",
     "registered": "Registered",
-    "username": "Username"
+    "username": "Username",
+    "family": "Family"
   }
 }

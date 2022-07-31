@@ -12,7 +12,7 @@ $active_city =          DB::run("SELECT AS_city FROM account_stat WHERE AS_id = 
 <div class="card">
     <div class="card-body">
         <div class="df aic">
-            <div class="btn bg-green cursor-pointer" id="bunker_in">Gå i bunker</div>
+            <div class="btn btn-square bg-green cursor-pointer" id="bunker_in">Gå i bunker</div>
             <div>
                 <p class="lh-base" style="margin: 0; margin-left: 1rem"><strong>Pris: 1000kr</strong><br>
                     <span class="text-muted small">Tid: 24t</span>

@@ -14,7 +14,7 @@ if ($bullets < 50) { ?>
                 </svg>
             </div>
             <div>
-                Det anbefales å ha minst 50 kuler på deg for høyere sjanse
+                Det anbefales å ha minst 20 kuler på deg for høyere sjanse
             </div>
         </div>
         <a class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="close"></a>

@@ -3,9 +3,9 @@
 include '../../global-variables.php';
 include '../../db/PDODB.php';
 
-$value = $_POST['value'];
+$value = $_POST['profileText'];
 
-$profile_text =  DB::run("SELECT PR_id FROM profiles WHERE PR_acc_id = ?", [$session_id])->fetchColumn();
+$profile_text = DB::run("SELECT PR_id FROM profiles WHERE PR_acc_id = ?", [$session_id])->fetchColumn();
 
 if ($profile_text) {
     DB::run("UPDATE profiles SET PR_content = ? WHERE PR_acc_id = ?", [$value, $session_id]);

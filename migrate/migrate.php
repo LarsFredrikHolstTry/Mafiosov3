@@ -99,50 +99,43 @@ $columns[3] = '
 `PR_acc_id` int(15) NOT NULL,
 `PR_content` text NOT NULL';
 
-$table[4] = 'roles';
+$table[4] = 'business';
 $columns[4] = '
-`RO_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-`RO_alias` varchar(50) NOT NULL,
-`RO_name` varchar(50) NOT NULL,
-`RO_access` int(2) NOT NULL DEFAULT 0';
-
-$table[5] = 'business';
-$columns[5] = '
 `BU_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `BU_acc_id` int(2) NOT NULL,
 `BU_type` int(2) NOT NULL,
 `BU_city` int(2) NOT NULL';
 
-$table[6] = 'notification';
-$columns[6] = '
+$table[5] = 'notification';
+$columns[5] = '
 `NO_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `NO_acc_id` int(2) NOT NULL,
 `NO_text` text NOT NULL,
 `NO_unread` boolean default true,
 `NO_date` int(15) NOT NULL';
 
-$table[7] = 'jail';
-$columns[7] = '
+$table[6] = 'jail';
+$columns[6] = '
 `JA_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `JA_acc_id` int(2) NOT NULL,
 `JA_reason` text NOT NULL,
 `JA_date` int(15) NOT NULL';
 
-$table[8] = 'friends';
-$columns[8] = '
+$table[7] = 'friends';
+$columns[7] = '
 `FRI_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `FRI_acc_id` int(2) NOT NULL,
 `FRI_friend` int(2) NOT NULL';
 
-$table[9] = 'friendRequests';
-$columns[9] = '
+$table[8] = 'friendRequests';
+$columns[8] = '
 `FR_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `FR_acc_id` int(2) NOT NULL,
 `FR_from` int(2) NOT NULL,
 `FR_date` int(15) NOT NULL';
 
-$table[10] = 'cooldown';
-$columns[10] = '
+$table[9] = 'cooldown';
+$columns[9] = '
 `CD_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `CD_acc_id` int(2) NOT NULL,
 `CD_fc_training` int(15) NOT NULL,
@@ -153,22 +146,22 @@ $columns[10] = '
 `CD_steal` int(15) NOT NULL,
 `CD_travel` int(15) NOT NULL';
 
-$table[11] = 'storage';
-$columns[11] = '
+$table[10] = 'storage';
+$columns[10] = '
 `ST_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `ST_acc_id` int(2) NOT NULL,
 `ST_type` int(15) NOT NULL';
 
-$table[12] = 'user_settings';
-$columns[12] = '
+$table[11] = 'user_settings';
+$columns[11] = '
 `US_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `US_acc_id` int(2) NOT NULL,
 `US_max_cars` int(15) NOT NULL,
 `US_max_things` int(15) NOT NULL,
 `US_toprank_amt` int(2) NOT NULL';
 
-$table[13] = 'bank_transfer';
-$columns[13] = '
+$table[12] = 'bank_transfer';
+$columns[12] = '
 `BT_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `BT_from` int(2) NOT NULL,
 `BT_to` int(2) NOT NULL,
@@ -176,15 +169,15 @@ $columns[13] = '
 `BT_message` TEXT NOT NULL,
 `BT_date` int(15) NOT NULL';
 
-$table[14] = 'fc_fights';
-$columns[14] = '
+$table[13] = 'fc_fights';
+$columns[13] = '
 `FC_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `FC_loser` int(2) NOT NULL,
 `FC_winner` int(2) NOT NULL,
 `FC_date` int(15) NOT NULL';
 
-$table[15] = 'daily_stats';
-$columns[15] = '
+$table[14] = 'daily_stats';
+$columns[14] = '
 `DS_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `DS_acc_id` int(2) NOT NULL,
 `DS_crime` bigint(20) NOT NULL,
@@ -192,22 +185,33 @@ $columns[15] = '
 `DS_theft` bigint(20) NOT NULL,
 `DS_exp` bigint(20) NOT NULL';
 
-$table[16] = 'daily_challenge';
-$columns[16] = '
+$table[15] = 'daily_challenge';
+$columns[15] = '
 `DC_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `DC_crime` int(3) NOT NULL,
 `DC_carTheft` int(3) NOT NULL,
 `DC_theft` int(3) NOT NULL';
 
-$dummy_data[0] = "INSERT INTO roles 
-(RO_alias, RO_name, RO_access) 
-VALUES 
-('beta', 'Beta Tester', 1),
-('forum_moderator', 'Forum Moderator', 2),
-('moderator', 'Moderator', 3),
-('admin', 'Administrator', 4),
-('ass_admin', 'Assisterende Administrator', 5),
-('dev', 'Utvikler', 6)";
+$table[16] = 'family';
+$columns[16] = '
+`FA_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`FA_name` varchar(25) NOT NULL,
+`FA_member` int(3) NOT NULL default 10,
+`FA_money` bigint(20) NOT NULL,
+`FA_bullets` bigint(20) NOT NULL,
+`FA_war` int(3) NOT NULL,
+`FA_created` int(15) NOT NULL,
+`FA_profile` text NOT NULL,
+`FA_avatar` varchar(255) NOT NULL default "img/avatars/standard_avatar.png"';
+
+
+$table[17] = 'family_member';
+$columns[17] = '
+`FM_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`FM_acc_id` int(3) NOT NULL,
+`FM_family_id` int(3) NOT NULL,
+`FM_role` bigint(20) NOT NULL,
+`FM_joined` int(15) NOT NULL';
 
 ?>
 
@@ -289,16 +293,7 @@ VALUES
                                             die("ERROR: Could not connect. " . mysqli_connect_error());
                                         }
 
-                                        $sql = "DROP DATABASE IF EXISTS $db_name";
-                                        if (mysqli_query($con, $sql)) {
-                                            migrate_success_feedback("Deleted $db_name", $sql);
-                                        } else {
-                                            migrate_failed_feedback("Could not execute $sql. " . mysqli_error($con), "closing connection");
-                                            mysqli_close($con);
-                                        }
-
-                                        // Attempt create database query execution
-                                        $sql = "CREATE DATABASE $db_name";
+                                        $sql = "CREATE DATABASE IF NOT EXISTS $db_name";
                                         if (mysqli_query($con, $sql)) {
                                             migrate_success_feedback("Database $db_name created", $sql);
                                         } else {
@@ -318,22 +313,11 @@ VALUES
 
                                         // Create tables
                                         for ($i = 0; $i < count($table); $i++) {
-                                            $sql = "CREATE TABLE `$table[$i]`(
+                                            $sql = "CREATE TABLE IF NOT EXISTS `$table[$i]`(
                                             $columns[$i]
                                             )";
                                             if (mysqli_query($con, $sql)) {
                                                 migrate_success_feedback("$table[$i] table created", $sql);
-                                            } else {
-                                                migrate_failed_feedback("Could not execute $sql. " . mysqli_error($con), "closing connection");
-                                                mysqli_close($con);
-                                            }
-                                        }
-
-                                        // Insert dummy data
-                                        for ($j = 0; $j < count($dummy_data); $j++) {
-                                            $sql = $dummy_data[$j];
-                                            if (mysqli_query($con, $sql)) {
-                                                migrate_success_feedback("Dummy data inserted", $sql);
                                             } else {
                                                 migrate_failed_feedback("Could not execute $sql. " . mysqli_error($con), "closing connection");
                                                 mysqli_close($con);

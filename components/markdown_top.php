@@ -23,16 +23,7 @@
                 <path d="M5 19h14"></path>
             </svg>
         </div>
-        <div onclick="wrapText('txtarea','[left]','[/left]');" class="btn btn-white btn-icon" aria-label="Button" title="Align text left">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-align-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <desc>Download more icon variants from https://tabler-icons.io/i/align-left</desc>
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <line x1="4" y1="6" x2="20" y2="6"></line>
-                <line x1="4" y1="12" x2="14" y2="12"></line>
-                <line x1="4" y1="18" x2="18" y2="18"></line>
-            </svg>
-        </div>
-        <div onclick="wrapText('txtarea','[center]','[/center]');" class="btn btn-white btn-icon" aria-label="Button" title="Align text center">
+        <div onclick="wrapText('txtarea','[center]','[/center]');" class="btn btn-white btn-icon" aria-label="Button" title="Align text right">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-align-center" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <line x1="4" y1="6" x2="20" y2="6"></line>
@@ -40,13 +31,20 @@
                 <line x1="6" y1="18" x2="18" y2="18"></line>
             </svg>
         </div>
-        <div onclick="wrapText('txtarea','[right]','[/right]');" class="btn btn-white btn-icon" aria-label="Button" title="Align text right">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-align-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <desc>Download more icon variants from https://tabler-icons.io/i/align-right</desc>
+        <div onclick="wrapText('txtarea','[color=red]','[/color]');" class="btn btn-white btn-icon" aria-label="Button" title="Align text right">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-palette" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <line x1="4" y1="6" x2="20" y2="6"></line>
-                <line x1="10" y1="12" x2="20" y2="12"></line>
-                <line x1="6" y1="18" x2="20" y2="18"></line>
+                <path d="M12 21a9 9 0 1 1 0 -18a9 8 0 0 1 9 8a4.5 4 0 0 1 -4.5 4h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25"></path>
+                <circle cx="7.5" cy="10.5" r=".5" fill="currentColor"></circle>
+                <circle cx="12" cy="7.5" r=".5" fill="currentColor"></circle>
+                <circle cx="16.5" cy="10.5" r=".5" fill="currentColor"></circle>
+            </svg>
+        </div>
+        <div onclick="wrapText('txtarea','[url]','[/url]');" class="btn btn-white btn-icon" aria-label="Button" title="Align text right">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path>
+                <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path>
             </svg>
         </div>
         <!-- 
