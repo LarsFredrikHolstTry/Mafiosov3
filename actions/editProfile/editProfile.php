@@ -1,7 +1,7 @@
 <?php
 
 include '../../global-variables.php';
-require_once '../../db/PDODB.php';
+include '../../db/PDODB.php';
 
 $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", [$session_id])->fetchColumn();
 
@@ -38,7 +38,7 @@ $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", 
 <script type="text/javascript">
     $(document).ready(function() {
         $('#save-btn').click(function() {
-            var value = $("#profile_text").val();
+            var value = $("#txtarea").val();
 
             $("#feedback-container").load("components/feedback.php");
 
@@ -46,7 +46,7 @@ $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", 
                 url: 'actions/editProfile/editProfile.inc.php',
                 method: 'post',
                 data: {
-                    value: value,
+                    profileText: value,
                 },
                 success: function(response) {
                     var feedback = response;

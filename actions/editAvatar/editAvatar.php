@@ -1,7 +1,6 @@
 <?php
 
 include '../../global-variables.php';
-include '../../components/markdown_top.php';
 require_once '../../db/PDODB.php';
 
 $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", [$session_id])->fetchColumn();

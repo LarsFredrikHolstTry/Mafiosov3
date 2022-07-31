@@ -49,7 +49,7 @@ include 'crimeVariables.inc.php';
 <script>
     $(document).ready(function() {
         $('.do-crime').click(function() {
-            var alt = $(this).closest(".do-crime").attr("id");;
+            var alt = $(this).closest(".do-crime").attr("id");
 
             $("#feedback-container").load("components/feedback.php");
 

@@ -24,7 +24,9 @@ include '../../global-variables.php';
                             <div class="row align-items-center">
                                 <div class="col-auto">
                                     <a href="#">
-                                        <span class="avatar" style="background-image: url(img/avatars/standard_avatar.png)"></span>
+                                        <span class="avatar" style="background-image: url(img/avatars/standard_avatar.png)">
+                                            <span class="badge bg-green"></span>
+                                        </span>
                                     </a>
                                 </div>
                                 <div class="col text-truncate">

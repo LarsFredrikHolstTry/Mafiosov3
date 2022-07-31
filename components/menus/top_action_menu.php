@@ -29,7 +29,7 @@ include '../../db/PDODB.php';
         ?>
             <div class="col-2">
                 <a hx-post="actions/<?= $key ?>/<?= $key ?>.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="no-style" href="#">
-                    <div class="btn bg-dark btn-md w-100">
+                    <div class="btn btn-square bg-dark btn-md w-100">
                         <div class=" row align-items-center">
                             <div class="col">
                                 <div class="font-weight-medium">

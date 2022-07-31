@@ -107,14 +107,14 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                         <h2><?= $useLang->finance->deposit; ?> / <?= $useLang->finance->withdraw; ?></h2>
                         <h4><?= $useLang->finance->amount; ?> </h4>
                         <div class="input-group mb-2">
-                            <span class="input-group-text">
+                            <span class="btn-square input-group-text">
                                 <input class="form-check-input m-0" id="all" type="checkbox">
                                 <span style="margin-left: 10px;"><?= $useLang->finance->all; ?></span>
                             </span>
-                            <input type="text" placeholder="Beløp" class="form-control" id="number" autocomplete="off">
+                            <input type="text" placeholder="Beløp" class="btn-square form-control" id="number" autocomplete="off">
                         </div>
                         <div class="mb-2">
-                            <div class="btn btn-success cursor-pointer" id="deposit-btn">
+                            <div class="btn btn-square btn-success cursor-pointer" id="deposit-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -122,7 +122,7 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                                 </svg>
                                 <?= $useLang->finance->deposit; ?>
                             </div>
-                            <div class="btn btn-warning cursor-pointer" id="withdraw-btn">
+                            <div class="btn btn-square btn-warning cursor-pointer" id="withdraw-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-minus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -142,21 +142,21 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                                     <span class="input-icon-addon">
                                         <i class="ti ti-user"></i>
                                     </span>
-                                    <input type="text" id="username" class="form-control" placeholder="<?= $useLang->finance->username; ?>">
+                                    <input type="text" id="username" class="btn-square form-control" placeholder="<?= $useLang->finance->username; ?>">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <label class="form-label"><?= $useLang->finance->amount; ?></label>
-                                <input type="text" id="money" class="form-control" name="example-password-input" id="numberWire" placeholder="<?= $useLang->finance->amount; ?>">
+                                <input type="text" id="money" class="btn-square form-control" name="example-password-input" id="numberWire" placeholder="<?= $useLang->finance->amount; ?>">
                             </div>
                             <div class="col-lg-12 mb-2">
                                 <label class="form-label"><?= $useLang->finance->message; ?></label>
-                                <textarea class="form-control" id="message" name="example-textarea" placeholder="<?= $useLang->finance->messageText; ?>"></textarea>
+                                <textarea class="btn-square form-control" id="message" name="example-textarea" placeholder="<?= $useLang->finance->messageText; ?>"></textarea>
                             </div>
                             <div class="col-lg-12">
                                 <div class="d-flex">
                                     <i class="text-muted">10% overføringsgebyr</i>
-                                    <div class="btn btn-bitbucket btn-md ms-auto" id="transfer-btn">
+                                    <div class="btn btn-square btn-bitbucket btn-md ms-auto" id="transfer-btn">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                             <line x1="5" y1="12" x2="19" y2="12" />

@@ -17,7 +17,7 @@ include '../../global-variables.php';
             </div>
         </div>
         <div class="card-body">
-            <div class="row align-items-center">
+            <div class="row">
             </div>
         </div>
     </div>

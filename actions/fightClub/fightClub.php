@@ -24,7 +24,7 @@ $fightPoints = DB::run("SELECT AS_fightpoints FROM account_stat WHERE AS_id = ?"
             <div class="row align-items-center">
                 <img class="center-image mb-2" src="actions/fightClub/img/fightClub.png" />
                 <div class="col-12 df jcc aic mb-2">
-                    <span class="status status-blue">Slåsspoeng: <?= number($fightPoints) ?></span>
+                    <span class="status status-blue">Styrke: <?= number($fightPoints) ?></span>
                     <!-- <span class="ml-05 text-muted">Topp 10%</span> -->
                 </div>
                 <div class="row">
@@ -35,7 +35,7 @@ $fightPoints = DB::run("SELECT AS_fightpoints FROM account_stat WHERE AS_id = ?"
                                 <thead>
                                     <tr>
                                         <th>Kategori</th>
-                                        <th>Slåsspoeng</th>
+                                        <th>Styrke</th>
                                         <th>Ventetid</th>
                                     </tr>
                                 </thead>

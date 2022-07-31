@@ -3,6 +3,9 @@
 include '../../global-variables.php';
 include '../../db/PDODB.php';
 include '../../functions/ranks.php';
+include '../../functions/roles.php';
+include '../../functions/bbcodes.php';
+include '../../actions/family/familyvariables.inc.php';
 
 if (!isset($_GET['id'])) {
     $id = $session_id;
@@ -13,7 +16,7 @@ if (!isset($_GET['id'])) {
 $ACC_row =  DB::run("SELECT * FROM account WHERE ACC_id = ?", [$id])->fetch();
 $AS_row =   DB::run("SELECT * FROM account_stat WHERE AS_id = ?", [$id])->fetch();
 $PR_row =   DB::run("SELECT PR_id, PR_content FROM profiles WHERE PR_acc_id = ?", [$id])->fetch();
-$role =     DB::run("SELECT RO_name FROM roles WHERE RO_access = ?", [$ACC_row['ACC_role']])->fetch();
+$family_id =   DB::run("SELECT FM_family_id FROM family_member WHERE FM_acc_id = ?", [$id])->fetchColumn();
 
 $usename =          $ACC_row['ACC_username'];
 $registered =       $ACC_row['ACC_register'];
@@ -21,9 +24,16 @@ $last_active =      $ACC_row['ACC_last_active'];
 $exp =              $AS_row['AS_EXP'];
 $money =            $AS_row['AS_money'] + $AS_row['AS_bankmoney'];
 $profile_text =     $PR_row['PR_content'] ?? '';
-$role_name =        $role ? $role['RO_name'] : 'Bruker';
+$role_name =        $role[$ACC_row['ACC_role']];
 $rank =             $AS_row['AS_rank'];
 $avatar =           $AS_row['AS_avatar'];
+$family =           $family_id ?
+    $familyRoles[DB::run("SELECT FM_role FROM family_member WHERE FM_acc_id = ?", [$id])->fetchColumn()] . ' i ' .
+    '<span hx-get="actions/familyprofile/familyprofile.php?id=' . $family_id . '" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="fake-link cursor-pointer" id="htmxForm">' .
+    DB::run("SELECT FA_name FROM family WHERE FA_id = ?", [$family_id])->fetchColumn()
+    . '</span>'
+    :
+    'Ingen';
 
 ?>
 
@@ -71,6 +81,7 @@ $avatar =           $AS_row['AS_avatar'];
                                 <?= $useLang->profile->kills ?>:<br>
                                 <?= $useLang->profile->lastActive ?>:<br>
                                 <?= $useLang->profile->registered ?>:
+                                <?= $useLang->profile->family ?>:
                             </address>
                         </div>
                         <div class="col-8 text-end">
@@ -81,7 +92,8 @@ $avatar =           $AS_row['AS_avatar'];
                                 Veldig rik<br>
                                 0 drap<br>
                                 <?= date_to_text($last_active) ?><br>
-                                <?= date_to_text($registered) ?>
+                                <?= date_to_text($registered) ?><br>
+                                <?= $family ?>
                             </address>
                         </div>
                     </div>
@@ -93,7 +105,7 @@ $avatar =           $AS_row['AS_avatar'];
                 <span><?= $useLang->profile->profileBio ?></span>
             </div>
             <div class="card-body" style="padding-top: 0; border-top: none;">
-                <?= $profile_text ?>
+                <?= showBBcodes($profile_text) ?>
             </div>
         </div>
     </div>

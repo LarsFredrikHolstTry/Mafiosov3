@@ -23,12 +23,12 @@ $exp[3] = 4;
 $exp[4] = 5;
 $exp[5] = 6;
 
-$chance[0] = $bullets >= 50 ? 100 : 40;
-$chance[1] = $bullets >= 50 ? 85 : 35;
-$chance[2] = $bullets >= 50 ? 75 : 30;
-$chance[3] = $bullets >= 50 ? 65 : 25;
-$chance[4] = $bullets >= 50 ? 60 : 20;
-$chance[5] = $bullets >= 50 ? 55 : 15;
+$chance[0] = $bullets >= 20 ? 100 : 40;
+$chance[1] = $bullets >= 20 ? 85 : 35;
+$chance[2] = $bullets >= 20 ? 75 : 30;
+$chance[3] = $bullets >= 20 ? 65 : 25;
+$chance[4] = $bullets >= 20 ? 60 : 20;
+$chance[5] = $bullets >= 20 ? 55 : 15;
 
 $payout_from[0] = 150;
 $payout_to[0] = 350;
