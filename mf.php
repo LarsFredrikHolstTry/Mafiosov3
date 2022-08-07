@@ -46,6 +46,7 @@ if (isset($_SESSION['ID'])) {
     <script src="js/wrapText.js"></script>
     <script src="js/feedback.js"></script>
     <script src="js/countdown.js"></script>
+    <script src="js/specificPlayer.js"></script>
 
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="img/logo/favicon.ico">

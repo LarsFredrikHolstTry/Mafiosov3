@@ -71,31 +71,37 @@ $family =           $family_id ?
                     <img style="max-width: 300px; max-height: 300px;" src="<?= $avatar ?>" />
                 </div>
                 <div class="col-5">
-                    <div class="row">
-                        <div class="col-4">
-                            <p class="h3"><?= $useLang->profile->username ?>:</p>
-                            <address>
-                                <?= $useLang->profile->role ?>:<br>
-                                <?= $useLang->profile->rank ?>:<br>
-                                <?= $useLang->profile->moneyRank ?>:<br>
-                                <?= $useLang->profile->kills ?>:<br>
-                                <?= $useLang->profile->lastActive ?>:<br>
-                                <?= $useLang->profile->registered ?>:
-                                <?= $useLang->profile->family ?>:
-                            </address>
-                        </div>
-                        <div class="col-8 text-end">
-                            <p class="h3"><?= $usename ?></p>
-                            <address>
-                                <?= $role_name ?><br>
-                                <?= $rank_arr[$rank] ?><br>
-                                Veldig rik<br>
-                                0 drap<br>
-                                <?= date_to_text($last_active) ?><br>
-                                <?= date_to_text($registered) ?><br>
-                                <?= $family ?>
-                            </address>
-                        </div>
+                    <div class="d-flex">
+                        <span class="h3"><?= $useLang->profile->username ?>:</span>
+                        <span class="ms-auto h3"><?= $usename ?></span>
+                    </div>
+                    <div class="d-flex">
+                        <span><?= $useLang->profile->role ?>:</span>
+                        <span class="ms-auto"><?= $role_name ?></span>
+                    </div>
+                    <div class="d-flex">
+                        <span><?= $useLang->profile->rank ?>:</span>
+                        <span class="ms-auto"><?= $rank_arr[$rank] ?></span>
+                    </div>
+                    <div class="d-flex">
+                        <span><?= $useLang->profile->moneyRank ?>:</span>
+                        <span class="ms-auto">Veldig rik</span>
+                    </div>
+                    <div class="d-flex">
+                        <span><?= $useLang->profile->kills ?>:</span>
+                        <span class="ms-auto">0 drap</span>
+                    </div>
+                    <div class="d-flex">
+                        <span><?= $useLang->profile->lastActive ?>:</span>
+                        <span class="ms-auto"><?= date_to_text($last_active) ?></span>
+                    </div>
+                    <div class="d-flex">
+                        <span><?= $useLang->profile->registered ?>:</span>
+                        <span class="ms-auto"><?= date_to_text($registered) ?></span>
+                    </div>
+                    <div class="d-flex">
+                        <span><?= $useLang->profile->family ?>:</span>
+                        <span class="ms-auto"><?= $family ?></span>
                     </div>
                 </div>
             </div>
