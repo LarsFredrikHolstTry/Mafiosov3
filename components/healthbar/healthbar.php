@@ -11,7 +11,7 @@ $health =         DB::run("SELECT AS_health FROM account_stat WHERE AS_id=?", [$
     <div><span class="d-inline-flex align-items-center lh-1">Helse</span></div>
     <div class="ms-auto">
         <span class="text-muted d-inline-flex align-items-center lh-1">
-            <?= $health <= 0 ? 'Død' : $health ?>%
+            <?= $health <= 0 ? 'Død' : $health . '%' ?>
         </span>
     </div>
 

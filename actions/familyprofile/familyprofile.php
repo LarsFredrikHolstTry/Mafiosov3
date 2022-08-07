@@ -6,6 +6,7 @@ include '../../db/PDODB.php';
 $familyId = $_GET['id'];
 
 $famRow = DB::run("SELECT * FROM family WHERE FA_id = ?", [$familyId])->fetch();
+$membersInFamily =  DB::run("SELECT COUNT(*) FROM family_member WHERE FM_family_id = ?", [$familyId])->fetchColumn();
 
 ?>
 <div class="col-12" id="container">
@@ -31,19 +32,67 @@ $famRow = DB::run("SELECT * FROM family WHERE FA_id = ?", [$familyId])->fetch();
                         <div class="col-4">
                             <p class="h3">Familienavn:</p>
                             <address>
-                                I Krig:<br>
+                                Krig:<br>
+                                Kriger vunnet:<br>
                                 Medlemmer:<br>
+                                Boss:<br>
+                                Stiftet:<br>
                             </address>
                         </div>
                         <div class="col-8 text-end">
                             <p class="h3"><?= $famRow['FA_name'] ?></p>
                             <address>
-                                <?= $famRow['FA_war'] > 0 ? '<span class="text-warning">I krig med ' . $famRow['FA_war'] . '</span>' : '<span class="text-success">Ikke i aktiv krig</span>' ?><br>
-                                {members}/{max_members}<br>
+                                <?= $famRow['FA_war'] > 0 ? '<span class="text-warning">I krig mot ' . DB::run("SELECT FA_name FROM family WHERE FA_id = ?", [$famRow['FA_war']])->fetchColumn() . '</span>' : '<span class="text-success">Ikke i aktiv krig</span>' ?><br>
+                                0<br>
+                                <?= $membersInFamily . ' / ' . $famRow['FA_member'] ?><br>
+                                Skitzo<br>
+                                <?= date_to_text($famRow['FA_created']) ?>
                             </address>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <?php if ($famRow['FA_war'] > 0) { ?>
+            <div class="row align-items-center">
+                <div class="hr-text">
+                    <span>I aktiv krig mot <?= DB::run("SELECT FA_name FROM family WHERE FA_id = ?", [$famRow['FA_war']])->fetchColumn() ?></span>
+                </div>
+            </div>
+            <?php
+            $familyWarRow =        DB::run("SELECT * FROM family_war WHERE FW_family1 = ? OR FW_family2 = ?", [$familyId, $familyId])->fetch();
+
+            $contestant =           $familyWarRow['FW_family1'] == $familyId ? $familyWarRow['FW_family2'] : $familyWarRow['FW_family1'];
+            $contestantScore =      $familyWarRow['FW_family1'] == $familyId ? $familyWarRow['FW_family2Score'] : $familyWarRow['FW_family1Score'];
+            $myScore =              $familyWarRow['FW_family1'] == $familyId ? $familyWarRow['FW_family1Score'] : $familyWarRow['FW_family2Score'];
+
+            $contestantFamilyRow = DB::run("SELECT * FROM family WHERE FA_id = ?", [$contestant])->fetch();
+
+            ?>
+            <div class="container-tight">
+                <div class="table-responsive">
+                    <table class="table table-vcenter">
+                        <thead>
+                            <tr>
+                                <th style="width: 40%;"><?= $contestantFamilyRow['FA_name'] ?></th>
+                                <th style="width: 20%; text-align: center;">Vs.</th>
+                                <th style="width: 40%; text-align: right;"><?= $famRow['FA_name'] ?></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><?= $contestantScore ?> poeng</td>
+                                <td style="text-align: center;">-</td>
+                                <td style="text-align: right;"><?= $myScore ?> poeng</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        <?php } ?>
+        <div class="row align-items-center">
+            <div class="hr-text">
+                <span>Familieprofil</span>
             </div>
         </div>
     </div>

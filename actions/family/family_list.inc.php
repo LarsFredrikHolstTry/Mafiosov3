@@ -29,7 +29,7 @@ include '../../db/PDODB.php';
                     </div>
                 </td>
                 <td class="text-muted"><?= $members ?> / <?= $row['FA_member'] ?></td>
-                <td><?= $row['FA_war'] > 0 ? '<span class="text-warning">I krig med ' . $row['FA_war'] . '</span>' : '<span class="text-success">Ikke i aktiv krig</span>' ?></td>
+                <td><?= $row['FA_war'] > 0 ? '<span class="text-warning">I krig mot ' . $row['FA_war'] . '</span>' : '<span class="text-success">Ikke i aktiv krig</span>' ?></td>
                 <td>
                     <div hx-get="actions/family/family.php?application=<?= $row['FA_id'] ?>" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="fake-link cursor-pointer" id="htmxForm">
                         Send søknad
