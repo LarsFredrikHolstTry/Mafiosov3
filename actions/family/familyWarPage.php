@@ -55,14 +55,15 @@ if ($familyRow['FA_war'] != 0) {
             </thead>
             <tbody>
                 <?php
-                // TODO: Check for unique id (Nåværende unike ID funker ikke?)
-                $stmt = DB::run("SELECT * FROM family_war_activity WHERE FWA_family = 1");
+
+                $stmt = DB::run("SELECT * FROM family_war_activity WHERE FWA_warId = '" . $warId . "'");
                 while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
                     $username =     DB::run("SELECT ACC_username FROM account WHERE ACC_id = " . $row['FWA_account_id'])->fetchColumn();
+                    $familyName =   DB::run("SELECT FA_name FROM family WHERE FA_id = " . $row['FWA_family'])->fetchColumn();
 
                 ?>
                     <tr>
-                        <td><?= $row['FWA_family'] ?></td>
+                        <td><?= $familyName ?></td>
                         <td><?= $username . ' ' . $row['FWA_action'] ?></td>
                         <td><?= date_to_text($row['FWA_date']) ?></td>
                     </tr>

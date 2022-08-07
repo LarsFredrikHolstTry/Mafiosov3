@@ -19,7 +19,7 @@ if ($familyRow['FA_war'] != 0) {
 } elseif ($familyContestantRow['FA_war'] != 0) {
     echo 'Familien du prøver å angripe er allerede i en aktiv krig!' . '<|>' . 'danger';
 } else {
-    $uniqueWarId = uniqid();
+    $uniqueWarId = uniqid("FamilyWar_");
     DB::prepare("INSERT INTO family_war (FW_warId, FW_family1, FW_family2, FW_date) VALUES (?,?,?,?)")->execute([$uniqueWarId, $familyId, $familyAttack, time()]);
 
     $action = 'erklærte krig mot ' . $familyContestantRow['FA_name'];
