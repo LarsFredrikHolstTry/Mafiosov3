@@ -204,7 +204,6 @@ $columns[16] = '
 `FA_profile` text NOT NULL,
 `FA_avatar` varchar(255) NOT NULL default "img/avatars/standard_avatar.png"';
 
-
 $table[17] = 'family_member';
 $columns[17] = '
 `FM_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -212,6 +211,32 @@ $columns[17] = '
 `FM_family_id` int(3) NOT NULL,
 `FM_role` bigint(20) NOT NULL,
 `FM_joined` int(15) NOT NULL';
+
+$table[18] = 'territorium';
+$columns[18] = '
+`TE_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`TE_family_id` int(3) NOT NULL,
+`TE_city` int(2) NOT NULL,
+`TE_money` bigint(20) NOT NULL';
+
+$table[19] = 'family_war';
+$columns[19] = '
+`FW_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`FW_warId` varchar(36) NOT NULL,
+`FW_family1` int(3) NOT NULL,
+`FW_family2` int(3) NOT NULL,
+`FW_family1Score` int(3) NOT NULL,
+`FW_family2Score` int(3) NOT NULL,
+`FW_date` bigint(20) NOT NULL';
+
+$table[20] = 'family_war_activity';
+$columns[20] = '
+`FWA_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`FWA_warId` varchar(36) NOT NULL,
+`FWA_family` int(3) NOT NULL,
+`FWA_account_id` int(3) NOT NULL,
+`FWA_action` varchar(255) NOT NULL,
+`FWA_date` bigint(20) NOT NULL';
 
 ?>
 

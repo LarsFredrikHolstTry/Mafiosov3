@@ -2,6 +2,7 @@
 
 include '../../global-variables.php';
 include '../../functions/cities.php';
+include '../../db/PDODB.php';
 
 ?>
 <div class="col-12" id="container">
@@ -20,6 +21,9 @@ include '../../functions/cities.php';
     <div class="row row-cards">
         <?php
         for ($i = 0; $i < count($city); $i++) {
+            $territorium_owner =    DB::run("SELECT TE_family_id FROM territorium WHERE TE_city = ?", [$i])->fetchColumn();
+            $family_name =          $territorium_owner ? DB::run("SELECT FA_name FROM family WHERE FA_id = ?", [$territorium_owner])->fetchColumn() : 'Ingen';
+
         ?>
             <div class="col-4">
                 <div class="card">
@@ -27,7 +31,7 @@ include '../../functions/cities.php';
                     <div class="card-body">
                         <h3 class="card-title"><span class="flag flag-country-<?= $flag[$i] ?> me-1"></span> <?= $city[$i] ?></h3>
                         <ul class="text-muted list-unstyled">
-                            <li>Territorium: Lorem Ipsum</li>
+                            <li>Territorium: <?= $family_name ?></li>
                             <li>Pris: 15 240 kr</li>
                         </ul>
                     </div>

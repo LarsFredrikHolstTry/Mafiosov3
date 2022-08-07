@@ -24,19 +24,16 @@ $active_city =          DB::run("SELECT AS_city FROM account_stat WHERE AS_id = 
     <div class="list-group list-group-flush">
         <?php
 
-        if ($active_city == 0) {
-            echo '
-                <div 
-                hx-get="actions/lufthansaHeist/lufthansaHeist.php" 
-                hx-trigger="click" 
-                hx-target="#container" 
-                hx-swap="outerHTML" 
-                class="list-group-item list-group-item-action cursor-pointer" 
-                id="htmxForm">Lufthansa Heist</div>';
-        }
-
-        ?>
-        <?php
+        // if ($active_city == 0) {
+        //     echo '
+        //         <div 
+        //         hx-get="actions/lufthansaHeist/lufthansaHeist.php" 
+        //         hx-trigger="click" 
+        //         hx-target="#container" 
+        //         hx-swap="outerHTML" 
+        //         class="list-group-item list-group-item-action cursor-pointer" 
+        //         id="htmxForm">Lufthansa Heist</div>';
+        // }
 
         foreach ($sidebarConfig as $key => $value) {
 
