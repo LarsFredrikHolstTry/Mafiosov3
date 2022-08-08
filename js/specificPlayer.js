@@ -1,6 +1,6 @@
 function showSpecificInput() {
   var checkBox = document.getElementById(
-    "specificCheck"
+    "specificPlayer"
   );
   var input = document.getElementById(
     "specificPlayerInput"
