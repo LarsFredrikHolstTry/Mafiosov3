@@ -19,13 +19,15 @@ include '../../global-variables.php';
             </div>
         </div>
         <div class="card-body">
+            <img class="center-image" src="actions/steal/img/stjel.png" />
+
             <div class="container-tight py-4">
                 <div class="row">
                     <div class="col-6">
                         <div class="form-label">Hva ønsker du å stjele?</div>
                         <div>
                             <label class="form-selectgroup-item mb-1">
-                                <input type="radio" name="icons" value="home" class="form-selectgroup-input" checked>
+                                <input type="radio" name="icons" id="money" class="form-selectgroup-input" checked>
                                 <span class="form-selectgroup-label" style="text-align: left;">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-cash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -37,7 +39,7 @@ include '../../global-variables.php';
                                 </span>
                             </label>
                             <label class="form-selectgroup-item mb-1">
-                                <input type="radio" name="icons" value="home" class="form-selectgroup-input">
+                                <input type="radio" name="icons" id="car" class="form-selectgroup-input">
                                 <span class="form-selectgroup-label" style="text-align: left;">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-car" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -49,7 +51,7 @@ include '../../global-variables.php';
                                 </span>
                             </label>
                             <label class="form-selectgroup-item">
-                                <input type="radio" name="icons" value="home" class="form-selectgroup-input">
+                                <input type="radio" name="icons" id="thing" class="form-selectgroup-input">
                                 <span class="form-selectgroup-label" style="text-align: left;">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-warehouse" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -66,11 +68,11 @@ include '../../global-variables.php';
                         <div class="form-label">Velg mafioso</div>
                         <div>
                             <label class="form-check">
-                                <input type="checkbox" class="form-check-input" checked>
+                                <input type="checkbox" name="player" id="randomPlayer" class="form-check-input" checked>
                                 <span class="form-check-label">Stjel fra tilfeldig spiller</span>
                             </label>
                             <label class="form-check">
-                                <input type="checkbox" id="specificCheck" class="form-check-input" onclick="showSpecificInput()">
+                                <input type="checkbox" name="player" id="specificPlayer" class="form-check-input" onclick="showSpecificInput()">
                                 <span class="form-check-label">Stjel fra spesifikk spiller</span>
                             </label>
                             <div id="specificPlayerInput" style="display:none" class="input-icon mb-3">
@@ -81,11 +83,11 @@ include '../../global-variables.php';
                                         <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
                                     </svg>
                                 </span>
-                                <input type="text" class="form-control" placeholder="Spiller...">
+                                <input type="text" id="player_name" class="form-control" placeholder="Spiller...">
                             </div>
                         </div>
                     </div>
-                    <div class="mt-4 btn btn-primary">Stjel</div>
+                    <div id="steal" class="mt-4 btn btn-primary">Stjel</div>
                 </div>
             </div>
         </div>
@@ -93,6 +95,54 @@ include '../../global-variables.php';
 </div>
 
 <script>
+    $(document).ready(function() {
+        $('#steal').click(function() {
+
+            var randomOrSpecific = $("input[type=checkbox][name=player]:checked").attr('id');
+            var carOrThingOrMoney = $("input[type=radio][name=icons]:checked").attr('id');
+
+            var player = null;
+
+            if (randomOrSpecific == 'specificPlayer') {
+                player = $('#player_name').val();
+            }
+
+            $("#feedback-container").load("components/feedback.php");
+
+            $.ajax({
+                url: 'actions/steal/steal.inc.php',
+                method: 'post',
+                data: {
+                    randomOrSpecific: randomOrSpecific,
+                    carOrThingOrMoney: carOrThingOrMoney,
+                    player: player,
+                },
+                success: function(response) {
+                    var feedback = response;
+                    feedback = feedback.split("<|>");
+
+                    var feedbackText = feedback[0];
+                    var feedbackType = feedback[1];
+                    var cooldown = feedback[2];
+
+                    feedbackReturn(feedbackText, feedbackType);
+
+                    if (feedbackType == 'success' || feedbackType == 'danger') {
+                        if (feedbackType == 'success') {
+                            htmx.trigger("#moneyInHand", "moneyHandUpdated");
+                            htmx.trigger("#rankbar", "rankbarUpdated");
+                            htmx.trigger("#leftmenu", "leftMenuUpdate");
+                        }
+                        $("#cooldown_steal").removeClass("text-success");
+                        $("#cooldown_steal").addClass("text-danger");
+                        $("#cooldown_steal").text(cooldown);
+                        countdown(cooldown, "cooldown_steal");
+                    }
+                }
+            });
+        });
+    });
+
     $(document).ready(function() {
         $('#submit').click(function() {
             var value = value;
