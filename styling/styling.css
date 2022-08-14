@@ -93,6 +93,10 @@ input:-webkit-autofill {
   padding: 0 1rem;
 }
 
+.jcsb {
+  justify-content: space-between;
+}
+
 .aic {
   align-items: center;
 }

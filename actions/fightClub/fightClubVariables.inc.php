@@ -6,7 +6,7 @@ $category[2] = "Hurtighet";
 
 $addon[0] = 1;
 $addon[1] = 2;
-$addon[2] = 4;
+$addon[2] = 3;
 
 $cooldown[0] = 10;
 $cooldown[1] = 30;
