@@ -53,16 +53,20 @@ include '../../global-variables.php';
                     <script>
                         window.ApexCharts && (new ApexCharts(document.getElementById('chart-demo-line'), {
                             chart: {
-                                type: "line",
+                                type: "area",
                                 fontFamily: 'inherit',
-                                height: 240,
+                                height: 150,
+                                width: 350,
                                 parentHeightOffset: 0,
                                 toolbar: {
-                                    show: false,
+                                    show: true,
                                 },
                                 animations: {
                                     enabled: false
                                 },
+                            },
+                            dataLabels: {
+                                enabled: false,
                             },
                             fill: {
                                 opacity: 1,
@@ -70,14 +74,11 @@ include '../../global-variables.php';
                             stroke: {
                                 width: 2,
                                 lineCap: "round",
-                                curve: "straight",
+                                curve: "smooth",
                             },
                             series: [{
-                                name: "Page Views",
-                                data: [59, 80, 61, 66, 70]
-                            }, {
-                                name: "Total Visits",
-                                data: [53, 51, 52, 41, 46]
+                                name: "Pris",
+                                data: [59, 80, 61, 66, 70, 59, 80, 61, 66]
                             }],
                             grid: {
                                 padding: {
@@ -103,9 +104,9 @@ include '../../global-variables.php';
                                 },
                             },
                             labels: [
-                                '15:00', '15:10', '15:20', '15:30', '15:40'
+                                '15:00', '15:10', '15:20', '15:30', '15:40', '15:50', '16:00', '16:10', '16:20'
                             ],
-                            colors: ["#fab005", "#5eba00", "#206bc4"],
+                            colors: ["rgb(54, 135, 22)"],
                             legend: {
                                 show: true,
                                 position: 'bottom',

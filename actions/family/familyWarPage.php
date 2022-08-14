@@ -56,7 +56,7 @@ if ($familyRow['FA_war'] != 0) {
             <tbody>
                 <?php
 
-                $stmt = DB::run("SELECT * FROM family_war_activity WHERE FWA_warId = '" . $warId . "'");
+                $stmt = DB::run("SELECT * FROM family_war_activity WHERE FWA_warId = '" . $warId . "' ORDER BY FWA_date DESC");
                 while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
                     $username =     DB::run("SELECT ACC_username FROM account WHERE ACC_id = " . $row['FWA_account_id'])->fetchColumn();
                     $familyName =   DB::run("SELECT FA_name FROM family WHERE FA_id = " . $row['FWA_family'])->fetchColumn();

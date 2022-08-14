@@ -24,6 +24,17 @@ if (mt_rand(0, 100) < $chance[$alt]) {
     $money = mt_rand($payout_from[$alt], $payout_to[$alt]);
     $bullet_string = $bullets_used > 0 ? 'På vei fra åstedet måtte du bruke ' . number($bullets_used) . ' kuler og du mistet 2% helse i angrepet' : '';
 
+    $log = array(
+        "type" => "crime",
+        "values" => array(
+            "acc_id" => $session_id,
+            "moneyEarned" => $money,
+            "expEarned" => $exp[$alt],
+            "bullets_used" => $bullets_used,
+            "date" => time()
+        ),
+    );
+
     DB::run("UPDATE account_stat SET AS_bullets = AS_bullets - " . $bullets_used . ", AS_money = AS_money + " . $money . ", AS_health = AS_health - 2, AS_exp = AS_exp + " . $exp[$alt] . " WHERE AS_id = " . $session_id);
     DB::run("UPDATE daily_stats SET DS_crime = DS_crime + 1, DS_exp = DS_exp + " . $exp[$alt] . " WHERE DS_acc_id = " . $session_id);
 
