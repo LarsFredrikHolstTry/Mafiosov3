@@ -21,9 +21,13 @@ if ($crime_cd > time()) {
 
 DB::run("UPDATE cooldown SET CD_crime = " . time() + $cooldown[$alt] . " WHERE CD_acc_id = " . $session_id);
 if (mt_rand(0, 100) < $chance[$alt]) {
-    $bullets_used = mt_rand(0, 1) == 1 && $bullets > 10 ? mt_rand(0, 10) : mt_rand(0, $bullets);
+    $bullets_used = 0;
+    if ($bullets >= 10) {
+        $bullets_used = mt_rand(0, 10);
+    }
+
     $money = mt_rand($payout_from[$alt], $payout_to[$alt]);
-    $bullet_string = $bullets_used > 0 ? 'På vei fra åstedet måtte du bruke ' . number($bullets_used) . ' kuler og du mistet 2% helse i angrepet' : '';
+    $bullet_string = $bullets_used > 0 ? 'På vei fra åstedet måtte du brukte ' . number($bullets_used) . ' kuler og du mistet 2% helse i angrepet' : '';
 
     $log = array(
         "outcome" => "success",

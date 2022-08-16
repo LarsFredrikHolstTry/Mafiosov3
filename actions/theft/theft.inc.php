@@ -56,7 +56,11 @@ switch ($alt) {
 DB::run("UPDATE cooldown SET CD_theft = " . time() + $cooldown[$alt] . " WHERE CD_acc_id = " . $session_id);
 
 if (mt_rand(0, 100) < $chance[$alt]) {
-    $bullets_used = mt_rand(0, 1) == 1 && $bullets > 10 ? mt_rand(0, 10) : mt_rand(0, $bullets);
+    $bullets_used = 0;
+    if ($bullets >= 10) {
+        $bullets_used = mt_rand(0, 10);
+    }
+
     $bullet_string = $bullets_used > 0 ? 'På vei fra åstedet måtte du bruke ' . number($bullets_used) . ' kuler og du mistet 2% helse i angrepet' : '';
 
     $log = array(
