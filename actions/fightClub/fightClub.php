@@ -25,7 +25,6 @@ $fightPoints = DB::run("SELECT AS_fightpoints FROM account_stat WHERE AS_id = ?"
                 <img class="center-image mb-2" src="actions/fightClub/img/fightClub.png" />
                 <div class="col-12 df jcc aic mb-2">
                     <span class="status status-blue">Styrke: <?= number($fightPoints) ?></span>
-                    <!-- <span class="ml-05 text-muted">Topp 10%</span> -->
                 </div>
                 <div class="row">
                     <div class="col-6">
@@ -41,7 +40,7 @@ $fightPoints = DB::run("SELECT AS_fightpoints FROM account_stat WHERE AS_id = ?"
                                 </thead>
                                 <tbody>
                                     <?php for ($i = 0; $i < count($category); $i++) { ?>
-                                        <tr class="cursor-pointer" id="<?= $i; ?>">
+                                        <tr class="cursor-pointer" class="train" id="<?= $i; ?>">
                                             <td>Tren <?= $category[$i] ?></td>
                                             <td>+<?= $addon[$i] ?></td>
                                             <td class="text-muted"><?= $cooldown[$i] ?>s</td>

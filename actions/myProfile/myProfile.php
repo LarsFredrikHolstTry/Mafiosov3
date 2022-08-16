@@ -4,6 +4,7 @@ include '../../global-variables.php';
 include '../../db/PDODB.php';
 include '../../functions/ranks.php';
 include '../../functions/roles.php';
+include '../../functions/money_ranks.php';
 include '../../functions/bbcodes.php';
 include '../../actions/family/familyvariables.inc.php';
 
@@ -85,7 +86,7 @@ $family =           $family_id ?
                     </div>
                     <div class="d-flex">
                         <span><?= $useLang->profile->moneyRank ?>:</span>
-                        <span class="ms-auto">Veldig rik</span>
+                        <span class="ms-auto"><?= money_rank($money) ?></span>
                     </div>
                     <div class="d-flex">
                         <span><?= $useLang->profile->kills ?>:</span>

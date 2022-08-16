@@ -66,12 +66,32 @@ if (mt_rand(0, 100) < $chance[$alt]) {
     $bullets_used = mt_rand(0, 1) == 1 && $bullets > 10 ? mt_rand(0, 10) : mt_rand(0, $bullets);
     $bullet_string = $bullets_used > 0 ? 'På vei fra åstedet måtte du bruke ' . number($bullets_used) . ' kuler og du mistet 2% helse i angrepet' : '';
 
+    $log = array(
+        "outcome" => "success",
+        "city" => $session_city,
+        "carStolen" => $car_outcome,
+        "carValue" => $car_price,
+        "expEarned" => $exp[$alt],
+        "bullets_used" => $bullets_used,
+        "alternative" => $alt,
+    );
+
+    DB::prepare("INSERT INTO logs (LOGS_page, LOGS_json, LOGS_date, LOGS_acc_id) VALUES (?, ?, ?, ?)")->execute(["carTheft", json_encode($log), time(), $session_id]);
+
     DB::run("UPDATE account_stat SET AS_bullets = AS_bullets - " . $bullets_used . ", AS_health = AS_health - 2, AS_exp = AS_exp + " . $exp[$alt] . " WHERE AS_id = " . $session_id . "");
     DB::run("INSERT INTO garage (GA_acc_id, GA_city, GA_car, GA_damage) VALUES (?,?,?,?)", [$session_id, $session_city, $car_outcome, $damage]);
     DB::run("UPDATE daily_stats SET DS_carTheft = DS_carTheft + 1, DS_exp = DS_exp + " . $exp[$alt] . " WHERE DS_acc_id = " . $session_id);
 
     echo 'Du stjal en ' . $car_name[$car_outcome] . ' med ' . $damage . '% skadet til en verdi av ' . number($car_price) . ' kr! ' . '<|>' . 'success' . '<|>' . $cooldown[$alt];
 } else {
+    $log = array(
+        "outcome" => "failed",
+        "city" => $session_city,
+        "alternative" => $alt,
+    );
+
+    DB::prepare("INSERT INTO logs (LOGS_page, LOGS_json, LOGS_date, LOGS_acc_id) VALUES (?, ?, ?, ?)")->execute(["carTheft", json_encode($log), time(), $session_id]);
+
     echo 'Du feilet biltyveriet!' . '<|>' . 'danger' . '<|>' . $cooldown[$alt];
 }
 

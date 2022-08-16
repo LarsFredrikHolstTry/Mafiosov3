@@ -68,7 +68,7 @@ $AS_user =      DB::run("SELECT AS_money, AS_city, AS_bullets FROM account_stat 
                         <div class="fake-link cursor-pointer text-muted">Personlig statistikk</div>
                     </li>
                     <li>
-                        <div class="fake-link cursor-pointer text-muted">Statistikk</div>
+                        <div hx-get="actions/statistics/statistics.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="fake-link cursor-pointer text-muted">Statistikk</div>
                     </li>
                     <li>
                         <div class="fake-link cursor-pointer text-muted">Poenghandel</div>
@@ -87,6 +87,9 @@ $AS_user =      DB::run("SELECT AS_money, AS_city, AS_bullets FROM account_stat 
                     </li>
                     <li>
                         <a target="_blank" href="https://github.com/LarsFredrikHolstTry/Mafiosov3" class="fake-link cursor-pointer text-muted">Github</a>
+                    </li>
+                    <li>
+                        <div hx-get="actions/changelog/changelog.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="fake-link cursor-pointer text-muted">Changelog</div>
                     </li>
                 </ul>
             </div>

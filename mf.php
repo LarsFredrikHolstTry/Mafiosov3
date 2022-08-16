@@ -46,7 +46,6 @@ if (isset($_SESSION['ID'])) {
     <script src="js/wrapText.js"></script>
     <script src="js/feedback.js"></script>
     <script src="js/countdown.js"></script>
-    <script src="js/specificPlayer.js"></script>
 
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="img/logo/favicon.ico">
@@ -88,7 +87,7 @@ if (isset($_SESSION['ID'])) {
                     </div>
 
                     <div class="card col-3">
-                        <div hx-get="components/menus/right.menu.php" hx-trigger="load"></div>
+                        <div hx-get="components/menus/right.menu.php" id="rightMenu" hx-trigger="rightMenuUpdate, load"></div>
                     </div>
 
                 </div>

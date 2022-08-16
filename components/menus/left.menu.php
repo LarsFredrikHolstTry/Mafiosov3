@@ -7,6 +7,9 @@ $total_cars =           DB::run("SELECT count(*) FROM garage WHERE GA_acc_id = ?
 $total_things =         DB::run("SELECT count(*) FROM storage WHERE ST_acc_id = ?", [$session_id])->fetchColumn();
 $user_settings =        DB::run("SELECT US_max_cars, US_max_things FROM user_settings WHERE US_acc_id = ?", [$session_id])->fetch();
 $active_city =          DB::run("SELECT AS_city FROM account_stat WHERE AS_id = ?", [$session_id])->fetchColumn();
+$airport_cooldown =     DB::run("SELECT CD_travel FROM cooldown WHERE CD_acc_id = ?", [$session_id])->fetchColumn();
+
+$airport_cd = $airport_cooldown - time();
 
 ?>
 <div class="card">
@@ -63,7 +66,11 @@ $active_city =          DB::run("SELECT AS_city FROM account_stat WHERE AS_id = 
                 <?php
                         break;
                     case 'airport':
-                        echo '<span class="text-muted fr" id="cooldown_airport">Klar</span>';
+                        if ($airport_cd > time()) {
+                            echo '<span class="text-muted fr" id="cooldown_airport">Klar</span>';
+                        } else {
+                            echo '<span class="text-muted fr" id="cooldown_airport">' . $airport_cd . '</span>';
+                        }
                         break;
                 }
 
@@ -73,6 +80,11 @@ $active_city =          DB::run("SELECT AS_city FROM account_stat WHERE AS_id = 
         }
         ?>
     </div>
+
+    <script>
+        countdown(<?= $airport_cd ?>, 'cooldown_airport');
+    </script>
+
 
     <script>
         $(document).ready(function() {
