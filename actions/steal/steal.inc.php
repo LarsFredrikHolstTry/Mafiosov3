@@ -24,6 +24,12 @@ if (!in_array($randomOrSpecific, $legalFeedbackROS) || !in_array($carOrThingOrMo
     return;
 }
 
+if (mt_rand(0, 2) == 2) {
+    echo 'Du feilet på ransforsøket!' . '<|>' . 'warning';
+    DB::run("UPDATE cooldown SET CD_steal = " . time() + $cooldown . " WHERE CD_acc_id = " . $session_id);
+    return;
+}
+
 if ($crime_cd > time()) {
     echo 'Du har ventetid!' . '<|>' . 'warning';
     return;
@@ -44,8 +50,8 @@ if ($playerRow['ACC_id'] == $session_id) {
     return;
 }
 
-$myFamilyId = DB::run("SELECT FM_family_id FROM family_member WHERE FM_acc_id = '" . $session_id . "'")->fetchColumn();
-$familyAtWar = DB::run("SELECT FW_warId, FW_family1, FW_family2 FROM family_war WHERE FW_family1 = $myFamilyId OR FW_family2 = $myFamilyId")->fetch();
+$myFamilyId = DB::run("SELECT FM_family_id FROM family_member WHERE FM_acc_id = '" . $session_id . "'")->fetchColumn() ?? false;
+$familyAtWar = DB::run("SELECT FW_warId, FW_family1, FW_family2 FROM family_war WHERE FW_family1 = $myFamilyId OR FW_family2 = $myFamilyId")->fetch() ?? false;
 
 if ($familyAtWar) {
     $atWarWith = $familyAtWar['FW_family1'] == $myFamilyId ? $familyAtWar['FW_family2'] : $familyAtWar['FW_family1'];

@@ -10,8 +10,6 @@ include '../../global-variables.php';
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">
-
-
                 <h3 class="card-title text-capitalize"><?= $useLang->action->placebo; ?></h3>
             </h3>
             <div class="ms-auto">
@@ -75,7 +73,7 @@ include '../../global-variables.php';
                                 <input type="checkbox" name="player" id="specificPlayer" class="form-check-input" onclick="showSpecificInput()">
                                 <span class="form-check-label">Stjel fra spesifikk spiller</span>
                             </label>
-                            <div id="specificPlayerInput" style="display:none" class="input-icon mb-3">
+                            <div id="specificPlayerInput" class="input-icon mb-3">
                                 <span class="input-icon-addon">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>

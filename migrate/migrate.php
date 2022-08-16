@@ -227,7 +227,7 @@ $columns[19] = '
 `FW_family2` int(3) NOT NULL,
 `FW_family1Score` int(3) NOT NULL,
 `FW_family2Score` int(3) NOT NULL,
-`FW_date` bigint(20) NOT NULL';
+`FW_date` int(15) NOT NULL';
 
 $table[20] = 'family_war_activity';
 $columns[20] = '
@@ -236,7 +236,32 @@ $columns[20] = '
 `FWA_family` int(3) NOT NULL,
 `FWA_account_id` int(3) NOT NULL,
 `FWA_action` varchar(255) NOT NULL,
-`FWA_date` bigint(20) NOT NULL';
+`FWA_date` int(15) NOT NULL';
+
+$table[21] = 'logs';
+$columns[21] = '
+`LOGS_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`LOGS_page` varchar(255) NOT NULL,
+`LOGS_acc_id` int(255) NOT NULL,
+`LOGS_date` int(15) NOT NULL,
+`LOGS_json` text NOT NULL';
+
+$table[22] = 'changelog';
+$columns[22] = '
+`CH_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`CH_text` text NOT NULL,
+`CH_type` int(2) NOT NULL,
+`CH_date` int(15) NOT NULL';
+
+$table[23] = 'pm';
+$columns[23] = '
+`PM_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`pm_uniqueId` varchar(36) NOT NULL,
+`PM_message` text NOT NULL,
+`PM_from` int(255) NOT NULL,
+`PM_to` int(255) NOT NULL,
+`PM_read` int(1) NOT NULL,
+`PM_date` int(15) NOT NULL';
 
 ?>
 
@@ -305,55 +330,50 @@ $columns[20] = '
                                 <?php
 
                                 if (isset($_POST['migrate'])) {
-                                    if ($_POST['pincode'] != 5048) {
-                                        echo 'Wrong pin code';
-                                    } else {
-
-                                        /* Attempt MySQL server connection. Assuming you are running MySQL
+                                    /* Attempt MySQL server connection. Assuming you are running MySQL
                                         server with default setting (user 'root' with no password) */
-                                        $con = mysqli_connect($db_host, $db_user, $db_password);
+                                    $con = mysqli_connect($db_host, $db_user, $db_password);
 
-                                        // Check connection
-                                        if ($con === false) {
-                                            die("ERROR: Could not connect. " . mysqli_connect_error());
-                                        }
+                                    // Check connection
+                                    if ($con === false) {
+                                        die("ERROR: Could not connect. " . mysqli_connect_error());
+                                    }
 
-                                        $sql = "CREATE DATABASE IF NOT EXISTS $db_name";
+                                    $sql = "CREATE DATABASE IF NOT EXISTS $db_name";
+                                    if (mysqli_query($con, $sql)) {
+                                        migrate_success_feedback("Database $db_name created", $sql);
+                                    } else {
+                                        migrate_failed_feedback("Could not execute $sql. " . mysqli_error($con), "closing connection");
+                                        mysqli_close($con);
+                                    }
+
+                                    // Close connection
+                                    mysqli_close($con);
+
+                                    $con = mysqli_connect($db_host, $db_user, $db_password, $db_name);
+
+                                    // Check connection
+                                    if ($con === false) {
+                                        die("ERROR: Could not connect. " . mysqli_connect_error() . "<br>");
+                                    }
+
+                                    // Create tables
+                                    for ($i = 0; $i < count($table); $i++) {
+                                        $sql = "CREATE TABLE IF NOT EXISTS `$table[$i]`(
+                                            $columns[$i]
+                                            )";
                                         if (mysqli_query($con, $sql)) {
-                                            migrate_success_feedback("Database $db_name created", $sql);
+                                            migrate_success_feedback("$table[$i] table created", $sql);
                                         } else {
                                             migrate_failed_feedback("Could not execute $sql. " . mysqli_error($con), "closing connection");
                                             mysqli_close($con);
                                         }
-
-                                        // Close connection
-                                        mysqli_close($con);
-
-                                        $con = mysqli_connect($db_host, $db_user, $db_password, $db_name);
-
-                                        // Check connection
-                                        if ($con === false) {
-                                            die("ERROR: Could not connect. " . mysqli_connect_error() . "<br>");
-                                        }
-
-                                        // Create tables
-                                        for ($i = 0; $i < count($table); $i++) {
-                                            $sql = "CREATE TABLE IF NOT EXISTS `$table[$i]`(
-                                            $columns[$i]
-                                            )";
-                                            if (mysqli_query($con, $sql)) {
-                                                migrate_success_feedback("$table[$i] table created", $sql);
-                                            } else {
-                                                migrate_failed_feedback("Could not execute $sql. " . mysqli_error($con), "closing connection");
-                                                mysqli_close($con);
-                                            }
-                                        }
-
-                                        migrate_success_feedback("Migration done without any errors", "You can now enter homepage");
-
-                                        // Close connection
-                                        mysqli_close($con);
                                     }
+
+                                    migrate_success_feedback("Migration done without any errors", "You can now enter homepage");
+
+                                    // Close connection
+                                    mysqli_close($con);
                                 }
 
                                 ?>
@@ -387,10 +407,6 @@ $columns[20] = '
                     <div class="w-100">
                         <div class="row">
                             <form method="post">
-                                <div class="mb-3">
-                                    <label class="form-label">Pin code</label>
-                                    <input type="text" class="form-control" name="pincode" placeholder="Enter pin code">
-                                </div>
                                 <button type="submit" name="migrate" class="btn btn-danger w-100">
                                     Migrate
                                 </button>
