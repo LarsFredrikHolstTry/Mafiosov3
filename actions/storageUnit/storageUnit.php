@@ -42,7 +42,7 @@ while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
 
                     <?php if ($total_things) { ?>
                         <div class="ms-auto">
-                            <!-- <div class="btn bg-green btn-md">Selg valgte</div> -->
+                            <div class="btn bg-green btn-md" id="sell-chosen">Selg valgte</div>
                             <div class="btn bg-blue btn-md" data-bs-toggle="modal" data-bs-target="#modal-small">Selg Alle</div>
                         </div>
                     <?php } ?>
@@ -52,3 +52,14 @@ while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
     </div>
 
     <?php include '../../actions/storageUnit/storageUnit_sell_all_modal.php'; ?>
+
+    <script>
+        $(document).ready(function() {
+            $('#sell-chosen').click(function() {
+                var searchIDs = $('input:checked').map(function() {
+                    return $(this).val();
+                });
+                console.log(searchIDs.get());
+            });
+        });
+    </script>

@@ -7,7 +7,7 @@ $legal = [0, 1, 2, 3, 4, 5];
 $alt = $_POST['alt'];
 $crime_cd =         DB::run("SELECT CD_crime FROM cooldown WHERE CD_acc_id = $session_id")->fetchColumn();
 $bullets =          DB::run("SELECT AS_bullets FROM account_stat WHERE AS_id = $session_id")->fetchColumn();
-$session_city =     DB::run("SELECT AS_city FROM account_stat WHERE AS_id = ?", [$session_id])->fetchColumn();
+$session_city =     DB::run("SELECT AS_city FROM account_stat WHERE AS_id = $session_id")->fetchColumn();
 
 if (!is_numeric($alt) || !in_array($alt, $legal)) {
     echo 'Ugyldig valg!' . '<|>' . 'warning';
