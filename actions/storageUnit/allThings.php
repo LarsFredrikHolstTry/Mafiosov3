@@ -43,7 +43,7 @@ if ($total_things == 0) {
                 $amount = amount_of_thing($session_id, $row['ST_type']);
             ?>
                 <tr>
-                    <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                    <td><input class="form-check-input m-0 align-middle" id="things" type="checkbox" aria-label="Select invoice"></td>
                     <td><?= $thing_name[$row['ST_type']] ?></td>
                     <td><?= number($thing_price[$row['ST_type']] * $amount) ?> kr</td>
                     <td><?= number($amount) ?></td>
