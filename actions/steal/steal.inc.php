@@ -128,9 +128,9 @@ if ($carOrThingOrMoney == 'car') {
 if ($success && $familyAtWar && in_array($playerRow['ACC_id'], $nemesis)) {
     $scoreString = $familyAtWar['FW_family1'] ==
         $myFamilyId ?
-        "UPDATE family_war SET FW_family2Score = FW_family2Score + 1 WHERE FW_warId = '" . $familyAtWar['FW_warId'] . "'"
+        "UPDATE family_war SET FW_family1Score = FW_family1Score + 1 WHERE FW_warId = '" . $familyAtWar['FW_warId'] . "'"
         :
-        "UPDATE family_war SET FW_family1Score = FW_family1Score + 1 WHERE FW_warId = '" . $familyAtWar['FW_warId'] . "'";
+        "UPDATE family_war SET FW_family2Score = FW_family2Score + 1 WHERE FW_warId = '" . $familyAtWar['FW_warId'] . "'";
 
     DB::run($scoreString);
 }
