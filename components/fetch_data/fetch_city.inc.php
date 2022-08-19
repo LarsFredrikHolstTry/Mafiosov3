@@ -6,4 +6,7 @@ include '../../functions/cities.php';
 
 $AS_city = DB::run("SELECT AS_city FROM account_stat WHERE AS_id = ?", [$session_id])->fetchColumn();
 
-echo $city[$AS_city];
+?>
+
+<span class="flag flag-country-<?= $flag[$AS_city] ?> me-1"></span>
+<?= $city[$AS_city] ?>

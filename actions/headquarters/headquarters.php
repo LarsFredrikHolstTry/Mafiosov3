@@ -58,16 +58,15 @@ $done = true;
                     <div class="col-6">
                         <h3>Personlig statistikk</h3>
                         <address>
-                            EXP: 0<br>
-                            EXP i dag: 0<br>
-                            Penger ute: Ipsum<br>
-                            Penger i banken: Ipsum<br>
-                            Antall poeng: Ipsum<br>
-                            Kriminalitet utført i dag: 0<br>
-                            Biltyveri utført i dag: 0<br>
-                            Brekk utført i dag: 0<br>
-                            Stjel utført i dag: 0<br>
-                            Utbrytninger utført i dag: 0<br>
+                            EXP: <?= number($AS_row['AS_exp'] ?? 0) ?><br>
+                            EXP i dag: <?= number($DS_row['DS_exp'] ?? 0) ?><br>
+                            Penger ute: <?= number($AS_row['AS_money'] ?? 0) ?> kr<br>
+                            Penger i banken: <?= number($AS_row['AS_bankmoney'] ?? 0) ?> kr<br>
+                            Antall poeng: <?= number($AS_row['AS_points'] ?? 0) ?><br>
+                            Kriminalitet utført i dag: <?= number($DS_row['DS_crime'] ?? 0) ?><br>
+                            Biltyveri utført i dag: <?= number($DS_row['DS_carTheft'] ?? 0) ?><br>
+                            Brekk utført i dag: <?= number($DS_row['DS_theft'] ?? 0) ?><br>
+                            Stjel utført i dag: <?= number($DS_row['DS_steal'] ?? 0) ?><br>
                         </address>
                     </div>
                     <div class="col-6">
@@ -100,7 +99,7 @@ $done = true;
                         <!-- <p class="mt-3">Belønning: <?= number($exp) ?> EXP og <?= number($money) ?> kr</p> -->
 
                         <?php if ($done) { ?>
-                            <div class="btn btn-square mt-3">
+                            <div class="btn btn-square mt-3" id="get_daily_achievement">
                                 Hent belønning
                             </div>
                         <?php } ?>

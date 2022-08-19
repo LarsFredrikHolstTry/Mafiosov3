@@ -56,12 +56,12 @@ $badges[3] = '<div class="form-selectgroup-label d-flex align-items-center p-1">
                         <div class="form-selectgroup form-selectgroup-boxes d-flex">
                             <?php for ($i = 0; $i < count($badges); $i++) { ?>
                                 <label class="form-selectgroup-item">
-                                    <input type="checkbox" class="form-selectgroup-input">
+                                    <input type="checkbox" id="<?= $i ?> class=" form-selectgroup-input">
                                     <?= $badges[$i] ?>
                                 </label>
                             <?php } ?>
                         </div>
-                        <div class="btn btn-primary btn-square btn-sm mt-3">
+                        <div class="add_change btn btn-primary btn-square btn-sm mt-3">
                             Legg ut
                         </div>
                     </div>

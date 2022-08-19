@@ -56,10 +56,32 @@ while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
     <script>
         $(document).ready(function() {
             $('#sell-chosen').click(function() {
-                var searchIDs = $('input:checked').map(function() {
-                    return $(this).val();
+                var val = [];
+
+                $("#feedback-container").load("components/feedback.php");
+
+                $(':checkbox:checked').each(function(i) {
+                    val[i] = $(this).val();
+                })
+                $.ajax({
+                    url: 'actions/storageUnit/sell_chosen.inc.php',
+                    method: 'post',
+                    data: {
+                        thingArr: val,
+                    },
+                    success: function(response) {
+                        var feedback = response;
+                        feedback = feedback.split("<|>");
+
+                        var feedbackText = feedback[0];
+                        var feedbackType = feedback[1];
+
+                        htmx.trigger("#moneyInHand", "moneyHandUpdated");
+                        htmx.trigger("#things", "sellThings");
+                        htmx.trigger("#leftmenu", "leftMenuUpdate");
+                        feedbackReturn(feedbackText, feedbackType);
+                    }
                 });
-                console.log(searchIDs.get());
             });
         });
     </script>

@@ -42,7 +42,7 @@ while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
 
                     <?php if ($total_cars) { ?>
                         <div class="ms-auto">
-                            <!-- <div class="btn bg-green btn-md">Selg valgte</div> -->
+                            <div class="btn bg-green btn-md" id="sell_chosen">Selg valgte</div>
                             <div class="btn bg-blue btn-md" data-bs-toggle="modal" data-bs-target="#modal-small">Selg Alle</div>
                         </div>
                     <?php } ?>
@@ -52,3 +52,36 @@ while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
     </div>
 
     <?php include '../../actions/garage/garage_sell_all_modal.php'; ?>
+
+    <script>
+        $(document).ready(function() {
+            $('#sell_chosen').click(function() {
+                var val = [];
+
+                $("#feedback-container").load("components/feedback.php");
+
+                $(':checkbox:checked').each(function(i) {
+                    val[i] = $(this).val();
+                })
+                $.ajax({
+                    url: 'actions/garage/sell_chosen.inc.php',
+                    method: 'post',
+                    data: {
+                        carArr: val,
+                    },
+                    success: function(response) {
+                        var feedback = response;
+                        feedback = feedback.split("<|>");
+
+                        var feedbackText = feedback[0];
+                        var feedbackType = feedback[1];
+
+                        htmx.trigger("#moneyInHand", "moneyHandUpdated");
+                        htmx.trigger("#garage", "sellCars");
+                        htmx.trigger("#leftmenu", "leftMenuUpdate");
+                        feedbackReturn(feedbackText, feedbackType);
+                    }
+                });
+            });
+        });
+    </script>

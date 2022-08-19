@@ -3,8 +3,7 @@
     "myProfile": "Min profil",
     "headquarters": "Hovedkvarter",
     "editProfile": "Rediger profil",
-    "editAvatar": "Rediger profilbilde",
-    "settings": "Innstillinger"
+    "editAvatar": "Rediger profilbilde"
   },
   "otherActions": {
     "logout": "Logg ut"

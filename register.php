@@ -143,7 +143,7 @@ if (isset($_POST['register'])) {
                     <div class="mb-3">
                         <label class="form-check">
                             <input type="checkbox" name="terms" class="form-check-input" required>
-                            <span class="form-check-label"><?= $useLang->register->agree; ?> <a href="terms.php" tabindex="-1"><?= $useLang->register->termsAndConditions; ?></a>.</span>
+                            <span class="form-check-label"><?= $useLang->register->agree; ?> <a href="terms.php" target="_blank" tabindex="-1"><?= $useLang->register->termsAndConditions; ?></a>.</span>
                         </label>
                     </div>
                     <div class="form-footer">

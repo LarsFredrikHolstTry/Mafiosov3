@@ -3,8 +3,7 @@
     "myProfile": "My profile",
     "headquarters": "Headquarters",
     "editProfile": "Edit profile",
-    "editAvatar": "Edit avatar",
-    "settings": "Settings"
+    "editAvatar": "Edit avatar"
   },
   "otherActions": {
     "logout": "Logg ut"

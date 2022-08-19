@@ -66,7 +66,7 @@ $airport_cd = $airport_cooldown - time();
                 <?php
                         break;
                     case 'airport':
-                        if ($airport_cd > time()) {
+                        if ($airport_cooldown <= time()) {
                             echo '<span class="text-muted fr" id="cooldown_airport">Klar</span>';
                         } else {
                             echo '<span class="text-muted fr" id="cooldown_airport">' . $airport_cd . '</span>';

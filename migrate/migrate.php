@@ -183,6 +183,7 @@ $columns[14] = '
 `DS_crime` bigint(20) NOT NULL,
 `DS_carTheft` bigint(20) NOT NULL,
 `DS_theft` bigint(20) NOT NULL,
+`DS_steal` bigint(20) NOT NULL,
 `DS_exp` bigint(20) NOT NULL';
 
 $table[15] = 'daily_challenge';
@@ -261,6 +262,14 @@ $columns[23] = '
 `PM_from` int(255) NOT NULL,
 `PM_to` int(255) NOT NULL,
 `PM_read` int(1) NOT NULL,
+`PM_date` int(15) NOT NULL';
+
+$table[24] = 'family_application';
+$columns[24] = '
+`FAP_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`FAP_text` text NOT NULL,
+`FAP_family` int(255) NOT NULL,
+`FAP_acc_id` int(255) NOT NULL,
 `PM_date` int(15) NOT NULL';
 
 ?>

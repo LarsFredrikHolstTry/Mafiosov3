@@ -7,7 +7,7 @@ $ACC_row = DB::run("SELECT ACC_role, ACC_username FROM account WHERE ACC_id = ?"
 $AS_avatar = DB::run("SELECT AS_avatar FROM account_stat WHERE AS_id = ?", [$session_id])->fetchColumn();
 
 ?>
-<header class="navbar navbar-expand-md navbar-light d-print-none">
+<header class="navbar navbar-expand-md navbar-light sticky-top d-print-none">
     <div class="container-xl">
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
             <img style="height: 32px; width: auto;" src="img/logo/Logo-hvit.png" />

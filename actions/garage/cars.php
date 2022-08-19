@@ -30,7 +30,10 @@ if ($total_cars == 0) {
     <table class="table card-table table-vcenter text-nowrap datatable">
         <thead>
             <tr>
-                <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
+                <th class="w-1">
+                    <!-- TODO: Implement this later to select all! -->
+                    <!-- <input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"> -->
+                </th>
                 <th>Bil</th>
                 <th>By</th>
                 <th>Verdi</th>
@@ -40,12 +43,12 @@ if ($total_cars == 0) {
         <tbody>
             <?php
 
-            $stmt = DB::run("SELECT GA_car, GA_city, GA_damage from garage WHERE GA_acc_id = ? ORDER BY GA_car DESC", [$session_id]);
+            $stmt = DB::run("SELECT GA_id, GA_car, GA_city, GA_damage from garage WHERE GA_acc_id = ? ORDER BY GA_car DESC", [$session_id]);
             while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
                 $amount = amount_of_car($session_id, $row['GA_car'], $row['GA_city']);
             ?>
                 <tr>
-                    <td><input class="form-check-input m-0 align-middle" type="checkbox" disabled></td>
+                    <td><input class="form-check-input m-0 align-middle" type="checkbox" value="<?= $row['GA_id'] ?>"></td>
                     <td><?= $car_name[$row['GA_car']] ?></td>
                     <td><span class="flag flag-country-<?= $flag[$row['GA_city']] ?> me-1"></span><?= $city[$row['GA_city']] ?></td>
                     <td><?= number(($car_price[$row['GA_car']] - ($row['GA_damage'] / 100) * $car_price[$row['GA_car']])); ?> kr</td>

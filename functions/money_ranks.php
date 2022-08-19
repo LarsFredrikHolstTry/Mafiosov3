@@ -48,7 +48,7 @@ function money_rank($amount)
     $money_rank[8] = "Milliardær";
     $money_rank[9] = "Multimilliardær";
     $money_rank[10] = "Mangemilliardær";
-    $money_rank[11] = "Berryktet millardær";
+    $money_rank[11] = "Skipsmegler";
     $money_rank[12] = "Aksjemegler";
     $money_rank[13] = "Børssjef";
     $money_rank[14] = "Hotell-investor";
