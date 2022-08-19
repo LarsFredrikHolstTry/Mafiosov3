@@ -6,6 +6,7 @@ include '../../functions/things.php';
 include '../../functions/cars.php';
 
 $cooldown = 60;
+$exp = 2;
 
 $legalFeedbackROS = ['specificPlayer', 'randomPlayer'];
 $legalFeedbackCTM = ['car', 'thing', 'money'];
@@ -25,8 +26,8 @@ if (!in_array($randomOrSpecific, $legalFeedbackROS) || !in_array($carOrThingOrMo
 }
 
 if (mt_rand(0, 2) == 2) {
-    echo 'Du feilet på ransforsøket!' . '<|>' . 'warning';
     DB::run("UPDATE cooldown SET CD_steal = " . time() + $cooldown . " WHERE CD_acc_id = " . $session_id);
+    echo 'Du feilet på ransforsøket!' . '<|>' . 'danger' . '<|>' . $cooldown;
     return;
 }
 
@@ -133,6 +134,11 @@ if ($success && $familyAtWar && in_array($playerRow['ACC_id'], $nemesis)) {
         "UPDATE family_war SET FW_family2Score = FW_family2Score + 1 WHERE FW_warId = '" . $familyAtWar['FW_warId'] . "'";
 
     DB::run($scoreString);
+}
+
+if ($success) {
+    DB::run("UPDATE daily_stats SET DS_steal = DS_steal + 1, DS_exp = DS_exp + " . $exp . " WHERE DS_acc_id = " . $session_id);
+    DB::run("UPDATE account_stat SET AS_exp = AS_exp + " . $exp . " WHERE AS_id = " . $session_id . "");
 }
 
 DB::run("UPDATE cooldown SET CD_steal = " . time() + $cooldown . " WHERE CD_acc_id = " . $session_id);

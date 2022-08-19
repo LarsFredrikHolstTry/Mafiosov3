@@ -22,11 +22,11 @@ $js_array = json_encode($stock_array);
 
 <h3><span class="flag flag-country-<?= $country[$id] ?>"></span> <?= $stocks[$id] ?> <span class="text-muted">(<?= $ticker[$id] ?>)</span></h3>
 <div id="chart-demo-line<?= $id ?>"></div>
-<span class="text-muted">Du eier: 1 000 aksjer</span>
-<input type="text" class="form-control" name="example-text-input" placeholder="Antall">
+<span class="text-muted">Du eier: 0 aksjer</span>
+<input type="text" class="form-control" name="example-text-input" placeholder="Antall" disabled>
 <div class="mt-1 df aic">
-    <div class="btn">Kjøp</div>
-    <div class="btn ml-025">Selg</div>
+    <div class="btn disabled">Kjøp</div>
+    <div class="btn ml-025 disabled">Selg</div>
 </div>
 
 <script>

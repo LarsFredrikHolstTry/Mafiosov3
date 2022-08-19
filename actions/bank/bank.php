@@ -7,6 +7,8 @@ $AS_bankmoney =     DB::run("SELECT AS_bankmoney FROM account_stat WHERE AS_id=?
 $AS_money =         DB::run("SELECT AS_money FROM account_stat WHERE AS_id=?", [$session_id])->fetchColumn();
 $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", [$session_id])->fetchColumn();
 
+$maxAmountForInterest = 10000000;
+
 ?>
 
 <div class="col-12" id="container">
@@ -70,7 +72,11 @@ $AS_points =        DB::run("SELECT AS_points FROM account_stat WHERE AS_id=?", 
                                     <?= $useLang->finance->interestByMidnight; ?>
                                 </div>
                                 <div class="font-weight-medium">
-                                    <?= number($AS_bankmoney / 10) ?> <span class="text-muted">(10%)</span>
+                                    <?= $AS_bankmoney > $maxAmountForInterest ? number($maxAmountForInterest / 10) : number($AS_bankmoney / 10) ?>
+                                    <span class="text-muted">(10%)</span>
+                                    <?php if ($AS_bankmoney > $maxAmountForInterest) {
+                                        echo '<span class="text-warning">MAKS</span>';
+                                    } ?>
                                 </div>
                             </div>
                         </div>

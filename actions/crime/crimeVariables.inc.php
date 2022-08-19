@@ -6,9 +6,9 @@ $bullets = DB::run("SELECT AS_bullets FROM account_stat WHERE AS_id = ?", [$sess
 $crime[0] = "Stjel fra brusautomat";
 $crime[1] = "Stjel fra en gammel dame";
 $crime[2] = "Ran 7-eleven";
-$crime[3] = "lorem";
-$crime[4] = "lorem";
-$crime[5] = "Bankhack staten";
+$crime[3] = "Forfalsk penger";
+$crime[4] = "Bankhack staten";
+$crime[5] = "Utfør rederisvindel";
 
 $cooldown[0] = 20;
 $cooldown[1] = 25;

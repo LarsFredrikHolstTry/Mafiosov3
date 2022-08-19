@@ -165,3 +165,11 @@ input:-webkit-autofill {
 .dh {
   display: none;
 }
+
+.list-group-item-action {
+  background-color: #1e293b !important;
+}
+
+.list-group-item-action:hover {
+  background-color: #1d2738 !important;
+}

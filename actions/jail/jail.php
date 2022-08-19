@@ -21,6 +21,7 @@ $city_id = DB::run("SELECT AS_city FROM account_stat WHERE AS_id = ?", [$session
         <div class="card-body">
             <div class="row align-items-center">
                 <img class="center-image" src="actions/jail/img/fengsel.png" />
+                <span class="text-muted df jcc">Dette er en funksjon som ikke er ferdig enda, men jobbes med.</span>
                 <script>
                     var feedbackText = 'Det er for tiden ingen i fengsel';
                     var feedbackType = 'info';
@@ -30,7 +31,7 @@ $city_id = DB::run("SELECT AS_city FROM account_stat WHERE AS_id = ?", [$session
             </div>
         </div>
     </div>
-
+    <!-- 
     <?php
 
     $jail_busy =        DB::run("SELECT BU_city FROM business WHERE BU_city = ? AND BU_type = ?", [$city_id, 0])->fetchColumn();
@@ -92,7 +93,7 @@ $city_id = DB::run("SELECT AS_city FROM account_stat WHERE AS_id = ?", [$session
                 </div>
             </div>
         </div>
-    <?php } ?>
+    <?php } ?> -->
 
     <?php include '../../actions/jail/modals.php'; ?>
 

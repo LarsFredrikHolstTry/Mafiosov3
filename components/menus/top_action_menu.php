@@ -36,7 +36,7 @@ include '../../db/PDODB.php';
                                     <?= $value ?>
                                 </div>
                                 <div class="<?= $hasTimeout && !$isJail ? 'text-danger' : 'text-success'; ?>" id="cooldown_<?= $key ?>">
-                                    <?= $isJail ? 'Ingen i fengsel' : $timeleft; ?>
+                                    <?= $isJail ? 'Åpner snart' : $timeleft; ?>
                                 </div>
                             </div>
                         </div>
