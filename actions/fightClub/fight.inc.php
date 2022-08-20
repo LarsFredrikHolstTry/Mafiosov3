@@ -9,7 +9,7 @@ $Contestant =           DB::run("SELECT ACC_id, ACC_username FROM account WHERE 
 $score =                DB::run("SELECT AS_fightpoints FROM account_stat WHERE AS_id = $session_id")->fetch();
 $scoreContestant =      DB::run("SELECT AS_fightpoints FROM account_stat WHERE AS_id = '" . $Contestant['ACC_id'] . "'")->fetch();
 
-$cooldown = 120;
+$cooldown = 7;
 
 if ($fc_fight_cd > time()) {
     echo 'Du har ventetid!' . '<|>' . 'warning';
@@ -20,10 +20,10 @@ if ($score > $scoreContestant) {
     DB::prepare("INSERT INTO fc_fights (FC_loser, FC_winner, FC_date) VALUES (?,?,?)")->execute([$Contestant['ACC_id'], $session_id, time()]);
     DB::run("UPDATE cooldown SET CD_fc_fight = " . time() + $cooldown . " WHERE CD_acc_id = " . $session_id);
 
-    echo 'Du slåss mot ' . $Contestant['ACC_username'] . ' og vant!' . '<|>' . 'success' . '<|>' . '5';
+    echo 'Du slåss mot ' . $Contestant['ACC_username'] . ' og vant!' . '<|>' . 'success' . '<|>' . $cooldown;
 } else {
     DB::prepare("INSERT INTO fc_fights (FC_loser, FC_winner, FC_date) VALUES (?,?,?)")->execute([$session_id, $Contestant['ACC_id'], time()]);
     DB::run("UPDATE cooldown SET CD_fc_fight = " . time() + $cooldown . " WHERE CD_acc_id = " . $session_id);
 
-    echo 'Du slåss mot ' . $Contestant['ACC_username'] . ' og tapte!' . '<|>' . 'warning';
+    echo 'Du slåss mot ' . $Contestant['ACC_username'] . ' og tapte!' . '<|>' . 'danger' . '<|>' . $cooldown;
 }
