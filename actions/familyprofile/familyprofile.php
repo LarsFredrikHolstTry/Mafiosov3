@@ -2,6 +2,7 @@
 
 include '../../global-variables.php';
 include '../../db/PDODB.php';
+include '../../functions/bbcodes.php';
 
 $familyId = $_GET['id'];
 
@@ -93,6 +94,9 @@ $membersInFamily =  DB::run("SELECT COUNT(*) FROM family_member WHERE FM_family_
         <div class="row align-items-center">
             <div class="hr-text">
                 <span>Familieprofil</span>
+            </div>
+            <div class="card-body" style="padding-top: 0; border-top: none;">
+                <?= showBBcodes($famRow['FA_profile']) ?>
             </div>
         </div>
     </div>
