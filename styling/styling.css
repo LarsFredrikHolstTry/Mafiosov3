@@ -109,6 +109,14 @@ input:-webkit-autofill {
   border-left: 2px solid #206bc4 !important;
 }
 
+.container-xxl {
+  max-width: 1550px;
+  padding-right: var(--tblr-gutter-x, 1.5rem);
+  padding-left: var(--tblr-gutter-x, 1.5rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .container-xxxl {
   max-width: 1720px;
   padding-right: var(--tblr-gutter-x, 1.5rem);
