@@ -9,7 +9,7 @@ $Contestant =           DB::run("SELECT ACC_id, ACC_username FROM account WHERE 
 $score =                DB::run("SELECT AS_fightpoints FROM account_stat WHERE AS_id = $session_id")->fetch();
 $scoreContestant =      DB::run("SELECT AS_fightpoints FROM account_stat WHERE AS_id = '" . $Contestant['ACC_id'] . "'")->fetch();
 
-$cooldown = 7;
+$cooldown = 120;
 
 if ($fc_fight_cd > time()) {
     echo 'Du har ventetid!' . '<|>' . 'warning';
