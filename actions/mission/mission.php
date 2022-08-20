@@ -2,7 +2,6 @@
 
 include 'missionVariables.inc.php';
 
-$missonUser =   DB::run("SELECT AS_mission FROM account_stat WHERE AS_id = ?", [$session_id])->fetchColumn();
 
 ?>
 
@@ -22,47 +21,12 @@ $missonUser =   DB::run("SELECT AS_mission FROM account_stat WHERE AS_id = ?", [
         <div class="card-body">
             <div class="row">
                 <img class="center-image" src="actions/mission/img/mission.png" />
-                <?php if ($missonUser < $missions) { ?>
-                    <div hx-get="actions/mission/<?= $missonUser ?>.php" id="mission" hx-trigger="load, missionUpdate"></div>
+                <?php if ($missions > $missonUser) { ?>
+                    <div hx-get="actions/mission/mission_main.php" id="mission" hx-trigger="load, missionUpdate"></div>
                 <?php } else {
-                    echo 'Du har gjort alle oppdragene! Utfør dagens oppdrag til det kommer fler oppdrag';
+                    echo $allMissionsDone;
                 } ?>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-    $(document).ready(function() {
-        $('#submit').click(function() {
-
-            var alt = 'lorem';
-
-            $("#feedback-container").load("components/feedback.php");
-
-            $.ajax({
-                url: 'actions/folder/file.inc.php',
-                method: 'post',
-                data: {
-                    alt: alt,
-                },
-                success: function(response) {
-                    var feedback = response;
-                    feedback = feedback.split("<|>");
-
-                    var feedbackText = feedback[0];
-                    var feedbackType = feedback[1];
-
-                    if (feedbackType == 'success') {
-                        htmx.trigger("#moneyInHand", "moneyHandUpdated");
-                        htmx.trigger("#rankbar", "rankbarUpdated");
-                        htmx.trigger("#bulletsUser", "bulletsUpdated");
-                        htmx.trigger("#healthbar", "healthbarUpdated");
-                    }
-
-                    feedbackReturn(feedbackText, feedbackType);
-                }
-            });
-        });
-    });
-</script>

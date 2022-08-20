@@ -112,15 +112,20 @@ if (isset($_SESSION['ID'])) {
 
     setInterval(function() {
         $.ajax({
-            url: 'path-to/session.php',
+            url: 'check_session.php',
             type: 'POST',
             success: function(result) {
-                if (result == 'success') {
-                    //...
-                } else {
-                    //...
+                if (result == 'noSession') {
+                    $.toast({
+                        text: 'Du har blitt frakoblet. Refresh nettsiden for å komme online igjen.',
+                        icon: 'error',
+                        showHideTransition: 'slide',
+                        hideAfter: false,
+                        stack: 1,
+                        position: 'bottom-left',
+                    });
                 }
             }
         });
-    }, 60000);
+    }, 6000);
 </script>
