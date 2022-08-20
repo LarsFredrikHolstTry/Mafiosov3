@@ -2,7 +2,8 @@
   "userMenu": {
     "myProfile": "My profile",
     "headquarters": "Headquarters",
-    "editProfile": "Edit profile"
+    "editProfile": "Edit profile",
+    "editAvatar": "Edit avatar"
   },
   "otherActions": {
     "logout": "Logg ut"

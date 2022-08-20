@@ -17,11 +17,7 @@ $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", 
             </h3>
         </div>
         <div class="card-body">
-            <form class="dropzone" id="dropzone-default" action=".">
-                <div class="fallback">
-                    <input name="file" type="file" />
-                </div>
-            </form>
+            <input id="sortpicture" type="file" name="sortpicture" />
         </div>
         <div class="card-footer">
             <div class="row align-items-center">
@@ -36,20 +32,52 @@ $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", 
 </div>
 
 <script type="text/javascript">
-    new Dropzone("#dropzone-default")
-
     $(document).ready(function() {
-        $('#save-btn').click(function() {
-            var value = $("#avatar").val();
+        // $('#save-btn').click(function() {
+        //     console.log($('#sortpicture').prop('files')[0]);
+        //     var file_data = $('#sortpicture').prop('files')[0];
+        //     var form_data = new FormData();
+        //     form_data.append('file', file_data);
+
+        //     $("#feedback-container").load("components/feedback.php");
+
+        //     $.ajax({
+        //         url: 'actions/editAvatar/editAvatar.inc.php',
+        //         data: form_data,
+        //         type: 'post',
+        // success: function(response) {
+        //     var feedback = response;
+        //     feedback = feedback.split("<|>");
+
+        //     var feedbackText = feedback[0];
+        //     var feedbackType = feedback[1];
+
+        //     if (feedbackType == 'success') {
+        //         htmx.trigger("#avatar", "avatarUpdate");
+        //     }
+
+        //     feedbackReturn(feedbackText, feedbackType);
+        // }
+        //     });
+        // });
+
+
+
+        $('#save-btn').on('click', function() {
+            var file_data = $('#sortpicture').prop('files')[0];
+            var form_data = new FormData();
+            form_data.append('file', file_data);
 
             $("#feedback-container").load("components/feedback.php");
 
             $.ajax({
                 url: 'actions/editAvatar/editAvatar.inc.php',
-                method: 'post',
-                data: {
-                    value: value,
-                },
+                dataType: 'text', // what to expect back from the PHP script, if anything
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,
+                type: 'post',
                 success: function(response) {
                     var feedback = response;
                     feedback = feedback.split("<|>");
@@ -57,9 +85,16 @@ $profile_text =  DB::run("SELECT PR_content FROM profiles WHERE PR_acc_id = ?", 
                     var feedbackText = feedback[0];
                     var feedbackType = feedback[1];
 
+                    if (feedbackType == 'success') {
+                        htmx.trigger("#avatar", "avatarUpdate");
+                    }
+
                     feedbackReturn(feedbackText, feedbackType);
                 }
             });
         });
+
+
+
     });
 </script>
