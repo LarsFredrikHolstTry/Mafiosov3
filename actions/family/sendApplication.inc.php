@@ -20,4 +20,4 @@ if ($alreadyApplicated) {
 }
 
 echo 'Du har sendt en familiesøknad' . '<|>' . 'success';
-DB::run("INSERT INTO family_application (FAP_text, FAP_family, FAP_acc_id, PM_date) VALUES (?,?,?,?)", [$applicationText, $familyId, $session_id, time()]);
+DB::run("INSERT INTO family_application (FAP_text, FAP_family, FAP_acc_id, FAP_date) VALUES (?,?,?,?)", [$applicationText, $familyId, $session_id, time()]);
