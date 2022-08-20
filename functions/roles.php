@@ -1,7 +1,7 @@
 <?php
 
 $role[0] = 'Bruker';
-$role[1] = 'Forum Moderator';
-$role[2] = 'Moderator';
-$role[3] = 'Administrator';
-$role[4] = 'Utvikler';
+$role[1] = '<span class="text-warning">Forum Moderator</span>';
+$role[2] = '<span class="text-info">Moderator</span>';
+$role[3] = '<span class="text-success">Administrator</span>';
+$role[4] = '<span class="text-danger">Utvikler</span>';
