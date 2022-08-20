@@ -10,7 +10,7 @@ include '../../global-variables.php';
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">
-                <h3 class="card-title text-capitalize">Aksjemarked</h3>
+                <h3 class="card-title text-capitalize">Market</h3>
             </h3>
             <div class="ms-auto">
                 <span hx-get="actions/faq/faq.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="form-help">?</span>
