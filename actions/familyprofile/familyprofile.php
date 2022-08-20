@@ -8,6 +8,9 @@ $familyId = $_GET['id'];
 
 $famRow = DB::run("SELECT * FROM family WHERE FA_id = ?", [$familyId])->fetch();
 $membersInFamily =  DB::run("SELECT COUNT(*) FROM family_member WHERE FM_family_id = ?", [$familyId])->fetchColumn();
+$getBoss =  DB::run("SELECT FM_acc_id FROM family_member WHERE FM_family_id = $familyId AND FM_role = 2")->fetchColumn();
+
+$getBossUsername = DB::run("SELECT ACC_username FROM account WHERE ACC_id = $getBoss")->fetchColumn();
 
 ?>
 <div class="col-12" id="container">
@@ -44,9 +47,9 @@ $membersInFamily =  DB::run("SELECT COUNT(*) FROM family_member WHERE FM_family_
                             <p class="h3"><?= $famRow['FA_name'] ?></p>
                             <address>
                                 <?= $famRow['FA_war'] > 0 ? '<span class="text-warning">I krig mot ' . DB::run("SELECT FA_name FROM family WHERE FA_id = ?", [$famRow['FA_war']])->fetchColumn() . '</span>' : '<span class="text-success">Ikke i aktiv krig</span>' ?><br>
-                                0<br>
+                                <?= $famRow['FA_war_won'] ?><br>
                                 <?= $membersInFamily . ' / ' . $famRow['FA_member'] ?><br>
-                                Skitzo<br>
+                                <span hx-post="actions/myProfile/myProfile.php?id=<?= $getBoss ?>" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="fake-link cursor-pointer font-weight-medium"><?= $getBossUsername ?></span><br>
                                 <?= date_to_text($famRow['FA_created']) ?>
                             </address>
                         </div>

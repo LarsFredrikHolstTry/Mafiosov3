@@ -71,7 +71,7 @@ if (isset($_SESSION['ID'])) {
         </div>
 
         <div class="page-body">
-            <div class="container-xxxl">
+            <div class="container-xxl">
 
                 <div class="row row-deck row-cards">
 

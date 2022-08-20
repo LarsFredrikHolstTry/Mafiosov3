@@ -82,6 +82,7 @@ $columns[1] = '
 `AS_points` int(10) NOT NULL,
 `AS_bullets` int(10) NOT NULL,
 `AS_city` int(1) NOT NULL,
+`AS_mission` int(10) NOT NULL,
 `AS_fightpoints` bigint(20) NOT NULL,
 `AS_avatar` varchar(255) NOT NULL default "img/avatars/standard_avatar.png"';
 
@@ -206,6 +207,7 @@ $columns[16] = '
 `FA_money` bigint(20) NOT NULL,
 `FA_bullets` bigint(20) NOT NULL,
 `FA_war` int(3) NOT NULL,
+`FA_war_won` int(10) NOT NULL,
 `FA_created` int(15) NOT NULL,
 `FA_profile` text NOT NULL,
 `FA_avatar` varchar(255) NOT NULL default "img/avatars/standard_avatar.png"';

@@ -15,7 +15,7 @@ $rank_arr[11] = "Capo di Capi Re";
 $rank_arr[12] = "Capo di Tuttu Capi";
 
 $rank_from[0] =     0;
-$rank_to[0] =       100;
+$rank_to[0] =       200;
 $rank_from[1] =     $rank_to[0] + 1;
 $rank_to[1] =       $rank_to[0] * 2;
 $rank_from[2] =     $rank_to[1] + 1;
@@ -39,21 +39,21 @@ $rank_to[10] =      $rank_to[9] * 2;
 $rank_from[11] =    $rank_to[10] + 1;
 $rank_to[11] =      $rank_to[10] * 2;
 $rank_from[12] =    $rank_to[11] + 1;
-$rank_to[12] =      1000000;
+$rank_to[12] =      INF;
 
-$rank_prize[0] = 10;
-$rank_prize[1] = 10;
-$rank_prize[2] = 10;
-$rank_prize[3] = 10;
-$rank_prize[4] = 10;
-$rank_prize[5] = 10;
-$rank_prize[6] = 10;
-$rank_prize[7] = 10;
-$rank_prize[8] = 10;
-$rank_prize[9] = 10;
-$rank_prize[10] = 10;
-$rank_prize[11] = 10;
-$rank_prize[12] = 10;
+$rank_prize[0] = 1000;
+$rank_prize[1] = 3000;
+$rank_prize[2] = 6500;
+$rank_prize[3] = 12500;
+$rank_prize[4] = 25000;
+$rank_prize[5] = 50000;
+$rank_prize[6] = 100000;
+$rank_prize[7] = 250000;
+$rank_prize[8] = 500000;
+$rank_prize[9] = 1000000;
+$rank_prize[10] = 1250000;
+$rank_prize[11] = 2500000;
+$rank_prize[12] = 5000000;
 
 function rank_progress($rank, $exp, $rank_from, $rank_to)
 {

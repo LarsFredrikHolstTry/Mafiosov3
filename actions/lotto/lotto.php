@@ -28,14 +28,14 @@ $lotteryWinnersRow =  DB::run("SELECT LW_acc_id, LW_money FROM lottery_winners")
                         Premien regnes ut slik: <br>antall kuponger solgt * <?= number($couponPrice) ?>
                         <br>10% av kjøpesummen går til eieren av territorium
                     </p>
-                    <span class="badge bg-yellow-lt">14 millioner i førstepremiepott</span>
+                    <span class="badge bg-yellow-lt">0 kr i førstepremiepott</span>
                     <br>
-                    <em class="text-muted small">15 000 kuponger solgt</em>
+                    <em class="text-muted small">0 kuponger solgt</em>
                     <div class="df aic mt-3 jcsb">
                         <h3>Antall kuponger</h3><span class="text-muted small">Du har <?= $amountOfCoupons ?> kuponger</span>
                     </div>
-                    <input type="text" class="btn-square form-control" id="number" placeholder="Maks <?= number($maxCoupons) ?> kuponger..." />
-                    <div class="mt-2 btn-square btn btn-success" id="buy_coupons">
+                    <input type="text" class="btn-square form-control" id="number" placeholder="Maks <?= number($maxCoupons) ?> kuponger..." disabled />
+                    <div class="mt-2 btn-square btn btn-success disabled" id="buy_coupons">
                         Kjøp kuponger
                     </div>
                 </div>
