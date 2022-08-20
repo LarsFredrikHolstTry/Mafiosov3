@@ -62,9 +62,9 @@ switch ($missonUser) {
         $payoutMoney = 1000;
         $payoutExp = 10;
 
-        $isSectionDone[0] = DB::run("SELECT COUNT(*) FROM logs WHERE LOGS_page = 'crime' AND LOGS_acc_id = $session_id AND LOGS_json like '%success%'")->fetchColumn() > $missionCriteria[0];
-        $isSectionDone[1] = DB::run("SELECT COUNT(*) FROM logs WHERE LOGS_page = 'carTheft' AND LOGS_acc_id = $session_id AND LOGS_json like '%success%'")->fetchColumn() > $missionCriteria[1];
-        $isSectionDone[2] = DB::run("SELECT COUNT(*) FROM logs WHERE LOGS_page = 'theft' AND LOGS_acc_id = $session_id AND LOGS_json like '%success%'")->fetchColumn() > $missionCriteria[2];
+        $isSectionDone[0] = DB::run("SELECT COUNT(*) FROM logs WHERE LOGS_page = 'crime' AND LOGS_acc_id = $session_id AND LOGS_json like '%success%'")->fetchColumn() >= $missionCriteria[0];
+        $isSectionDone[1] = DB::run("SELECT COUNT(*) FROM logs WHERE LOGS_page = 'carTheft' AND LOGS_acc_id = $session_id AND LOGS_json like '%success%'")->fetchColumn() >= $missionCriteria[1];
+        $isSectionDone[2] = DB::run("SELECT COUNT(*) FROM logs WHERE LOGS_page = 'theft' AND LOGS_acc_id = $session_id AND LOGS_json like '%success%'")->fetchColumn() >= $missionCriteria[2];
         break;
 
         /**
@@ -87,7 +87,7 @@ switch ($missonUser) {
         $payoutMoney = 50000;
         $payoutExp = 10;
 
-        $isSectionDone[0] = DB::run("SELECT AS_bullets FROM account_stat WHERE AS_id = $session_id")->fetchColumn() > $missionCriteria[0];
+        $isSectionDone[0] = DB::run("SELECT AS_bullets FROM account_stat WHERE AS_id = $session_id")->fetchColumn() >= $missionCriteria[0];
         break;
         /**
          * Oppdrag nr 3 
@@ -113,15 +113,15 @@ switch ($missonUser) {
         $payoutMoney = 5000;
         $payoutExp = 20;
 
-        $isSectionDone[0] = DB::run("SELECT AS_fightpoints FROM account_stat WHERE AS_id = $session_id")->fetchColumn() > $missionCriteria[0];
-        $isSectionDone[1] = DB::run("SELECT COUNT(*) FROM fc_fights WHERE FC_winner = $session_id")->fetchColumn() > $missionCriteria[1];
+        $isSectionDone[0] = DB::run("SELECT AS_fightpoints FROM account_stat WHERE AS_id = $session_id")->fetchColumn() >= $missionCriteria[0];
+        $isSectionDone[1] = DB::run("SELECT COUNT(*) FROM fc_fights WHERE FC_winner = $session_id")->fetchColumn() >= $missionCriteria[1];
         break;
 }
 
 /**
  * Check to see if mission is really done
  */
-if ($missonUser > $missions) {
+if ($missonUser <= $missions) {
     for ($i = 0; $i < count($missionCriteriaText); $i++) {
 
         if (!$isSectionDone[$i]) {

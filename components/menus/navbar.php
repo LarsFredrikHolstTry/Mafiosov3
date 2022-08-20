@@ -4,7 +4,6 @@ include '../../global-variables.php';
 include '../../db/PDODB.php';
 
 $ACC_row = DB::run("SELECT ACC_role, ACC_username FROM account WHERE ACC_id = ?", [$session_id])->fetch();
-$AS_avatar = DB::run("SELECT AS_avatar FROM account_stat WHERE AS_id = ?", [$session_id])->fetchColumn();
 
 ?>
 <header class="navbar navbar-expand-md navbar-light sticky-top d-print-none">
@@ -24,7 +23,7 @@ $AS_avatar = DB::run("SELECT AS_avatar FROM account_stat WHERE AS_id = ?", [$ses
             </div>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
-                    <span class="avatar avatar-sm" style="background-image: url(<?= $AS_avatar ?>)"></span>
+                    <div hx-get="components/menus/getAvatar.inc.php" id="avatar" hx-trigger="load, avatarUpdate"></div>
                     <div class="d-none d-xl-block ps-2">
                         <div><?= $ACC_row['ACC_username'] ?></div>
                     </div>

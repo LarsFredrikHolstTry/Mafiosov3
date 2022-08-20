@@ -2,7 +2,8 @@
   "userMenu": {
     "myProfile": "Min profil",
     "headquarters": "Hovedkvarter",
-    "editProfile": "Rediger profil"
+    "editProfile": "Rediger profil",
+    "editAvatar": "Rediger profilbilde"
   },
   "otherActions": {
     "logout": "Logg ut"
