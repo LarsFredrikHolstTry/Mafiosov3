@@ -26,7 +26,47 @@ $isMember = DB::run("SELECT FM_family_id FROM family_member WHERE FM_acc_id = ?"
 
                 if ($isMember) {
                     include 'familyDashboard.php';
-                } elseif (isset($_GET['application'])) { ?>
+                } elseif (isset($_GET['application'])) {
+                    $family = $_GET['application'];
+
+                    $familyRow = DB::run("SELECT * FROM family WHERE FA_id = ?", [$family])->fetch();
+
+                ?>
+                    <div class="col-12">
+                        <h3>Send søknad til <?= $familyRow['FA_name'] ?></h3>
+                        <textarea class="form-control btn-square" name="example-textarea-input" id="applicationText" rows="6" placeholder="Skriv en søknad om hvorfor <?= $familyRow['FA_name'] ?> skal akseptere deg som consigliere"></textarea>
+                        <div class="mt-2 btn btn-square btn-success" id="sendApplication">
+                            Send søknad
+                        </div>
+                    </div>
+
+                    <script>
+                        $(document).ready(function() {
+                            $('#sendApplication').click(function() {
+                                var applicationText = $("#applicationText").val();
+
+                                $("#feedback-container").load("components/feedback.php");
+
+                                $.ajax({
+                                    url: 'actions/family/sendApplication.inc.php',
+                                    method: 'post',
+                                    data: {
+                                        familyId: <?= $family ?>,
+                                        applicationText: applicationText,
+                                    },
+                                    success: function(response) {
+                                        var feedback = response;
+                                        feedback = feedback.split("<|>");
+
+                                        var feedbackText = feedback[0];
+                                        var feedbackType = feedback[1];
+
+                                        feedbackReturn(feedbackText, feedbackType);
+                                    }
+                                });
+                            })
+                        })
+                    </script>
 
                 <?php } else { ?>
                     <div class="col-4">
@@ -56,8 +96,6 @@ $isMember = DB::run("SELECT FM_family_id FROM family_member WHERE FM_acc_id = ?"
         $('#create_family').click(function() {
             var family_name = $("#family_name").val();
 
-            $("#feedback-container").load("components/feedback.php");
-
             $.ajax({
                 url: 'actions/family/create_family.inc.php',
                 method: 'post',
@@ -75,7 +113,11 @@ $isMember = DB::run("SELECT FM_family_id FROM family_member WHERE FM_acc_id = ?"
                         htmx.trigger("#moneyInHand", "moneyHandUpdated");
                     }
 
-                    feedbackReturn(feedbackText, feedbackType);
+                    htmx.ajax('GET', 'actions/family/family.php', {
+                        target: '#container',
+                        swap: 'outerHTML'
+                    })
+
                 }
             });
         })

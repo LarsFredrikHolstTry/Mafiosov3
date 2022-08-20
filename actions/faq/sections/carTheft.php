@@ -15,7 +15,12 @@ include '../../actions/carTheft/carTheftVariables.inc.php';
             <div id="faq-3-1" class="accordion-collapse collapse" role="tabpanel" data-bs-parent="#faq-3">
                 <div class="accordion-body pt-0">
                     <div>
-                        <p>um in iste iure maiores nemo recusandae rerum saepe sed, sunt totam! Explicabo, ipsa?</p>
+                        <p>
+                            Via biltyveri kan du stjele biler i forskjellige klasser.
+                            Klassenavnene samsvarer med klassenavnene på biltyveriet.
+                            Når du stjeler en bil hender det at den blir skadet og det vil trekke verdien på bilen.
+                            Spezial class biler kan stjeles fra R-klasse og har en 0,1% sjanse.
+                            En Spezial Class bil vil aldri ha skade på seg.</p>
                     </div>
                 </div>
             </div>

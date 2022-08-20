@@ -47,6 +47,10 @@ if (isset($_SESSION['ID'])) {
     <script src="js/feedback.js"></script>
     <script src="js/countdown.js"></script>
 
+    <!-- Jquery Toast -->
+    <script src="packages/jqueryToast/jquery.toast.js"></script>
+    <link href="packages/jqueryToast/jquery.toast.css" rel="stylesheet" type="text/css" />
+
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="img/logo/favicon.ico">
 
@@ -105,4 +109,18 @@ if (isset($_SESSION['ID'])) {
             method: 'post',
         });
     });
+
+    setInterval(function() {
+        $.ajax({
+            url: 'path-to/session.php',
+            type: 'POST',
+            success: function(result) {
+                if (result == 'success') {
+                    //...
+                } else {
+                    //...
+                }
+            }
+        });
+    }, 60000);
 </script>

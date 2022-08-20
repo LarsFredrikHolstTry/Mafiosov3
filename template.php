@@ -26,8 +26,34 @@ include '../../global-variables.php';
 <script>
     $(document).ready(function() {
         $('#submit').click(function() {
-            var value = value;
+
+            var alt = 'lorem';
+
             $("#feedback-container").load("components/feedback.php");
-        })
-    })
+
+            $.ajax({
+                url: 'actions/folder/file.inc.php',
+                method: 'post',
+                data: {
+                    alt: alt,
+                },
+                success: function(response) {
+                    var feedback = response;
+                    feedback = feedback.split("<|>");
+
+                    var feedbackText = feedback[0];
+                    var feedbackType = feedback[1];
+
+                    if (feedbackType == 'success') {
+                        htmx.trigger("#moneyInHand", "moneyHandUpdated");
+                        htmx.trigger("#rankbar", "rankbarUpdated");
+                        htmx.trigger("#bulletsUser", "bulletsUpdated");
+                        htmx.trigger("#healthbar", "healthbarUpdated");
+                    }
+
+                    feedbackReturn(feedbackText, feedbackType);
+                }
+            });
+        });
+    });
 </script>

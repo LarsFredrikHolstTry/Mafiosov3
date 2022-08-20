@@ -26,13 +26,16 @@ $family_id = $_GET['id'];
                 <td><?= $username ?></td>
                 <td class="text-muted"><?= $familyRoles[$row['FM_role']] ?></td>
                 <td class="text-muted"><?= date_to_text($row['FM_joined']) ?></td>
-                <td class="df">
-                    <select class="form-select">
-                        <?php for ($i = 0; $i < count($familyRoles); $i++) { ?>
-                            <option value="<?= $i ?><|><?= $row['FM_acc_id'] ?>"><?= $familyRoles[$i] ?></option>
-                        <?php } ?>
-                    </select>
-                    <div class="btn ml-025">Lagre</div>
+                <td>
+                    <div class="df aic">
+                        <select class="form-select">
+                            <?php for ($i = 0; $i < count($familyRoles); $i++) { ?>
+                                <option value="<?= $i ?><|><?= $row['FM_acc_id'] ?>"><?= $familyRoles[$i] ?></option>
+                            <?php } ?>
+                            <option value="<?= $i ?><|><?= $row['FM_acc_id'] ?>">Kast ut</option>
+                        </select>
+                        <div class="btn ml-025">Lagre</div>
+                    </div>
                 </td>
             </tr>
         <?php } ?>

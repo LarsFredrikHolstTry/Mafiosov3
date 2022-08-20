@@ -10,6 +10,7 @@ $active_city =          DB::run("SELECT AS_city FROM account_stat WHERE AS_id = 
 $airport_cooldown =     DB::run("SELECT CD_travel FROM cooldown WHERE CD_acc_id = ?", [$session_id])->fetchColumn();
 
 $airport_cd = $airport_cooldown - time();
+$bunkerPrice = 1000;
 
 ?>
 <div class="card">
@@ -17,7 +18,7 @@ $airport_cd = $airport_cooldown - time();
         <div class="df aic">
             <div class="btn btn-square bg-green cursor-pointer" id="bunker_in">Gå i bunker</div>
             <div>
-                <p class="lh-base" style="margin: 0; margin-left: 1rem"><strong>Pris: 1000kr</strong><br>
+                <p class="lh-base" style="margin: 0; margin-left: 1rem"><strong>Pris: <?= number($bunkerPrice) ?>kr</strong><br>
                     <span class="text-muted small">Tid: 24t</span>
                 </p>
 

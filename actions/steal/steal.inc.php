@@ -122,7 +122,7 @@ if ($carOrThingOrMoney == 'car') {
 
         echo 'Du stjal ' . number($stealAmount) . ' kr fra ' . $playerRow['ACC_username'] . '' . '<|>' . 'success' . '<|>' . $cooldown;
     } else {
-        echo $playerRow['ACC_username'] . ' har ingen penger på hånden' . '<|>' . 'danger' . '<|>' . $cooldown;
+        echo $playerRow['ACC_username'] . ' har ingen penger på seg' . '<|>' . 'danger' . '<|>' . $cooldown;
     }
 }
 

@@ -140,15 +140,4 @@ include '../../global-variables.php';
             });
         });
     });
-
-    $(document).ready(function() {
-        $('#submit').click(function() {
-            var value = value;
-            $("#feedback-container").load("components/feedback.php");
-        })
-    })
-
-    $(document).on('click', 'input[type="checkbox"]', function() {
-        $('input[type="checkbox"]').not(this).prop('checked', false);
-    });
 </script>

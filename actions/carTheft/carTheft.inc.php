@@ -53,12 +53,13 @@ switch ($alt) {
     case 4:
         $car_outcome = mt_rand(40, 49);
         break;
-    case 5:
-        $car_outcome = mt_rand(50, 59);
-        break;
 }
 
-$damage = mt_rand(0, 99);
+if ($alt == 4 && mt_rand(0, 1000) == 420) {
+    $car_outcome = mt_rand(50, 52);
+}
+
+$damage = $car_outcome < 50 ? mt_rand(0, 99) : 0;
 
 $car_price = ($car_price[$car_outcome] - ($damage / 100) * $car_price[$car_outcome]);
 

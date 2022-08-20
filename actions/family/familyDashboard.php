@@ -6,6 +6,7 @@ $familyMemberRow =  DB::run("SELECT FM_family_id, FM_role FROM family_member WHE
 $familyId =         $familyMemberRow['FM_family_id'];
 $familyRow =        DB::run("SELECT * FROM family WHERE FA_id = ?", [$familyMemberRow['FM_family_id']])->fetch();
 $membersInFamily =  DB::run("SELECT COUNT(*) FROM family_member WHERE FM_family_id = ?", [$familyMemberRow['FM_family_id']])->fetchColumn();
+$applications =     DB::run("SELECT COUNT(*) FROM family_application WHERE FAP_family = ?", [$familyMemberRow['FM_family_id']])->fetchColumn();
 
 $territoriumArr = [];
 
@@ -111,7 +112,22 @@ if (isset($_GET['page'])) {
             </div>
         </div>
         <div class="col-4">
-            <div class="card card-sm">
+            <div class="card card-sm fake-link cursor-pointer" hx-get="actions/family/family.php?page=applications&id=<?= $familyRow['FA_id'] ?>" hx-trigger="click" hx-target="#container" hx-swap="outerHTML">
+                <div class="card-body bg-blue-lt">
+                    <div class="row align-items-center">
+                        <div class="font-weight-medium" style="color: white;">
+                            Familiesøknader
+                        </div>
+                        <div class="<?= $applications > 0 ? 'text-success' : 'text-muted' ?>">
+                            <?= $applications ?>
+                            <?= $applications == 1 ? 'familiesøknad' : 'familiesøknader' ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card card-sm fake-link cursor-pointer" hx-get="actions/family/family.php?page=editProfile&id=<?= $familyRow['FA_id'] ?>" hx-trigger="click" hx-target="#container" hx-swap="outerHTML">
                 <div class="card-body bg-blue-lt">
                     <div class="row align-items-center">
                         <div class="font-weight-medium" style="color: white;">
@@ -125,11 +141,11 @@ if (isset($_GET['page'])) {
             </div>
         </div>
         <div class="col-4">
-            <div class="card card-sm">
+            <div id="leaveFamily" class="card card-sm fake-link cursor-pointer">
                 <div class="card-body bg-blue-lt">
                     <div class="row align-items-center">
                         <div class="font-weight-medium" style="color: white;">
-                            Forlat familie
+                            Forlat familie <span class="text-muted small">(Kan ikke angres)</span>
                         </div>
                         <div class="text-muted">
                             <?= $leaveString ?>
@@ -140,3 +156,26 @@ if (isset($_GET['page'])) {
         </div>
     </div>
 <?php } ?>
+
+<script>
+    $(document).ready(function() {
+        $('#leaveFamily').click(function() {
+            $.ajax({
+                url: 'actions/family/leaveFamily.inc.php',
+                method: 'post',
+                success: function(response) {
+                    var feedback = response;
+                    feedback = feedback.split("<|>");
+
+                    var feedbackText = feedback[0];
+                    var feedbackType = feedback[1];
+
+                    htmx.ajax('GET', 'actions/family/family.php', {
+                        target: '#container',
+                        swap: 'outerHTML'
+                    })
+                }
+            });
+        })
+    })
+</script>

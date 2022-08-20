@@ -12,6 +12,9 @@ $AS_avatar = DB::run("SELECT AS_avatar FROM account_stat WHERE AS_id = ?", [$ses
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
             <img style="height: 32px; width: auto;" src="img/logo/Logo-hvit.png" />
         </h1>
+        <span class="d-none-navbar-horizontal pe-0 pe-md-3">
+            Driftsmelding: Vi er i beta og det kan forventes bugs! Les mer her: Betaperiode
+        </span>
         <div class="navbar-nav flex-row order-md-last">
             <div class="d-none d-md-flex">
                 <?php include '../messages/messages.php'; ?>

@@ -184,14 +184,19 @@ $columns[14] = '
 `DS_carTheft` bigint(20) NOT NULL,
 `DS_theft` bigint(20) NOT NULL,
 `DS_steal` bigint(20) NOT NULL,
-`DS_exp` bigint(20) NOT NULL';
+`DS_exp` bigint(20) NOT NULL,
+`DS_dailyChallenge` int(1) NOT NULL';
 
 $table[15] = 'daily_challenge';
 $columns[15] = '
 `DC_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `DC_crime` int(3) NOT NULL,
 `DC_carTheft` int(3) NOT NULL,
-`DC_theft` int(3) NOT NULL';
+`DC_theft` int(3) NOT NULL,
+`DC_crime_hard` int(3) NOT NULL,
+`DC_carTheft_hard` int(3) NOT NULL,
+`DC_theft_hard` int(3) NOT NULL,
+`DC_steal_hard` int(3) NOT NULL';
 
 $table[16] = 'family';
 $columns[16] = '
@@ -270,7 +275,22 @@ $columns[24] = '
 `FAP_text` text NOT NULL,
 `FAP_family` int(255) NOT NULL,
 `FAP_acc_id` int(255) NOT NULL,
-`PM_date` int(15) NOT NULL';
+`FAP_date` int(15) NOT NULL';
+
+$table[25] = 'lottery_coupons';
+$columns[25] = '
+`LC_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`LC_acc_id` int(255) NOT NULL,
+`LC_from` int(255) NOT NULL,
+`LC_to` int(255) NOT NULL,
+`LC_date` int(15) NOT NULL';
+
+$table[26] = 'lottery_winners';
+$columns[26] = '
+`LW_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`LW_acc_id` int(255) NOT NULL,
+`LW_money` varchar(255) NOT NULL,
+`LW_date` int(15) NOT NULL';
 
 ?>
 
