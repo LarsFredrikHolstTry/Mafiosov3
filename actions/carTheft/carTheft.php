@@ -34,7 +34,7 @@ $total_cars =           DB::run("SELECT count(*) FROM garage WHERE GA_acc_id = ?
                         </thead>
                         <tbody>
                             <?php for ($i = 0; $i < count($carTheftArr); $i++) { ?>
-                                <tr class="do-crime cursor-pointer" id="<?= $i; ?>">
+                                <tr class="do-carTheft cursor-pointer" id="<?= $i; ?>">
                                     <td><?= $carTheftArr[$i]; ?></td>
                                     <td class="text-muted"><?= $chance[$i] ?>%</td>
                                     <td class="text-muted"><?= seconds_to_minutes_and_seconds($cooldown[$i]); ?></td>
@@ -50,8 +50,8 @@ $total_cars =           DB::run("SELECT count(*) FROM garage WHERE GA_acc_id = ?
 
 <script>
     $(document).ready(function() {
-        $('.do-crime').click(function() {
-            var alt = $(this).closest(".do-crime").attr("id");;
+        $('.do-carTheft').click(function() {
+            var alt = $(this).closest(".do-carTheft").attr("id");;
             $("#feedback-container").load("components/feedback.php");
 
             $.ajax({

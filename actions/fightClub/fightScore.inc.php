@@ -17,4 +17,4 @@ $fightPoints = DB::run("SELECT AS_fightpoints FROM account_stat WHERE AS_id = ?"
         <path d="M15 7v10a1 1 0 0 0 1 1h1a1 1 0 0 0 1 -1v-10a1 1 0 0 0 -1 -1h-1a1 1 0 0 0 -1 1z"></path>
         <path d="M18 8h2a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-2"></path>
         <path d="M22 12h-1"></path>
-    </svg>Styrke: <span id="strength"><?= number($fightPoints) ?></span></span>
+    </svg>Slåsspoeng: <span id="strength"><?= number($fightPoints) ?></span></span>

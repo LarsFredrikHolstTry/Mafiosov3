@@ -1,5 +1,5 @@
 <?php
 session_start();
-if (isset($_SESSION['ID'])) {
-    echo 'success';
+if (!isset($_SESSION['ID'])) {
+    echo 'noSession';
 }
