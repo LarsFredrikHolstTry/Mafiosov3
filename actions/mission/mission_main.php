@@ -23,6 +23,7 @@ if ($missions > $missonUser) {
                 <div>
                     <?= $isSectionDone[$i] ? $isDoneIcon : $isNotDoneIcon ?>
                     <?= $missionCriteriaText[$i] ?>
+                    <?= '<span class="fr text-muted">Du har ' . number($progress[$i]) . ' av ' . number($missionCriteria[$i]) . '</span>'; ?>
                 </div>
             <?php }
 
