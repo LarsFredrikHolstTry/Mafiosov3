@@ -3,7 +3,7 @@
 include '../../global-variables.php';
 include '../../db/PDODB.php';
 
-$missions = 3;
+$missions = 4;
 $isMissionDone = true;
 $missonUser =   DB::run("SELECT AS_mission FROM account_stat WHERE AS_id = ?", [$session_id])->fetchColumn();
 
@@ -62,9 +62,14 @@ switch ($missonUser) {
         $payoutMoney = 1000;
         $payoutExp = 10;
 
-        $isSectionDone[0] = DB::run("SELECT COUNT(*) FROM logs WHERE LOGS_page = 'crime' AND LOGS_acc_id = $session_id AND LOGS_json like '%success%'")->fetchColumn() >= $missionCriteria[0];
-        $isSectionDone[1] = DB::run("SELECT COUNT(*) FROM logs WHERE LOGS_page = 'carTheft' AND LOGS_acc_id = $session_id AND LOGS_json like '%success%'")->fetchColumn() >= $missionCriteria[1];
-        $isSectionDone[2] = DB::run("SELECT COUNT(*) FROM logs WHERE LOGS_page = 'theft' AND LOGS_acc_id = $session_id AND LOGS_json like '%success%'")->fetchColumn() >= $missionCriteria[2];
+        $progress[0] = DB::run("SELECT COUNT(*) FROM logs WHERE LOGS_page = 'crime' AND LOGS_acc_id = $session_id AND LOGS_json like '%success%'")->fetchColumn();
+        $progress[1] = DB::run("SELECT COUNT(*) FROM logs WHERE LOGS_page = 'carTheft' AND LOGS_acc_id = $session_id AND LOGS_json like '%success%'")->fetchColumn();
+        $progress[2] = DB::run("SELECT COUNT(*) FROM logs WHERE LOGS_page = 'theft' AND LOGS_acc_id = $session_id AND LOGS_json like '%success%'")->fetchColumn();
+
+        $isSectionDone[0] = $progress[0] >= $missionCriteria[0];
+        $isSectionDone[1] = $progress[1] >= $missionCriteria[1];
+        $isSectionDone[2] = $progress[2] >= $missionCriteria[2];
+
         break;
 
         /**
@@ -87,7 +92,10 @@ switch ($missonUser) {
         $payoutMoney = 50000;
         $payoutExp = 10;
 
-        $isSectionDone[0] = DB::run("SELECT AS_bullets FROM account_stat WHERE AS_id = $session_id")->fetchColumn() >= $missionCriteria[0];
+        $progress[0] = DB::run("SELECT AS_bullets FROM account_stat WHERE AS_id = $session_id")->fetchColumn();
+
+        $isSectionDone[0] = $progress[0] >= $missionCriteria[0];
+
         break;
         /**
          * Oppdrag nr 3 
@@ -113,15 +121,53 @@ switch ($missonUser) {
         $payoutMoney = 5000;
         $payoutExp = 20;
 
-        $isSectionDone[0] = DB::run("SELECT AS_fightpoints FROM account_stat WHERE AS_id = $session_id")->fetchColumn() >= $missionCriteria[0];
-        $isSectionDone[1] = DB::run("SELECT COUNT(*) FROM fc_fights WHERE FC_winner = $session_id")->fetchColumn() >= $missionCriteria[1];
+        $progress[0] = DB::run("SELECT AS_fightpoints FROM account_stat WHERE AS_id = $session_id")->fetchColumn();
+        $progress[1] = DB::run("SELECT COUNT(*) FROM fc_fights WHERE FC_winner = $session_id")->fetchColumn();
+
+        $isSectionDone[0] = $progress[0] >= $missionCriteria[0];
+        $isSectionDone[1] = $progress[1] >= $missionCriteria[1];
+
+        break;
+        /**
+         * Oppdrag nr 4
+         * 
+         * 200 krim i dag
+         * 100 biltyveri i dag
+         * 50 ran i dag
+         */
+    case 3:
+        $mission_text = "Du er på god vei til å bli en mektig mafioso. Noe av det viktigste vi gjør er å jobbe under press.
+            Derfor ønske jeg at du skal utføre noen kriminelle handlinger på tidspress. Disse kriminelle handlinger skal gjøres 
+            innen midnatt.";
+
+        $difficultyMission = 2;
+
+        $missionCriteria[0] = 200;
+        $missionCriteria[1] = 100;
+        $missionCriteria[2] = 50;
+
+        $missionCriteriaText[0] = "Utfør " . $missionCriteria[0] . " kriminaliteter i dag";
+        $missionCriteriaText[1] = "stjel " . $missionCriteria[1] . " biler i dag";
+        $missionCriteriaText[2] = "ran " . $missionCriteria[2] . " spillere i dag";
+
+        $payoutMoney = 50000;
+        $payoutExp = 50;
+
+        $progress[0] = DB::run("SELECT DS_crime FROM daily_stats WHERE DS_acc_id = $session_id")->fetchColumn();
+        $progress[1] = DB::run("SELECT DS_carTheft FROM daily_stats WHERE DS_acc_id = $session_id")->fetchColumn();
+        $progress[2] = DB::run("SELECT DS_steal FROM daily_stats WHERE DS_acc_id = $session_id")->fetchColumn();
+
+        $isSectionDone[0] = $progress[0] >= $missionCriteria[0];
+        $isSectionDone[1] = $progress[1] >= $missionCriteria[1];
+        $isSectionDone[2] = $progress[2] >= $missionCriteria[2];
+
         break;
 }
 
 /**
  * Check to see if mission is really done
  */
-if ($missonUser <= $missions) {
+if ($missonUser < $missions) {
     for ($i = 0; $i < count($missionCriteriaText); $i++) {
 
         if (!$isSectionDone[$i]) {

@@ -20,19 +20,19 @@ $success = false;
 
 $crime_cd = DB::run("SELECT CD_steal FROM cooldown WHERE CD_acc_id = $session_id")->fetchColumn();
 
+if ($crime_cd > time()) {
+    echo 'Du har ventetid!' . '<|>' . 'warning';
+    return;
+}
+
 if (!in_array($randomOrSpecific, $legalFeedbackROS) || !in_array($carOrThingOrMoney, $legalFeedbackCTM)) {
-    echo 'Ugyldig valg' . '<|>' . 'danger';
+    echo 'Ugyldig valg' . '<|>' . 'warning';
     return;
 }
 
 if (mt_rand(0, 2) == 2) {
     DB::run("UPDATE cooldown SET CD_steal = " . time() + $cooldown . " WHERE CD_acc_id = " . $session_id);
     echo 'Du feilet på ransforsøket!' . '<|>' . 'danger' . '<|>' . $cooldown;
-    return;
-}
-
-if ($crime_cd > time()) {
-    echo 'Du har ventetid!' . '<|>' . 'warning';
     return;
 }
 
