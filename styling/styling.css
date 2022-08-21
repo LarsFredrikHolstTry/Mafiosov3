@@ -185,3 +185,11 @@ input:-webkit-autofill {
 .list-group-item-action:hover {
   background-color: #1d2738 !important;
 }
+
+.hide_mobile {
+  display: none !important;
+}
+
+.mobile-col {
+  width: 100% !important;
+}
