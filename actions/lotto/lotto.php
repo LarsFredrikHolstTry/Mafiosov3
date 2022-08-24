@@ -26,7 +26,8 @@ $lotteryWinnersRow =  DB::run("SELECT LW_acc_id, LW_money FROM lottery_winners")
                     <p class="text-muted">
                         Det er mulig å kjøpe opp mot <?= number($maxCoupons) ?> kuponger til lottoen.
                         Premien regnes ut slik: <br>antall kuponger solgt * <?= number($prizePrCoupon) ?> kr
-                        <br>10% av kjøpesummen går til eieren av territorium
+                        <br>10% av kjøpesummen går til eieren av territoriom
+                        <br>Trekning skjer 00:00, 06:00, 12:00 og 18:00
                     </p>
                     <span class="badge bg-yellow-lt"><?= number($totalCouponsSold * $prizePrCoupon) ?> kr i førstepremiepott</span>
                     <br>
