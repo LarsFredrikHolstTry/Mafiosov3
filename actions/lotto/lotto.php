@@ -25,28 +25,56 @@ $lotteryWinnersRow =  DB::run("SELECT LW_acc_id, LW_money FROM lottery_winners")
                     <h3>Regler</h3>
                     <p class="text-muted">
                         Det er mulig å kjøpe opp mot <?= number($maxCoupons) ?> kuponger til lottoen.
-                        Premien regnes ut slik: <br>antall kuponger solgt * <?= number($couponPrice) ?>
-                        <br>10% av kjøpesummen går til eieren av territorium
+                        Premien regnes ut slik: <br>antall kuponger solgt * <?= number($prizePrCoupon) ?> kr
+                        <br>10% av kjøpesummen går til eieren av territoriom
+                        <br>Trekning skjer 00:00, 06:00, 12:00 og 18:00
                     </p>
-                    <span class="badge bg-yellow-lt">0 kr i førstepremiepott</span>
+                    <span class="badge bg-yellow-lt"><?= number($totalCouponsSold * $prizePrCoupon) ?> kr i førstepremiepott</span>
                     <br>
-                    <em class="text-muted small">0 kuponger solgt</em>
+                    <em class="text-muted small"><?= number($totalCouponsSold) ?> kuponger solgt</em>
                     <div class="df aic mt-3 jcsb">
-                        <h3>Antall kuponger</h3><span class="text-muted small">Du har <?= $amountOfCoupons ?> kuponger</span>
+                        <h3>Antall kuponger</h3><span class="text-muted small">Du har <?= number($amountOfCouponsSession) ?> kuponger</span>
                     </div>
-                    <input type="text" class="btn-square form-control" id="number" placeholder="Maks <?= number($maxCoupons) ?> kuponger..." disabled />
-                    <div class="mt-2 btn-square btn btn-success disabled" id="buy_coupons">
+                    <input type="text" class="btn-square form-control" id="number" placeholder="Maks <?= number($maxCoupons) ?> kuponger..." />
+                    <div class="mt-2 btn-square btn btn-success" id="buy_coupons">
                         Kjøp kuponger
                     </div>
                 </div>
                 <div class="col-7">
-                    <h3>Siste vinnere</h3>
+                    <h3>Siste 10 vinnere</h3>
                     <?php if (!$lotteryWinnersRow) {
                         echo '<span class="text-warning">Det finnes ingen tidligere vinnere</span>';
                     } else { ?>
-                        <table>
+                        <div class="table-responsive">
+                            <table class="table table-vcenter">
+                                <thead>
+                                    <tr>
+                                        <th>Mafioso</th>
+                                        <th>Pengepremie</th>
+                                        <th>Dato</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
 
-                        </table>
+                                    $stmt = DB::run("SELECT * FROM lottery_winners ORDER BY LW_date DESC LIMIT 10");
+                                    while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
+                                        $username =     DB::run("SELECT ACC_username FROM account WHERE ACC_id = " . $row['LW_acc_id'])->fetchColumn();
+
+                                    ?>
+                                        <tr>
+                                            <td>
+                                                <span hx-post="actions/myProfile/myProfile.php?id=<?= $row['LW_acc_id'] ?>" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="fake-link cursor-pointer font-weight-medium"><?= $username ?></span>
+                                            </td>
+                                            <td><?= number($row['LW_money']) ?> kr</td>
+                                            <td><?= date_to_text($row['LW_date']) ?></td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
                     <?php } ?>
                 </div>
             </div>
