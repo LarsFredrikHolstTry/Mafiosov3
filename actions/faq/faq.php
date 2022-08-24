@@ -18,6 +18,8 @@ include '../../global-variables.php';
                     include 'sections/intro.php';
                     include 'sections/ranks.php';
                     include 'sections/carTheft.php';
+                    include 'sections/theft.php';
+                    include 'sections/moneyRanks.php';
 
                     ?>
                 </div>

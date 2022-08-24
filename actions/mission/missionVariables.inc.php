@@ -121,7 +121,7 @@ switch ($missonUser) {
 /**
  * Check to see if mission is really done
  */
-if ($missonUser <= $missions) {
+if ($missonUser < $missions) {
     for ($i = 0; $i < count($missionCriteriaText); $i++) {
 
         if (!$isSectionDone[$i]) {
