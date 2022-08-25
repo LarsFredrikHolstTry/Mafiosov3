@@ -1,4 +1,4 @@
-<header class="navbar navbar-expand-md navbar-light d-print-none">
+<header class="navbar navbar-expand-md navbar-light d-print-none show_mobile">
     <div class="container-xl">
         <div style="float: left;">
             <a class="btn" data-bs-toggle="offcanvas" href="#offcanvasStart" role="button" aria-controls="offcanvasStart" style="padding: 5px;">
