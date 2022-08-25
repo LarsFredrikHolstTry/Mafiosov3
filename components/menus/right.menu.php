@@ -53,16 +53,16 @@ $AS_user =      DB::run("SELECT AS_money, AS_city, AS_bullets FROM account_stat 
             <div class="card-body">
                 <ul class="list-unstyled">
                     <li>
-                        <div hx-get="actions/playersOnline/playersOnline.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="fake-link cursor-pointer text-muted">Spillere pålogget</div>
+                        <div data-bs-dismiss="offcanvas" hx-get="actions/playersOnline/playersOnline.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="fake-link cursor-pointer text-muted">Spillere pålogget</div>
                     </li>
                     <li>
-                        <div class="fake-link cursor-pointer text-muted">Personlig statistikk</div>
+                        <div data-bs-dismiss="offcanvas" class="fake-link cursor-pointer text-muted">Personlig statistikk</div>
                     </li>
                     <li>
-                        <div hx-get="actions/statistics/statistics.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="fake-link cursor-pointer text-muted">Statistikk</div>
+                        <div data-bs-dismiss="offcanvas" hx-get="actions/statistics/statistics.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="fake-link cursor-pointer text-muted">Statistikk</div>
                     </li>
                     <li>
-                        <div class="fake-link cursor-pointer text-muted">Poenghandel</div>
+                        <div data-bs-dismiss="offcanvas" class="fake-link cursor-pointer text-muted">Poenghandel</div>
                     </li>
                 </ul>
             </div>
@@ -71,16 +71,16 @@ $AS_user =      DB::run("SELECT AS_money, AS_city, AS_bullets FROM account_stat 
             <div class="card-body">
                 <ul class="list-unstyled">
                     <li>
-                        <div hx-get="actions/faq/faq.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="fake-link cursor-pointer text-muted">FAQ</div>
+                        <div data-bs-dismiss="offcanvas" hx-get="actions/faq/faq.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="fake-link cursor-pointer text-muted">FAQ</div>
                     </li>
                     <li>
-                        <div class="fake-link cursor-pointer text-muted">Support</div>
+                        <div data-bs-dismiss="offcanvas" class="fake-link cursor-pointer text-muted">Support</div>
                     </li>
                     <li>
-                        <a target="_blank" href="https://github.com/LarsFredrikHolstTry/Mafiosov3" class="fake-link cursor-pointer text-muted">Github</a>
+                        <a data-bs-dismiss="offcanvas" target="_blank" href="https://github.com/LarsFredrikHolstTry/Mafiosov3" class="fake-link cursor-pointer text-muted">Github</a>
                     </li>
                     <li>
-                        <div hx-get="actions/changelog/changelog.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="fake-link cursor-pointer text-muted">Changelog</div>
+                        <div data-bs-dismiss="offcanvas" hx-get="actions/changelog/changelog.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="fake-link cursor-pointer text-muted">Changelog</div>
                     </li>
                 </ul>
             </div>

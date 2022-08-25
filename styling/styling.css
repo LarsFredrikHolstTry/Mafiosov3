@@ -186,10 +186,22 @@ input:-webkit-autofill {
   background-color: #1d2738 !important;
 }
 
-.hide_mobile {
-  display: none !important;
+@media screen and (max-width: 1200px) {
+  .hide_mobile {
+    display: none !important;
+  }
+
+  .mobile-col {
+    width: 100% !important;
+  }
+
+  .show_mobile {
+    display: block;
+  }
 }
 
-.mobile-col {
-  width: 100% !important;
+@media screen and (min-width: 1199px) {
+  .show_mobile {
+    display: none !important;
+  }
 }

@@ -1,0 +1,10 @@
+{
+  "topActionBar": {
+    "fightClub": "FC",
+    "crime": "Krim",
+    "carTheft": "Biltyveri",
+    "theft": "Brekk",
+    "steal": "Stjel",
+    "jail": "Fengsel"
+  }
+}

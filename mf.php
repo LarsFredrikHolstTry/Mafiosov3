@@ -70,6 +70,9 @@ if (isset($_SESSION['ID'])) {
             <div hx-target="#navbar" hx-swap="outerHTML" hx-get="components/menus/navbar.php" hx-trigger="load, every 2s"></div>
         </div>
 
+        <div hx-get="components/menus/mobileNavbar.php" hx-trigger="load"></div>
+
+
         <div class="page-body">
             <div class="container-xxl">
 

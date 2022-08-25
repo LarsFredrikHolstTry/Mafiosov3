@@ -15,3 +15,4 @@ $sidebarConfig = json_decode(file_get_contents('../../lang/' . $language . '/sid
 $userMenu = json_decode(file_get_contents('../../lang/' . $language . '/user-menu-' . $language . '.json'))->userMenu;
 $userMenuOther = json_decode(file_get_contents('../../lang/' . $language . '/user-menu-' . $language . '.json'))->otherActions;
 $topActionBar = json_decode(file_get_contents('../../lang/' . $language . '/top-action-bar-' . $language . '.json'))->topActionBar;
+$topActionBarMobile = json_decode(file_get_contents('../../lang/' . $language . '/top-action-bar-' . $language . '-mobile.json'))->topActionBar;
