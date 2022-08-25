@@ -11,7 +11,7 @@ $ACC_row = DB::run("SELECT ACC_role, ACC_username FROM account WHERE ACC_id = ?"
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
             <img style="height: 32px; width: auto;" src="img/logo/Logo-hvit.png" />
         </h1>
-        <span class="d-none-navbar-horizontal pe-0 pe-md-3">
+        <span class="d-none-navbar-horizontal pe-0 pe-md-3 hide_mobile">
             Driftsmelding: Vi er i beta og det kan forventes bugs! Les mer her: <a href="betaperiode.php" target="_blank">Betaperiode</a>
         </span>
         <div class="navbar-nav flex-row order-md-last">

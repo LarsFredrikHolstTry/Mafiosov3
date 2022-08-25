@@ -70,16 +70,19 @@ if (isset($_SESSION['ID'])) {
             <div hx-target="#navbar" hx-swap="outerHTML" hx-get="components/menus/navbar.php" hx-trigger="load, every 2s"></div>
         </div>
 
+        <div hx-get="components/menus/mobileNavbar.php" hx-trigger="load"></div>
+
+
         <div class="page-body">
             <div class="container-xxl">
 
                 <div class="row row-deck row-cards">
 
-                    <div class="card col-3">
+                    <div class="card col-3 hide_mobile">
                         <div hx-get="components/menus/left.menu.php" id="leftmenu" hx-trigger="leftMenuUpdate, load"></div>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-6 mobile-col">
                         <div class="row row-cards">
                             <div id="top_menu">
                                 <div hx-target="#top_menu" hx-swap="outerHTML" hx-get="components/menus/top_action_menu.php" hx-trigger="load"></div>
@@ -90,7 +93,7 @@ if (isset($_SESSION['ID'])) {
                         </div>
                     </div>
 
-                    <div class="card col-3">
+                    <div class="card col-3 hide_mobile">
                         <div hx-get="components/menus/right.menu.php" id="rightMenu" hx-trigger="rightMenuUpdate, load"></div>
                     </div>
 

@@ -42,7 +42,7 @@ $bunkerPrice = 1000;
         foreach ($sidebarConfig as $key => $value) {
 
         ?>
-            <div hx-get="actions/<?= $key ?>/<?= $key ?>.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="list-group-item list-group-item-action cursor-pointer" id="htmxForm">
+            <div data-bs-dismiss="offcanvas" hx-get="actions/<?= $key ?>/<?= $key ?>.php" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="list-group-item list-group-item-action cursor-pointer" id="htmxForm">
                 <?= $value ?>
 
                 <?php

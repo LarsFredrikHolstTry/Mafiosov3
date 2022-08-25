@@ -5,12 +5,24 @@ include '../../global-variables.php';
 include '../../db/PDODB.php';
 
 ?>
+<style>
+    /** 
+    * This is super dirty but it works for now..
+    */
+    @media screen and (max-width: 1200px) {
+        <?php $actionMenu = $topActionBar;  ?>
+    }
+
+    @media screen and (max-width: 1199px) {
+        <?php $actionMenu = $topActionBarMobile;  ?>
+    }
+</style>
 
 <div class="col-12">
     <div class="row row-cards">
         <?php
 
-        foreach ($topActionBar as $key => $value) {
+        foreach ($actionMenu as $key => $value) {
 
             $isJail = $key == 'jail';
 
