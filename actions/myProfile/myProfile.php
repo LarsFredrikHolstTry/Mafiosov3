@@ -103,7 +103,7 @@ $family =           $family_id ?
                     </div>
                     <div class="d-flex">
                         <span><?= $useLang->profile->moneyRank ?>:</span>
-                        <span class="ms-auto"><?= money_rank($money) ?></span>
+                        <span class="ms-auto"><?= money_rank($money, $money_amount_from, $money_amount_to, $money_rank) ?></span>
                     </div>
                     <div class="d-flex">
                         <span><?= $useLang->profile->kills ?>:</span>

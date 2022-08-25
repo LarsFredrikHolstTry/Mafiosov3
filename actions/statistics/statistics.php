@@ -98,7 +98,7 @@ include '../../functions/money_ranks.php';
                                         <td>
                                             <span hx-post="actions/myProfile/myProfile.php?id=<?= $row['AS_id'] ?>" hx-trigger="click" hx-target="#container" hx-swap="outerHTML" class="fake-link cursor-pointer font-weight-medium"><?= $row['username'] ?></span>
                                         </td>
-                                        <td class="text-muted"><?= money_rank($row['total_money']) ?></td>
+                                        <td class="text-muted"><?= money_rank($row['total_money'], $money_amount_from, $money_amount_to, $money_rank) ?></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
