@@ -23,7 +23,7 @@ if (isset($_SESSION['ID'])) {
     <title>Mafioso</title>
 
     <!-- HTMX -->
-    <script src="https://unpkg.com/htmx.org@1.3.3"></script>
+    <script src="https://unpkg.com/htmx.org@1.8.0"></script>
 
     <!-- Ajax -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -72,7 +72,7 @@ $total_things =           DB::run("SELECT count(*) FROM storage WHERE ST_acc_id 
                             htmx.trigger("#rankbar", "rankbarUpdated");
                             htmx.trigger("#bulletsUser", "bulletsUpdated");
                             htmx.trigger("#healthbar", "healthbarUpdated");
-                            htmx.trigger("#leftmenu", "leftMenuUpdate");
+                            htmx.trigger("#leftmenu");
                         }
                         $("#cooldown_theft").removeClass("text-success");
                         $("#cooldown_theft").addClass("text-danger");

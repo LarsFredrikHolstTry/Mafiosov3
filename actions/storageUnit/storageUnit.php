@@ -53,7 +53,7 @@ while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
 
     <?php include '../../actions/storageUnit/storageUnit_sell_all_modal.php'; ?>
 
-    <script>
+    <script type="text/javascript">
         $(document).ready(function() {
             $('#sell-chosen').click(function() {
                 var val = [];

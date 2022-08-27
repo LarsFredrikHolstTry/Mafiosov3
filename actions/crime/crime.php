@@ -46,7 +46,7 @@ include 'crimeVariables.inc.php';
     </div>
 </div>
 
-<script>
+<script type="text/javascript">
     $(document).ready(function() {
         $('.do-crime').click(function() {
             var alt = $(this).closest(".do-crime").attr("id");

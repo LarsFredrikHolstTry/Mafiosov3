@@ -28,11 +28,9 @@
                     var feedbackText = feedback[0];
                     var feedbackType = feedback[1];
 
-                    if (feedbackType == 'success') {
-                        htmx.trigger("#moneyInHand", "moneyHandUpdated");
-                        htmx.trigger("#garage", "sellCars");
-                        htmx.trigger("#leftmenu", "leftMenuUpdate");
-                    }
+                    htmx.trigger("#moneyInHand", "moneyHandUpdated");
+                    htmx.trigger("#garage", "sellCars");
+                    htmx.trigger("#leftmenu", "leftMenuUpdate");
 
                     feedbackReturn(feedbackText, feedbackType);
                 }
