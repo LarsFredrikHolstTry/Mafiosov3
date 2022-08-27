@@ -141,6 +141,20 @@ if (isset($_GET['page'])) {
             </div>
         </div>
         <div class="col-4">
+            <div class="card card-sm fake-link cursor-pointer" hx-get="actions/family/family.php?page=editFamileAvatar&id=<?= $familyRow['FA_id'] ?>" hx-trigger="click" hx-target="#container" hx-swap="outerHTML">
+                <div class="card-body bg-blue-lt">
+                    <div class="row align-items-center">
+                        <div class="font-weight-medium" style="color: white;">
+                            Rediger profilbilde
+                        </div>
+                        <div class="text-muted">
+                            Rediger familiebildet
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
             <div id="leaveFamily" class="card card-sm fake-link cursor-pointer">
                 <div class="card-body bg-blue-lt">
                     <div class="row align-items-center">

@@ -29,10 +29,9 @@
                     var feedbackType = feedback[1];
 
                     if (feedbackType == 'success') {
-                        $('#total_cars').text(0);
-                        htmx.trigger("#rankbar", "rankbarUpdated");
                         htmx.trigger("#moneyInHand", "moneyHandUpdated");
                         htmx.trigger("#garage", "sellCars");
+                        htmx.trigger("#leftmenu", "leftMenuUpdate");
                     }
 
                     feedbackReturn(feedbackText, feedbackType);

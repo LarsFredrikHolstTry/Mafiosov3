@@ -1,32 +1,9 @@
-<?php
+<div class="align-items-center">
+    <input id="sortpicture" type="file" name="sortpicture" />
 
-include '../../global-variables.php';
-require_once '../../db/PDODB.php';
-
-?>
-<div class="col-12" id="container">
-
-    <div id="feedback-container"></div>
-
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">
-                <h3 class="card-title text-capitalize"><?= $useLang->action->editAvatar; ?></h3>
-            </h3>
-        </div>
-        <div class="card-body">
-            <input id="sortpicture" type="file" name="sortpicture" />
-        </div>
-        <div class="card-footer">
-            <div class="row align-items-center">
-                <div class="col-auto">
-                    <button id="save-btn" class="btn btn-bitbucket">
-                        <?= $useLang->editProfile->save; ?>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <button id="save-btn" class="mt-2 btn btn-bitbucket">
+        Lagre
+    </button>
 </div>
 
 <script type="text/javascript">
@@ -39,7 +16,7 @@ require_once '../../db/PDODB.php';
             $("#feedback-container").load("components/feedback.php");
 
             $.ajax({
-                url: 'actions/editAvatar/editAvatar.inc.php',
+                url: 'actions/family/saveAvatar.inc.php',
                 dataType: 'text',
                 cache: false,
                 contentType: false,

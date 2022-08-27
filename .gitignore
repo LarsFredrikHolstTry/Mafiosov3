@@ -6,3 +6,6 @@ env.php
 
 # Cron jobs (If this is necassery for development on local, contact Skitzo)
 /cron
+
+# Local avatars
+/img/avatars

@@ -37,7 +37,7 @@ include 'headquartersVariables.inc.php';
                     <div class="col-6">
                         <h3>Personlig statistikk</h3>
                         <address>
-                            EXP: <?= number($AS_row['AS_exp'] ?? 0) ?><br>
+                            EXP: <?= number($AS_row['AS_EXP'] ?? 0) ?><br>
                             EXP i dag: <?= number($DS_row['DS_exp'] ?? 0) ?><br>
                             Penger ute: <?= number($AS_row['AS_money'] ?? 0) ?> kr<br>
                             Penger i banken: <?= number($AS_row['AS_bankmoney'] ?? 0) ?> kr<br>

@@ -28,12 +28,12 @@ $getBossUsername = DB::run("SELECT ACC_username FROM account WHERE ACC_id = $get
         </div>
         <div class="card-body">
             <div class="row align-items-center">
-                <div class="col-7 center-image-flex">
+                <div class="col-6 center-image-flex">
                     <img style="max-width: 300px; max-height: 300px;" src="<?= $famRow['FA_avatar'] ?>" />
                 </div>
-                <div class="col-5">
+                <div class="col-6">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-5">
                             <p class="h3">Familienavn:</p>
                             <address>
                                 Krig:<br>
@@ -43,7 +43,7 @@ $getBossUsername = DB::run("SELECT ACC_username FROM account WHERE ACC_id = $get
                                 Stiftet:<br>
                             </address>
                         </div>
-                        <div class="col-8 text-end">
+                        <div class="col-7 text-end">
                             <p class="h3"><?= $famRow['FA_name'] ?></p>
                             <address>
                                 <?= $famRow['FA_war'] > 0 ? '<span class="text-warning">I krig mot ' . DB::run("SELECT FA_name FROM family WHERE FA_id = ?", [$famRow['FA_war']])->fetchColumn() . '</span>' : '<span class="text-success">Ikke i aktiv krig</span>' ?><br>

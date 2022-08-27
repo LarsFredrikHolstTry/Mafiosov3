@@ -77,10 +77,10 @@ $family =           $family_id ?
         </div>
         <div class="card-body">
             <div class="row align-items-center">
-                <div class="col-7 center-image-flex">
+                <div class="col-6 center-image-flex">
                     <img style="max-width: 300px; max-height: 300px;" src="<?= $avatar ?>" />
                 </div>
-                <div class="col-5">
+                <div class="col-6">
                     <div class="d-flex">
                         <span class="h3"><?= $useLang->profile->username ?>:</span>
                         <span class="ms-auto h3"><?= $usename ?>

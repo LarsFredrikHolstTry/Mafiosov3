@@ -76,9 +76,12 @@ while ($row = $stmt->fetch(PDO::FETCH_LAZY)) {
                         var feedbackText = feedback[0];
                         var feedbackType = feedback[1];
 
-                        htmx.trigger("#moneyInHand", "moneyHandUpdated");
-                        htmx.trigger("#garage", "sellCars");
-                        htmx.trigger("#leftmenu", "leftMenuUpdate");
+                        if (feedbackType == 'success') {
+                            htmx.trigger("#moneyInHand", "moneyHandUpdated");
+                            htmx.trigger("#garage", "sellCars");
+                            htmx.trigger("#leftmenu", "leftMenuUpdate");
+                        }
+
                         feedbackReturn(feedbackText, feedbackType);
                     }
                 });
