@@ -6,3 +6,4 @@ $db_host = 'localhost';
 $db_user = 'root';
 $db_password = '';
 $db_name = 'mafiosov3';
+$defaultTimeZone = 'Europe/Oslo';

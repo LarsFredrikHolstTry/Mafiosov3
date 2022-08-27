@@ -6,7 +6,7 @@ if (!session_id()) {
     session_start();
 }
 
-date_default_timezone_set('Europe/Oslo');
+date_default_timezone_set($defaultTimeZone);
 
 try {
     global $pdo;
