@@ -9,6 +9,30 @@ $user_settings =        DB::run("SELECT US_max_cars, US_max_things FROM user_set
 $active_city =          DB::run("SELECT AS_city FROM account_stat WHERE AS_id = ?", [$session_id])->fetchColumn();
 $airport_cooldown =     DB::run("SELECT CD_travel FROM cooldown WHERE CD_acc_id = ?", [$session_id])->fetchColumn();
 
+if (!$user_settings) {
+    DB::run(
+        "INSERT INTO user_settings (US_acc_id, US_max_cars, US_max_things, US_toprank_amt) VALUES (?, ?, ?, ?)",
+        [$session_id, 10, 10, 10]
+    );
+    $user_settings = DB::run("SELECT US_max_cars, US_max_things FROM user_settings WHERE US_acc_id = ?", [$session_id])->fetch();
+}
+
+if ($active_city === false) {
+    DB::run(
+        "INSERT INTO account_stat (AS_id, AS_money, AS_bankmoney, AS_EXP, AS_rank, AS_health, AS_points, AS_bullets, AS_city, AS_mission, AS_fightpoints, AS_avatar) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        [$session_id, 1000, 0, 0, 0, 100, 0, 0, 0, 0, 0, 'img/avatars/standard_avatar.png']
+    );
+    $active_city = DB::run("SELECT AS_city FROM account_stat WHERE AS_id = ?", [$session_id])->fetchColumn();
+}
+
+if ($airport_cooldown === false) {
+    DB::run(
+        "INSERT INTO cooldown (CD_acc_id, CD_fc_training, CD_fc_fight, CD_crime, CD_carTheft, CD_theft, CD_steal, CD_travel) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        [$session_id, 0, 0, 0, 0, 0, 0, 0]
+    );
+    $airport_cooldown = DB::run("SELECT CD_travel FROM cooldown WHERE CD_acc_id = ?", [$session_id])->fetchColumn();
+}
+
 $airport_cd = $airport_cooldown - time();
 $bunkerPrice = 1000;
 

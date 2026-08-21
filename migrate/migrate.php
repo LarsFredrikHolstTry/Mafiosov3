@@ -65,25 +65,25 @@ $columns[0] = '
 `ACC_username` varchar(25) NOT NULL,
 `ACC_password` varchar(255) NOT NULL,
 `ACC_mail` varchar(255) NOT NULL,
-`ACC_verified` int(1) NOT NULL,
+`ACC_verified` int(1) NOT NULL DEFAULT 0,
 `ACC_register` int(10) NOT NULL,
 `ACC_last_active` int(10) NOT NULL,
-`ACC_role` int(2) NOT NULL,
-`ACC_status` int(2) NOT NULL';
+`ACC_role` int(2) NOT NULL DEFAULT 0,
+`ACC_status` int(2) NOT NULL DEFAULT 0';
 
 $table[1] = 'account_stat';
 $columns[1] = '
 `AS_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-`AS_money` bigint(20) NOT NULL,
-`AS_bankmoney` bigint(20) NOT NULL,
-`AS_EXP` int(10) NOT NULL,
-`AS_rank` int(2) NOT NULL,
+`AS_money` bigint(20) NOT NULL DEFAULT 0,
+`AS_bankmoney` bigint(20) NOT NULL DEFAULT 0,
+`AS_EXP` int(10) NOT NULL DEFAULT 0,
+`AS_rank` int(2) NOT NULL DEFAULT 0,
 `AS_health` int(3) NOT NULL default 100,
-`AS_points` int(10) NOT NULL,
-`AS_bullets` int(10) NOT NULL,
-`AS_city` int(1) NOT NULL,
-`AS_mission` int(10) NOT NULL,
-`AS_fightpoints` bigint(20) NOT NULL,
+`AS_points` int(10) NOT NULL DEFAULT 0,
+`AS_bullets` int(10) NOT NULL DEFAULT 0,
+`AS_city` int(1) NOT NULL DEFAULT 0,
+`AS_mission` int(10) NOT NULL DEFAULT 0,
+`AS_fightpoints` bigint(20) NOT NULL DEFAULT 0,
 `AS_avatar` varchar(255) NOT NULL default "img/avatars/standard_avatar.png"';
 
 $table[2] = 'garage';
@@ -139,13 +139,13 @@ $table[9] = 'cooldown';
 $columns[9] = '
 `CD_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `CD_acc_id` int(2) NOT NULL,
-`CD_fc_training` int(15) NOT NULL,
-`CD_fc_fight` int(15) NOT NULL,
-`CD_crime` int(15) NOT NULL,
-`CD_carTheft` int(15) NOT NULL,
-`CD_theft` int(15) NOT NULL,
-`CD_steal` int(15) NOT NULL,
-`CD_travel` int(15) NOT NULL';
+`CD_fc_training` int(15) NOT NULL DEFAULT 0,
+`CD_fc_fight` int(15) NOT NULL DEFAULT 0,
+`CD_crime` int(15) NOT NULL DEFAULT 0,
+`CD_carTheft` int(15) NOT NULL DEFAULT 0,
+`CD_theft` int(15) NOT NULL DEFAULT 0,
+`CD_steal` int(15) NOT NULL DEFAULT 0,
+`CD_travel` int(15) NOT NULL DEFAULT 0';
 
 $table[10] = 'storage';
 $columns[10] = '
@@ -157,9 +157,9 @@ $table[11] = 'user_settings';
 $columns[11] = '
 `US_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `US_acc_id` int(2) NOT NULL,
-`US_max_cars` int(15) NOT NULL,
-`US_max_things` int(15) NOT NULL,
-`US_toprank_amt` int(2) NOT NULL';
+`US_max_cars` int(15) NOT NULL DEFAULT 10,
+`US_max_things` int(15) NOT NULL DEFAULT 10,
+`US_toprank_amt` int(2) NOT NULL DEFAULT 10';
 
 $table[12] = 'bank_transfer';
 $columns[12] = '
@@ -181,12 +181,12 @@ $table[14] = 'daily_stats';
 $columns[14] = '
 `DS_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `DS_acc_id` int(2) NOT NULL,
-`DS_crime` bigint(20) NOT NULL,
-`DS_carTheft` bigint(20) NOT NULL,
-`DS_theft` bigint(20) NOT NULL,
-`DS_steal` bigint(20) NOT NULL,
-`DS_exp` bigint(20) NOT NULL,
-`DS_dailyChallenge` int(1) NOT NULL';
+`DS_crime` bigint(20) NOT NULL DEFAULT 0,
+`DS_carTheft` bigint(20) NOT NULL DEFAULT 0,
+`DS_theft` bigint(20) NOT NULL DEFAULT 0,
+`DS_steal` bigint(20) NOT NULL DEFAULT 0,
+`DS_exp` bigint(20) NOT NULL DEFAULT 0,
+`DS_dailyChallenge` int(1) NOT NULL DEFAULT 0';
 
 $table[15] = 'daily_challenge';
 $columns[15] = '
@@ -204,12 +204,12 @@ $columns[16] = '
 `FA_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `FA_name` varchar(25) NOT NULL,
 `FA_member` int(3) NOT NULL default 10,
-`FA_money` bigint(20) NOT NULL,
-`FA_bullets` bigint(20) NOT NULL,
-`FA_war` int(3) NOT NULL,
-`FA_war_won` int(10) NOT NULL,
+`FA_money` bigint(20) NOT NULL DEFAULT 0,
+`FA_bullets` bigint(20) NOT NULL DEFAULT 0,
+`FA_war` int(3) NOT NULL DEFAULT 0,
+`FA_war_won` int(10) NOT NULL DEFAULT 0,
 `FA_created` int(15) NOT NULL,
-`FA_profile` text NOT NULL,
+`FA_profile` text,
 `FA_avatar` varchar(255) NOT NULL default "img/avatars/standard_avatar.png"';
 
 $table[17] = 'family_member';
@@ -217,7 +217,7 @@ $columns[17] = '
 `FM_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `FM_acc_id` int(3) NOT NULL,
 `FM_family_id` int(3) NOT NULL,
-`FM_role` bigint(20) NOT NULL,
+`FM_role` bigint(20) NOT NULL DEFAULT 0,
 `FM_joined` int(15) NOT NULL';
 
 $table[18] = 'territorium';
@@ -225,7 +225,7 @@ $columns[18] = '
 `TE_id` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 `TE_family_id` int(3) NOT NULL,
 `TE_city` int(2) NOT NULL,
-`TE_money` bigint(20) NOT NULL';
+`TE_money` bigint(20) NOT NULL DEFAULT 0';
 
 $table[19] = 'family_war';
 $columns[19] = '
@@ -233,8 +233,8 @@ $columns[19] = '
 `FW_warId` varchar(36) NOT NULL,
 `FW_family1` int(3) NOT NULL,
 `FW_family2` int(3) NOT NULL,
-`FW_family1Score` int(3) NOT NULL,
-`FW_family2Score` int(3) NOT NULL,
+`FW_family1Score` int(3) NOT NULL DEFAULT 0,
+`FW_family2Score` int(3) NOT NULL DEFAULT 0,
 `FW_date` int(15) NOT NULL';
 
 $table[20] = 'family_war_activity';
@@ -268,7 +268,7 @@ $columns[23] = '
 `PM_message` text NOT NULL,
 `PM_from` int(255) NOT NULL,
 `PM_to` int(255) NOT NULL,
-`PM_read` int(1) NOT NULL,
+`PM_read` int(1) NOT NULL DEFAULT 0,
 `PM_date` int(15) NOT NULL';
 
 $table[24] = 'family_application';
@@ -293,6 +293,75 @@ $columns[26] = '
 `LW_acc_id` int(255) NOT NULL,
 `LW_money` varchar(255) NOT NULL,
 `LW_date` int(15) NOT NULL';
+
+$alter_table = [
+    "ALTER TABLE `account` MODIFY COLUMN `ACC_verified` int(1) NOT NULL DEFAULT 0",
+    "ALTER TABLE `account` MODIFY COLUMN `ACC_role` int(2) NOT NULL DEFAULT 0",
+    "ALTER TABLE `account` MODIFY COLUMN `ACC_status` int(2) NOT NULL DEFAULT 0",
+    "ALTER TABLE `account_stat` MODIFY COLUMN `AS_money` bigint(20) NOT NULL DEFAULT 0",
+    "ALTER TABLE `account_stat` MODIFY COLUMN `AS_bankmoney` bigint(20) NOT NULL DEFAULT 0",
+    "ALTER TABLE `account_stat` MODIFY COLUMN `AS_EXP` int(10) NOT NULL DEFAULT 0",
+    "ALTER TABLE `account_stat` MODIFY COLUMN `AS_rank` int(2) NOT NULL DEFAULT 0",
+    "ALTER TABLE `account_stat` MODIFY COLUMN `AS_health` int(3) NOT NULL DEFAULT 100",
+    "ALTER TABLE `account_stat` MODIFY COLUMN `AS_points` int(10) NOT NULL DEFAULT 0",
+    "ALTER TABLE `account_stat` MODIFY COLUMN `AS_bullets` int(10) NOT NULL DEFAULT 0",
+    "ALTER TABLE `account_stat` MODIFY COLUMN `AS_city` int(1) NOT NULL DEFAULT 0",
+    "ALTER TABLE `account_stat` MODIFY COLUMN `AS_mission` int(10) NOT NULL DEFAULT 0",
+    "ALTER TABLE `account_stat` MODIFY COLUMN `AS_fightpoints` bigint(20) NOT NULL DEFAULT 0",
+    "ALTER TABLE `account_stat` MODIFY COLUMN `AS_avatar` varchar(255) NOT NULL DEFAULT 'img/avatars/standard_avatar.png'",
+    "ALTER TABLE `cooldown` MODIFY COLUMN `CD_fc_training` int(15) NOT NULL DEFAULT 0",
+    "ALTER TABLE `cooldown` MODIFY COLUMN `CD_fc_fight` int(15) NOT NULL DEFAULT 0",
+    "ALTER TABLE `cooldown` MODIFY COLUMN `CD_crime` int(15) NOT NULL DEFAULT 0",
+    "ALTER TABLE `cooldown` MODIFY COLUMN `CD_carTheft` int(15) NOT NULL DEFAULT 0",
+    "ALTER TABLE `cooldown` MODIFY COLUMN `CD_theft` int(15) NOT NULL DEFAULT 0",
+    "ALTER TABLE `cooldown` MODIFY COLUMN `CD_steal` int(15) NOT NULL DEFAULT 0",
+    "ALTER TABLE `cooldown` MODIFY COLUMN `CD_travel` int(15) NOT NULL DEFAULT 0",
+    "ALTER TABLE `daily_stats` MODIFY COLUMN `DS_crime` bigint(20) NOT NULL DEFAULT 0",
+    "ALTER TABLE `daily_stats` MODIFY COLUMN `DS_carTheft` bigint(20) NOT NULL DEFAULT 0",
+    "ALTER TABLE `daily_stats` MODIFY COLUMN `DS_theft` bigint(20) NOT NULL DEFAULT 0",
+    "ALTER TABLE `daily_stats` MODIFY COLUMN `DS_steal` bigint(20) NOT NULL DEFAULT 0",
+    "ALTER TABLE `daily_stats` MODIFY COLUMN `DS_exp` bigint(20) NOT NULL DEFAULT 0",
+    "ALTER TABLE `daily_stats` MODIFY COLUMN `DS_dailyChallenge` int(1) NOT NULL DEFAULT 0",
+    "ALTER TABLE `user_settings` MODIFY COLUMN `US_max_cars` int(15) NOT NULL DEFAULT 10",
+    "ALTER TABLE `user_settings` MODIFY COLUMN `US_max_things` int(15) NOT NULL DEFAULT 10",
+    "ALTER TABLE `user_settings` MODIFY COLUMN `US_toprank_amt` int(2) NOT NULL DEFAULT 10",
+    "ALTER TABLE `family` MODIFY COLUMN `FA_money` bigint(20) NOT NULL DEFAULT 0",
+    "ALTER TABLE `family` MODIFY COLUMN `FA_bullets` bigint(20) NOT NULL DEFAULT 0",
+    "ALTER TABLE `family` MODIFY COLUMN `FA_war` int(3) NOT NULL DEFAULT 0",
+    "ALTER TABLE `family` MODIFY COLUMN `FA_war_won` int(10) NOT NULL DEFAULT 0",
+    "ALTER TABLE `family` MODIFY COLUMN `FA_profile` text",
+    "ALTER TABLE `family_member` MODIFY COLUMN `FM_role` bigint(20) NOT NULL DEFAULT 0",
+    "ALTER TABLE `territorium` MODIFY COLUMN `TE_money` bigint(20) NOT NULL DEFAULT 0",
+    "ALTER TABLE `family_war` MODIFY COLUMN `FW_family1Score` int(3) NOT NULL DEFAULT 0",
+    "ALTER TABLE `family_war` MODIFY COLUMN `FW_family2Score` int(3) NOT NULL DEFAULT 0",
+    "ALTER TABLE `pm` MODIFY COLUMN `PM_read` int(1) NOT NULL DEFAULT 0",
+];
+
+$seed_table = [
+    "INSERT INTO `daily_challenge` (`DC_id`, `DC_crime`, `DC_carTheft`, `DC_theft`, `DC_crime_hard`, `DC_carTheft_hard`, `DC_theft_hard`, `DC_steal_hard`)
+        SELECT 1, 10, 8, 8, 50, 45, 45, 25
+        WHERE NOT EXISTS (SELECT 1 FROM `daily_challenge`)",
+    "INSERT INTO `account_stat` (`AS_id`, `AS_city`, `AS_money`)
+        SELECT `account`.`ACC_id`, 0, 1000
+        FROM `account`
+        LEFT JOIN `account_stat` ON `account_stat`.`AS_id` = `account`.`ACC_id`
+        WHERE `account_stat`.`AS_id` IS NULL",
+    "INSERT INTO `cooldown` (`CD_acc_id`)
+        SELECT `account`.`ACC_id`
+        FROM `account`
+        LEFT JOIN `cooldown` ON `cooldown`.`CD_acc_id` = `account`.`ACC_id`
+        WHERE `cooldown`.`CD_acc_id` IS NULL",
+    "INSERT INTO `daily_stats` (`DS_acc_id`)
+        SELECT `account`.`ACC_id`
+        FROM `account`
+        LEFT JOIN `daily_stats` ON `daily_stats`.`DS_acc_id` = `account`.`ACC_id`
+        WHERE `daily_stats`.`DS_acc_id` IS NULL",
+    "INSERT INTO `user_settings` (`US_acc_id`, `US_max_cars`, `US_max_things`)
+        SELECT `account`.`ACC_id`, 10, 10
+        FROM `account`
+        LEFT JOIN `user_settings` ON `user_settings`.`US_acc_id` = `account`.`ACC_id`
+        WHERE `user_settings`.`US_acc_id` IS NULL",
+];
 
 ?>
 
@@ -395,6 +464,24 @@ $columns[26] = '
                                             )";
                                         if (mysqli_query($con, $sql)) {
                                             migrate_success_feedback("$table[$i] table created", $sql);
+                                        } else {
+                                            migrate_failed_feedback("Could not execute $sql. " . mysqli_error($con), "closing connection");
+                                            mysqli_close($con);
+                                        }
+                                    }
+
+                                    foreach ($alter_table as $sql) {
+                                        if (mysqli_query($con, $sql)) {
+                                            migrate_success_feedback("Account defaults updated", $sql);
+                                        } else {
+                                            migrate_failed_feedback("Could not execute $sql. " . mysqli_error($con), "closing connection");
+                                            mysqli_close($con);
+                                        }
+                                    }
+
+                                    foreach ($seed_table as $sql) {
+                                        if (mysqli_query($con, $sql)) {
+                                            migrate_success_feedback("Missing starter data backfilled", $sql);
                                         } else {
                                             migrate_failed_feedback("Could not execute $sql. " . mysqli_error($con), "closing connection");
                                             mysqli_close($con);

@@ -6,6 +6,14 @@ include '../../functions/ranks.php';
 
 $user =         DB::run("SELECT AS_rank, AS_EXP FROM account_stat WHERE AS_id=?", [$session_id])->fetch();
 
+if (!$user) {
+    DB::run(
+        "INSERT INTO account_stat (AS_id, AS_money, AS_bankmoney, AS_EXP, AS_rank, AS_health, AS_points, AS_bullets, AS_city, AS_mission, AS_fightpoints, AS_avatar) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        [$session_id, 1000, 0, 0, 0, 100, 0, 0, 0, 0, 0, 'img/avatars/standard_avatar.png']
+    );
+    $user = DB::run("SELECT AS_rank, AS_EXP FROM account_stat WHERE AS_id=?", [$session_id])->fetch();
+}
+
 ?>
 <div class="d-flex mb-2">
     <?php if ($user['AS_rank'] == 12) {
